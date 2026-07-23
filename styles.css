@@ -33,3 +33,7 @@ a{color:var(--accent)}
 img{max-width:100%;height:auto}
 /* Footer small */
 footer{padding:1rem 0;font-size:0.9rem;color:var(--muted)}
+
+/* Skip link (accessible, visible on focus) */
+.skip-link{position:fixed;left:0;top:0;background:var(--accent);color:var(--bg);padding:.5rem .75rem;border-bottom-right-radius:8px;transform:translateY(-120%);transition:transform .18s ease;z-index:1000;text-decoration:none;font-weight:600}
+.skip-link:focus{transform:translateY(0);outline:3px solid rgba(0,0,0,0.12);outline-offset:2px}
