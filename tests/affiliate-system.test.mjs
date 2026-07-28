@@ -482,5 +482,9 @@ test("a CSP permite o beacon oficial sem liberar scripts inseguros", async () =>
     headers,
     /script-src 'self' https:\/\/static\.cloudflareinsights\.com/
   );
+  assert.match(
+    headers,
+    /connect-src 'self' https:\/\/cloudflareinsights\.com/
+  );
   assert.doesNotMatch(headers, /'unsafe-inline'|'unsafe-eval'/);
 });
