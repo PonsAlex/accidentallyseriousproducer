@@ -52,6 +52,50 @@ preview before merging.
 No build command is required for this static structure. Keep the output directory
 configured as the repository root if that is the current working deployment setup.
 
+## Affiliate and promotion infrastructure
+
+The affiliate layer remains compatible with direct static deployment:
+
+```text
+/
+├── assets/                 # Native ES modules and Web Components
+├── data/                   # Programs, products, links and promotions
+├── deals/                  # Public offer index
+├── go/                     # Safe affiliate-link intermediary
+├── docs/                   # Versioned Odysseus data contract
+├── scripts/                # Validation, lint and dependency-free build
+└── tests/                  # Node test suite
+```
+
+No product, promotion or affiliate URL is published until real information has
+been reviewed. Validate the current data and production output with:
+
+```text
+npm run lint
+npm test
+npm run build
+```
+
+`npm run build` writes a deployable static copy to `dist/`; the existing
+Cloudflare Pages root deployment does not need to change to use the feature.
+See `docs/affiliate-data-contract.md` before preparing an Odysseus candidate.
+
+### Private candidate boundary
+
+`data/inbox/` is public and contains anonymized examples only. It is never an
+Odysseus queue. Real candidates must remain outside this repository in private
+runtime storage such as:
+
+```text
+/app/data/asp_affiliate_candidates/
+G:\ODYSSEUS\data\runtime\asp_affiliate_candidates\
+```
+
+Lint, data validation and the production build fail if candidate/runtime files
+appear inside the ASP repository. After human review, only sanitized changes to
+`products.json`, `affiliate-links.json` and `promotions.json` may enter an
+editorial branch and Draft PR.
+
 ## Note
 
 The privacy text is a practical starter and not legal advice. Add a real contact

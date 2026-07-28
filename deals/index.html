@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ofertas | Accidentally Serious Producer</title>
+  <meta name="description" content="Ofertas de plugins, samples, assinaturas e serviços acompanhadas editorialmente pelo ASP.">
+  <link rel="canonical" href="https://accidentallyseriousproducer.com/deals/">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/assets/deals-page.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="Página inicial do Accidentally Serious Producer">
+        <span class="brand-mark">ASP</span>
+        <span class="brand-name">Accidentally Serious Producer</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="/articles/addict-some-plugins-002.html">Plugin Audits</a>
+        <a aria-current="page" href="/deals/">Deals</a>
+        <a href="/lab.html">ASP Lab</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="deals-page">
+    <header class="deals-header shell">
+      <p class="eyebrow">Promoções sem urgência artificial</p>
+      <h1>Ofertas acompanhadas pelo ASP</h1>
+      <p class="page-intro">
+        Preços, datas e cupons só aparecem quando há informação suficiente para
+        publicação. Promoções vencidas ficam separadas e claramente identificadas.
+      </p>
+      <p id="deals-status" class="sr-only" aria-live="polite">
+        Carregando ofertas.
+      </p>
+    </header>
+
+    <div id="deals-disclosure" class="shell deals-disclosure" hidden></div>
+
+    <section id="active-offers" class="deal-section shell" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Disponíveis agora</p>
+          <h2>Ofertas ativas</h2>
+        </div>
+      </div>
+      <div class="offer-list"></div>
+    </section>
+
+    <section id="upcoming-offers" class="deal-section shell" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Datas confirmadas</p>
+          <h2>Próximas ofertas</h2>
+        </div>
+      </div>
+      <div class="offer-list"></div>
+    </section>
+
+    <section id="expired-offers" class="deal-section shell" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Histórico editorial</p>
+          <h2>Ofertas vencidas</h2>
+        </div>
+      </div>
+      <p class="section-note">
+        O preço promocional antigo não é apresentado como vigente. Quando o
+        destino continua válido, você pode consultar o preço atual.
+      </p>
+      <div class="offer-list"></div>
+    </section>
+
+    <section id="unavailable-offers" class="deal-section shell" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Sem destino seguro</p>
+          <h2>Ofertas indisponíveis</h2>
+        </div>
+      </div>
+      <div class="offer-list"></div>
+    </section>
+
+    <section id="review-offers" class="deal-section shell" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Somente desenvolvimento</p>
+          <h2>Revisão necessária</h2>
+        </div>
+      </div>
+      <div class="offer-list"></div>
+    </section>
+
+    <section id="deals-empty" class="deals-empty shell narrow">
+      <p class="eyebrow">Curadoria em andamento</p>
+      <h2>Nenhuma oferta aprovada agora</h2>
+      <p>
+        O catálogo está preparado, mas o ASP não publica placeholders nem
+        promoções sem revisão humana. Volte em breve.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <strong>Accidentally Serious Producer</strong>
+        <p>Started as a hobby. Got out of hand.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegação do rodapé">
+        <a href="/about.html">About</a>
+        <a href="/lab.html">ASP Lab</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
