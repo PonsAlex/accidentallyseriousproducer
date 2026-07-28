@@ -471,3 +471,16 @@ test("a rota /go usa um destino de proxy fora do próprio padrão", async () => 
   assert.equal(goRule, "/go/* /affiliate-redirect/ 200");
   assert.doesNotMatch(goRule, /\/go\/\S+\s+200$/);
 });
+
+test("a CSP permite o beacon oficial sem liberar scripts inseguros", async () => {
+  const headers = await readFile(
+    new URL("../_headers", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(
+    headers,
+    /script-src 'self' https:\/\/static\.cloudflareinsights\.com/
+  );
+  assert.doesNotMatch(headers, /'unsafe-inline'|'unsafe-eval'/);
+});
