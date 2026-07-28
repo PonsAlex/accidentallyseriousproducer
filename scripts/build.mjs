@@ -32,10 +32,10 @@ const productionFiles = [
 ];
 
 const productionDirectories = [
+  "affiliate-redirect",
   "articles",
   "assets",
-  "deals",
-  "go"
+  "deals"
 ];
 
 const publicDataFiles = [

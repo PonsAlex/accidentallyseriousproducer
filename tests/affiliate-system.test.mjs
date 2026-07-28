@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   mkdir,
   mkdtemp,
+  readFile,
   rm,
   writeFile
 } from "node:fs/promises";
@@ -456,4 +457,17 @@ test("detecta candidato privado colocado dentro do ASP", async (context) => {
       /data\/runtime/.test(violation)
     )
   );
+});
+
+test("a rota /go usa um destino de proxy fora do próprio padrão", async () => {
+  const redirects = await readFile(
+    new URL("../_redirects", import.meta.url),
+    "utf8"
+  );
+  const goRule = redirects
+    .split(/\r?\n/)
+    .find((line) => line.startsWith("/go/* "));
+
+  assert.equal(goRule, "/go/* /affiliate-redirect/ 200");
+  assert.doesNotMatch(goRule, /\/go\/\S+\s+200$/);
 });
