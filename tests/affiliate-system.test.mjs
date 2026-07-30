@@ -27,6 +27,9 @@ import {
   classifyCandidateValidationPath,
   inspectPublicCandidateBoundary
 } from "../scripts/public-boundary.mjs";
+import {
+  findKnownPortuguesePublicCopy
+} from "../scripts/public-affiliate-language.mjs";
 
 const NOW = "2026-07-28T12:00:00-03:00";
 
@@ -190,7 +193,7 @@ test("permite oferta ativa sem preço confirmado", () => {
     discountPercent: null
   });
 
-  assert.match(html, /Ver oferta/);
+  assert.match(html, /View deal/);
   assert.doesNotMatch(html, /offer-pricing/);
 });
 
@@ -211,17 +214,20 @@ test("não publica oferta aguardando revisão e sinaliza no modo de desenvolvime
     ""
   );
 
+  const debugHtml = renderAffiliateOffer({
+    promotion: reviewPromotion,
+    product,
+    affiliateLink,
+    program,
+    currentDate: NOW,
+    debug: true
+  });
+
   assert.match(
-    renderAffiliateOffer({
-      promotion: reviewPromotion,
-      product,
-      affiliateLink,
-      program,
-      currentDate: NOW,
-      debug: true
-    }),
-    /REVIEW REQUIRED/
+    debugHtml,
+    /data-promotion-state="REVIEW_REQUIRED"/
   );
+  assert.match(debugHtml, />NEEDS REVIEW</);
 });
 
 test("mostra o selo EXPIRED em uma oferta vencida", () => {
@@ -235,21 +241,21 @@ test("mostra o selo EXPIRED em uma oferta vencida", () => {
   assert.match(html, />EXPIRED</);
 });
 
-test("oferta vencida usa Ver preço atual e oculta o preço promocional antigo", () => {
+test("oferta vencida usa View current price e oculta o preço promocional antigo", () => {
   const html = render({
     startsAt: "2026-07-01T00:00:00-03:00",
     endsAt: "2026-07-27T23:59:59-03:00"
   });
 
-  assert.match(html, /Ver preço atual/);
+  assert.match(html, /View current price/);
   assert.doesNotMatch(html, /offer-pricing/);
-  assert.doesNotMatch(html, /Comprar por/);
+  assert.doesNotMatch(html, /Buy for/);
 });
 
-test("oferta ativa usa o botão Ver oferta", () => {
+test("oferta ativa usa o botão View deal", () => {
   const html = render();
 
-  assert.match(html, /Ver oferta/);
+  assert.match(html, /View deal/);
   assert.match(html, /rel="sponsored noopener noreferrer"/);
 });
 
@@ -259,7 +265,7 @@ test("oferta futura não apresenta botão de compra", () => {
     endsAt: "2026-08-10T23:59:59-03:00"
   });
 
-  assert.match(html, /EM BREVE/);
+  assert.match(html, /UPCOMING/);
   assert.doesNotMatch(html, /offer-button/);
 });
 
@@ -338,8 +344,36 @@ test("escapa conteúdo textual vindo dos registros centrais", () => {
 
 test("não exibe disclosure em conteúdo sem link afiliado", () => {
   const html = render({}, { showDisclosure: false });
-  assert.doesNotMatch(html, /Este é um link afiliado/);
+  assert.doesNotMatch(html, /This is an affiliate link/);
   assert.equal(shouldShowAffiliateDisclosure([]), false);
+});
+
+test("aceita copy pública afiliada em inglês e ignora comentário técnico", () => {
+  const issues = findKnownPortuguesePublicCopy([
+    {
+      file: "assets/go-redirect.mjs",
+      source: [
+        "// Oferta is a technical note, not visitor copy.",
+        'status.textContent = "Offer unavailable";'
+      ].join("\n")
+    }
+  ]);
+
+  assert.deepEqual(issues, []);
+});
+
+test("rejeita copy pública afiliada conhecida em português", () => {
+  const issues = findKnownPortuguesePublicCopy([
+    {
+      file: "deals/index.html",
+      source: "<h1>Oferta indisponível</h1>"
+    }
+  ]);
+
+  assert.equal(issues.length, 1);
+  assert.equal(issues[0].file, "deals/index.html");
+  assert.equal(issues[0].line, 1);
+  assert.equal(issues[0].term, "indisponível");
 });
 
 test("identifica disclosure necessário na coleção de ofertas", () => {

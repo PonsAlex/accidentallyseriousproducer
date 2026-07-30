@@ -78,17 +78,17 @@ async function renderDealsPage() {
     emptyState.hidden = visibleContexts.length > 0;
     pageStatus.textContent =
       visibleContexts.length > 0
-        ? `${visibleContexts.length} oferta${visibleContexts.length === 1 ? "" : "s"} ${visibleContexts.length === 1 ? "disponível" : "disponíveis"} para consulta.`
-        : "Nenhuma promoção aprovada está publicada no momento.";
+        ? `${visibleContexts.length} ${visibleContexts.length === 1 ? "deal" : "deals"} available to view.`
+        : "No approved deals are published right now.";
   } catch (error) {
     console.error("ASP deals configuration error:", error);
     emptyState.hidden = false;
     emptyState.querySelector("h2").textContent =
-      "As ofertas não puderam ser carregadas";
+      "Deals could not be loaded";
     emptyState.querySelector("p").textContent =
-      "Tente novamente mais tarde. Nenhum link inseguro foi exibido.";
+      "Try again later. No unsafe link was displayed.";
     pageStatus.textContent =
-      "Erro ao carregar a página de ofertas.";
+      "Error loading the Deals page.";
   }
 }
 

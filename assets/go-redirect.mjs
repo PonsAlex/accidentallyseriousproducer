@@ -22,7 +22,7 @@ function readLinkId() {
 function showUnavailable(message) {
   const status = document.querySelector("#go-status");
   const details = document.querySelector("#go-details");
-  status.textContent = "Oferta indisponível";
+  status.textContent = "Offer unavailable";
   details.textContent = message;
   document.querySelector("#go-action").hidden = true;
 }
@@ -30,7 +30,9 @@ function showUnavailable(message) {
 async function resolveGoLink() {
   const linkId = readLinkId();
   if (!linkId) {
-    showUnavailable("O identificador do link é inválido.");
+    showUnavailable(
+      "This deal is no longer available, has not been approved for publication, or does not exist. No redirect will occur."
+    );
     console.error("ASP /go/ configuration error: invalid link identifier.");
     return;
   }
@@ -45,7 +47,7 @@ async function resolveGoLink() {
 
     if (!link || !program || program.status !== "active" || !destination) {
       showUnavailable(
-        "Este destino não está ativo ou aguarda revisão. Volte à página anterior para consultar outras ofertas."
+        "This deal is no longer available, has not been approved for publication, or does not exist. No redirect will occur."
       );
       console.error(
         `ASP /go/ configuration error: unresolved destination for "${linkId}".`
@@ -59,18 +61,18 @@ async function resolveGoLink() {
     const action = document.querySelector("#go-action");
     const disclosure = document.querySelector("#go-disclosure");
 
-    status.textContent = `Continuar para ${program.name}`;
+    status.textContent = `Continue to ${program.name}`;
     details.textContent =
-      `O destino validado pertence a ${destinationUrl.hostname}. ` +
-      "O ASP não altera o preço ou o conteúdo exibido pela loja.";
+      `The validated destination belongs to ${destinationUrl.hostname}. ` +
+      "ASP does not change the price or content shown by the store.";
     disclosure.textContent = AFFILIATE_DISCLOSURE.short;
     disclosure.hidden = false;
     action.href = destination;
-    action.textContent = `Continuar para ${program.name}`;
+    action.textContent = `Continue to ${program.name}`;
     action.hidden = false;
   } catch (error) {
     showUnavailable(
-      "Não foi possível validar este destino agora. Nenhum redirecionamento foi realizado."
+      "This destination could not be checked right now. No redirect occurred."
     );
     console.error("ASP /go/ configuration error:", error);
   }

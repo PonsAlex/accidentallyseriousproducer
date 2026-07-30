@@ -13,9 +13,9 @@ export const PUBLICATION_STATUSES = Object.freeze([
 
 export const AFFILIATE_DISCLOSURE = Object.freeze({
   full:
-    "Transparência: este conteúdo pode conter links afiliados. O ASP pode receber uma comissão caso você compre por eles, sem custo adicional para você. Isso não interfere em nossa avaliação do produto.",
+    "Transparency: this content may contain affiliate links. ASP may receive a commission if you buy through them, at no additional cost to you. That does not affect our assessment of the product.",
   short:
-    "Este é um link afiliado. O ASP pode receber uma comissão, sem custo adicional para você."
+    "This is an affiliate link. ASP may receive a commission, at no additional cost to you."
 });
 
 export const AFFILIATE_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -227,7 +227,7 @@ export function formatIsoDatePt(value) {
       ? "UTC"
       : `UTC${offset.startsWith("-") ? "−" : "+"}${offset.slice(1)}`;
 
-  return `${day}/${month}/${year} às ${hour}:${minute} (${zone})`;
+  return `${day}/${month}/${year} at ${hour}:${minute} (${zone})`;
 }
 
 export function formatMoney(value, currency) {
@@ -264,11 +264,11 @@ export function escapeHtml(value) {
 
 function renderOfferStatus(state) {
   const labels = {
-    [PROMOTION_STATES.ACTIVE]: "OFERTA ATIVA",
-    [PROMOTION_STATES.UPCOMING]: "EM BREVE",
+    [PROMOTION_STATES.ACTIVE]: "ACTIVE DEAL",
+    [PROMOTION_STATES.UPCOMING]: "UPCOMING",
     [PROMOTION_STATES.EXPIRED]: "EXPIRED",
-    [PROMOTION_STATES.REVIEW_REQUIRED]: "REVIEW REQUIRED",
-    [PROMOTION_STATES.UNAVAILABLE]: "Oferta indisponível"
+    [PROMOTION_STATES.REVIEW_REQUIRED]: "NEEDS REVIEW",
+    [PROMOTION_STATES.UNAVAILABLE]: "OFFER UNAVAILABLE"
   };
 
   return `<span class="offer-status offer-status--${state.toLowerCase()}">${labels[state]}</span>`;
@@ -280,7 +280,7 @@ export function renderAffiliateDisclosure({ short = false } = {}) {
     : AFFILIATE_DISCLOSURE.full;
 
   return `
-    <aside class="affiliate-disclosure${short ? " affiliate-disclosure--short" : ""}" role="note" aria-label="Transparência sobre links afiliados">
+    <aside class="affiliate-disclosure${short ? " affiliate-disclosure--short" : ""}" role="note" aria-label="Affiliate link disclosure">
       <p>${escapeHtml(text)}</p>
     </aside>
   `.trim();
@@ -326,7 +326,7 @@ function renderActivePricing(promotion) {
     );
   }
 
-  return `<div class="offer-pricing" aria-label="Preço da oferta">${priceParts.join("")}</div>`;
+  return `<div class="offer-pricing" aria-label="Deal price">${priceParts.join("")}</div>`;
 }
 
 function renderCoupon(promotion) {
@@ -339,7 +339,7 @@ function renderCoupon(promotion) {
 
   return `
     <p class="offer-coupon">
-      Cupom: <code>${escapeHtml(promotion.couponCode.trim())}</code>
+      Coupon: <code>${escapeHtml(promotion.couponCode.trim())}</code>
     </p>
   `.trim();
 }
@@ -355,10 +355,10 @@ function renderOfferAction({ state, link, product }) {
 
   const label =
     state === PROMOTION_STATES.EXPIRED
-      ? "Ver preço atual"
-      : "Ver oferta";
+      ? "View current price"
+      : "View deal";
   const accessibleSuffix =
-    product?.name ? ` de ${escapeHtml(product.name)}` : "";
+    product?.name ? ` for ${escapeHtml(product.name)}` : "";
 
   return `
     <a
@@ -379,20 +379,20 @@ function renderStateMessage({ state, promotion }) {
   switch (state) {
     case PROMOTION_STATES.ACTIVE:
       return endsAt
-        ? `<p class="offer-date">Oferta válida até <time datetime="${escapeHtml(promotion.endsAt)}">${escapeHtml(endsAt)}</time>.</p>`
+        ? `<p class="offer-date">Deal valid until <time datetime="${escapeHtml(promotion.endsAt)}">${escapeHtml(endsAt)}</time>.</p>`
         : "";
     case PROMOTION_STATES.EXPIRED:
       return endsAt
-        ? `<p class="offer-date">Oferta encerrada em <time datetime="${escapeHtml(promotion.endsAt)}">${escapeHtml(endsAt)}</time>.</p>`
+        ? `<p class="offer-date">Deal ended on <time datetime="${escapeHtml(promotion.endsAt)}">${escapeHtml(endsAt)}</time>.</p>`
         : "";
     case PROMOTION_STATES.UPCOMING:
       return startsAt
-        ? `<p class="offer-date">Disponível a partir de <time datetime="${escapeHtml(promotion.startsAt)}">${escapeHtml(startsAt)}</time>.</p>`
+        ? `<p class="offer-date">Available from <time datetime="${escapeHtml(promotion.startsAt)}">${escapeHtml(startsAt)}</time>.</p>`
         : "";
     case PROMOTION_STATES.REVIEW_REQUIRED:
-      return '<p class="offer-date">Esta oferta aguarda revisão humana e não está publicada.</p>';
+      return '<p class="offer-date">This deal is awaiting human review and has not been published.</p>';
     case PROMOTION_STATES.UNAVAILABLE:
-      return '<p class="offer-date">Não há um destino afiliado seguro disponível no momento.</p>';
+      return '<p class="offer-date">No safe affiliate destination is available right now.</p>';
     default:
       return "";
   }
@@ -410,7 +410,7 @@ export function renderAffiliateOffer({
 }) {
   if (!promotion) {
     return debug
-      ? '<p class="affiliate-config-error" role="status">REVIEW REQUIRED: promoção não encontrada.</p>'
+      ? '<p class="affiliate-config-error" role="status">REVIEW REQUIRED: promotion not found.</p>'
       : "";
   }
 
@@ -432,7 +432,7 @@ export function renderAffiliateOffer({
     return "";
   }
 
-  const productName = product?.name ?? "Produto não identificado";
+  const productName = product?.name ?? "Unidentified product";
   const developer =
     typeof product?.developer === "string" && product.developer.trim() !== ""
       ? product.developer

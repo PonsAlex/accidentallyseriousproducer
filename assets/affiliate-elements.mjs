@@ -81,7 +81,7 @@ export class AffiliateOfferElement extends HTMLElement {
             debug
           })
         : debug
-          ? '<p class="affiliate-config-error" role="status">REVIEW REQUIRED: oferta não encontrada.</p>'
+          ? '<p class="affiliate-config-error" role="status">REVIEW REQUIRED: deal not found.</p>'
           : "";
 
       this.innerHTML = markup;
@@ -98,7 +98,7 @@ export class AffiliateOfferElement extends HTMLElement {
     } catch (error) {
       console.error("ASP affiliate offer configuration error:", error);
       this.innerHTML = isDebugMode(this)
-        ? '<p class="affiliate-config-error" role="alert">REVIEW REQUIRED: os dados da oferta não puderam ser carregados.</p>'
+        ? '<p class="affiliate-config-error" role="alert">REVIEW REQUIRED: deal data could not be loaded.</p>'
         : "";
       this.hidden = !isDebugMode(this);
     } finally {
@@ -118,7 +118,7 @@ export class AffiliateDisclosureElement extends HTMLElement {
     aside.setAttribute("role", "note");
     aside.setAttribute(
       "aria-label",
-      "Transparência sobre links afiliados"
+      "Affiliate link disclosure"
     );
     paragraph.textContent = short
       ? AFFILIATE_DISCLOSURE.short
