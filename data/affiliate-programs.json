@@ -1,0 +1,47 @@
+[
+  {
+    "id": "plugin-boutique",
+    "name": "Plugin Boutique",
+    "group": "Beatport Group",
+    "homepage": "https://www.pluginboutique.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "beatport",
+    "name": "Beatport",
+    "group": "Beatport Group",
+    "homepage": "https://www.beatport.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "djcity",
+    "name": "DJcity",
+    "group": "Beatport Group",
+    "homepage": "https://www.djcity.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "loopmasters",
+    "name": "Loopmasters",
+    "group": "Beatport Group",
+    "homepage": "https://www.loopmasters.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "loopcloud",
+    "name": "Loopcloud",
+    "group": "Beatport Group",
+    "homepage": "https://www.loopcloud.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  }
+]

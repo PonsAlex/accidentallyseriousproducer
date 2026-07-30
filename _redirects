@@ -1,0 +1,4 @@
+/deals /deals/ 301
+/data/inbox/* /404.html 302
+/data/runtime/* /404.html 302
+/go/* /affiliate-redirect/ 200

@@ -1,0 +1,16 @@
+{
+  "name": "accidentally-serious-producer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "test": "node --test tests/affiliate-system.test.mjs",
+    "validate:data": "node scripts/validate-affiliate-data.mjs",
+    "validate:candidate": "node scripts/validate-promotion-candidate.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

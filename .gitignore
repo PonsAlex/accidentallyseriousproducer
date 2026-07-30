@@ -1,0 +1,15 @@
+dist/
+node_modules/
+.playwright-cli/
+output/playwright/
+output/review/
+
+.env
+.env.*
+!.env.example
+
+# Examples only. Real candidates must stay in private Odysseus storage.
+data/inbox/*
+data/runtime/
+!data/inbox/README.md
+!data/inbox/promotion-candidate.example.json

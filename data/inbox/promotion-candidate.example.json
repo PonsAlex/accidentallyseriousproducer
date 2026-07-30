@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "candidateId": "unique-candidate-id",
+  "source": {
+    "type": "email",
+    "messageId": null,
+    "sender": null,
+    "subject": null,
+    "receivedAt": null
+  },
+  "product": {
+    "name": null,
+    "developer": null,
+    "category": null
+  },
+  "merchant": {
+    "programId": null
+  },
+  "offer": {
+    "promoPrice": null,
+    "regularPrice": null,
+    "currency": null,
+    "discountPercent": null,
+    "couponCode": null,
+    "startsAt": null,
+    "endsAt": null,
+    "timezoneSource": null
+  },
+  "links": {
+    "sourceUrl": null,
+    "affiliateUrl": null
+  },
+  "confidence": {
+    "product": "unknown",
+    "price": "unknown",
+    "dates": "unknown",
+    "link": "unknown"
+  },
+  "restrictions": [],
+  "requiresReview": true,
+  "status": "candidate"
+}
