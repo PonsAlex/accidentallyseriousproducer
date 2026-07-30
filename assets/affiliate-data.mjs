@@ -18,13 +18,13 @@ async function fetchJson(path) {
 
   if (!response.ok) {
     throw new Error(
-      `Não foi possível carregar ${path} (${response.status}).`
+      `Could not load ${path} (${response.status}).`
     );
   }
 
   const value = await response.json();
   if (!Array.isArray(value)) {
-    throw new TypeError(`${path} deve conter um array JSON.`);
+    throw new TypeError(`${path} must contain a JSON array.`);
   }
 
   return value;

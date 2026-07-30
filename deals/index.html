@@ -1,23 +1,28 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ofertas | Accidentally Serious Producer</title>
-  <meta name="description" content="Ofertas de plugins, samples, assinaturas e serviços acompanhadas editorialmente pelo ASP.">
+  <title>Deals | Accidentally Serious Producer</title>
+  <meta name="description" content="Editorially reviewed deals on plugins, samples, subscriptions and services from ASP.">
   <link rel="canonical" href="https://accidentallyseriousproducer.com/deals/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Deals | Accidentally Serious Producer">
+  <meta property="og:description" content="Editorially reviewed deals on plugins, samples, subscriptions and services from ASP.">
+  <meta property="og:url" content="https://accidentallyseriousproducer.com/deals/">
+  <meta property="og:site_name" content="Accidentally Serious Producer">
   <link rel="stylesheet" href="/styles.css">
   <script type="module" src="/assets/deals-page.mjs"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="/" aria-label="Página inicial do Accidentally Serious Producer">
+      <a class="brand" href="/" aria-label="Accidentally Serious Producer home">
         <span class="brand-mark">ASP</span>
         <span class="brand-name">Accidentally Serious Producer</span>
       </a>
 
-      <nav class="site-nav" aria-label="Navegação principal">
+      <nav class="site-nav" aria-label="Primary navigation">
         <a href="/articles/addict-some-plugins-002.html">Plugin Audits</a>
         <a href="/fire-or-nah.html">Fire or Nah?</a>
         <a aria-current="page" href="/deals/">Deals</a>
@@ -29,14 +34,14 @@
 
   <main class="deals-page">
     <header class="deals-header shell">
-      <p class="eyebrow">Promoções sem urgência artificial</p>
-      <h1>Ofertas acompanhadas pelo ASP</h1>
+      <p class="eyebrow">Deals without manufactured urgency</p>
+      <h1>Deals tracked by ASP</h1>
       <p class="page-intro">
-        Preços, datas e cupons só aparecem quando há informação suficiente para
-        publicação. Promoções vencidas ficam separadas e claramente identificadas.
+        Prices, dates and coupon codes appear only when there is enough verified
+        information to publish them. Expired deals stay separate and clearly labeled.
       </p>
       <p id="deals-status" class="sr-only" aria-live="polite">
-        Carregando ofertas.
+        Loading deals.
       </p>
     </header>
 
@@ -45,8 +50,8 @@
     <section id="active-offers" class="deal-section shell" hidden>
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Disponíveis agora</p>
-          <h2>Ofertas ativas</h2>
+          <p class="eyebrow">Available now</p>
+          <h2>Active deals</h2>
         </div>
       </div>
       <div class="offer-list"></div>
@@ -55,8 +60,8 @@
     <section id="upcoming-offers" class="deal-section shell" hidden>
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Datas confirmadas</p>
-          <h2>Próximas ofertas</h2>
+          <p class="eyebrow">Confirmed dates</p>
+          <h2>Upcoming deals</h2>
         </div>
       </div>
       <div class="offer-list"></div>
@@ -65,13 +70,13 @@
     <section id="expired-offers" class="deal-section shell" hidden>
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Histórico editorial</p>
-          <h2>Ofertas vencidas</h2>
+          <p class="eyebrow">Editorial archive</p>
+          <h2>Expired deals</h2>
         </div>
       </div>
       <p class="section-note">
-        O preço promocional antigo não é apresentado como vigente. Quando o
-        destino continua válido, você pode consultar o preço atual.
+        The old promotional price is not presented as current. If the destination
+        still works, you can check the current price.
       </p>
       <div class="offer-list"></div>
     </section>
@@ -79,8 +84,8 @@
     <section id="unavailable-offers" class="deal-section shell" hidden>
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Sem destino seguro</p>
-          <h2>Ofertas indisponíveis</h2>
+          <p class="eyebrow">No safe destination</p>
+          <h2>Unavailable deals</h2>
         </div>
       </div>
       <div class="offer-list"></div>
@@ -89,19 +94,19 @@
     <section id="review-offers" class="deal-section shell" hidden>
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Somente desenvolvimento</p>
-          <h2>Revisão necessária</h2>
+          <p class="eyebrow">Development only</p>
+          <h2>Needs review</h2>
         </div>
       </div>
       <div class="offer-list"></div>
     </section>
 
     <section id="deals-empty" class="deals-empty shell narrow">
-      <p class="eyebrow">Curadoria em andamento</p>
-      <h2>Nenhuma oferta aprovada agora</h2>
+      <p class="eyebrow">Editorial curation in progress</p>
+      <h2>No deals worth publishing right now.</h2>
       <p>
-        O catálogo está preparado, mas o ASP não publica placeholders nem
-        promoções sem revisão humana. Volte em breve.
+        That is not a technical problem. It just means the discount pile has not
+        produced anything useful yet.
       </p>
     </section>
   </main>
@@ -113,7 +118,7 @@
         <p>Started as a hobby. Got out of hand.</p>
       </div>
 
-      <nav class="footer-nav" aria-label="Navegação do rodapé">
+      <nav class="footer-nav" aria-label="Footer navigation">
         <a href="/about.html">About</a>
         <a href="/articles/addict-some-plugins-002.html">Plugin Audits</a>
         <a href="/fire-or-nah.html">Fire or Nah?</a>

@@ -12,6 +12,9 @@ import {
   validateAffiliateData
 } from "./affiliate-validation.mjs";
 import { assertPublicCandidateBoundary } from "./public-boundary.mjs";
+import {
+  inspectPublicAffiliateLanguage
+} from "./public-affiliate-language.mjs";
 
 const rootDirectory = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -131,7 +134,13 @@ async function lintHtml(files) {
 async function main() {
   await assertPublicCandidateBoundary(rootDirectory);
 
-  const [moduleFiles, htmlFiles, affiliateData, candidateSource] =
+  const [
+    moduleFiles,
+    htmlFiles,
+    affiliateData,
+    candidateSource,
+    publicLanguageIssues
+  ] =
     await Promise.all([
       collectFiles(rootDirectory, new Set([".mjs"])),
       collectFiles(rootDirectory, new Set([".html"])),
@@ -144,7 +153,8 @@ async function main() {
           "promotion-candidate.example.json"
         ),
         "utf8"
-      )
+      ),
+      inspectPublicAffiliateLanguage(rootDirectory)
     ]);
 
   const errors = [
@@ -163,6 +173,10 @@ async function main() {
   );
 
   errors.push(
+    ...publicLanguageIssues.map(
+      (issue) =>
+        `${issue.file}:${issue.line}: texto público em português encontrado (${issue.term}): ${issue.text}`
+    ),
     ...affiliateReport.errors.map(
       (issue) =>
         `${issue.code} ${issue.location}: ${issue.message}`
@@ -197,7 +211,7 @@ async function main() {
   }
 
   console.log(
-    `Lint concluído: ${moduleFiles.length} módulo(s), ${htmlFiles.length} página(s), dados afiliados e candidato de exemplo válidos.`
+    `Lint concluído: ${moduleFiles.length} módulo(s), ${htmlFiles.length} página(s), copy pública afiliada em inglês, dados afiliados e candidato de exemplo válidos.`
   );
 }
 
