@@ -43,5 +43,14 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "wa-production",
+    "name": "W.A. Production",
+    "group": "W.A. Production",
+    "homepage": "https://www.waproduction.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

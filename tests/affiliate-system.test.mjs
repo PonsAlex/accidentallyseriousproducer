@@ -316,6 +316,46 @@ test("validação rejeita registro publicado com placeholder ativo", () => {
   );
 });
 
+test("cadastra W.A. Production sem publicar produtos, links ou promoções", async () => {
+  const [
+    programs,
+    products,
+    affiliateLinks,
+    promotions
+  ] = await Promise.all(
+    [
+      "affiliate-programs",
+      "products",
+      "affiliate-links",
+      "promotions"
+    ].map(async (name) =>
+      JSON.parse(
+        await readFile(
+          new URL(`../data/${name}.json`, import.meta.url),
+          "utf8"
+        )
+      )
+    )
+  );
+
+  assert.equal(programs.length, 6);
+  assert.deepEqual(
+    programs.find((entry) => entry.id === "wa-production"),
+    {
+      id: "wa-production",
+      name: "W.A. Production",
+      group: "W.A. Production",
+      homepage: "https://www.waproduction.com/",
+      affiliateDisclosureRequired: true,
+      paidTrafficAllowed: false,
+      status: "active"
+    }
+  );
+  assert.deepEqual(products, []);
+  assert.deepEqual(affiliateLinks, []);
+  assert.deepEqual(promotions, []);
+});
+
 test("exibe disclosure junto de conteúdo afiliado", () => {
   const html = render({}, { showDisclosure: true });
 
