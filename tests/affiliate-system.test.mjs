@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import {
   mkdir,
   mkdtemp,
@@ -103,6 +104,16 @@ function render(overrides = {}, options = {}) {
     showDisclosure: options.showDisclosure ?? false,
     debug: options.debug ?? false
   });
+}
+
+async function readHtml(relativePath) {
+  return readFile(new URL(`../${relativePath}`, import.meta.url), "utf8");
+}
+
+function hashMainSection(html) {
+  const match = html.match(/<main[\s\S]*?<\/main>/i);
+  const main = match ? match[0] : html;
+  return createHash("sha256").update(main).digest("hex");
 }
 
 test("calcula uma promoção ativa", () => {
@@ -561,4 +572,43 @@ test("a CSP permite o beacon oficial sem liberar scripts inseguros", async () =>
     /connect-src 'self' https:\/\/cloudflareinsights\.com/
   );
   assert.doesNotMatch(headers, /'unsafe-inline'|'unsafe-eval'/);
+});
+
+test("explica VERDICT e STATUS na página Fire or Nah", async () => {
+  const html = await readHtml("fire-or-nah.html");
+
+  assert.match(html, /Verdict tells you what we think\./);
+  assert.match(html, /Status tells you what is happening\./);
+  assert.match(html, /Breaking, not bleeding\./);
+  assert.match(html, /Call an Ambulance/);
+  assert.match(html, /Last Chance/);
+  assert.match(html, /Updated/);
+  assert.match(html, /New Release/);
+  assert.match(html, /Free/);
+});
+
+test("resume o modelo editorial no About", async () => {
+  const html = await readHtml("about.html");
+
+  assert.match(html, /Verdict tells you what we think\./);
+  assert.match(html, /Status tells you what is happening\./);
+  assert.match(html, /Breaking, not bleeding\./);
+  assert.match(html, /Fire and Free/);
+  assert.match(html, /Nah\s+and Breaking/);
+});
+
+test("mantem inalterados os corpos editoriais dos artigos #001 e #002", async () => {
+  const [articleOne, articleTwo] = await Promise.all([
+    readHtml("articles/addict-some-plugins-001.html"),
+    readHtml("articles/addict-some-plugins-002.html")
+  ]);
+
+  assert.equal(
+    hashMainSection(articleOne),
+    "e2157e63576b2d75b5de8b51ad82e509336663f8d58bbf5e05bb628a81e677f7"
+  );
+  assert.equal(
+    hashMainSection(articleTwo),
+    "b9dfec24e6d592f7cdbd5cc1f9e528f246e7431a00537a61c057bb1bb48673fe"
+  );
 });
