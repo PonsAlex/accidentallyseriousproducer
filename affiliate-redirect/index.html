@@ -6,10 +6,12 @@
   <title>Affiliate Link | Accidentally Serious Producer</title>
   <meta name="description" content="ASP intermediary page for safely validating affiliate links.">
   <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
   <script type="module" src="/assets/go-redirect.mjs"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="shell header-inner">
       <a class="brand" href="/" aria-label="Accidentally Serious Producer home">
@@ -19,7 +21,7 @@
     </div>
   </header>
 
-  <main class="page-main">
+  <main class="page-main" id="main-content" tabindex="-1">
     <section class="shell narrow go-panel" aria-labelledby="go-status">
       <p class="eyebrow">Leaving ASP</p>
       <h1 id="go-status">Checking destination</h1>
