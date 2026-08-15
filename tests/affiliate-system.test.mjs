@@ -112,7 +112,7 @@ async function readHtml(relativePath) {
 
 function hashMainSection(html) {
   const match = html.match(/<main[\s\S]*?<\/main>/i);
-  const main = match ? match[0] : html;
+  const main = (match ? match[0] : html).replace(/\r\n?/g, "\n");
   return createHash("sha256").update(main).digest("hex");
 }
 
@@ -615,10 +615,10 @@ test("mantem inalterados os corpos editoriais dos artigos #001 e #002", async ()
 
   assert.equal(
     hashMainSection(articleOne),
-    "e2157e63576b2d75b5de8b51ad82e509336663f8d58bbf5e05bb628a81e677f7"
+    "6a04b0753e8ce14964d60905bc5b4904a83e33f31ba2675cf7d8d87454f04a63"
   );
   assert.equal(
     hashMainSection(articleTwo),
-    "b9dfec24e6d592f7cdbd5cc1f9e528f246e7431a00537a61c057bb1bb48673fe"
+    "a40f96929dbffced30903dc2fd24f43924f5e0b57d8044ad8d1336974efae9f4"
   );
 });
