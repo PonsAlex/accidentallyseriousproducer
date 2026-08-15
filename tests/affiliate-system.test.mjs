@@ -597,6 +597,16 @@ test("resume o modelo editorial no About", async () => {
   assert.match(html, /Nah\s+and Breaking/);
 });
 
+test("lista radar e audits no indice de artigos", async () => {
+  const html = await readHtml("articles/index.html");
+
+  assert.match(html, /addict-some-plugins-003\.html/);
+  assert.match(html, /addict-some-plugins-002\.html/);
+  assert.match(html, /addict-some-plugins-001\.html/);
+  assert.match(html, /Latest radar/);
+  assert.match(html, /Plugin Audits/);
+});
+
 test("mantem inalterados os corpos editoriais dos artigos #001 e #002", async () => {
   const [articleOne, articleTwo] = await Promise.all([
     readHtml("articles/addict-some-plugins-001.html"),
