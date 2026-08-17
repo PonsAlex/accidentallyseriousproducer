@@ -18,9 +18,9 @@ ASP separates four responsibilities:
 3. editorial judgment;
 4. publication.
 
-Odysseus may organize evidence and prepare reviewable changes. It does not decide
-the editorial meaning, merge changes or publish autonomously. Final authority
-belongs to the human editor.
+Odysseus collects and structures evidence. ChatGPT consolidates and reviews that
+material, but neither system decides the editorial meaning, merges changes or
+publishes autonomously. Final authority belongs to the human editor.
 
 ## Current status
 
@@ -32,13 +32,8 @@ belongs to the human editor.
 | Data validation, lint, tests and production build | Operational |
 | Private candidate boundary | Enforced locally |
 | Real public products, affiliate links and promotions | Not populated |
-| GitHub Actions CI | Planned |
+| GitHub Actions CI | Operational |
 | Evidence Package v1.1.0 | Planned |
-| NotebookLM handoff integration | Planned |
-
-A planned integration is not a confirmed operation. In particular,
-**NotebookLM Handoff Package: READY** must never be treated as
-**NotebookLM Upload: CONFIRMED**.
 
 ## Editorial model
 
@@ -143,7 +138,8 @@ The repository must never contain:
 Outlook / source radar
 → private Odysseus storage
 → structured extraction and deduplication
-→ evidence review
+→ ChatGPT consolidation and review
+→ human editorial decision
 → sanitized public update
 → editorial branch
 → Draft PR
@@ -186,8 +182,9 @@ without importing or publishing the candidate.
 deployable static copy to `dist/`.
 
 The existing Cloudflare Pages configuration may continue deploying the repository
-root while the site remains static. A future CI workflow should run lint, tests
-and build on every pull request before `main` can be merged.
+root while the site remains static. GitHub Actions runs lint, tests and build on
+every pull request and on every push to `main`. Branch protection should require
+this validation before a pull request can be merged.
 
 Security headers and route behavior are defined in `_headers` and `_redirects`.
 The `/go/*` route resolves through `/affiliate-redirect/`; it is not an open
@@ -210,14 +207,11 @@ taxonomy or affiliate changes.
 
 ## Next milestones
 
-1. add GitHub Actions for lint, tests and build;
-2. protect `main` with required checks and human review;
-3. version and validate the ASP Evidence Package / Odysseus Editorial Contract
+1. protect `main` with required CI checks and human review;
+2. version and validate the ASP Evidence Package / Odysseus Editorial Contract
    v1.1.0;
-4. add GitHub Issue and PR templates aligned with the editorial workflow;
-5. connect reviewed work items to the ASP GitHub Project;
-6. implement the NotebookLM handoff without conflating readiness with confirmed
-   upload.
+3. add GitHub Issue and PR templates aligned with the editorial workflow;
+4. connect reviewed work items to the ASP GitHub Project.
 
 ## Legal note
 

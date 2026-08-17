@@ -26,6 +26,7 @@ const productionFiles = [
   "about.html",
   "affiliate-disclosure.html",
   "fire-or-nah.html",
+  "favicon.svg",
   "index.html",
   "lab.html",
   "privacy.html",
