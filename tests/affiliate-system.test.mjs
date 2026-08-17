@@ -112,7 +112,10 @@ async function readHtml(relativePath) {
 
 function hashMainSection(html) {
   const match = html.match(/<main[\s\S]*?<\/main>/i);
-  const main = (match ? match[0] : html).replace(/\r\n?/g, "\n");
+  const main = (match ? match[0] : html)
+    .replace(/\s+id="main-content"/i, "")
+    .replace(/\s+tabindex="-1"/i, "")
+    .replace(/\r\n?/g, "\n");
   return createHash("sha256").update(main).digest("hex");
 }
 
