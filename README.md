@@ -136,8 +136,7 @@ The repository must never contain:
 
 ```text
 RADAR
-→ EVIDÊNCIA
-→ FREE QUALIFICATION (when applicable)
+→ PREPARAÇÃO
 → SELEÇÃO EDITORIAL
 → BRANCH EDITORIAL
 → PREVIEW / HUMAN REVIEW
@@ -147,6 +146,12 @@ RADAR
 The initial board flow is intentionally manual. The editor chooses which items
 advance, and the workflow never infers permission from classification or verdict
 status alone.
+
+**PREPARAÇÃO consolidates evidence validation**: Inside the PREPARAÇÃO stage,
+Odysseus handles evidence collection and qualification (source confirmation,
+product details, pricing, timing, conditions). When applicable, free-offer
+qualification also occurs within PREPARAÇÃO. Neither evidence nor free qualification
+are independent board stages.
 
 ### Manual item progression for the project board
 
