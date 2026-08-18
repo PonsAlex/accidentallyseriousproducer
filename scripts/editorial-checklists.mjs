@@ -30,37 +30,75 @@ export const STAGE_CHECKLISTS = {
     "Revisão necessária"
   ],
   "FREE QUALIFICATION": [
-    "Claim de gratuidade confirmado",
-    "Condições de gratuidade verificadas",
-    "Qualificação concluída",
-    "Revisão de elegibilidade necessária"
+    "Free",
+    "Free temporário",
+    "Requer compra",
+    "Requer código",
+    "Requer cadastro",
+    "Trial",
+    "Não é Free",
+    "Inconclusivo"
   ],
   "SELEÇÃO EDITORIAL": [
-    "Item elegível",
-    "Item relevante",
-    "Item com potencial",
-    "Item fora do escopo",
-    "Revisão editorial necessária"
+    "Desenvolver",
+    "Monitorar",
+    "Agrupar em roundup",
+    "Atualizar artigo existente",
+    "Descartar"
   ],
   "BRANCH EDITORIAL": [
-    "Branch registrada",
-    "Conteúdo revisado",
-    "Rascunho consistente",
-    "Risco de publicação identificado",
-    "Aprovação editorial pendente"
+    {
+      title: "Branch editorial — Status",
+      items: [
+        "Breaking",
+        "New Release",
+        "Free",
+        "Call an Ambulance",
+        "Last Chance",
+        "Updated"
+      ]
+    },
+    {
+      title: "Branch editorial — Recorte",
+      items: [
+        "Notícia curta",
+        "Deal alert",
+        "Freebie alert",
+        "Lançamento",
+        "Atualização",
+        "Análise",
+        "Review",
+        "Roundup"
+      ]
+    },
+    {
+      title: "Branch editorial — Verdict",
+      items: [
+        "Fire",
+        "Stash",
+        "Digital Furniture",
+        "Nah",
+        "Sem Verdict"
+      ]
+    }
   ],
   "PREVIEW / HUMAN REVIEW": [
-    "Preview revisada",
-    "Aprovação humana registrada",
-    "Material relevante revisado",
-    "Correções pendentes",
-    "Aguardando publicação"
+    "Claims corretos",
+    "Preço correto",
+    "Prazo correto",
+    "Condições corretas",
+    "Status correto",
+    "Recorte correto",
+    "Verdict correto",
+    "Links corretos",
+    "Preview aprovado",
+    "Voltar para evidências",
+    "Voltar para Branch Editorial"
   ],
   "PUBLICATION GATE": [
-    "Publicação autorizada",
-    "Link final validado",
-    "Disclosure revisado",
-    "Aprovação final concluída",
-    "Publicação pendente"
+    "Approve Merge",
+    "Hold",
+    "Reject",
+    "Return to Review"
   ]
 };

@@ -143,8 +143,18 @@ function stripStageContent(body = "") {
 
 export function renderStageChecklist(stageName = "EVIDÊNCIA") {
   const orderedStage = normalizeStageName(stageName) || "EVIDÊNCIA";
-  const items = STAGE_CHECKLISTS[orderedStage] ?? STAGE_CHECKLISTS.EVIDÊNCIA;
+  const checklist = STAGE_CHECKLISTS[orderedStage] ?? STAGE_CHECKLISTS.EVIDÊNCIA;
   const title = STAGE_TITLES[orderedStage] || orderedStage;
+
+  // Support both simple arrays of items and grouped checklists with titles + items
+  if (Array.isArray(checklist) && checklist.length > 0 && typeof checklist[0] === "object" && checklist[0].items) {
+    // grouped
+    return checklist
+      .map((group) => `**${group.title}**\n\n${group.items.map((it) => `* [ ] ${it}`).join("\n")}`)
+      .join("\n\n");
+  }
+
+  const items = Array.isArray(checklist) ? checklist : [];
   return `**${title}**\n\n${items.map((entry) => `* [ ] ${entry}`).join("\n")}`;
 }
 
@@ -174,10 +184,17 @@ export function processAdvanceRequest(issueBody = "", sourceIssueNumber = "") {
   const cards = parseIssueCards(issueBody);
   const selected = cards.filter((card) => card.advanceSelected && !card.processed);
 
+  const processable = [];
+  const unprocessable = [];
   const byStage = new Map();
+
   for (const card of selected) {
     const nextStage = determineNextStage(card.stage, card.body);
-    if (!nextStage) continue;
+    if (!nextStage) {
+      unprocessable.push(card);
+      continue;
+    }
+    processable.push(card);
     const list = byStage.get(nextStage) ?? [];
     list.push(card);
     byStage.set(nextStage, list);
@@ -187,10 +204,12 @@ export function processAdvanceRequest(issueBody = "", sourceIssueNumber = "") {
   return {
     cards,
     selected,
+    processable,
+    unprocessable,
     nextStages,
     grouped: Object.fromEntries(nextStages.map(([stage, stageCards]) => [stage, stageCards])),
     noSelection: selected.length === 0,
-    movedCount: selected.length,
+    movedCount: processable.length,
     createdIssues: [],
     sourceIssueNumber
   };
@@ -286,6 +305,16 @@ export async function runAdvanceWorkflowFromEnv() {
     return { skipped: true, reason: "No item was selected to advance." };
   }
 
+  // If items were selected but none are processable (no recognized stage), report and skip.
+  if ((result.processable ?? []).length === 0) {
+    const titles = (result.unprocessable ?? []).map((c) => c.title).filter(Boolean);
+    const msg = titles.length > 0
+      ? `⚠️ Nenhum item selecionado pôde ser avançado porque a etapa atual não foi reconhecida: ${titles.join(", ")}.`
+      : `⚠️ Nenhum item selecionado pôde ser avançado porque a etapa atual não foi reconhecida.`;
+    await createIssueComment(repo, issueNumber, token, msg);
+    return { skipped: true, reason: "Selected items have no recognized stage." };
+  }
+
   const createdIssues = [];
   for (const [stage, cards] of result.nextStages) {
     const title = `${stage} — ${new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" })}`;
@@ -294,14 +323,20 @@ export async function runAdvanceWorkflowFromEnv() {
     createdIssues.push({ stage, issueNumber: created.number, url: created.html_url });
   }
 
-  const updatedIssueBody = markItemsProcessedInIssue(issueBody, result.selected, createdIssues);
+  // Mark only actually processed (processable) items in the origin issue
+  const updatedIssueBody = markItemsProcessedInIssue(issueBody, result.processable, createdIssues);
   await updateOriginalIssueBody(repo, issueNumber, token, updatedIssueBody);
 
   const summary = createdIssues.length > 0
     ? createdIssues.map(({ stage, issueNumber: createdIssueNumber }) => `#${createdIssueNumber} — ${stage}`).join(", ")
     : "nenhuma issue";
 
-  const summaryMessage = `✅ ${result.movedCount} itens avançados para ${summary}.`;
+  let summaryMessage = `✅ ${result.movedCount} itens avançados para ${summary}.`;
+  if ((result.unprocessable ?? []).length > 0) {
+    const titles = result.unprocessable.map((c) => c.title).filter(Boolean);
+    summaryMessage += `\n⚠️ ${result.unprocessable.length} item(ns) não foi(ram) processado(s) por não possuir etapa reconhecida: ${titles.join(", ")}.`;
+  }
+
   await createIssueComment(repo, issueNumber, token, summaryMessage);
 
   return {

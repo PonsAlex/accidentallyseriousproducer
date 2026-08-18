@@ -147,7 +147,7 @@ test("repetição de avanço é bloqueada por marker de processamento", () => {
 test("preserva descrição e fontes ao gerar nova issue", () => {
   const body = `### Item A\n\n* [x] **AVANÇAR**\n\nNossa descrição\n\nFonte: https://example.com\n\n**Radar**\n\n* [x] Oferta`;
   const result = processAdvanceRequest(body, "31");
-  const generated = buildAdvancedIssueBody(result.selected, "31", "EVIDÊNCIA");
+  const generated = buildAdvancedIssueBody(result.processable, "31", "EVIDÊNCIA");
 
   assert.match(generated, /Nossa descrição/);
   assert.match(generated, /https:\/\/example.com/);
@@ -187,4 +187,78 @@ test("a marcação de processamento reseta o item na origem", () => {
 
   assert.match(updated, /\* \[ \] \*\*AVANÇAR\*\*/);
   assert.match(updated, /↗ Avançado para #44 — EVIDÊNCIA/);
+});
+
+// New tests for unprocessable handling and canonical checklists
+
+test("item selecionado sem etapa (unprocessable)", () => {
+  const body = `### Fender Studio Pro 8.1
+
+* [x] **AVANÇAR**
+
+* [ ] Oferta
+* [ ] Freebie
+* [x] Atualização
+* [x] Notícia`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 1);
+  assert.equal((result.processable || []).length, 0);
+  assert.equal((result.unprocessable || []).length, 1);
+  assert.equal(result.movedCount, 0);
+  assert.equal(result.nextStages.length, 0);
+});
+
+test("seleção mista: um RADAR válido + um sem etapa", () => {
+  const body = `### Valid Radar
+
+* [x] **AVANÇAR**
+
+**Radar**
+
+* [x] Oferta
+
+---
+
+### Item sem etapa
+
+* [x] **AVANÇAR**
+
+* [x] Oferta`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 2);
+  assert.equal((result.processable || []).length, 1);
+  assert.equal((result.unprocessable || []).length, 1);
+  assert.equal(result.movedCount, 1);
+  assert.equal(result.nextStages.length, 1);
+});
+
+test("checklists ASP exact values are present", () => {
+  const freeQual = renderStageChecklist("FREE QUALIFICATION");
+  assert.match(freeQual, /Free temporário/);
+  assert.match(freeQual, /Requer compra/);
+  assert.match(freeQual, /Trial/);
+  assert.match(freeQual, /Inconclusivo/);
+
+  const selecao = renderStageChecklist("SELEÇÃO EDITORIAL");
+  assert.match(selecao, /Desenvolver/);
+  assert.match(selecao, /Monitorar/);
+  assert.match(selecao, /Agrupar em roundup/);
+
+  const branch = renderStageChecklist("BRANCH EDITORIAL");
+  assert.match(branch, /Branch editorial — Status/);
+  assert.match(branch, /Breaking/);
+  assert.match(branch, /Last Chance/);
+  assert.match(branch, /Fire/);
+  assert.match(branch, /Digital Furniture/);
+  assert.match(branch, /Roundup/);
+
+  const preview = renderStageChecklist("PREVIEW / HUMAN REVIEW");
+  assert.match(preview, /Claims corretos/);
+  assert.match(preview, /Preview aprovado/);
+
+  const pub = renderStageChecklist("PUBLICATION GATE");
+  assert.match(pub, /Approve Merge/);
+  assert.match(pub, /Return to Review/);
 });
