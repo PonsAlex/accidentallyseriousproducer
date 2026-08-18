@@ -135,19 +135,69 @@ The repository must never contain:
 ## Safe editorial workflow
 
 ```text
-Outlook / source radar
-→ private Odysseus storage
-→ structured extraction and deduplication
-→ ChatGPT consolidation and review
-→ human editorial decision
-→ sanitized public update
-→ editorial branch
-→ Draft PR
-→ Cloudflare preview
-→ human approval
-→ manual merge
-→ production validation
+RADAR
+→ EVIDÊNCIA
+→ FREE QUALIFICATION (when applicable)
+→ SELEÇÃO EDITORIAL
+→ BRANCH EDITORIAL
+→ PREVIEW / HUMAN REVIEW
+→ PUBLICATION GATE
 ```
+
+The initial board flow is intentionally manual. The editor chooses which items
+advance, and the workflow never infers permission from classification or verdict
+status alone.
+
+### Manual item progression for the project board
+
+Each item card includes an independent checkbox:
+
+```text
+[ ] **AVANÇAR**
+```
+
+A concrete card should look like this:
+
+```md
+### HoRNet — RADAR
+
+* [ ] **AVANÇAR**
+
+**O que aconteceu?**
+
+* [x] Oferta
+* [ ] Freebie
+* [ ] Novo produto
+* [ ] Atualização
+* [ ] Notícia
+* [ ] Outro
+* [ ] Ignorar
+
+/advance
+```
+
+This checkbox is separate from the classification, evidence, clipping, Verdict or
+review checks. Only `[x] AVANÇAR` authorizes an item to move when the command
+`/advance` is issued. Add `/advance` to the end of each card; it acts as the
+operational trigger for batch progression. When `/advance` is executed:
+
+1. locate every item on the card marked `[x] AVANÇAR`;
+2. identify the current stage for each selected item;
+3. determine the matching next stage for that item;
+4. transfer only the selected items;
+5. convert the visible checks to the next stage's checklist;
+6. preserve the title, description, sources, notes and relevant decisions already
+   recorded;
+7. do not carry over checks that belong only to the previous stage;
+8. reset the control for the new stage to `[ ] AVANÇAR`;
+9. leave any non-selected item exactly where it is.
+
+The project board should not treat `[x] Free`, `[x] Desenvolver`, `[x] Breaking`
+or any other editorial label as implicit authorization to advance. The only item
+selection trigger is `[x] AVANÇAR`, and the only batch trigger is `/advance`.
+If no item is marked `[x] AVANÇAR`, the board does nothing. If a stage is
+ambiguous or the structure is invalid, the item is left unprocessed instead of
+being guessed.
 
 No intermediate state authorizes automatic publication. Odysseus must not push
 directly to `main`, force-push, merge a PR or expose private source material.
