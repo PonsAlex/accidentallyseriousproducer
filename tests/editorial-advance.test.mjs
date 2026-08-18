@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   buildAdvancedIssueBody,
+  buildSelectedItemBody,
   determineNextStage,
   findStageLabelInText,
   markItemsProcessedInIssue,
@@ -88,8 +89,8 @@ test("um item selecionado avança para a próxima etapa", () => {
   const result = processAdvanceRequest(ISSUE_31_FIXTURE, "31");
 
   assert.equal(result.selected.length, 1);
-  assert.equal(result.nextStages[0][0], "EVIDÊNCIA");
-  assert.match(result.grouped["EVIDÊNCIA"][0].title, /HoRNet/);
+  assert.equal(result.nextStages[0][0], "PREPARAÇÃO");
+  assert.match(result.grouped["PREPARAÇÃO"][0].title, /HoRNet/);
 });
 
 test("vários itens selecionados são agrupados por etapa", () => {
@@ -98,7 +99,7 @@ test("vários itens selecionados são agrupados por etapa", () => {
 
   assert.equal(result.selected.length, 2);
   assert.equal(result.nextStages.length, 1);
-  assert.equal(result.grouped["EVIDÊNCIA"].length, 2);
+    assert.equal(result.grouped["PREPARAÇÃO"].length, 2);
 });
 
 test("checks editoriais marcados sem AVANÇAR não selecionam item", () => {
@@ -108,20 +109,30 @@ test("checks editoriais marcados sem AVANÇAR não selecionam item", () => {
   assert.equal(result.selected.length, 0);
 });
 
-test("item Free vai para Free Qualification quando aplicável", () => {
-  const body = `### Item Free\n\n* [x] **AVANÇAR**\n\n**Evidência**\n\n* [x] Fonte primária confirmada\n\nEste item oferece um freebie gratuito.`;
+test("RADAR -> PREPARAÇÃO on advance", () => {
+  const body = `### Item Radar\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta`;
   const cards = parseIssueCards(body);
   const nextStage = determineNextStage(cards[0].stage, cards[0].body);
 
-  assert.equal(nextStage, "FREE QUALIFICATION");
+  assert.equal(nextStage, "PREPARAÇÃO");
 });
 
-test("item sem claim gratuito pula Free Qualification", () => {
-  const body = `### Item Não Free\n\n* [x] **AVANÇAR**\n\n**Evidência**\n\n* [x] Fonte primária confirmada\n\nEste item é um produto de pagamento.`;
+test("PREPARAÇÃO contains Free Qualification group when item has free claim", () => {
+  const body = `### Item Free\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Freebie\n\nDescrição com oferta gratuita.`;
   const cards = parseIssueCards(body);
-  const nextStage = determineNextStage(cards[0].stage, cards[0].body);
+  const built = buildSelectedItemBody(cards[0], "PREPARAÇÃO");
 
-  assert.equal(nextStage, "SELEÇÃO EDITORIAL");
+  assert.match(built, /Preparação \u2014 Evidência/);
+  assert.match(built, /Preparação \u2014 Free Qualification/);
+});
+
+test("PREPARAÇÃO does not include Free Qualification when item is not Free", () => {
+  const body = `### Item Pago\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n\nDescrição genérica.`;
+  const cards = parseIssueCards(body);
+  const built = buildSelectedItemBody(cards[0], "PREPARAÇÃO");
+
+  assert.match(built, /Preparação \u2014 Evidência/);
+  assert.doesNotMatch(built, /Preparação \u2014 Free Qualification/);
 });
 
 test("reconhece somente labels conhecidos de etapa, não qualquer negrito", () => {
@@ -147,25 +158,26 @@ test("repetição de avanço é bloqueada por marker de processamento", () => {
 test("preserva descrição e fontes ao gerar nova issue", () => {
   const body = `### Item A\n\n* [x] **AVANÇAR**\n\nNossa descrição\n\nFonte: https://example.com\n\n**Radar**\n\n* [x] Oferta`;
   const result = processAdvanceRequest(body, "31");
-  const generated = buildAdvancedIssueBody(result.processable, "31", "EVIDÊNCIA");
+  const generated = buildAdvancedIssueBody(result.processable, "31", "PREPARAÇÃO");
 
   assert.match(generated, /Nossa descrição/);
   assert.match(generated, /https:\/\/example.com/);
   assert.match(generated, /\* \[ \] \*\*AVANÇAR\*\*/);
-  assert.match(generated, /O que conseguimos provar\?/);
+  assert.match(generated, /Preparação \u2014 Evidência/);
   assert.doesNotMatch(generated, /\/advance/);
 });
 
 test("renderStageChecklist monta a checklist da etapa seguinte", () => {
-  const rendered = renderStageChecklist("EVIDÊNCIA");
+  const rendered = renderStageChecklist("PREPARAÇÃO");
 
-  assert.match(rendered, /O que conseguimos provar\?/);
-  assert.match(rendered, /Fonte primária confirmada/);
-  assert.match(rendered, /\* \[ \] Fonte primária confirmada/);
-});
+    // renderStageChecklist will render grouped or simple lists; ensure evidence items present
+    assert.match(rendered, /Preparação \u2014 Evidência|O que conseguimos provar\?/);
+    assert.match(rendered, /Fonte primária confirmada/);
+    assert.match(rendered, /\* \[ \] Fonte primária confirmada/);
+  });
 
 test("a segunda execução não cria duplicata após processamento", () => {
-  const body = `### Item A\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n\n↗ Avançado para #99 — EVIDÊNCIA.`;
+  const body = `### Item A\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n\n↗ Avançado para #99 — PREPARAÇÃO.`;
   const result = processAdvanceRequest(body, "31");
 
   assert.equal(result.selected.length, 0);
@@ -182,11 +194,11 @@ test("a marcação de processamento reseta o item na origem", () => {
   const updated = markItemsProcessedInIssue(
     `### HoRNet Plugins — Summer Sale 88%\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta`,
     [{ title: "HoRNet Plugins — Summer Sale 88%", stage: "RADAR" }],
-    [{ stage: "EVIDÊNCIA", issueNumber: 44 }]
+    [{ stage: "PREPARAÇÃO", issueNumber: 44 }]
   );
 
   assert.match(updated, /\* \[ \] \*\*AVANÇAR\*\*/);
-  assert.match(updated, /↗ Avançado para #44 — EVIDÊNCIA/);
+      assert.match(updated, /↗ Avançado para #44 — PREPARAÇÃO/);
 });
 
 // New tests for unprocessable handling and canonical checklists

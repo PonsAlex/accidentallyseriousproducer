@@ -3,7 +3,7 @@ import { pathToFileURL } from "node:url";
 
 export const STAGE_ORDER = [
   "RADAR",
-  "EVIDÊNCIA",
+  "PREPARAÇÃO",
   "FREE QUALIFICATION",
   "SELEÇÃO EDITORIAL",
   "BRANCH EDITORIAL",
@@ -13,7 +13,7 @@ export const STAGE_ORDER = [
 
 export const STAGE_ALIASES = {
   RADAR: ["RADAR", "Radar"],
-  EVIDÊNCIA: ["EVIDÊNCIA", "EVIDENCIA", "O QUE CONSEGUIMOS PROVAR?", "O que conseguimos provar?"],
+  PREPARAÇÃO: ["PREPARAÇÃO", "Preparação", "PREPARACAO", "Preparacao", "EVIDÊNCIA", "EVIDENCIA", "EVIDENCE"],
   "FREE QUALIFICATION": ["FREE QUALIFICATION", "Free qualification", "FREE QUALIFICATION (WHEN APPLICABLE)", "Free Qualification"],
   "SELEÇÃO EDITORIAL": ["SELEÇÃO EDITORIAL", "SELECAO EDITORIAL", "Seleção editorial", "Selecao editorial"],
   "BRANCH EDITORIAL": ["BRANCH EDITORIAL", "Branch editorial", "Branch Editorial"],
@@ -92,8 +92,9 @@ export function determineNextStage(currentStage = "", body = "") {
   const stageName = normalizeStageName(currentStage);
   const freeClaim = hasFreeClaim(body);
 
-  if (stageName === "RADAR") return "EVIDÊNCIA";
-  if (stageName === "EVIDÊNCIA") return freeClaim ? "FREE QUALIFICATION" : "SELEÇÃO EDITORIAL";
+  if (stageName === "RADAR") return "PREPARAÇÃO";
+  // PREPARAÇÃO now contains Evidência and (when applicable) Free Qualification.
+  if (stageName === "PREPARAÇÃO") return "SELEÇÃO EDITORIAL";
   if (stageName === "FREE QUALIFICATION") return "SELEÇÃO EDITORIAL";
   if (stageName === "SELEÇÃO EDITORIAL") return "BRANCH EDITORIAL";
   if (stageName === "BRANCH EDITORIAL") return "PREVIEW / HUMAN REVIEW";
@@ -158,10 +159,29 @@ export function renderStageChecklist(stageName = "EVIDÊNCIA") {
   return `**${title}**\n\n${items.map((entry) => `* [ ] ${entry}`).join("\n")}`;
 }
 
+export function renderChecklistGroup(title, items) {
+  return `**${title}**\n\n${items.map((it) => `* [ ] ${it}`).join("\n")}`;
+}
+
 export function buildSelectedItemBody(card, nextStage) {
   const contentBeforeStage = stripStageContent(card.body || "").trim();
   const chunks = [];
   if (contentBeforeStage) chunks.push(contentBeforeStage);
+
+  // Special handling for PREPARAÇÃO: compose Evidência group and optional Free Qualification group
+  if (nextStage === "PREPARAÇÃO") {
+    // Use canonical EVIDÊNCIA checklist as the Preparação — Evidência group
+    const evidenciaItems = STAGE_CHECKLISTS["EVIDÊNCIA"] || STAGE_CHECKLISTS.EVIDÊNCIA || [];
+    chunks.push(renderChecklistGroup("Preparação — Evidência", evidenciaItems));
+
+    if (hasFreeClaim(card.body || "")) {
+      const freeItems = STAGE_CHECKLISTS["FREE QUALIFICATION"] || [];
+      chunks.push(renderChecklistGroup("Preparação — Free Qualification", freeItems));
+    }
+
+    return chunks.join("\n\n").trim();
+  }
+
   chunks.push(renderStageChecklist(nextStage));
   return chunks.join("\n\n").trim();
 }
