@@ -1,0 +1,276 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {
+  buildAdvancedIssueBody,
+  buildSelectedItemBody,
+  determineNextStage,
+  findStageLabelInText,
+  markItemsProcessedInIssue,
+  parseIssueCards,
+  processAdvanceRequest,
+  renderStageChecklist
+} from "../scripts/editorial-advance.mjs";
+
+const ISSUE_31_FIXTURE = `### deadmau5 — AUTO/PILOT
+
+* [ ] **AVANÇAR**
+
+A plataforma de DJ/performance de deadmau5 é real e foi apresentada publicamente em maio.
+
+**Radar**
+
+* [ ] Oferta
+* [ ] Freebie
+* [x] Novo produto
+* [ ] Atualização
+* [x] Notícia
+* [ ] Outro
+* [ ] Ignorar
+
+---
+
+### HoRNet Plugins — Summer Sale 88%
+
+* [x] **AVANÇAR**
+
+O próprio e-mail da HoRNet informa o código SUM88OFF, 88% de desconto em plugins individuais.
+
+**Radar**
+
+* [x] Oferta
+* [ ] Freebie
+* [ ] Novo produto
+* [ ] Atualização
+* [ ] Notícia
+* [ ] Outro
+* [ ] Ignorar
+
+---
+
+### SoundMorph — End of Summer
+
+* [ ] **AVANÇAR**
+
+O Outlook registra campanha 40% Off Sitewide da SoundMorph.
+
+**Radar**
+
+* [x] Oferta
+* [ ] Freebie
+* [ ] Novo produto
+* [ ] Atualização
+* [ ] Notícia
+* [ ] Outro
+* [ ] Ignorar`;
+
+const SAMPLE_RADAR_WITH_BOLD_TEXT = `### Item A
+
+* [x] **AVANÇAR**
+
+**Nova pauta forte.**
+
+Texto de destaque.
+
+**Radar**
+
+* [x] Oferta
+* [ ] Freebie
+* [ ] Novo produto`;
+
+test("nenhum item selecionado", () => {
+  const body = `### Item A\n\n* [ ] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.noSelection, true);
+  assert.equal(result.selected.length, 0);
+});
+
+test("um item selecionado avança para a próxima etapa", () => {
+  const result = processAdvanceRequest(ISSUE_31_FIXTURE, "31");
+
+  assert.equal(result.selected.length, 1);
+  assert.equal(result.nextStages[0][0], "PREPARAÇÃO");
+  assert.match(result.grouped["PREPARAÇÃO"][0].title, /HoRNet/);
+});
+
+test("vários itens selecionados são agrupados por etapa", () => {
+  const body = `### Item A\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n\n### Item B\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 2);
+  assert.equal(result.nextStages.length, 1);
+    assert.equal(result.grouped["PREPARAÇÃO"].length, 2);
+});
+
+test("checks editoriais marcados sem AVANÇAR não selecionam item", () => {
+  const body = `### Item A\n\n* [ ] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n* [x] Freebie`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 0);
+});
+
+test("RADAR -> PREPARAÇÃO on advance", () => {
+  const body = `### Item Radar\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta`;
+  const cards = parseIssueCards(body);
+  const nextStage = determineNextStage(cards[0].stage, cards[0].body);
+
+  assert.equal(nextStage, "PREPARAÇÃO");
+});
+
+test("PREPARAÇÃO contains Free Qualification group when item has free claim", () => {
+  const body = `### Item Free\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Freebie\n\nDescrição com oferta gratuita.`;
+  const cards = parseIssueCards(body);
+  const built = buildSelectedItemBody(cards[0], "PREPARAÇÃO");
+
+  assert.match(built, /Preparação \u2014 Evidência/);
+  assert.match(built, /Preparação \u2014 Free Qualification/);
+});
+
+test("PREPARAÇÃO does not include Free Qualification when item is not Free", () => {
+  const body = `### Item Pago\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n\nDescrição genérica.`;
+  const cards = parseIssueCards(body);
+  const built = buildSelectedItemBody(cards[0], "PREPARAÇÃO");
+
+  assert.match(built, /Preparação \u2014 Evidência/);
+  assert.doesNotMatch(built, /Preparação \u2014 Free Qualification/);
+});
+
+test("reconhece somente labels conhecidos de etapa, não qualquer negrito", () => {
+  const stage = findStageLabelInText(SAMPLE_RADAR_WITH_BOLD_TEXT);
+  assert.equal(stage, "RADAR");
+});
+
+test("BRANCH EDITORIAL avança para PREVIEW / HUMAN REVIEW", () => {
+  const body = `### Item Branch\n\n* [x] **AVANÇAR**\n\n**Branch Editorial**\n\n* [ ] Branch registrada`;
+  const nextStage = determineNextStage("BRANCH EDITORIAL", body);
+
+  assert.equal(nextStage, "PREVIEW / HUMAN REVIEW");
+});
+
+test("repetição de avanço é bloqueada por marker de processamento", () => {
+  const body = `### Item A\n\n* [x] **AVANÇAR**\n\n<!-- asp-editorial-advance: already-processed -->\n\n**Radar**\n\n* [x] Oferta`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 0);
+  assert.equal(result.noSelection, true);
+});
+
+test("preserva descrição e fontes ao gerar nova issue", () => {
+  const body = `### Item A\n\n* [x] **AVANÇAR**\n\nNossa descrição\n\nFonte: https://example.com\n\n**Radar**\n\n* [x] Oferta`;
+  const result = processAdvanceRequest(body, "31");
+  const generated = buildAdvancedIssueBody(result.processable, "31", "PREPARAÇÃO");
+
+  assert.match(generated, /Nossa descrição/);
+  assert.match(generated, /https:\/\/example.com/);
+  assert.match(generated, /\* \[ \] \*\*AVANÇAR\*\*/);
+  assert.match(generated, /Preparação \u2014 Evidência/);
+  assert.doesNotMatch(generated, /\/advance/);
+});
+
+test("renderStageChecklist monta a checklist da etapa seguinte", () => {
+  const rendered = renderStageChecklist("PREPARAÇÃO");
+
+    // renderStageChecklist will render grouped or simple lists; ensure evidence items present
+    assert.match(rendered, /Preparação \u2014 Evidência|O que conseguimos provar\?/);
+    assert.match(rendered, /Fonte primária confirmada/);
+    assert.match(rendered, /\* \[ \] Fonte primária confirmada/);
+  });
+
+test("a segunda execução não cria duplicata após processamento", () => {
+  const body = `### Item A\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n\n↗ Avançado para #99 — PREPARAÇÃO.`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 0);
+  assert.equal(result.noSelection, true);
+});
+
+test("Issue #31 real é reconhecida e processa somente o item com AVANÇAR", () => {
+  const result = processAdvanceRequest(ISSUE_31_FIXTURE, "31");
+  assert.equal(result.movedCount, 1);
+  assert.equal(result.selected[0].title, "HoRNet Plugins — Summer Sale 88%");
+});
+
+test("a marcação de processamento reseta o item na origem", () => {
+  const updated = markItemsProcessedInIssue(
+    `### HoRNet Plugins — Summer Sale 88%\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta`,
+    [{ title: "HoRNet Plugins — Summer Sale 88%", stage: "RADAR" }],
+    [{ stage: "PREPARAÇÃO", issueNumber: 44 }]
+  );
+
+  assert.match(updated, /\* \[ \] \*\*AVANÇAR\*\*/);
+      assert.match(updated, /↗ Avançado para #44 — PREPARAÇÃO/);
+});
+
+// New tests for unprocessable handling and canonical checklists
+
+test("item selecionado sem etapa (unprocessable)", () => {
+  const body = `### Fender Studio Pro 8.1
+
+* [x] **AVANÇAR**
+
+* [ ] Oferta
+* [ ] Freebie
+* [x] Atualização
+* [x] Notícia`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 1);
+  assert.equal((result.processable || []).length, 0);
+  assert.equal((result.unprocessable || []).length, 1);
+  assert.equal(result.movedCount, 0);
+  assert.equal(result.nextStages.length, 0);
+});
+
+test("seleção mista: um RADAR válido + um sem etapa", () => {
+  const body = `### Valid Radar
+
+* [x] **AVANÇAR**
+
+**Radar**
+
+* [x] Oferta
+
+---
+
+### Item sem etapa
+
+* [x] **AVANÇAR**
+
+* [x] Oferta`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 2);
+  assert.equal((result.processable || []).length, 1);
+  assert.equal((result.unprocessable || []).length, 1);
+  assert.equal(result.movedCount, 1);
+  assert.equal(result.nextStages.length, 1);
+});
+
+test("checklists ASP exact values are present", () => {
+  const freeQual = renderStageChecklist("FREE QUALIFICATION");
+  assert.match(freeQual, /Free temporário/);
+  assert.match(freeQual, /Requer compra/);
+  assert.match(freeQual, /Trial/);
+  assert.match(freeQual, /Inconclusivo/);
+
+  const selecao = renderStageChecklist("SELEÇÃO EDITORIAL");
+  assert.match(selecao, /Desenvolver/);
+  assert.match(selecao, /Monitorar/);
+  assert.match(selecao, /Agrupar em roundup/);
+
+  const branch = renderStageChecklist("BRANCH EDITORIAL");
+  assert.match(branch, /Branch editorial — Status/);
+  assert.match(branch, /Breaking/);
+  assert.match(branch, /Last Chance/);
+  assert.match(branch, /Fire/);
+  assert.match(branch, /Digital Furniture/);
+  assert.match(branch, /Roundup/);
+
+  const preview = renderStageChecklist("PREVIEW / HUMAN REVIEW");
+  assert.match(preview, /Claims corretos/);
+  assert.match(preview, /Preview aprovado/);
+
+  const pub = renderStageChecklist("PUBLICATION GATE");
+  assert.match(pub, /Approve Merge/);
+  assert.match(pub, /Return to Review/);
+});
