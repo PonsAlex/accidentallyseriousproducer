@@ -11,6 +11,16 @@ export const STAGE_ORDER = [
   "PUBLICATION GATE"
 ];
 
+export const STAGE_ALIASES = {
+  RADAR: ["RADAR", "Radar"],
+  EVIDÊNCIA: ["EVIDÊNCIA", "EVIDENCIA", "O QUE CONSEGUIMOS PROVAR?", "O que conseguimos provar?"],
+  "FREE QUALIFICATION": ["FREE QUALIFICATION", "Free qualification", "FREE QUALIFICATION (WHEN APPLICABLE)", "Free Qualification"],
+  "SELEÇÃO EDITORIAL": ["SELEÇÃO EDITORIAL", "SELECAO EDITORIAL", "Seleção editorial", "Selecao editorial"],
+  "BRANCH EDITORIAL": ["BRANCH EDITORIAL", "Branch editorial", "Branch Editorial"],
+  "PREVIEW / HUMAN REVIEW": ["PREVIEW / HUMAN REVIEW", "Preview / Human review", "PREVIEW / HUMAN REVIEW"],
+  "PUBLICATION GATE": ["PUBLICATION GATE", "Publication gate"]
+};
+
 export const STAGE_TITLES = {
   RADAR: "Radar",
   EVIDÊNCIA: "O que conseguimos provar?",
@@ -42,10 +52,9 @@ export const STAGE_CHECKLISTS = {
     "Revisão necessária"
   ],
   "FREE QUALIFICATION": [
-    "Oferta gratuita confirmada",
-    "Termos confirmados",
-    "Restrição de uso validada",
-    "Qualificação de gratuidade concluída",
+    "Claim de gratuidade confirmado",
+    "Condições de gratuidade verificadas",
+    "Qualificação concluída",
     "Revisão de elegibilidade necessária"
   ],
   "SELEÇÃO EDITORIAL": [
@@ -78,55 +87,60 @@ export const STAGE_CHECKLISTS = {
   ]
 };
 
-const ADVANCE_CHECKBOX = /(?:^|\n)\s*[*-]\s*\[(?:x|X)\]\s*(?:\*\*)?AVANÇAR(?:\*\*)?/m;
-const AVANCA_CHECKBOX = /(?:^|\n)\s*[*-]\s*\[(?:x|X)\]\s*(?:\*\*)?AVANÇAR(?:\*\*)?/m;
-const SELECTOR_LINE = /^\s*[*-]\s*\[(?:x|X)\]\s*(?:\*\*)?AVANÇAR(?:\*\*)?\s*$/m;
-const STAGE_LABEL = /^\s*\*\*(.+?)\*\*\s*$/m;
 const ISSUE_ITEM_HEADING = /^###\s+(.+)$/gm;
-const ALREADY_PROCESSED = /<!--\s*asp-editorial-advance:\s*[^>]+\s*-->/m;
+const ADVANCE_CHECKBOX_RE = /(?:^|\n)\s*[*-]\s*\[\s*x\s*\]\s*(?:\*\*)?AVANÇAR(?:\*\*)?\s*(?:\n|$)/im;
+const PROCESSED_MARKER_RE = /<!--\s*asp-editorial-advance:.*?-->|↗ Avançado para #\d+\s*—/is;
 
-export function normalizeStageName(value = "") {
-  const normalized = value
+function removeDiacritics(value = "") {
+  return String(value ?? "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .toUpperCase()
-    .replace(/\s+/g, " ")
+    .replace(/\*/g, "")
     .trim();
+}
 
-  if (!normalized) return "";
-  if (normalized === "RADAR") return "RADAR";
-  if (normalized === "EVIDENCIA") return "EVIDÊNCIA";
-  if (normalized.includes("FREE") && normalized.includes("QUAL")) return "FREE QUALIFICATION";
-  if (normalized.includes("SELECAO") || normalized.includes("SELEÇÃO") || normalized.includes("SELEC") || normalized.includes("EDITORIAL")) return "SELEÇÃO EDITORIAL";
-  if (normalized.includes("BRANCH")) return "BRANCH EDITORIAL";
-  if (normalized.includes("PREVIEW") || normalized.includes("HUMAN REVIEW")) return "PREVIEW / HUMAN REVIEW";
-  if (normalized.includes("PUBLICATION") || normalized.includes("GATE")) return "PUBLICATION GATE";
-  return normalized;
+export function normalizeStageName(value = "") {
+  const candidate = removeDiacritics(String(value ?? "")).toUpperCase();
+  if (!candidate) return "";
+
+  for (const [stage, aliases] of Object.entries(STAGE_ALIASES)) {
+    for (const alias of aliases) {
+      if (candidate === removeDiacritics(alias).toUpperCase()) {
+        return stage;
+      }
+    }
+  }
+
+  return "";
+}
+
+export function findStageLabelInText(text = "") {
+  const lines = String(text ?? "").split(/\r?\n/);
+  for (const line of lines) {
+    const normalized = normalizeStageName(line);
+    if (normalized) return normalized;
+  }
+  return "";
 }
 
 export function parseIssueCards(issueBody = "") {
   const cards = [];
-  const headings = [...issueBody.matchAll(ISSUE_ITEM_HEADING)];
+  const headings = [...String(issueBody ?? "").matchAll(ISSUE_ITEM_HEADING)];
 
   for (let index = 0; index < headings.length; index += 1) {
     const match = headings[index];
     const nextMatch = headings[index + 1];
     const title = match[1].trim();
     const start = match.index + match[0].length;
-    const end = nextMatch ? nextMatch.index : issueBody.length;
-    const rawContent = issueBody.slice(start, end).trim();
-
-    const stageLineMatch = rawContent.match(STAGE_LABEL);
-    const stage = stageLineMatch ? normalizeStageName(stageLineMatch[1]) : "";
-    const advanceSelected = AVANCA_CHECKBOX.test(rawContent);
-    const processed = ALREADY_PROCESSED.test(rawContent);
+    const end = nextMatch ? nextMatch.index : String(issueBody ?? "").length;
+    const rawContent = String(issueBody ?? "").slice(start, end).trim();
 
     cards.push({
       title,
-      stage,
+      stage: findStageLabelInText(rawContent),
       body: rawContent,
-      advanceSelected,
-      processed
+      advanceSelected: ADVANCE_CHECKBOX_RE.test(rawContent),
+      processed: PROCESSED_MARKER_RE.test(rawContent)
     });
   }
 
@@ -134,7 +148,7 @@ export function parseIssueCards(issueBody = "") {
 }
 
 export function hasFreeClaim(body = "") {
-  const haystack = body.toLowerCase();
+  const haystack = String(body ?? "").toLowerCase();
   return /(freebie|free|gratuit|gratis|free with purchase|gratuidade|oferta gratuita|produto gratuito|possible free|free offer)/i.test(haystack);
 }
 
@@ -152,50 +166,58 @@ export function determineNextStage(currentStage = "", body = "") {
   return null;
 }
 
+function isAdvanceControlLine(line = "") {
+  return /^\s*[*-]\s*\[[ xX]\]\s*(?:\*\*)?AVANÇAR(?:\*\*)?\s*$/.test(String(line ?? ""));
+}
+
+function isChecklistLine(line = "") {
+  return /^\s*[*-]\s*\[[ xX]\]\s+/.test(String(line ?? ""));
+}
+
 function stripStageContent(body = "") {
-  const lines = body.split(/\r?\n/);
-  const keep = [];
-  let dropStageFromHere = false;
+  const lines = String(body ?? "").split(/\r?\n/);
+  const safeLines = [];
+  let stageSeen = false;
 
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    if (i === 0 && /^\s*[*-]\s*\[.*\]\s*(?:\*\*)?AVANÇAR(?:\*\*)?\s*$/.test(line)) {
+  for (const line of lines) {
+    if (isAdvanceControlLine(line)) {
+      continue;
+    }
+    if (!stageSeen) {
+      const normalized = normalizeStageName(line);
+      if (normalized) {
+        stageSeen = true;
+        continue;
+      }
+      safeLines.push(line);
       continue;
     }
 
-    if (STAGE_LABEL.test(line)) {
-      dropStageFromHere = true;
+    if (isChecklistLine(line)) {
       continue;
     }
-
-    if (dropStageFromHere) {
-      if (/^\s*$/.test(line)) continue;
-      if (/^\s*[*-]\s*\[[ xX]\]/.test(line)) continue;
-      if (/^\s*[*-]\s*\*\*/.test(line)) continue;
-      if (/^\s*\*\*.+\*\*\s*$/.test(line)) continue;
-      if (/^\s*#+\s*/.test(line)) continue;
-      keep.push(line);
-      continue;
-    }
-
-    keep.push(line);
+    safeLines.push(line);
   }
 
-  return keep.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return safeLines
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 export function renderStageChecklist(stageName = "EVIDÊNCIA") {
-  const orderedStage = normalizeStageName(stageName);
+  const orderedStage = normalizeStageName(stageName) || "EVIDÊNCIA";
   const items = STAGE_CHECKLISTS[orderedStage] ?? STAGE_CHECKLISTS.EVIDÊNCIA;
-  return `**${STAGE_TITLES[orderedStage] || orderedStage}**\n\n${items.map((entry) => `* [ ] ${entry}`).join("\n")}`;
+  const title = STAGE_TITLES[orderedStage] || orderedStage;
+  return `**${title}**\n\n${items.map((entry) => `* [ ] ${entry}`).join("\n")}`;
 }
 
 export function buildSelectedItemBody(card, nextStage) {
-  const withoutStage = stripStageContent(card.body || "").trim();
-  const bodyChunks = [];
-  if (withoutStage) bodyChunks.push(withoutStage);
-  bodyChunks.push(renderStageChecklist(nextStage));
-  return bodyChunks.join("\n\n").trim();
+  const contentBeforeStage = stripStageContent(card.body || "").trim();
+  const chunks = [];
+  if (contentBeforeStage) chunks.push(contentBeforeStage);
+  chunks.push(renderStageChecklist(nextStage));
+  return chunks.join("\n\n").trim();
 }
 
 export function buildAdvancedIssueBody(selectedCards, sourceIssueNumber, nextStage) {
@@ -204,7 +226,7 @@ export function buildAdvancedIssueBody(selectedCards, sourceIssueNumber, nextSta
     .map((card) => {
       const title = card.title || "Item editorial";
       const itemBody = buildSelectedItemBody(card, nextStage);
-      return `### ${title}\n\n* [ ] **AVANÇAR**\n\n${itemBody}\n\n/advance`;
+      return `### ${title}\n\n* [ ] **AVANÇAR**\n\n${itemBody}`;
     })
     .join("\n\n---\n\n");
 
@@ -226,17 +248,16 @@ export function processAdvanceRequest(issueBody = "", sourceIssueNumber = "") {
   }
 
   const nextStages = [...byStage.entries()];
-  const result = {
+  return {
     cards,
     selected,
     nextStages,
     grouped: Object.fromEntries(nextStages.map(([stage, stageCards]) => [stage, stageCards])),
     noSelection: selected.length === 0,
     movedCount: selected.length,
-    createdIssues: []
+    createdIssues: [],
+    sourceIssueNumber
   };
-
-  return result;
 }
 
 async function ghRequest(url, token, method = "GET", body) {
@@ -269,6 +290,30 @@ async function createDestinationIssue(repo, token, title, body) {
   return ghRequest(url, token, "POST", { title, body });
 }
 
+async function updateOriginalIssueBody(repo, issueNumber, token, body) {
+  const url = `https://api.github.com/repos/${repo}/issues/${issueNumber}`;
+  return ghRequest(url, token, "PATCH", { body });
+}
+
+export function markItemsProcessedInIssue(issueBody = "", selectedCards = [], createdIssues = []) {
+  let updated = String(issueBody ?? "");
+  const destByStage = Object.fromEntries(createdIssues.map((issue) => [issue.stage, issue.issueNumber]));
+
+  for (const card of selectedCards) {
+    const destinationStage = determineNextStage(card.stage, card.body) || card.stage || "EVIDÊNCIA";
+    const destinationNumber = destByStage[destinationStage] ?? "";
+    const headingEscaped = card.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const pattern = new RegExp(`(^###\\s*${headingEscaped}\\s*\\n\\s*\\n)(\\*\\s*\\[(?:x|X)\\]\\s*(?:\\*\\*)?AVANÇAR(?:\\*\\*)?\\s*\\n?)`, "m");
+
+    updated = updated.replace(
+      pattern,
+      `$1* [ ] **AVANÇAR**\n\n<!-- asp-editorial-advance: ${destinationStage} -> #${destinationNumber} -->\n↗ Avançado para #${destinationNumber} — ${destinationStage}.\n\n`
+    );
+  }
+
+  return updated;
+}
+
 export async function runAdvanceWorkflowFromEnv() {
   if (!process.env.GITHUB_EVENT_PATH || !process.env.GITHUB_REPOSITORY || !process.env.GITHUB_TOKEN) {
     return { skipped: true, reason: "GitHub Actions environment variables were not provided." };
@@ -280,8 +325,22 @@ export async function runAdvanceWorkflowFromEnv() {
   const issueNumber = event.issue?.number;
   const issueBody = event.issue?.body ?? "";
   const commentBody = event.comment?.body ?? "";
+  const commentUser = event.comment?.user?.login;
 
-  if (!issueNumber || commentBody.trim() !== "/advance") {
+  if (!issueNumber || !commentUser || event.issue?.pull_request) {
+    return { skipped: true, reason: "This workflow only processes issue comments on non-PR issues." };
+  }
+
+  const permissionUrl = `https://api.github.com/repos/${repo}/collaborators/${commentUser}/permission`;
+  const permissionPayload = await ghRequest(permissionUrl, token, "GET");
+  const allowed = ["admin", "maintain", "write"].includes(permissionPayload.permission);
+
+  if (!allowed) {
+    await createIssueComment(repo, issueNumber, token, "⚠️ Você não tem permissão para avançar itens editoriais.");
+    return { skipped: true, reason: "Author lacks the required repository permission." };
+  }
+
+  if (commentBody.trim() !== "/advance") {
     return { skipped: true, reason: "Comment body was not an exact /advance trigger." };
   }
 
@@ -298,6 +357,9 @@ export async function runAdvanceWorkflowFromEnv() {
     const created = await createDestinationIssue(repo, token, title, body);
     createdIssues.push({ stage, issueNumber: created.number, url: created.html_url });
   }
+
+  const updatedIssueBody = markItemsProcessedInIssue(issueBody, result.selected, createdIssues);
+  await updateOriginalIssueBody(repo, issueNumber, token, updatedIssueBody);
 
   const summary = createdIssues.length > 0
     ? createdIssues.map(({ stage, issueNumber: createdIssueNumber }) => `#${createdIssueNumber} — ${stage}`).join(", ")

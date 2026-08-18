@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   advance-editorial-items:
-    if: ${{ github.event.issue.pull_request == false && github.event.comment.body != null && trim(github.event.comment.body) == '/advance' }}
+    if: ${{ github.event.issue.pull_request == false && github.event.comment.body == '/advance' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
 

@@ -3,14 +3,70 @@ import assert from "node:assert/strict";
 import {
   buildAdvancedIssueBody,
   determineNextStage,
+  findStageLabelInText,
+  markItemsProcessedInIssue,
   parseIssueCards,
   processAdvanceRequest,
   renderStageChecklist
 } from "../scripts/editorial-advance.mjs";
 
-const SAMPLE_BODY = `### Item A
+const ISSUE_31_FIXTURE = `### deadmau5 — AUTO/PILOT
+
+* [ ] **AVANÇAR**
+
+A plataforma de DJ/performance de deadmau5 é real e foi apresentada publicamente em maio.
+
+**Radar**
+
+* [ ] Oferta
+* [ ] Freebie
+* [x] Novo produto
+* [ ] Atualização
+* [x] Notícia
+* [ ] Outro
+* [ ] Ignorar
+
+---
+
+### HoRNet Plugins — Summer Sale 88%
 
 * [x] **AVANÇAR**
+
+O próprio e-mail da HoRNet informa o código SUM88OFF, 88% de desconto em plugins individuais.
+
+**Radar**
+
+* [x] Oferta
+* [ ] Freebie
+* [ ] Novo produto
+* [ ] Atualização
+* [ ] Notícia
+* [ ] Outro
+* [ ] Ignorar
+
+---
+
+### SoundMorph — End of Summer
+
+* [ ] **AVANÇAR**
+
+O Outlook registra campanha 40% Off Sitewide da SoundMorph.
+
+**Radar**
+
+* [x] Oferta
+* [ ] Freebie
+* [ ] Novo produto
+* [ ] Atualização
+* [ ] Notícia
+* [ ] Outro
+* [ ] Ignorar`;
+
+const SAMPLE_RADAR_WITH_BOLD_TEXT = `### Item A
+
+* [x] **AVANÇAR**
+
+**Nova pauta forte.**
 
 Texto de destaque.
 
@@ -18,29 +74,6 @@ Texto de destaque.
 
 * [x] Oferta
 * [ ] Freebie
-* [ ] Novo produto
-
-### Item B
-
-* [ ] **AVANÇAR**
-
-Texto que fica na origem.
-
-**Radar**
-
-* [ ] Oferta
-* [ ] Freebie
-
-### Item C
-
-* [x] **AVANÇAR**
-
-Este item tem freebie no texto.
-
-**Radar**
-
-* [x] Oferta
-* [x] Freebie
 * [ ] Novo produto`;
 
 test("nenhum item selecionado", () => {
@@ -52,11 +85,11 @@ test("nenhum item selecionado", () => {
 });
 
 test("um item selecionado avança para a próxima etapa", () => {
-  const result = processAdvanceRequest(SAMPLE_BODY, "31");
+  const result = processAdvanceRequest(ISSUE_31_FIXTURE, "31");
 
-  assert.equal(result.selected.length, 2);
+  assert.equal(result.selected.length, 1);
   assert.equal(result.nextStages[0][0], "EVIDÊNCIA");
-  assert.match(result.grouped["EVIDÊNCIA"][0].title, /Item A/);
+  assert.match(result.grouped["EVIDÊNCIA"][0].title, /HoRNet/);
 });
 
 test("vários itens selecionados são agrupados por etapa", () => {
@@ -91,6 +124,18 @@ test("item sem claim gratuito pula Free Qualification", () => {
   assert.equal(nextStage, "SELEÇÃO EDITORIAL");
 });
 
+test("reconhece somente labels conhecidos de etapa, não qualquer negrito", () => {
+  const stage = findStageLabelInText(SAMPLE_RADAR_WITH_BOLD_TEXT);
+  assert.equal(stage, "RADAR");
+});
+
+test("BRANCH EDITORIAL avança para PREVIEW / HUMAN REVIEW", () => {
+  const body = `### Item Branch\n\n* [x] **AVANÇAR**\n\n**Branch Editorial**\n\n* [ ] Branch registrada`;
+  const nextStage = determineNextStage("BRANCH EDITORIAL", body);
+
+  assert.equal(nextStage, "PREVIEW / HUMAN REVIEW");
+});
+
 test("repetição de avanço é bloqueada por marker de processamento", () => {
   const body = `### Item A\n\n* [x] **AVANÇAR**\n\n<!-- asp-editorial-advance: already-processed -->\n\n**Radar**\n\n* [x] Oferta`;
   const result = processAdvanceRequest(body, "31");
@@ -108,6 +153,7 @@ test("preserva descrição e fontes ao gerar nova issue", () => {
   assert.match(generated, /https:\/\/example.com/);
   assert.match(generated, /\* \[ \] \*\*AVANÇAR\*\*/);
   assert.match(generated, /O que conseguimos provar\?/);
+  assert.doesNotMatch(generated, /\/advance/);
 });
 
 test("renderStageChecklist monta a checklist da etapa seguinte", () => {
@@ -116,4 +162,29 @@ test("renderStageChecklist monta a checklist da etapa seguinte", () => {
   assert.match(rendered, /O que conseguimos provar\?/);
   assert.match(rendered, /Fonte primária confirmada/);
   assert.match(rendered, /\* \[ \] Fonte primária confirmada/);
+});
+
+test("a segunda execução não cria duplicata após processamento", () => {
+  const body = `### Item A\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta\n\n↗ Avançado para #99 — EVIDÊNCIA.`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 0);
+  assert.equal(result.noSelection, true);
+});
+
+test("Issue #31 real é reconhecida e processa somente o item com AVANÇAR", () => {
+  const result = processAdvanceRequest(ISSUE_31_FIXTURE, "31");
+  assert.equal(result.movedCount, 1);
+  assert.equal(result.selected[0].title, "HoRNet Plugins — Summer Sale 88%");
+});
+
+test("a marcação de processamento reseta o item na origem", () => {
+  const updated = markItemsProcessedInIssue(
+    `### HoRNet Plugins — Summer Sale 88%\n\n* [x] **AVANÇAR**\n\n**Radar**\n\n* [x] Oferta`,
+    [{ title: "HoRNet Plugins — Summer Sale 88%", stage: "RADAR" }],
+    [{ stage: "EVIDÊNCIA", issueNumber: 44 }]
+  );
+
+  assert.match(updated, /\* \[ \] \*\*AVANÇAR\*\*/);
+  assert.match(updated, /↗ Avançado para #44 — EVIDÊNCIA/);
 });

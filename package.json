@@ -4,12 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "node scripts/lint.mjs",
-    "test": "node --test tests/*.test.mjs",
-    "validate:data": "node scripts/validate-affiliate-data.mjs",
-    "validate:candidate": "node scripts/validate-promotion-candidate.mjs",
-    "build": "node scripts/build.mjs",
-        "fix:issue-31": "node scripts/patch-issue-advance.mjs --issue 31 --repo PonsAlex/accidentallyseriousproducer"
+        "lint": "node scripts/lint.mjs",
+        "test": "node --test tests/*.test.mjs",
+        "validate:data": "node scripts/validate-affiliate-data.mjs",
+        "validate:candidate": "node scripts/validate-promotion-candidate.mjs",
+        "build": "node scripts/build.mjs"
       },
   "engines": {
     "node": ">=20"
