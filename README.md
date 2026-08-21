@@ -168,7 +168,7 @@ A concrete card should look like this:
 
 * [ ] **AVANÇAR**
 
-**O que aconteceu?**
+**RADAR**
 
 * [x] Oferta
 * [ ] Freebie
@@ -177,14 +177,12 @@ A concrete card should look like this:
 * [ ] Notícia
 * [ ] Outro
 * [ ] Ignorar
-
-/advance
 ```
 
 This checkbox is separate from the classification, evidence, clipping, Verdict or
 review checks. Only `[x] AVANÇAR` authorizes an item to move when the command
-`/advance` is issued. Add `/advance` to the end of each card; it acts as the
-operational trigger for batch progression. When `/advance` is executed:
+`/advance` is issued as an issue comment (never as card content); it acts as the
+operational trigger for batch progression. When the exact comment `/advance` is posted:
 
 1. locate every item on the card marked `[x] AVANÇAR`;
 2. identify the current stage for each selected item;
@@ -203,6 +201,11 @@ selection trigger is `[x] AVANÇAR`, and the only batch trigger is `/advance`.
 If no item is marked `[x] AVANÇAR`, the board does nothing. If a stage is
 ambiguous or the structure is invalid, the item is left unprocessed instead of
 being guessed.
+
+The workflow uses the repository secret `ASP_PROJECT_TOKEN` (a fine-grained
+token with write access to the ASP Project) to add each destination issue to
+Project 1 and set its canonical `Editorial stage`. If the secret is absent, the
+workflow stops before creating a destination issue.
 
 No intermediate state authorizes automatic publication. Odysseus must not push
 directly to `main`, force-push, merge a PR or expose private source material.

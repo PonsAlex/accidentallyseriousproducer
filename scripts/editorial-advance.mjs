@@ -4,7 +4,6 @@ import { pathToFileURL } from "node:url";
 export const STAGE_ORDER = [
   "RADAR",
   "PREPARAÇÃO",
-  "FREE QUALIFICATION",
   "SELEÇÃO EDITORIAL",
   "BRANCH EDITORIAL",
   "PREVIEW / HUMAN REVIEW",
@@ -13,12 +12,34 @@ export const STAGE_ORDER = [
 
 export const STAGE_ALIASES = {
   RADAR: ["RADAR", "Radar"],
-  PREPARAÇÃO: ["PREPARAÇÃO", "Preparação", "PREPARACAO", "Preparacao", "EVIDÊNCIA", "EVIDENCIA", "EVIDENCE"],
-  "FREE QUALIFICATION": ["FREE QUALIFICATION", "Free qualification", "FREE QUALIFICATION (WHEN APPLICABLE)", "Free Qualification"],
+  PREPARAÇÃO: [
+    "PREPARAÇÃO",
+    "Preparação",
+    "PREPARACAO",
+    "Preparacao",
+    "EVIDÊNCIA",
+    "EVIDENCIA",
+    "EVIDENCE",
+    "Preparação — Evidência",
+    "Preparacao — Evidencia"
+  ],
   "SELEÇÃO EDITORIAL": ["SELEÇÃO EDITORIAL", "SELECAO EDITORIAL", "Seleção editorial", "Selecao editorial"],
   "BRANCH EDITORIAL": ["BRANCH EDITORIAL", "Branch editorial", "Branch Editorial"],
   "PREVIEW / HUMAN REVIEW": ["PREVIEW / HUMAN REVIEW", "Preview / Human review", "PREVIEW / HUMAN REVIEW"],
   "PUBLICATION GATE": ["PUBLICATION GATE", "Publication gate"]
+};
+
+export const PROJECT_CONFIG = {
+  projectId: "PVT_kwHOAvRCkM4BgQi6",
+  stageFieldId: "PVTSSF_lAHOAvRCkM4BgQi6zhagFjM",
+  stageOptionIds: {
+    RADAR: "43a51db4",
+    PREPARAÇÃO: "84f41bd5",
+    "SELEÇÃO EDITORIAL": "7e221e03",
+    "BRANCH EDITORIAL": "54295ea8",
+    "PREVIEW / HUMAN REVIEW": "2c22896f",
+    "PUBLICATION GATE": "7723b6d0"
+  }
 };
 
 import { STAGE_TITLES, STAGE_CHECKLISTS } from "./editorial-checklists.mjs";
@@ -52,11 +73,26 @@ export function normalizeStageName(value = "") {
 
 export function findStageLabelInText(text = "") {
   const lines = String(text ?? "").split(/\r?\n/);
+  let legacyPreparation = "";
   for (const line of lines) {
     const normalized = normalizeStageName(line);
-    if (normalized) return normalized;
+    if (!normalized) continue;
+
+    const candidate = removeDiacritics(line).toUpperCase();
+    const isLegacyEvidence = [
+      "EVIDENCIA",
+      "EVIDENCE",
+      "PREPARACAO — EVIDENCIA"
+    ].includes(candidate);
+
+    if (isLegacyEvidence) {
+      legacyPreparation = "PREPARAÇÃO";
+      continue;
+    }
+
+    return normalized;
   }
-  return "";
+  return legacyPreparation;
 }
 
 export function parseIssueCards(issueBody = "") {
@@ -90,16 +126,12 @@ export function hasFreeClaim(body = "") {
 
 export function determineNextStage(currentStage = "", body = "") {
   const stageName = normalizeStageName(currentStage);
-  const freeClaim = hasFreeClaim(body);
 
   if (stageName === "RADAR") return "PREPARAÇÃO";
-  // PREPARAÇÃO now contains Evidência and (when applicable) Free Qualification.
   if (stageName === "PREPARAÇÃO") return "SELEÇÃO EDITORIAL";
-  if (stageName === "FREE QUALIFICATION") return "SELEÇÃO EDITORIAL";
   if (stageName === "SELEÇÃO EDITORIAL") return "BRANCH EDITORIAL";
   if (stageName === "BRANCH EDITORIAL") return "PREVIEW / HUMAN REVIEW";
   if (stageName === "PREVIEW / HUMAN REVIEW") return "PUBLICATION GATE";
-  if (stageName === "PUBLICATION GATE") return "PUBLICATION GATE";
   return null;
 }
 
@@ -109,6 +141,21 @@ function isAdvanceControlLine(line = "") {
 
 function isChecklistLine(line = "") {
   return /^\s*[*-]\s*\[[ xX]\]\s+/.test(String(line ?? ""));
+}
+
+function isStageContentHeadingLine(line = "") {
+  if (normalizeStageName(line)) return true;
+
+  const candidate = removeDiacritics(line).toUpperCase();
+  const headings = [
+    ...Object.keys(STAGE_CHECKLISTS),
+    ...Object.values(STAGE_TITLES),
+    ...Object.values(STAGE_CHECKLISTS)
+      .filter((checklist) => Array.isArray(checklist))
+      .flatMap((checklist) => checklist.filter((entry) => typeof entry === "object").map((entry) => entry.title))
+  ];
+
+  return headings.some((heading) => candidate === removeDiacritics(heading).toUpperCase());
 }
 
 function stripStageContent(body = "") {
@@ -133,6 +180,9 @@ function stripStageContent(body = "") {
     if (isChecklistLine(line)) {
       continue;
     }
+    if (isStageContentHeadingLine(line) || /^\s*---\s*$/.test(line)) {
+      continue;
+    }
     safeLines.push(line);
   }
 
@@ -143,7 +193,10 @@ function stripStageContent(body = "") {
 }
 
 export function renderStageChecklist(stageName = "EVIDÊNCIA") {
-  const orderedStage = normalizeStageName(stageName) || "EVIDÊNCIA";
+  const orderedStage = normalizeStageName(stageName) || "PREPARAÇÃO";
+  if (orderedStage === "PREPARAÇÃO") {
+    return renderChecklistGroup("Preparação — Evidência", STAGE_CHECKLISTS.EVIDÊNCIA);
+  }
   const checklist = STAGE_CHECKLISTS[orderedStage] ?? STAGE_CHECKLISTS.EVIDÊNCIA;
   const title = STAGE_TITLES[orderedStage] || orderedStage;
 
@@ -168,7 +221,7 @@ export function buildSelectedItemBody(card, nextStage) {
   const chunks = [];
   if (contentBeforeStage) chunks.push(contentBeforeStage);
 
-  // Special handling for PREPARAÇÃO: compose Evidência group and optional Free Qualification group
+  // PREPARAÇÃO contains evidence and, only for a free claim, free qualification.
   if (nextStage === "PREPARAÇÃO") {
     // Use canonical EVIDÊNCIA checklist as the Preparação — Evidência group
     const evidenciaItems = STAGE_CHECKLISTS["EVIDÊNCIA"] || STAGE_CHECKLISTS.EVIDÊNCIA || [];
@@ -192,7 +245,7 @@ export function buildAdvancedIssueBody(selectedCards, sourceIssueNumber, nextSta
     .map((card) => {
       const title = card.title || "Item editorial";
       const itemBody = buildSelectedItemBody(card, nextStage);
-      return `### ${title}\n\n* [ ] **AVANÇAR**\n\n${itemBody}`;
+      return `### ${title}\n\n* [ ] **AVANÇAR**\n\n**${nextStage}**\n\n${itemBody}`;
     })
     .join("\n\n---\n\n");
 
@@ -206,9 +259,14 @@ export function processAdvanceRequest(issueBody = "", sourceIssueNumber = "") {
 
   const processable = [];
   const unprocessable = [];
+  const terminal = [];
   const byStage = new Map();
 
   for (const card of selected) {
+    if (normalizeStageName(card.stage) === "PUBLICATION GATE") {
+      terminal.push(card);
+      continue;
+    }
     const nextStage = determineNextStage(card.stage, card.body);
     if (!nextStage) {
       unprocessable.push(card);
@@ -226,6 +284,7 @@ export function processAdvanceRequest(issueBody = "", sourceIssueNumber = "") {
     selected,
     processable,
     unprocessable,
+    terminal,
     nextStages,
     grouped: Object.fromEntries(nextStages.map(([stage, stageCards]) => [stage, stageCards])),
     noSelection: selected.length === 0,
@@ -253,6 +312,76 @@ async function ghRequest(url, token, method = "GET", body) {
   }
 
   return response.status === 204 ? null : response.json();
+}
+
+async function graphQlRequest(token, query, variables) {
+  const response = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      "X-GitHub-Api-Version": "2022-11-28"
+    },
+    body: JSON.stringify({ query, variables })
+  });
+  const payload = await response.json();
+
+  if (!response.ok || payload.errors?.length) {
+    throw new Error(`GitHub GraphQL request failed: ${response.status} :: ${JSON.stringify(payload.errors ?? payload)}`);
+  }
+  return payload.data;
+}
+
+export async function setProjectStageForIssue(issueNodeId, stage, token, config = PROJECT_CONFIG) {
+  const optionId = config.stageOptionIds[stage];
+  if (!issueNodeId || !optionId || !token) {
+    throw new Error(`Project stage configuration is incomplete for ${stage || "unknown stage"}.`);
+  }
+
+  const lookup = await graphQlRequest(token, `
+    query ProjectItemForIssue($projectId: ID!) {
+      node(id: $projectId) {
+        ... on ProjectV2 {
+          items(first: 100) {
+            nodes { id content { ... on Issue { id } } }
+          }
+        }
+      }
+    }
+  `, { projectId: config.projectId });
+  let itemId = lookup.node?.items?.nodes?.find((item) => item.content?.id === issueNodeId)?.id;
+
+  if (!itemId) {
+    const added = await graphQlRequest(token, `
+      mutation AddIssueToProject($projectId: ID!, $contentId: ID!) {
+        addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+          item { id }
+        }
+      }
+    `, { projectId: config.projectId, contentId: issueNodeId });
+    itemId = added.addProjectV2ItemById.item.id;
+  }
+
+  await graphQlRequest(token, `
+    mutation SetEditorialStage($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+      updateProjectV2ItemFieldValue(input: {
+        projectId: $projectId,
+        itemId: $itemId,
+        fieldId: $fieldId,
+        value: { singleSelectOptionId: $optionId }
+      }) {
+        projectV2Item { id }
+      }
+    }
+  `, {
+    projectId: config.projectId,
+    itemId,
+    fieldId: config.stageFieldId,
+    optionId
+  });
+
+  return { itemId, stage, optionId };
 }
 
 async function createIssueComment(repo, issueNumber, token, message) {
@@ -297,6 +426,7 @@ export async function runAdvanceWorkflowFromEnv() {
   const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, "utf8"));
   const repo = process.env.GITHUB_REPOSITORY;
   const token = process.env.GITHUB_TOKEN;
+  const projectToken = process.env.ASP_PROJECT_TOKEN;
   const issueNumber = event.issue?.number;
   const issueBody = event.issue?.body ?? "";
   const commentBody = event.comment?.body ?? "";
@@ -315,7 +445,7 @@ export async function runAdvanceWorkflowFromEnv() {
     return { skipped: true, reason: "Author lacks the required repository permission." };
   }
 
-  if (commentBody.trim() !== "/advance") {
+  if (commentBody !== "/advance") {
     return { skipped: true, reason: "Comment body was not an exact /advance trigger." };
   }
 
@@ -327,6 +457,10 @@ export async function runAdvanceWorkflowFromEnv() {
 
   // If items were selected but none are processable (no recognized stage), report and skip.
   if ((result.processable ?? []).length === 0) {
+    if ((result.terminal ?? []).length > 0 && (result.unprocessable ?? []).length === 0) {
+      await createIssueComment(repo, issueNumber, token, "ℹ️ PUBLICATION GATE é terminal; nenhum novo card foi criado.");
+      return { skipped: true, reason: "Publication Gate is terminal." };
+    }
     const titles = (result.unprocessable ?? []).map((c) => c.title).filter(Boolean);
     const msg = titles.length > 0
       ? `⚠️ Nenhum item selecionado pôde ser avançado porque a etapa atual não foi reconhecida: ${titles.join(", ")}.`
@@ -335,11 +469,17 @@ export async function runAdvanceWorkflowFromEnv() {
     return { skipped: true, reason: "Selected items have no recognized stage." };
   }
 
+  if (!projectToken) {
+    await createIssueComment(repo, issueNumber, token, "⚠️ O avanço não foi executado porque ASP_PROJECT_TOKEN não está configurado.");
+    return { skipped: true, reason: "Project token was not configured." };
+  }
+
   const createdIssues = [];
   for (const [stage, cards] of result.nextStages) {
     const title = `${stage} — ${new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" })}`;
     const body = buildAdvancedIssueBody(cards, issueNumber, stage);
     const created = await createDestinationIssue(repo, token, title, body);
+    await setProjectStageForIssue(created.node_id, stage, projectToken);
     createdIssues.push({ stage, issueNumber: created.number, url: created.html_url });
   }
 
@@ -355,6 +495,9 @@ export async function runAdvanceWorkflowFromEnv() {
   if ((result.unprocessable ?? []).length > 0) {
     const titles = result.unprocessable.map((c) => c.title).filter(Boolean);
     summaryMessage += `\n⚠️ ${result.unprocessable.length} item(ns) não foi(ram) processado(s) por não possuir etapa reconhecida: ${titles.join(", ")}.`;
+  }
+  if ((result.terminal ?? []).length > 0) {
+    summaryMessage += `\nℹ️ ${result.terminal.length} item(ns) em PUBLICATION GATE não foi(ram) avançado(s), pois essa é a etapa terminal.`;
   }
 
   await createIssueComment(repo, issueNumber, token, summaryMessage);

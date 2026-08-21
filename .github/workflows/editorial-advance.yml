@@ -27,5 +27,6 @@ jobs:
         run: node scripts/editorial-advance.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ASP_PROJECT_TOKEN: ${{ secrets.ASP_PROJECT_TOKEN }}
           GITHUB_EVENT_PATH: ${{ github.event_path }}
           GITHUB_REPOSITORY: ${{ github.repository }}

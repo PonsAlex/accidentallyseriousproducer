@@ -6,9 +6,12 @@ import {
   determineNextStage,
   findStageLabelInText,
   markItemsProcessedInIssue,
+  normalizeStageName,
   parseIssueCards,
   processAdvanceRequest,
-  renderStageChecklist
+  renderStageChecklist,
+  setProjectStageForIssue,
+  STAGE_ORDER
 } from "../scripts/editorial-advance.mjs";
 
 const ISSUE_31_FIXTURE = `### deadmau5 — AUTO/PILOT
@@ -115,6 +118,105 @@ test("RADAR -> PREPARAÇÃO on advance", () => {
   const nextStage = determineNextStage(cards[0].stage, cards[0].body);
 
   assert.equal(nextStage, "PREPARAÇÃO");
+});
+
+test("todas as transições canônicas avançam para a etapa seguinte", () => {
+  const transitions = [
+    ["RADAR", "PREPARAÇÃO"],
+    ["PREPARAÇÃO", "SELEÇÃO EDITORIAL"],
+    ["SELEÇÃO EDITORIAL", "BRANCH EDITORIAL"],
+    ["BRANCH EDITORIAL", "PREVIEW / HUMAN REVIEW"],
+    ["PREVIEW / HUMAN REVIEW", "PUBLICATION GATE"]
+  ];
+
+  for (const [from, to] of transitions) {
+    assert.equal(determineNextStage(from), to, `${from} -> ${to}`);
+    const source = `### Item ${from}\n\n* [x] **AVANÇAR**\n\n**${from}**\n\n* [x] Check anterior`;
+    const result = processAdvanceRequest(source, "31");
+    const destination = buildAdvancedIssueBody(result.processable, "31", to);
+
+    assert.equal(result.nextStages[0][0], to, `${from} is grouped under ${to}`);
+    assert.ok(destination.includes(`**${to}**`), `${to} has an explicit stage marker`);
+    assert.match(destination, /\* \[ \] \*\*AVANÇAR\*\*/);
+    assert.doesNotMatch(destination, /Check anterior/);
+  }
+  assert.equal(determineNextStage("PUBLICATION GATE"), null);
+});
+
+test("cada destino tem marcador explícito da etapa e checklist canônica", () => {
+  const source = `### Item\n\n* [x] **AVANÇAR**\n\n**RADAR**\n\n* [x] Oferta`;
+  const card = parseIssueCards(source)[0];
+  const generated = buildAdvancedIssueBody([card], "31", "PREPARAÇÃO");
+
+  assert.match(generated, /\*\*PREPARAÇÃO\*\*/);
+  assert.match(generated, /Preparação — Evidência/);
+  assert.match(generated, /\* \[ \] \*\*AVANÇAR\*\*/);
+  assert.equal(parseIssueCards(generated)[0].stage, "PREPARAÇÃO");
+});
+
+test("PREPARAÇÃO -> SELEÇÃO EDITORIAL substitui a checklist anterior", () => {
+  const body = `### Item Preparado\n\n* [x] **AVANÇAR**\n\n**PREPARAÇÃO**\n\n**Preparação — Evidência**\n\n* [x] Fonte primária confirmada\n* [ ] Preço confirmado`;
+  const card = parseIssueCards(body)[0];
+  const generated = buildAdvancedIssueBody([card], "31", "SELEÇÃO EDITORIAL");
+
+  assert.match(generated, /\*\*SELEÇÃO EDITORIAL\*\*/);
+  assert.match(generated, /\* \[ \] Desenvolver/);
+  assert.doesNotMatch(generated, /Fonte primária confirmada/);
+  assert.doesNotMatch(generated, /Preparação — Evidência/);
+});
+
+test("marcador canônico posterior prevalece sobre título legado de evidência", () => {
+  const body = `**Preparação — Evidência**\n\n**Seleção editorial**\n\n* [ ] Desenvolver`;
+  assert.equal(findStageLabelInText(body), "SELEÇÃO EDITORIAL");
+});
+
+test("EVIDÊNCIA é apenas alias legado de leitura e Free Qualification não é etapa", () => {
+  assert.equal(normalizeStageName("EVIDÊNCIA"), "PREPARAÇÃO");
+  assert.equal(normalizeStageName("Preparação — Evidência"), "PREPARAÇÃO");
+  assert.equal(normalizeStageName("FREE QUALIFICATION"), "");
+  assert.equal(STAGE_ORDER.includes("FREE QUALIFICATION"), false);
+});
+
+test("PUBLICATION GATE é terminal e não entra em destinos", () => {
+  const body = `### Item Publicado\n\n* [x] **AVANÇAR**\n\n**PUBLICATION GATE**\n\n* [x] Approve Merge`;
+  const result = processAdvanceRequest(body, "31");
+
+  assert.equal(result.selected.length, 1);
+  assert.equal(result.processable.length, 0);
+  assert.equal(result.unprocessable.length, 0);
+  assert.equal(result.terminal.length, 1);
+  assert.equal(result.nextStages.length, 0);
+});
+
+test("item criado recebe a etapa correspondente no Project V2", async () => {
+  const originalFetch = globalThis.fetch;
+  const requests = [];
+  globalThis.fetch = async (_url, options) => {
+    const request = JSON.parse(options.body);
+    requests.push(request);
+
+    if (request.query.includes("ProjectItemForIssue")) {
+      return new Response(JSON.stringify({ data: { node: { items: { nodes: [] } } } }));
+    }
+    if (request.query.includes("AddIssueToProject")) {
+      return new Response(JSON.stringify({ data: { addProjectV2ItemById: { item: { id: "item-35" } } } }));
+    }
+    return new Response(JSON.stringify({ data: { updateProjectV2ItemFieldValue: { projectV2Item: { id: "item-35" } } } }));
+  };
+
+  try {
+    const updated = await setProjectStageForIssue("issue-node-35", "SELEÇÃO EDITORIAL", "token", {
+      projectId: "project",
+      stageFieldId: "field",
+      stageOptionIds: { "SELEÇÃO EDITORIAL": "selection-option" }
+    });
+
+    assert.equal(updated.itemId, "item-35");
+    assert.equal(requests.length, 3);
+    assert.equal(requests[2].variables.optionId, "selection-option");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test("PREPARAÇÃO contains Free Qualification group when item has free claim", () => {
@@ -247,12 +349,6 @@ test("seleção mista: um RADAR válido + um sem etapa", () => {
 });
 
 test("checklists ASP exact values are present", () => {
-  const freeQual = renderStageChecklist("FREE QUALIFICATION");
-  assert.match(freeQual, /Free temporário/);
-  assert.match(freeQual, /Requer compra/);
-  assert.match(freeQual, /Trial/);
-  assert.match(freeQual, /Inconclusivo/);
-
   const selecao = renderStageChecklist("SELEÇÃO EDITORIAL");
   assert.match(selecao, /Desenvolver/);
   assert.match(selecao, /Monitorar/);
