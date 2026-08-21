@@ -1,6 +1,6 @@
 export const STAGE_TITLES = {
   RADAR: "Radar",
-  PREPARAÇÃO: "Preparação — Evidência",
+  PREPARAÇÃO: "Preparação",
   EVIDÊNCIA: "O que conseguimos provar?",
   "FREE QUALIFICATION": "Free qualification",
   "SELEÇÃO EDITORIAL": "Seleção editorial",
