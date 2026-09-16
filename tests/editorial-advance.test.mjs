@@ -208,12 +208,16 @@ test("item criado recebe a etapa correspondente no Project V2", async () => {
     const updated = await setProjectStageForIssue("issue-node-35", "SELEÇÃO EDITORIAL", "token", {
       projectId: "project",
       stageFieldId: "field",
-      stageOptionIds: { "SELEÇÃO EDITORIAL": "selection-option" }
+      stageOptionIds: { "SELEÇÃO EDITORIAL": "selection-option" },
+      statusFieldId: "status-field",
+      statusOptionIds: { "SELEÇÃO EDITORIAL": "progress-option" }
     });
 
     assert.equal(updated.itemId, "item-35");
-    assert.equal(requests.length, 3);
+    assert.equal(requests.length, 4);
     assert.equal(requests[2].variables.optionId, "selection-option");
+    assert.equal(requests[3].variables.fieldId, "status-field");
+    assert.equal(requests[3].variables.optionId, "progress-option");
   } finally {
     globalThis.fetch = originalFetch;
   }
