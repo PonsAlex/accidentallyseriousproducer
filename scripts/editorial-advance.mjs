@@ -32,6 +32,7 @@ export const STAGE_ALIASES = {
 export const PROJECT_CONFIG = {
   projectId: "PVT_kwHOAvRCkM4BgQi6",
   stageFieldId: "PVTSSF_lAHOAvRCkM4BgQi6zhagFjM",
+  statusFieldId: "PVTSSF_lAHOAvRCkM4BgQi6zhadiYI",
   stageOptionIds: {
     RADAR: "43a51db4",
     PREPARAÇÃO: "84f41bd5",
@@ -39,6 +40,14 @@ export const PROJECT_CONFIG = {
     "BRANCH EDITORIAL": "54295ea8",
     "PREVIEW / HUMAN REVIEW": "2c22896f",
     "PUBLICATION GATE": "7723b6d0"
+  },
+  statusOptionIds: {
+    RADAR: "f75ad846",
+    PREPARAÇÃO: "61e4505c",
+    "SELEÇÃO EDITORIAL": "47fc9ee4",
+    "BRANCH EDITORIAL": "df73e18b",
+    "PREVIEW / HUMAN REVIEW": "df73e18b",
+    "PUBLICATION GATE": "df73e18b"
   }
 };
 
@@ -381,7 +390,28 @@ export async function setProjectStageForIssue(issueNodeId, stage, token, config 
     optionId
   });
 
-  return { itemId, stage, optionId };
+  const statusOptionId = config.statusOptionIds?.[stage];
+  if (config.statusFieldId && statusOptionId) {
+    await graphQlRequest(token, `
+      mutation SetProjectStatus($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+        updateProjectV2ItemFieldValue(input: {
+          projectId: $projectId,
+          itemId: $itemId,
+          fieldId: $fieldId,
+          value: { singleSelectOptionId: $optionId }
+        }) {
+          projectV2Item { id }
+        }
+      }
+    `, {
+      projectId: config.projectId,
+      itemId,
+      fieldId: config.statusFieldId,
+      optionId: statusOptionId
+    });
+  }
+
+  return { itemId, stage, optionId, statusOptionId };
 }
 
 async function createIssueComment(repo, issueNumber, token, message) {
