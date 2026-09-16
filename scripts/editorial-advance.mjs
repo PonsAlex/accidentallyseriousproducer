@@ -47,7 +47,7 @@ export const PROJECT_CONFIG = {
     "SELEÇÃO EDITORIAL": "47fc9ee4",
     "BRANCH EDITORIAL": "df73e18b",
     "PREVIEW / HUMAN REVIEW": "df73e18b",
-    "PUBLICATION GATE": "df73e18b"
+    "PUBLICATION GATE": "98236657"
   }
 };
 
