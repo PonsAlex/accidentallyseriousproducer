@@ -147,6 +147,23 @@ The initial board flow is intentionally manual. The editor chooses which items
 advance, and the workflow never infers permission from classification or verdict
 status alone.
 
+The private project board is `@PonsAlex's ASP project` (Project 1). Its active
+editorial items currently include the consolidated radar in issue #38 and the
+downstream preparation, selection and branch issues. Historical radar issues
+#26 and #31 remain available in the repository but are archived in the board.
+
+Project V2 status is synchronized with the canonical editorial stage when
+`/advance` creates a destination issue:
+
+| Editorial stage | Project status |
+| --- | --- |
+| `RADAR` | Backlog |
+| `PREPARAÇÃO` | Ready |
+| `SELEÇÃO EDITORIAL` | In progress |
+| `BRANCH EDITORIAL` | In review |
+| `PREVIEW / HUMAN REVIEW` | In review |
+| `PUBLICATION GATE` | Done |
+
 **PREPARAÇÃO consolidates evidence validation**: Inside the PREPARAÇÃO stage,
 Odysseus handles evidence collection and qualification (source confirmation,
 product details, pricing, timing, conditions). When applicable, free-offer
@@ -204,8 +221,8 @@ being guessed.
 
 The workflow uses the repository secret `ASP_PROJECT_TOKEN` (a fine-grained
 token with write access to the ASP Project) to add each destination issue to
-Project 1 and set its canonical `Editorial stage`. If the secret is absent, the
-workflow stops before creating a destination issue.
+Project 1 and set its canonical `Editorial stage` and `Status`. If the secret
+is absent, the workflow stops before creating a destination issue.
 
 No intermediate state authorizes automatic publication. Odysseus must not push
 directly to `main`, force-push, merge a PR or expose private source material.
@@ -268,8 +285,7 @@ taxonomy or affiliate changes.
 1. protect `main` with required CI checks and human review;
 2. version and validate the ASP Evidence Package / Odysseus Editorial Contract
    v1.1.0;
-3. add GitHub Issue and PR templates aligned with the editorial workflow;
-4. connect reviewed work items to the ASP GitHub Project.
+3. add GitHub Issue and PR templates aligned with the editorial workflow.
 
 ## Legal note
 
