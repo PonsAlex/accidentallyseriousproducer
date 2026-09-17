@@ -105,13 +105,13 @@ Fields (v1)
 ---------
 - Status (single-select): RADAR, PREPARAÇÃO, SELEÇÃO EDITORIAL, BRANCH EDITORIAL, PREVIEW / HUMAN REVIEW, PUBLICATION GATE
 - Content Type (single-select): News, Deal, Freebie, Review, Tutorial, Other
-- Priority (single-select): Normal, High, Breaking
 - Temporal (single-select): Evergreen, Temporal, Breaking
+- Created (date): the only temporal separator used by the unified board
 - Target Date (date)
 
 Views (v1)
 ---------
-- Editorial Flow (Board grouped by Status, ordered: RADAR → PREPARAÇÃO → SELEÇÃO EDITORIAL → BRANCH EDITORIAL → PREVIEW / HUMAN REVIEW → PUBLICATION GATE)
+- Editorial Flow (single unified board, grouped by Status and separated only by Created date; order: RADAR → PREPARAÇÃO → SELEÇÃO EDITORIAL → BRANCH EDITORIAL → PREVIEW / HUMAN REVIEW → PUBLICATION GATE)
 - Preparação Queue (filtered by Status = PREPARAÇÃO)
 - Branch Queue (filtered by Status = BRANCH EDITORIAL)
 - Temporal / Breaking (filtered by Temporal = Temporal OR Breaking)
