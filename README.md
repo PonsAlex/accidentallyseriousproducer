@@ -164,6 +164,10 @@ Project V2 status is synchronized with the canonical editorial stage when
 | `PREVIEW / HUMAN REVIEW` | In review |
 | `PUBLICATION GATE` | Done |
 
+The board is unified: cards are separated temporally only by their `Created`
+date. Priority is not a separate Project field; editorial urgency remains part
+of the card's content and stage decisions.
+
 **PREPARAÇÃO consolidates evidence validation**: Inside the PREPARAÇÃO stage,
 Odysseus handles evidence collection and qualification (source confirmation,
 product details, pricing, timing, conditions). When applicable, free-offer
