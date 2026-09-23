@@ -352,7 +352,7 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
     )
   );
 
-  assert.equal(programs.length, 6);
+  assert.equal(programs.length, 9);
   assert.deepEqual(
     programs.find((entry) => entry.id === "wa-production"),
     {
@@ -365,9 +365,18 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
       status: "active"
     }
   );
-  assert.deepEqual(products, []);
-  assert.deepEqual(affiliateLinks, []);
-  assert.deepEqual(promotions, []);
+  assert.deepEqual(
+    products.map((entry) => entry.id),
+    ["waves-analog-sale", "acustica-gold-6", "dawjunkie-big-bottom"]
+  );
+  assert.deepEqual(
+    affiliateLinks.map((entry) => entry.id),
+    ["link-waves-analog-26", "link-acustica-gold6-26", "link-dawjunkie-bb-26"]
+  );
+  assert.deepEqual(
+    promotions.map((entry) => entry.id),
+    ["promo-waves-sep26", "promo-acustica-sep26", "promo-dawjunkie-sep26"]
+  );
 });
 
 test("exibe disclosure junto de conteúdo afiliado", () => {

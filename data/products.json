@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "id": "waves-analog-sale",
+    "slug": "waves-analog-sale",
+    "programId": "waves-audio",
+    "name": "Analog Plugin Sale",
+    "category": "plugin",
+    "description": "Classic analog emulations for professional mixing.",
+    "status": "active",
+    "createdAt": "2026-09-22T10:00:00Z",
+    "updatedAt": "2026-09-22T10:00:00Z"
+  },
+  {
+    "id": "acustica-gold-6",
+    "slug": "acustica-gold-6",
+    "programId": "acustica-audio",
+    "name": "GOLD 6",
+    "category": "plugin",
+    "description": "High-end sampling technology for professional studio sound.",
+    "status": "active",
+    "createdAt": "2026-09-22T10:00:00Z",
+    "updatedAt": "2026-09-22T10:00:00Z"
+  },
+  {
+    "id": "dawjunkie-big-bottom",
+    "slug": "dawjunkie-big-bottom",
+    "programId": "dawjunkie",
+    "name": "Big Bottom Synth",
+    "category": "plugin",
+    "description": "Powerful low-end synthesizer for heavy bass.",
+    "status": "active",
+    "createdAt": "2026-09-22T10:00:00Z",
+    "updatedAt": "2026-09-22T10:00:00Z"
+  }
+]

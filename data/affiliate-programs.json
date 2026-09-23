@@ -52,5 +52,29 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "waves-audio",
+    "name": "Waves Audio",
+    "homepage": "https://www.waves.com",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "acustica-audio",
+    "name": "Acustica Audio",
+    "homepage": "https://www.acusticaaudio.com",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "dawjunkie",
+    "name": "DAWJunkie",
+    "homepage": "https://dawjunkie.com",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
