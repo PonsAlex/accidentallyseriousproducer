@@ -8,13 +8,13 @@
     "currency": "USD",
     "verdict": "Fire",
     "status": "Call an Ambulance",
-    "publicationStatus": "published",
-    "requiresReview": false,
+    "publicationStatus": "draft",
+    "requiresReview": true,
     "endsAt": "2026-09-22T23:59:59Z",
     "createdAt": "2026-09-22T10:00:00Z",
     "updatedAt": "2026-09-22T10:00:00Z",
     "dateConfidence": "high",
-    "contentConfidence": "high"
+    "contentConfidence": "unknown"
   },
   {
     "id": "promo-acustica-sep26",
@@ -41,7 +41,7 @@
     "regularPrice": 19.99,
     "currency": "USD",
     "verdict": "Stash",
-    "status": "Free",
+    "status": "Last Chance",
     "publicationStatus": "published",
     "requiresReview": false,
     "endsAt": "2026-10-01T23:59:59Z",

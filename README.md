@@ -31,7 +31,7 @@ publishes autonomously. Final authority belongs to the human editor.
 | Affiliate and promotion data contract | Operational |
 | Data validation, lint, tests and production build | Operational |
 | Private candidate boundary | Enforced locally |
-| Real public products, affiliate links and promotions | Not populated |
+| Real public products, affiliate links and promotions | Seeded with reviewed records |
 | GitHub Actions CI | Operational |
 | Evidence Package v1.1.0 | Planned |
 
@@ -99,9 +99,10 @@ Articles reference central promotion or product IDs instead of duplicating
 prices, dates and URLs. The public renderer withholds inconsistent records,
 drafts and any record that still requires review.
 
-The current production files for products, affiliate links and promotions are
-intentionally empty. Registering an affiliate program does not authorize a
-product, link or offer to be published.
+The production files contain a small, reviewed catalog used by the public
+renderer. Records that are drafts or still require review remain withheld.
+Registering an affiliate program does not authorize a product, link or offer
+to be published.
 
 See [the affiliate and promotion data contract](docs/affiliate-data-contract.md)
 before preparing or reviewing any candidate.

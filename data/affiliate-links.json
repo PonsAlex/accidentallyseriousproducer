@@ -5,8 +5,8 @@
     "programId": "waves-audio",
     "destinationUrl": "https://www.waves.com/shop/analog-sale",
     "fallbackUrl": "https://www.waves.com",
-    "status": "active",
-    "requiresReview": false,
+    "status": "draft",
+    "requiresReview": true,
     "lastVerifiedAt": "2026-09-22T10:00:00Z",
     "allowFallback": true
   },
