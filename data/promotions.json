@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "id": "promo-waves-sep26",
+    "productId": "waves-analog-sale",
+    "affiliateLinkId": "link-waves-analog-26",
+    "promoPrice": 0.00,
+    "regularPrice": 29.99,
+    "currency": "USD",
+    "verdict": "Fire",
+    "status": "Call an Ambulance",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "endsAt": "2026-09-22T23:59:59Z",
+    "createdAt": "2026-09-22T10:00:00Z",
+    "updatedAt": "2026-09-22T10:00:00Z",
+    "dateConfidence": "high",
+    "contentConfidence": "high"
+  },
+  {
+    "id": "promo-acustica-sep26",
+    "productId": "acustica-gold-6",
+    "affiliateLinkId": "link-acustica-gold6-26",
+    "promoPrice": 99.00,
+    "regularPrice": 149.00,
+    "currency": "EUR",
+    "verdict": "Fire",
+    "status": "New Release",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "endsAt": "2026-09-25T23:59:59Z",
+    "createdAt": "2026-09-22T10:00:00Z",
+    "updatedAt": "2026-09-22T10:00:00Z",
+    "dateConfidence": "high",
+    "contentConfidence": "high"
+  },
+  {
+    "id": "promo-dawjunkie-sep26",
+    "productId": "dawjunkie-big-bottom",
+    "affiliateLinkId": "link-dawjunkie-bb-26",
+    "promoPrice": 1.99,
+    "regularPrice": 19.99,
+    "currency": "USD",
+    "verdict": "Stash",
+    "status": "Free",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "endsAt": "2026-10-01T23:59:59Z",
+    "createdAt": "2026-09-22T10:00:00Z",
+    "updatedAt": "2026-09-22T10:00:00Z",
+    "dateConfidence": "high",
+    "contentConfidence": "high"
+  }
+]

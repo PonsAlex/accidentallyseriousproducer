@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "id": "link-waves-analog-26",
+    "productId": "waves-analog-sale",
+    "programId": "waves-audio",
+    "destinationUrl": "https://www.waves.com/shop/analog-sale",
+    "fallbackUrl": "https://www.waves.com",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-09-22T10:00:00Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-acustica-gold6-26",
+    "productId": "acustica-gold-6",
+    "programId": "acustica-audio",
+    "destinationUrl": "https://www.acusticaaudio.com/gold6",
+    "fallbackUrl": "https://www.acusticaaudio.com",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-09-22T10:00:00Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-dawjunkie-bb-26",
+    "productId": "dawjunkie-big-bottom",
+    "programId": "dawjunkie",
+    "destinationUrl": "https://dawjunkie.com/big-bottom",
+    "fallbackUrl": "https://dawjunkie.com",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-09-22T10:00:00Z",
+    "allowFallback": true
+  }
+]
