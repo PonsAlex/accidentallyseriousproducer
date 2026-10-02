@@ -2,7 +2,21 @@
 
 Purpose
 -------
-Provide a visual, non-normative Kanban for the Accidentally Serious Producer editorial pipeline. The Project is a read-only projection of editorial state; editorial rules remain in existing docs and scripts (see docs/affiliate-data-contract.md and assets/affiliate-core.mjs).
+The phase 2 visual editing surface is the ASP Editorial Console at `/console/`
+(also `/console.html`). It clones existing public component markup into movable
+content blocks and stores editable state in the current browser, with JSON
+import/export. The GitHub Project remains an optional read-only projection of
+editorial state; it is not the content editing system. Editorial rules remain
+in existing docs and scripts (see docs/affiliate-data-contract.md and
+assets/affiliate-core.mjs).
+
+The console has an explicit human-confirmed **Confirm & /advance** action that
+records the same block's stage transition and request metadata in local state.
+It does not call GitHub, JEV, AI Gateway, or publication workflows. The existing
+GitHub `/advance` Issue workflow remains unchanged and compatible.
+
+See [Editorial Console](editorial-console.md) for the block schema, browser
+persistence behavior and current scope.
 
 Simplified Status Model
 -----

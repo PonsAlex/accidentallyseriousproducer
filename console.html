@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASP Console | Accidentally Serious Producer</title>
+  <meta name="description" content="Visual editorial console for existing Accidentally Serious Producer content blocks.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/assets/affiliate-elements.mjs"></script>
+  <script type="module" src="/assets/editorial-console.mjs"></script>
+</head>
+<body class="console-page">
+  <a class="skip-link" href="#console-main">Skip to console</a>
+  <header class="console-header">
+    <a class="brand" href="/" aria-label="Accidentally Serious Producer home">
+      <span class="brand-mark">ASP</span>
+      <span class="brand-name">Editorial Console</span>
+    </a>
+    <div class="console-actions">
+      <button class="button button-secondary" id="export-state" type="button">Export state</button>
+      <label class="button button-secondary console-import-button" for="state-import">Import state</label>
+      <input id="state-import" type="file" accept="application/json,.json" hidden>
+    </div>
+  </header>
+  <main class="console-main" id="console-main">
+    <div class="console-title">
+      <div>
+        <p class="eyebrow">ASP / Editorial system</p>
+        <h1>Content blocks</h1>
+      </div>
+      <p id="console-status" class="console-message" role="status" aria-live="polite">Loading editorial content…</p>
+    </div>
+    <div class="console-layout">
+      <aside class="console-sidebar" aria-label="Content inbox and editor">
+        <section class="console-inbox">
+          <div class="console-panel-heading">
+            <div>
+              <p class="eyebrow">Inbox / Content</p>
+              <h2>Existing components</h2>
+            </div>
+          </div>
+          <p class="console-hint">These are public ASP components. Drag to move; select a component to edit it. Editorial process data is kept separately.</p>
+          <ul class="console-content-list" id="content-list"></ul>
+        </section>
+        <section class="console-editor" id="block-editor" aria-label="Content editor"></section>
+      </aside>
+      <section class="console-preview-panel" aria-labelledby="preview-title">
+        <div class="console-panel-heading">
+          <div>
+            <p class="eyebrow">ASP / Page preview</p>
+            <h2 id="preview-title">The public site, editable</h2>
+          </div>
+          <span class="console-hint">Local preview · not published</span>
+        </div>
+        <div class="console-preview" id="page-preview"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
