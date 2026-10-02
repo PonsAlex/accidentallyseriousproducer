@@ -25,6 +25,7 @@ const productionFiles = [
   "_redirects",
   "about.html",
   "affiliate-disclosure.html",
+  "console.html",
   "fire-or-nah.html",
   "favicon.svg",
   "index.html",

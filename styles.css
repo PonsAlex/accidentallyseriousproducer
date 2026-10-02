@@ -1294,6 +1294,371 @@ affiliate-offer {
   color: var(--accent);
 }
 
+.console-page {
+  min-height: 100vh;
+  background: #111113;
+}
+
+.console-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+  padding: 0.75rem 2rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(16, 16, 18, 0.96);
+}
+
+.console-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.console-actions .button,
+.console-import-button {
+  width: auto;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.console-main {
+  width: min(calc(100% - 2rem), 1800px);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+.console-title,
+.console-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.console-title {
+  margin-bottom: 1.5rem;
+}
+
+.console-title h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.console-title .eyebrow,
+.console-panel-heading .eyebrow {
+  margin-bottom: 0.45rem;
+}
+
+.console-message {
+  max-width: 38rem;
+  color: var(--muted);
+}
+
+.console-message--error {
+  color: #ff9c8b;
+}
+
+.console-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.console-sidebar,
+.console-preview-panel,
+.console-inbox,
+.console-editor {
+  min-width: 0;
+}
+
+.console-inbox,
+.console-editor,
+.console-preview-panel {
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #18181b;
+}
+
+.console-panel-heading h2,
+.console-editor > h2 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.console-panel-heading .eyebrow {
+  font-size: 0.68rem;
+}
+
+.console-hint,
+.console-empty,
+.console-block-id {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.console-content-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.console-inbox-button {
+  display: grid;
+  width: 100%;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #202024;
+  color: var(--text);
+  text-align: left;
+  cursor: grab;
+}
+
+.console-inbox-button:hover,
+.console-inbox-button.is-selected {
+  border-color: var(--accent);
+}
+
+.console-inbox-type,
+.console-inbox-meta,
+.console-type-label,
+.console-draft-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.console-inbox-button strong {
+  font-size: 0.94rem;
+}
+
+.console-editor {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.console-field {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.console-field input,
+.console-field textarea,
+.console-field select {
+  width: 100%;
+  min-height: 40px;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #111113;
+  color: var(--text);
+  font: inherit;
+}
+
+.console-field textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.console-metadata {
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line);
+}
+
+.console-metadata summary {
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.console-metadata > .console-field {
+  margin-block: 0.7rem;
+}
+
+.console-check-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin: 0.8rem 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.console-check-group legend {
+  padding-inline: 0.35rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.console-advance-control {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  background: rgba(236, 180, 84, 0.06);
+}
+
+.console-advance-control .button,
+.console-activation-control {
+  width: 100%;
+  cursor: pointer;
+}
+
+.console-process-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.console-activation-control {
+  min-height: 42px;
+}
+
+.console-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  color: var(--text);
+  font-size: 0.75rem;
+}
+
+.console-check input {
+  margin: 0.15rem 0 0;
+  accent-color: var(--accent);
+}
+
+.console-preview-panel {
+  overflow: hidden;
+}
+
+.console-preview {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.console-preview-lane {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px dashed #49494f;
+  border-radius: 14px;
+  background: #131315;
+}
+
+.console-lane-heading {
+  margin-bottom: 0.8rem;
+  color: var(--accent);
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.console-lane-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  align-items: start;
+  gap: 0.8rem;
+  min-height: 3.5rem;
+}
+
+.console-preview-item {
+  position: relative;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid #303035;
+  border-radius: 12px;
+  background: #1b1b1f;
+  cursor: grab;
+}
+
+.console-preview-item.is-selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.console-preview-item > .hero,
+.console-preview-item > .featured-card,
+.console-preview-item > .product-review,
+.console-preview-item > .project-card {
+  margin: 0;
+  padding: 0.8rem;
+}
+
+.console-preview-item .hero {
+  padding-block: 1rem;
+}
+
+.console-preview-item .hero-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.console-preview-item .hero-copy h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  white-space: pre-line;
+}
+
+.console-preview-item .shell {
+  width: 100%;
+}
+
+.console-preview-item .affiliate-offer {
+  margin-top: 0.75rem;
+}
+
+.console-type-label,
+.console-draft-label {
+  display: inline-block;
+  margin: 0 0.45rem 0.65rem 0;
+}
+
+.console-draft-label {
+  color: #ffbf67;
+}
+
+.console-deal-title {
+  margin-bottom: 0.3rem;
+  font-weight: 800;
+}
+
+.console-deal-description,
+.console-empty-lane {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.console-preview-item h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.console-preview-item .project-header {
+  gap: 0.75rem;
+}
+
+.console-preview-item .verdict-badge,
+.console-preview-item .status-badge {
+  display: inline-block;
+  margin: 0 0.4rem 0.5rem 0;
+}
+
 @keyframes offer-enter {
   from {
     opacity: 0;
@@ -1307,6 +1672,10 @@ affiliate-offer {
 }
 
 @media (max-width: 820px) {
+  .console-layout {
+    grid-template-columns: 1fr;
+  }
+
   .hero-grid,
   .card-grid,
   .score-grid,
@@ -1372,6 +1741,26 @@ affiliate-offer {
 }
 
 @media (max-width: 620px) {
+  .console-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-inline: 1rem;
+  }
+
+  .console-header .brand-name {
+    display: inline;
+  }
+
+  .console-title,
+  .console-panel-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .console-check-group {
+    grid-template-columns: 1fr;
+  }
+
   .site-header {
     position: static;
   }

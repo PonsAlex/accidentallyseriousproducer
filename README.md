@@ -29,6 +29,7 @@ publishes autonomously. Final authority belongs to the human editor.
 | Static ASP website | Operational |
 | Editorial Verdict / Status taxonomy | Operational |
 | Affiliate and promotion data contract | Operational |
+| Visual editorial console / content block state | Phase 2 |
 | Data validation, lint, tests and production build | Operational |
 | Private candidate boundary | Enforced locally |
 | Real public products, affiliate links and promotions | Seeded with reviewed records |
@@ -66,6 +67,7 @@ final Verdict.
 ├── about.html                         # Project and editorial approach
 ├── fire-or-nah.html                   # Verdict / Status taxonomy
 ├── lab.html                           # ASP Lab
+├── console.html                       # Visual editorial console
 ├── privacy.html
 ├── affiliate-disclosure.html
 ├── 404.html
@@ -73,7 +75,10 @@ final Verdict.
 ├── articles/                          # Published editorial articles
 ├── deals/                             # Public promotion index
 ├── affiliate-redirect/                # Safe /go/ intermediary
-├── assets/                            # ES modules and Web Components
+├── assets/                            # Editorial modules and shared Web Components
+│   ├── content-blocks.mjs             # Versioned editorial state and transitions
+│   ├── editorial-console.mjs          # Console editing and local persistence
+│   └── public-component-templates.mjs # Public markup reuse for the editor preview
 ├── data/
 │   ├── affiliate-programs.json
 │   ├── products.json
@@ -81,7 +86,8 @@ final Verdict.
 │   ├── promotions.json
 │   └── inbox/                         # Anonymized examples only
 ├── docs/
-│   └── affiliate-data-contract.md
+│   ├── affiliate-data-contract.md
+│   └── editorial-console.md
 ├── scripts/                           # Validation, lint and build
 └── tests/                             # Node test suite
 ```
@@ -144,9 +150,37 @@ RADAR
 → PUBLICATION GATE
 ```
 
-The initial board flow is intentionally manual. The editor chooses which items
-advance, and the workflow never infers permission from classification or verdict
-status alone.
+### ASP Editorial Console (Phase 2)
+
+Open `/console/` (or `/console.html`) to edit representations of existing ASP
+page components: the homepage hero and featured articles, article product
+reviews, approved deal offers, and the ASP Lab project card. The preview loads
+the actual component markup from public pages; deal blocks use the same
+`<affiliate-offer>` web component as the public Deals page. Select a component
+to edit its content, drag it between page sections or positions, and deactivate
+it without deleting its content or metadata. Cloudflare Pages resolves the
+console through its clean-URL mapping; no custom `/console` redirect is needed.
+
+The console state uses a versioned `ContentBlock` structure with component type,
+content, section, position, status and metadata. Evidence and source references,
+editorial selection, verdict, status, validation, publication state and
+human-confirmation readiness are retained. Initial offer blocks use the
+established promotion catalog and exclude drafts or offers requiring review.
+
+Changes are saved in the current browser's local storage. Use **Export state**
+to download a JSON backup and **Import state** to restore a previously exported
+state. Existing Phase 1 state is migrated to the current schema on load. This
+is a local editorial workspace, not shared server-side storage: edits do not
+modify the public HTML/data source files or automatically publish. For schema
+and scope details, see [Editorial Console](docs/editorial-console.md).
+
+The **Confirm & /advance** action requires explicit human confirmation and
+records the same block's stage transition, timestamp and readiness signal.
+Verdict, Status, checklists, validation and visual position cannot authorize
+advancement. Any later edit, move or deactivation clears readiness and requires
+confirmation again. This local signal does not call the GitHub Issue workflow.
+JEV, AI Gateway and automatic publication are out of scope; the GitHub Project
+and existing Issue-based `/advance` workflow remain compatible and unchanged.
 
 The private project board is `@PonsAlex's ASP project` (Project 1). Its active
 editorial items currently include the consolidated radar in issue #38 and the
