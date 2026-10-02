@@ -16,15 +16,32 @@ export const PUBLIC_COMPONENT_BLOCK_IDS = Object.freeze([
   "lab-jack-in-the-box"
 ]);
 
-async function fetchPage(url, fetcher) {
-  const response = await fetcher(url, {
-    headers: { Accept: "text/html" },
-    credentials: "same-origin"
-  });
-  if (!response.ok) {
-    throw new Error(`Could not load public component templates from ${url} (${response.status}).`);
+async function fetchPage(url, fetcher, parseDocument) {
+  let response;
+  try {
+    response = await fetcher(url, {
+      headers: { Accept: "text/html" },
+      credentials: "same-origin"
+    });
+  } catch (error) {
+    throw new Error(
+      `Could not load public component templates from ${url}: ${error.message}`,
+      { cause: error }
+    );
   }
-  return new DOMParser().parseFromString(await response.text(), "text/html");
+  if (!response.ok) {
+    throw new Error(
+      `Could not load public component templates from ${url} (${response.status}).`
+    );
+  }
+  try {
+    return parseDocument(await response.text());
+  } catch (error) {
+    throw new Error(
+      `Could not parse public component templates from ${url}: ${error.message}`,
+      { cause: error }
+    );
+  }
 }
 
 function updateText(root, selector, value) {
@@ -163,6 +180,7 @@ function applyBlockContent(block, component) {
 
 export async function loadPublicComponentTemplates({
   fetcher = globalThis.fetch,
+  parseDocument = (html) => new DOMParser().parseFromString(html, "text/html"),
   createOfferElement = (promotionId) => {
     const element = document.createElement("affiliate-offer");
     element.setAttribute("promotion-id", promotionId);
@@ -176,7 +194,7 @@ export async function loadPublicComponentTemplates({
   const pages = await Promise.all(
     Object.entries(PAGE_TEMPLATES).map(async ([name, url]) => [
       name,
-      await fetchPage(url, fetcher)
+      await fetchPage(url, fetcher, parseDocument)
     ])
   );
   const documents = Object.fromEntries(pages);

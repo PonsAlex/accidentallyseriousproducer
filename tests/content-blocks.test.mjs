@@ -12,6 +12,10 @@ import {
   normalizeBlockPositions,
   validateEditorialState
 } from "../assets/content-blocks.mjs";
+import {
+  loadPublicComponentTemplates,
+  PUBLIC_COMPONENT_BLOCK_IDS
+} from "../assets/public-component-templates.mjs";
 
 const products = [
   { id: "published-product", name: "Published Product", description: "Existing product." },
@@ -165,12 +169,11 @@ test("schema v1 local state migrates without discarding verdict, status, or edit
 });
 
 test("console component templates map to markup present on the actual public pages", async () => {
-  const [home, radar, lab, templates, redirects, dealsPage] = await Promise.all([
+  const [home, radar, lab, templates, dealsPage] = await Promise.all([
     readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../articles/radar-setembro-22.html", import.meta.url), "utf8"),
     readFile(new URL("../lab.html", import.meta.url), "utf8"),
     readFile(new URL("../assets/public-component-templates.mjs", import.meta.url), "utf8"),
-    readFile(new URL("../_redirects", import.meta.url), "utf8"),
     readFile(new URL("../assets/deals-page.mjs", import.meta.url), "utf8")
   ]);
   assert.match(home, /<section class="hero">/);
@@ -184,7 +187,87 @@ test("console component templates map to markup present on the actual public pag
   assert.match(templates, /PUBLIC_COMPONENT_BLOCK_IDS/);
   assert.match(templates, /createElement\("affiliate-offer"\)/);
   assert.match(dealsPage, /document\.createElement\("affiliate-offer"\)/);
-  assert.match(redirects, /^\/console \/console\.html 200$/m);
+});
+
+test("public template loader builds every initial ASP content block from the public pages", async () => {
+  const pageFiles = new Map([
+    ["/index.html", new URL("../index.html", import.meta.url)],
+    ["/articles/radar-setembro-22.html", new URL("../articles/radar-setembro-22.html", import.meta.url)],
+    ["/lab.html", new URL("../lab.html", import.meta.url)]
+  ]);
+  const requested = [];
+  const fetcher = async (url) => {
+    requested.push(url);
+    const file = pageFiles.get(url);
+    if (!file) throw new Error(`Unexpected public template URL: ${url}`);
+    return { ok: true, text: () => readFile(file, "utf8") };
+  };
+  const makeComponent = () => ({
+    querySelector: () => null,
+    querySelectorAll: () => [],
+    cloneNode: () => makeComponent()
+  });
+  const parseDocument = (html) => ({
+    querySelectorAll(selector) {
+      const patterns = {
+        "main > .hero": /<main\b[^>]*>\s*<section class="hero">/,
+        ".featured-card": /class="featured-card"/g,
+        ".product-review": /class="product-review"/g,
+        ".project-card": /class="project-card"/g
+      };
+      const pattern = patterns[selector];
+      assert.ok(pattern, `unexpected public component selector: ${selector}`);
+      return Array.from(html.match(pattern) ?? [], makeComponent);
+    }
+  });
+  const offers = [];
+  const templates = await loadPublicComponentTemplates({
+    fetcher,
+    parseDocument,
+    createOfferElement: (promotionId) => {
+      const offer = { promotionId };
+      offers.push(offer);
+      return offer;
+    }
+  });
+  const publicComponents = Object.fromEntries(
+    PUBLIC_COMPONENT_BLOCK_IDS.map((id) => [id, templates.readInitialContent(id)])
+  );
+  const state = createInitialEditorialState({ products, promotions }, publicComponents);
+  const actualIds = state.blocks
+    .filter((block) => block.type !== "deal")
+    .map((block) => block.id);
+
+  assert.deepEqual(requested.sort(), [...pageFiles.keys()].sort());
+  assert.deepEqual(actualIds, [
+    "home-hero",
+    "home-radar-article",
+    "home-plugin-audit",
+    "radar-gold-6-review",
+    "radar-big-bottom-review",
+    "radar-waves-review",
+    "lab-jack-in-the-box"
+  ]);
+  assert.deepEqual(actualIds, [...PUBLIC_COMPONENT_BLOCK_IDS]);
+  assert.equal(state.blocks.length, 8);
+  for (const block of state.blocks) {
+    const rendered = templates.renderPublicComponent(block);
+    assert.ok(rendered, `expected a renderable public component for ${block.id}`);
+  }
+  assert.deepEqual(offers.map((offer) => offer.promotionId).sort(), ["published-promotion"]);
+});
+
+test("public template loader reports the failing page URL", async () => {
+  await assert.rejects(
+    loadPublicComponentTemplates({
+      fetcher: async (url) => {
+        if (url === "/index.html") throw new Error("network unavailable");
+        return { ok: true, text: async () => "" };
+      },
+      parseDocument: () => ({ querySelectorAll: () => [] })
+    }),
+    /Could not load public component templates from \/index\.html: network unavailable/
+  );
 });
 
 test("state validation rejects unknown types, duplicate IDs and unsupported schema versions", () => {

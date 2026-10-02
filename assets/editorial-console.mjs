@@ -526,7 +526,7 @@ async function start() {
     document.addEventListener("drop", handleDrop);
     statusMessage(`Loaded ${state.blocks.length} existing ASP content blocks. State is local to this browser.`);
   } catch (error) {
-    statusMessage(`Console could not be loaded: ${error.message}`, true);
+    statusMessage(`Could not load editorial content: ${error.message}`, true);
   }
 }
 
