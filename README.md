@@ -158,7 +158,8 @@ reviews, approved deal offers, and the ASP Lab project card. The preview loads
 the actual component markup from public pages; deal blocks use the same
 `<affiliate-offer>` web component as the public Deals page. Select a component
 to edit its content, drag it between page sections or positions, and deactivate
-it without deleting its content or metadata.
+it without deleting its content or metadata. Cloudflare Pages resolves the
+console through its clean-URL mapping; no custom `/console` redirect is needed.
 
 The console state uses a versioned `ContentBlock` structure with component type,
 content, section, position, status and metadata. Evidence and source references,
