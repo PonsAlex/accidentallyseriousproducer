@@ -71,6 +71,14 @@ content or metadata. Their positions and enabled state are persisted. Any
 subsequent edit, deactivation, or move invalidates an outstanding ready signal,
 so the editor must confirm `/advance` again after making more changes.
 
+Use **+ Add Block** to create a blank `hero`, `article`, `product-review`,
+`deal` or `project` draft in its compatible section. The new ID is unique, and
+the editor reuses an existing public component template for that type. New
+blocks are enabled at `RADAR`, unpublished, and have no assigned Verdict,
+editorial Status or advance confirmation. Cancel closes the dialog without
+changing or saving state. A deal remains incomplete without a selected approved
+public promotion; the Console does not make up offer facts.
+
 Editorial fields are separated from reader-facing content. Verdict and Status
 remain independent human-assigned taxonomies; neither one authorizes advancement.
 Advancement is available only through the explicit **Confirm & /advance** action,

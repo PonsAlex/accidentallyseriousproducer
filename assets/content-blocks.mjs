@@ -17,6 +17,14 @@ export const CONTENT_SECTIONS = Object.freeze({
   lab: "ASP Lab"
 });
 
+export const CONTENT_TYPE_SECTIONS = Object.freeze({
+  hero: Object.freeze(["home"]),
+  article: Object.freeze(["home"]),
+  "product-review": Object.freeze(["articles"]),
+  deal: Object.freeze(["deals"]),
+  project: Object.freeze(["lab"])
+});
+
 export const EDITORIAL_STATUSES = Object.freeze([
   "",
   "Breaking",
@@ -120,6 +128,70 @@ function createBlock({ id, type, section, position, status, content }) {
     status,
     metadata: createMetadata()
   };
+}
+
+export function createEditorialBlock({
+  type,
+  section,
+  existingBlocks = [],
+  idFactory = () => globalThis.crypto.randomUUID()
+}) {
+  if (!CONTENT_TYPES.includes(type)) {
+    throw new TypeError(`Unsupported content block type: ${type ?? "(missing)"}.`);
+  }
+  if (!CONTENT_TYPE_SECTIONS[type].includes(section)) {
+    throw new TypeError(`Content type ${type} is not supported in section ${section ?? "(missing)"}.`);
+  }
+  if (typeof idFactory !== "function") {
+    throw new TypeError("A content block ID generator is required.");
+  }
+
+  const id = `new-${type}-${idFactory()}`;
+  if (existingBlocks.some((block) => block.id === id)) {
+    throw new TypeError("Content block IDs must be unique.");
+  }
+  const content = {
+    hero: { eyebrow: "", title: "", intro: "", panelLabel: "", panelText: "" },
+    article: { tag: "", title: "", deck: "", body: "", linkLabel: "" },
+    "product-review": { title: "", body: "", verdict: "", reviewLabel: "", linkLabel: "" },
+    deal: { promotionId: null },
+    project: { badge: "", title: "", stage: "", body: "", focus: "", milestone: "" }
+  }[type];
+  const position = Math.max(
+    0,
+    ...existingBlocks.filter((block) => block.section === section).map((block) => block.position)
+  ) + 10;
+  const block = createBlock({
+    id,
+    type,
+    section,
+    position,
+    status: "draft",
+    content
+  });
+  validateEditorialState({
+    schemaVersion: CONTENT_BLOCK_SCHEMA_VERSION,
+    revision: 1,
+    updatedAt: null,
+    blocks: [block]
+  });
+  return block;
+}
+
+export function addEditorialBlockToState(state, options) {
+  validateEditorialState(state);
+  const block = createEditorialBlock({
+    ...options,
+    existingBlocks: state.blocks
+  });
+  const nextState = {
+    ...state,
+    revision: state.revision + 1,
+    updatedAt: options.updatedAt ?? new Date().toISOString(),
+    blocks: [...state.blocks, block]
+  };
+  validateEditorialState(nextState);
+  return nextState;
 }
 
 export function createInitialEditorialState(data, publicComponents = {}) {

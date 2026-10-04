@@ -174,6 +174,14 @@ is a local editorial workspace, not shared server-side storage: edits do not
 modify the public HTML/data source files or automatically publish. For schema
 and scope details, see [Editorial Console](docs/editorial-console.md).
 
+Use **+ Add Block** to create one blank `hero`, `article`, `product-review`,
+`deal` or `project` draft in its compatible page section. New blocks reuse the
+existing public component template for their type and are saved to this
+browser's local state; canceling does not change state. They start at `RADAR`,
+enabled, unpublished, with no Verdict, editorial Status or confirmed advance.
+An empty deal remains an incomplete draft until an existing approved public
+promotion is selected; the Console does not invent prices, links or offer facts.
+
 The **Confirm & /advance** action requires explicit human confirmation and
 records the same block's stage transition, timestamp and readiness signal.
 Verdict, Status, checklists, validation and visual position cannot authorize
