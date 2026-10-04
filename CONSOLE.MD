@@ -32,7 +32,8 @@ PUBLICATION GATE
 ```
 
 O Console é a interface visual principal do trabalho editorial. O GitHub
-Project permanece como histórico, auditoria e acompanhamento.
+Project permanece como histórico, auditoria e acompanhamento secundário; não é a fonte
+primária do estado editorial local.
 
 ### Regra central
 
@@ -118,8 +119,8 @@ O elemento central é:
   content,
   section,
   position,
-  status,
-  metadata
+  status,          // ciclo técnico do registro: draft/review/approved/published/archived
+  metadata         // estado editorial: stage, Verdict, Status, evidence, advance etc.
 }
 ```
 
@@ -566,7 +567,7 @@ confirmar /advance
 ```
 
 O botão **+ Add Block** permite criar somente `hero`, `article`,
-`product-review`, `deal` e `project`, cada tipo na seção compatível já existente.
+`product-review`, `deal` e `project`, usando exclusivamente a seção compatível definida pelo Console (`hero/article → home`, `product-review → articles`, `deal → deals`, `project → lab`).
 O bloco reutiliza o template público do seu tipo e é salvo como rascunho local
 após a criação; cancelar não altera o estado. Blocos novos começam habilitados
 em `RADAR`, sem Verdict, Status editorial, aprovação, publicação ou avanço
@@ -963,26 +964,26 @@ Se você é uma IA trabalhando no ASP:
 
 Prompt
 
-# ASP � PROMPT MESTRE: EDITORIAL CONSOLE
+# ASP → PROMPT MESTRE: EDITORIAL CONSOLE
 
-Voc� est� trabalhando no projeto **Accidentally Serious Producer (ASP)**.
+Voc→ est→ trabalhando no projeto **Accidentally Serious Producer (ASP)**.
 
-Sua tarefa � produzir conte�do, dados, altera��es de c�digo ou candidatos editoriais **compat�veis com o padr�o ASP Editorial Console**.
+Sua tarefa → produzir conte→do, dados, alterações de código ou candidatos editoriais **compat→veis com o padr→o ASP Editorial Console**.
 
-Este prompt � o contrato operacional. Siga-o antes de produzir qualquer resultado.
+Este prompt → o contrato operacional. Siga-o antes de produzir qualquer resultado.
 
 ---
 
 ## 1. MODELO EDITORIAL
 
-O fluxo do ASP �:
+O fluxo do ASP →:
 
 ```text
 RADAR
   ?
-PREPARA��O
+PREPARAÇÃO
   ?
-SELE��O EDITORIAL
+SELE→→O EDITORIAL
   ?
 BRANCH EDITORIAL
   ?
@@ -991,14 +992,14 @@ PREVIEW / HUMAN REVIEW
 PUBLICATION GATE
 ```
 
-O **Editorial Console** � a interface visual principal para o trabalho editorial.
+O **Editorial Console** → a interface visual principal para o trabalho editorial.
 
-O GitHub Project � secund�rio e serve para:
+O GitHub Project → secund→rio e serve para:
 
-* hist�rico;
+* hist→rico;
 * auditoria;
 * acompanhamento;
-* sincroniza��o;
+* sincronização;
 * registro do processo.
 
 ### REGRA CENTRAL
@@ -1008,25 +1009,25 @@ ANTES DE /advance
 ? o humano edita, verifica, seleciona e decide.
 
 DEPOIS DE /advance
-? o estado est� explicitamente preparado para futura automa��o.
+? o estado est→ explicitamente preparado para futura automação.
 ```
 
 Nunca confunda:
 
 ```text
-valida��o ? aprova��o
-Verd ict ? aprova��o
-Status ? aprova��o
-stage ? aprova��o
+validação ? aprovação
+Verd ict ? aprovação
+Status ? aprovação
+stage ? aprovação
 ```
 
 ---
 
-# 2. N�O TRANSFORME O ASP EM UM CMS
+# 2. N→O TRANSFORME O ASP EM UM CMS
 
 Preserve a arquitetura existente.
 
-N�o introduza sem necessidade:
+Não introduza sem necessidade:
 
 * React;
 * Next.js;
@@ -1049,13 +1050,13 @@ localStorage
 Node tests
 ```
 
-Fa�a sempre a menor mudan�a necess�ria.
+Fa→a sempre a menor mudan→a necessária.
 
 ---
 
 # 3. USE COMPONENTES REAIS
 
-O Console deve reutilizar componentes que j� existem no ASP.
+O Console deve reutilizar componentes que j→ existem no ASP.
 
 Exemplos:
 
@@ -1068,7 +1069,7 @@ affiliate-offer
 ASP Lab project
 ```
 
-N�o crie:
+Não crie:
 
 ```text
 fake-card
@@ -1079,21 +1080,21 @@ placeholder-component
 
 apenas para representar componentes reais.
 
-O fluxo correto �:
+O fluxo correto →:
 
 ```text
-SITE P�BLICO
+SITE P→BLICO
     ?
 COMPONENTE EXISTENTE
     ?
 CONSOLE REUTILIZA O COMPONENTE
 ```
 
-O preview deve representar o produto real, n�o uma maquete paralela.
+O preview deve representar o produto real, n→o uma maquete paralela.
 
 ---
 
-# 4. MODELE O CONTE�DO COMO ContentBlock
+# 4. MODELE O CONTE→DO COMO ContentBlock
 
 Use o conceito:
 
@@ -1109,7 +1110,7 @@ Use o conceito:
 }
 ```
 
-Tipos de refer�ncia:
+Tipos de refer→ncia:
 
 ```text
 hero
@@ -1119,13 +1120,13 @@ deal
 project
 ```
 
-S� crie outro tipo se existir uma necessidade real e um componente correspondente.
+S→ crie outro tipo se existir uma necessidade real e um componente correspondente.
 
 ---
 
-# 5. SEPARE CONTE�DO DE METADADOS
+# 5. SEPARE CONTE→DO DE METADADOS
 
-## CONTE�DO
+## CONTE→DO
 
 ```text
 title
@@ -1154,13 +1155,13 @@ advance
 enabled
 ```
 
-N�o misture estado editorial com texto visual quando isso puder ser evitado.
+Não misture estado editorial com texto visual quando isso puder ser evitado.
 
 ---
 
-# 6. SE��ES
+# 6. SE→→ES
 
-As se��es de refer�ncia s�o:
+As se→→es de refer→ncia s→o:
 
 ```text
 home
@@ -1169,7 +1170,7 @@ deals
 lab
 ```
 
-N�o crie novas se��es apenas para simplificar uma implementa��o.
+Não crie novas se→→es apenas para simplificar uma implementação.
 
 ---
 
@@ -1197,18 +1198,18 @@ Last Chance
 Updated
 ```
 
-N�o invente sin�nimos ou novas categorias automaticamente.
+Não invente sin→nimos ou novas categorias automaticamente.
 
 ---
 
-# 8. PRESERVE OS EST�GIOS
+# 8. PRESERVE OS EST→GIOS
 
 Use:
 
 ```text
 RADAR
-PREPARA��O
-SELE��O EDITORIAL
+PREPARAÇÃO
+SELE→→O EDITORIAL
 BRANCH EDITORIAL
 PREVIEW / HUMAN REVIEW
 PUBLICATION GATE
@@ -1218,38 +1219,38 @@ Nunca avance automaticamente porque um item parece pronto.
 
 Mesmo que:
 
-* pre�o esteja validado;
+* preço esteja validado;
 * fonte esteja confirmada;
 * todos os checks estejam completos;
 * Verdict esteja definido;
 * Status esteja definido;
 * preview esteja correto.
 
-A decis�o final antes de `/advance` pertence ao humano.
+A decis→o final antes de `/advance` pertence ao humano.
 
 ---
 
 # 9. REGRA DE /advance
 
-`/advance` exige confirma��o humana expl�cita.
+`/advance` exige confirmação humana explícita.
 
-Sem confirma��o:
+Sem confirmação:
 
 ```text
 /advance ? BLOQUEADO
 ```
 
-Com confirma��o:
+Com confirmação:
 
 ```text
 RADAR
   ?
 /advance
   ?
-PREPARA��O
+PREPARAÇÃO
 ```
 
-Registre, quando aplic�vel:
+Registre, quando aplic→vel:
 
 ```text
 fromStage
@@ -1259,17 +1260,17 @@ selected
 ready
 ```
 
-N�o transforme `/advance` em publica��o autom�tica.
+Não transforme `/advance` em publicação autom→tica.
 
-N�o dispare JEV ou AI Gateway na implementa��o atual apenas porque `/advance` existe.
+Não dispare JEV ou AI Gateway na implementação atual apenas porque `/advance` existe.
 
 ---
 
-# 10. INVALIDA��O AP�S /advance
+# 10. INVALIDAÇÃO AP→S /advance
 
-A aprova��o corresponde ao estado aprovado.
+A aprovação corresponde ao estado aprovado.
 
-Se o conte�do mudar depois:
+Se o conte→do mudar depois:
 
 ```text
 editar
@@ -1279,22 +1280,22 @@ desativar
 alterar estado editorial
 ```
 
-invalide a prontid�o:
+invalide a prontid→o:
 
 ```text
 advance.ready = false
 advance.selected = false
 ```
 
-O hist�rico de `requestedAt` pode permanecer.
+O hist→rico de `requestedAt` pode permanecer.
 
-Nunca trate `/advance` como autoriza��o permanente.
+Nunca trate `/advance` como autorização permanente.
 
 ---
 
-# 11. PERSIST�NCIA
+# 11. PERSISTÊNCIA
 
-O Console atual usa persist�ncia local:
+O Console atual usa persist→ncia local:
 
 ```text
 Console
@@ -1302,16 +1303,16 @@ Console
 localStorage
 ```
 
-N�o assuma que o Console:
+Não assuma que o Console:
 
 * publica;
 * faz deploy;
-* modifica HTML p�blico;
+* modifica HTML público;
 * modifica GitHub automaticamente;
 * chama JEV;
 * chama AI Gateway.
 
-O Console atual � um workspace editorial local.
+O Console atual → um workspace editorial local.
 
 ---
 
@@ -1324,7 +1325,7 @@ Export state
 Import state
 ```
 
-O estado exportado deve conter informa��o suficiente para continuar o trabalho.
+O estado exportado deve conter informação suficiente para continuar o trabalho.
 
 Estado importado deve ser validado.
 
@@ -1334,7 +1335,7 @@ Nunca aceite JSON externo cegamente.
 
 # 13. SCHEMA
 
-O estado editorial � versionado.
+O estado editorial → versionado.
 
 Exemplo:
 
@@ -1354,7 +1355,7 @@ schema atual
 validation
 ```
 
-N�o destrua dados editoriais durante migrations.
+Não destrua dados editoriais durante migrations.
 
 Preserve:
 
@@ -1371,15 +1372,15 @@ advance
 
 ---
 
-# 14. VALIDA��O
+# 14. VALIDAÇÃO
 
 Valide:
 
 ### IDs
 
 ```text
-id obrigat�rio
-IDs �nicos
+id obrigat→rio
+IDs →nicos
 ```
 
 ### Tipo
@@ -1388,22 +1389,22 @@ IDs �nicos
 type permitido
 ```
 
-### Se��o
+### Se→→o
 
 ```text
 section permitida
 ```
 
-### Posi��o
+### Posi→→o
 
 ```text
-inteiro n�o negativo
+inteiro n→o negativo
 ```
 
-### Conte�do
+### Conte→do
 
 ```text
-content � objeto
+content → objeto
 ```
 
 ### Links
@@ -1433,11 +1434,11 @@ Valide a estrutura editorial esperada.
 
 ---
 
-# 15. COMPONENTES P�BLICOS
+# 15. COMPONENTES PÚBLICOS
 
-O Console pode carregar p�ginas p�blicas para obter componentes reais.
+O Console pode carregar páginas p→blicas para obter componentes reais.
 
-Fontes de refer�ncia:
+Fontes de refer→ncia:
 
 ```text
 /index.html
@@ -1461,16 +1462,16 @@ ContentBlock
 preview
 ```
 
-N�o duplique manualmente componentes que j� podem ser obtidos das p�ginas p�blicas.
+Não duplique manualmente componentes que j→ podem ser obtidos das páginas p→blicas.
 
 ---
 
-# 16. DIAGN�STICO DO BOOTSTRAP
+# 16. DIAGN→STICO DO BOOTSTRAP
 
 Nunca deixe o Console preso silenciosamente em:
 
 ```text
-Loading editorial content�
+Loading editorial content→
 ```
 
 Se houver falha, mostre erro contextual.
@@ -1486,7 +1487,7 @@ Ao diagnosticar:
 
 ```text
 1. testar /console/
-2. testar as fontes p�blicas
+2. testar as fontes p→blicas
 3. abrir DevTools
 4. verificar Network
 5. verificar Console
@@ -1494,7 +1495,7 @@ Ao diagnosticar:
 7. corrigir somente essa camada
 ```
 
-N�o esconda um problema substituindo componentes reais por mocks.
+Não esconda um problema substituindo componentes reais por mocks.
 
 ---
 
@@ -1516,20 +1517,20 @@ importar
 confirmar /advance
 ```
 
-A interface deve deixar expl�cito:
+A interface deve deixar explícito:
 
 ```text
 Editorial stage: RADAR
 Advance readiness: not confirmed
 ```
 
-E apresentar a��o expl�cita:
+E apresentar ação explícita:
 
 ```text
-Confirm & /advance ? PREPARA��O
+Confirm & /advance ? PREPARAÇÃO
 ```
 
-O objetivo � deixar evidente:
+O objetivo → deixar evidente:
 
 ```text
 stage ? approval
@@ -1547,26 +1548,26 @@ Priorize:
 estrutura
 tipografia
 hierarquia
-conte�do
+conte→do
 componentes
 links
 estado visual
 ```
 
-N�o construa uma interface administrativa que esconda o resultado editorial real.
+Não construa uma interface administrativa que esconda o resultado editorial real.
 
 ---
 
 # 19. NOTEBOOKLM / IAs DE PESQUISA
 
-Se voc� estiver produzindo pesquisa editorial:
+Se voc→ estiver produzindo pesquisa editorial:
 
 ```text
 fontes
   ?
-s�ntese
+síntese
   ?
-evid�ncias
+evidências
   ?
 candidato editorial
 ```
@@ -1575,12 +1576,12 @@ Separe claramente:
 
 ```text
 FATO DA FONTE
-INTERPRETA��O
-INFORMA��O AUSENTE
+INTERPRETAÇÃO
+INFORMAÇÃO AUSENTE
 PONTO A VALIDAR
 ```
 
-Nunca transforme uma infer�ncia em fato.
+Nunca transforme uma infer→ncia em fato.
 
 Use preferencialmente:
 
@@ -1611,7 +1612,7 @@ PENDING
 
 ---
 
-# 20. DEEPSEEK HARNESS / COPILOT / AGENTES DE C�DIGO
+# 20. DEEPSEEK HARNESS / COPILOT / AGENTES DE C→DIGO
 
 Antes de alterar o projeto:
 
@@ -1622,27 +1623,27 @@ Antes de alterar o projeto:
 4. localizar ContentBlock/state
 5. localizar testes
 6. entender o fluxo atual
-7. fazer a menor altera��o necess�ria
-8. adicionar teste de regress�o
+7. fazer a menor alteração necessária
+8. adicionar teste de regress→o
 9. executar testes
 10. executar lint
 11. executar build
-12. executar valida��es de dados
+12. executar valida→→es de dados
 13. apresentar o resultado
 ```
 
-N�o reescreva a arquitetura sem necessidade.
+Não reescreva a arquitetura sem necessidade.
 
 Para um bug de carregamento:
 
 ```text
-diagn�stico
-? corre��o cir�rgica
+diagn→stico
+? corre→→o cir→rgica
 ? teste
-? valida��o
+? validação
 ```
 
-N�o fa�a:
+Não fa→a:
 
 ```text
 reescrever Console
@@ -1653,9 +1654,9 @@ criar banco
 
 ---
 
-# 21. CONTRATO DE SA�DA
+# 21. CONTRATO DE SA→DA
 
-Quando produzir material para o ASP Console, organize a sa�da como:
+Quando produzir material para o ASP Console, organize a sa→da como:
 
 ```text
 CONTENT BLOCK
@@ -1679,8 +1680,8 @@ EDITORIAL METADATA
 
 HUMAN REVIEW
 - pontos a confirmar
-- d�vidas
-- informa��o ausente
+- dúvidas
+- informação ausente
 - riscos editoriais
 ```
 
@@ -1743,31 +1744,31 @@ HUMAN REVIEW
 Lembre:
 
 ```text
-fonte confirmada ? publica��o autorizada
+fonte confirmada ? publicação autorizada
 ```
 
 ---
 
-# 23. PROIBI��ES
+# 23. PROIBIÇÕES
 
-N�o:
+Não:
 
 * crie CMS;
 * crie banco sem necessidade;
 * migre para React/Next sem necessidade;
 * crie componentes falsos;
 * invente fontes;
-* invente pre�os;
+* invente preços;
 * invente datas;
-* transforme promo��o n�o validada em oferta p�blica;
+* transforme promoção n→o validada em oferta p→blica;
 * apague metadados;
-* destrua hist�rico em migrations;
-* infira aprova��o;
+* destrua hist→rico em migrations;
+* infira aprovação;
 * avance automaticamente;
-* use Verdict como autoriza��o;
-* use Status como autoriza��o;
+* use Verdict como autorização;
+* use Status como autorização;
 * publique diretamente;
-* dispare automa��o futura na Fase 2;
+* dispare automação futura na Fase 2;
 * trate GitHub Kanban como substituto do Console.
 
 ---
@@ -1778,34 +1779,34 @@ Verifique:
 
 ```text
 [ ] /console abre
-[ ] fontes p�blicas carregam
+[ ] fontes p→blicas carregam
 [ ] componentes reais aparecem
-[ ] conte�do pode ser editado
-[ ] edi��o sobrevive ao reload
+[ ] conte→do pode ser editado
+[ ] edi→→o sobrevive ao reload
 [ ] export funciona
 [ ] import funciona
 [ ] componentes podem ser movidos
 [ ] componentes podem ser reordenados
 [ ] componentes podem ser ativados/desativados
-[ ] Verdict permanece separado do avan�o
-[ ] Status permanece separado do avan�o
-[ ] /advance exige confirma��o humana
-[ ] /advance registra transi��o
-[ ] altera��o posterior invalida readiness
-[ ] estado inv�lido � rejeitado
-[ ] links perigosos s�o rejeitados
+[ ] Verdict permanece separado do avan→o
+[ ] Status permanece separado do avan→o
+[ ] /advance exige confirmação humana
+[ ] /advance registra transição
+[ ] alteração posterior invalida readiness
+[ ] estado inv→lido → rejeitado
+[ ] links perigosos s→o rejeitados
 [ ] migration preserva dados editoriais
 [ ] testes passam
 [ ] lint passa
 [ ] build passa
-[ ] valida��o de dados passa
+[ ] validação de dados passa
 ```
 
 ---
 
-# 25. AUTOMA��O FUTURA
+# 25. AUTOMAÇÃO FUTURA
 
-A dire��o planejada �:
+A dire→→o planejada →:
 
 ```text
 RADAR
@@ -1825,15 +1826,15 @@ VALIDATION
 PUBLICATION
 ```
 
-Essa automa��o � futura.
+Essa automação → futura.
 
-N�o implemente essa cadeia dentro da Fase 2 sem instru��o expl�cita.
+Não implemente essa cadeia dentro da Fase 2 sem instru→→o explícita.
 
 ---
 
 # 26. REGRA DE OURO
 
-O Console n�o decide o que � bom.
+O Console n→o decide o que → bom.
 
 Ele:
 
@@ -1849,16 +1850,16 @@ A IA pode:
 ```text
 pesquisar
 sintetizar
-encontrar evid�ncias
-preparar conte�do
+encontrar evidências
+preparar conte→do
 sugerir estrutura
-detectar inconsist�ncias
+detectar inconsist→ncias
 validar dados
 ```
 
 Mas a autoridade editorial permanece humana.
 
-`/advance` � a fronteira:
+`/advance` → a fronteira:
 
 ```text
 ANTES
@@ -1870,96 +1871,98 @@ automation-ready
 
 ---
 
-# 27. INSTRU��O FINAL
+# 27. INSTRU→→O FINAL
 
 Sempre que trabalhar no ASP:
 
 ```text
 Leia o estado atual.
-Leia CONSOLE.MD quando dispon�vel.
+Leia CONSOLE.MD quando dispon→vel.
 Use componentes reais.
 Modele como ContentBlock.
-Separe conte�do de metadados.
-Preserve Verdict, Status, fontes e evid�ncias.
-N�o invente fatos.
-N�o trate valida��o como aprova��o.
-N�o avance automaticamente.
-Exija confirma��o humana para /advance.
-Invalide readiness ap�s mudan�as.
-Preserve schema e hist�rico.
-Fa�a mudan�as pequenas.
+Separe conte→do de metadados.
+Preserve Verdict, Status, fontes e evidências.
+Não invente fatos.
+Não trate validação como aprovação.
+Não avance automaticamente.
+Exija confirmação humana para /advance.
+Invalide readiness ap→s mudan→as.
+Preserve schema e hist→rico.
+Fa→a mudan→as pequenas.
 Teste tudo.
-N�o introduza infraestrutura desnecess�ria.
+Não introduza infraestrutura desnecessária.
 ```
 
 ## RESUMO EM UMA FRASE
 
-> **Produza para o ASP como ContentBlocks que reutilizam componentes reais do site, mantenha conte�do separado de metadados editoriais, preserve evid�ncias/Verdict/Status, nunca infira aprova��o, mantenha o humano como autoridade antes de `/advance` e trate o estado ap�s `/advance` como pronto para futura automa��o � sem criar CMS, banco, framework ou publica��o autom�tica desnecess�rios.**
+> **Produza para o ASP como ContentBlocks que reutilizam componentes reais do site, mantenha conte→do separado de metadados editoriais, preserve evidências/Verdict/Status, nunca infira aprovação, mantenha o humano como autoridade antes de `/advance` e trate o estado ap→s `/advance` como pronto para futura automação → sem criar CMS, banco, framework ou publicação autom→tica desnecessários.**
 
-# ASP � EDITORIAL CONSOLE | PROMPT MESTRE
+# ASP → EDITORIAL CONSOLE | PROMPT MESTRE
 
-Voc� trabalha no projeto **Accidentally Serious Producer (ASP)**. Produza conte�do, dados ou c�digo compat�veis com o padr�o Editorial Console. Este prompt � o contrato operacional.
+Voc→ trabalha no projeto **Accidentally Serious Producer (ASP)**. Produza conte→do, dados ou código compat→veis com o padr→o Editorial Console. Este prompt → o contrato operacional.
 
 ## FLUXO
 
-`RADAR ? PREPARA��O ? SELE��O EDITORIAL ? BRANCH EDITORIAL ? PREVIEW / HUMAN REVIEW ? PUBLICATION GATE`
+`RADAR ? PREPARAÇÃO ? SELE→→O EDITORIAL ? BRANCH EDITORIAL ? PREVIEW / HUMAN REVIEW ? PUBLICATION GATE`
 
-O Console � a interface editorial visual principal. GitHub Project = hist�rico/auditoria/acompanhamento/sincroniza��o.
+O Console → a interface editorial visual principal. GitHub Project = hist→rico/auditoria/acompanhamento/sincronização.
 
-**REGRA CENTRAL:** antes de `/advance`, o humano edita, verifica, seleciona e decide. Depois de `/advance`, o estado est� explicitamente preparado para futura automa��o. `valida��o ? aprova��o`; `Verdict ? aprova��o`; `Status ? aprova��o`; `stage ? aprova��o`.
+**REGRA CENTRAL:** antes de `/advance`, o humano edita, verifica, seleciona e decide. Depois de `/advance`, o estado est→ explicitamente preparado para futura automação. `validação ? aprovação`; `Verdict ? aprovação`; `Status ? aprovação`; `stage ? aprovação`.
 
 ## ARQUITETURA
 
-N�o transforme o ASP em CMS, React, Next.js, SPA, banco, backend ou framework sem necessidade. Preserve HTML, CSS, ES Modules, Web Components, JSON, localStorage e testes Node. Fa�a a menor mudan�a necess�ria.
+Não transforme o ASP em CMS, React, Next.js, SPA, banco, backend ou framework sem necessidade. Preserve HTML, CSS, ES Modules, Web Components, JSON, localStorage e testes Node. Fa→a a menor mudan→a necessária.
 
 ## COMPONENTES REAIS
 
-O Console deve reutilizar componentes existentes do ASP: hero, featured article, product review, deal, `<affiliate-offer>`, ASP Lab project etc. N�o crie `fake-card`, `mock-article`, `console-card` ou placeholders para representar componentes reais. O preview deve representar o produto real.
+O Console deve reutilizar componentes existentes do ASP: hero, featured article, product review, deal, `<affiliate-offer>`, ASP Lab project etc. Não crie `fake-card`, `mock-article`, `console-card` ou placeholders para representar componentes reais. O preview deve representar o produto real.
 
 ## CONTENTBLOCK
 
-Modele conte�do como:
+Modele conte→do como:
 
 ```js
 { id, type, content, section, position, status, metadata }
 ```
 
-Tipos de refer�ncia: `hero`, `article`, `product-review`, `deal`, `project`. S� crie outro tipo se existir necessidade real e componente correspondente.
+Tipos de refer→ncia: `hero`, `article`, `product-review`, `deal`, `project`. S→ crie outro tipo se existir necessidade real e componente correspondente.
 
-## SEPARA��O
+## SEPARAÇÃO
 
 **CONTENT:** `title`, `body`, `eyebrow`, `image`, `href`, `price`, `date`, `product`, `promotion`.
+**RECORD STATUS:** `status` é o estado técnico do registro (`draft`, `review`, `approved`, `published`, `archived`).
+**EDITORIAL STATUS:** `metadata.editorialStatus` usa somente a taxonomia editorial definida pelo ASP.
 **METADATA:** `editorialStage`, `sources`, `evidence`, `selection`, `verdict`, `editorialStatus`, `validation`, `publication`, `advance`, `enabled`.
 
-## SE��ES
+## SE→→ES
 
-Refer�ncia: `home`, `articles`, `deals`, `lab`. N�o crie novas se��es apenas para facilitar implementa��o.
+Refer→ncia: `home`, `articles`, `deals`, `lab`. Não crie novas se→→es apenas para facilitar implementação.
 
 ## TAXONOMIAS
 
 **Verdict:** `Fire`, `Stash`, `Digital Furniture`, `Nah`.
 **Status:** `Breaking`, `New Release`, `Free`, `Call an Ambulance`, `Last Chance`, `Updated`.
-N�o invente sin�nimos ou categorias sem mudan�a expl�cita da especifica��o.
+Não invente sin→nimos ou categorias sem mudan→a explícita da especificação.
 
 ## STAGES
 
-`RADAR ? PREPARA��O ? SELE��O EDITORIAL ? BRANCH EDITORIAL ? PREVIEW / HUMAN REVIEW ? PUBLICATION GATE`.
-Nunca avance automaticamente porque pre�o, fonte, checks, Verdict, Status ou preview parecem corretos. A decis�o antes de `/advance` � humana.
+`RADAR ? PREPARAÇÃO ? SELE→→O EDITORIAL ? BRANCH EDITORIAL ? PREVIEW / HUMAN REVIEW ? PUBLICATION GATE`.
+Nunca avance automaticamente porque preço, fonte, checks, Verdict, Status ou preview parecem corretos. A decis→o antes de `/advance` → humana.
 
 ## /ADVANCE
 
-`/advance` exige confirma��o humana expl�cita. Sem confirma��o: bloqueado. Com confirma��o: transiciona o stage. Registre, quando aplic�vel, `fromStage`, `toStage`, `requestedAt`, `selected`, `ready`. `/advance` n�o significa publica��o e n�o deve disparar JEV/AI Gateway na Fase 2.
+`/advance` exige confirmação humana explícita. Sem confirmação: bloqueado. Com confirmação: transiciona o stage. Registre, quando aplic→vel, `fromStage`, `toStage`, `requestedAt`, `selected`, `ready`. `/advance` n→o significa publicação e n→o deve disparar JEV/AI Gateway na Fase 2.
 
-## INVALIDA��O
+## INVALIDAÇÃO
 
-A aprova��o corresponde ao estado aprovado. Se houver edi��o, movimento, reordena��o, desativa��o ou altera��o editorial ap�s `/advance`, invalide:
+A aprovação corresponde ao estado aprovado. Se houver edi→→o, movimento, reordenação, desativação ou alteração editorial ap→s `/advance`, invalide:
 `advance.ready = false`
 `advance.selected = false`
-O hist�rico de `requestedAt` pode permanecer.
+O hist→rico de `requestedAt` pode permanecer.
 
-## PERSIST�NCIA
+## PERSISTÊNCIA
 
-O Console atual usa `localStorage`. N�o assuma publica��o, deploy, altera��o autom�tica do HTML p�blico, GitHub, JEV ou AI Gateway. O Console � um workspace editorial local.
+O Console atual usa `localStorage`. Não assuma publicação, deploy, alteração autom→tica do HTML público, GitHub, JEV ou AI Gateway. O Console → um workspace editorial local.
 
 ## IMPORT/EXPORT
 
@@ -1967,38 +1970,38 @@ Preserve `Export state` e `Import state`. Estado importado deve ser validado. Nu
 
 ## SCHEMA
 
-O estado � versionado. Refer�ncia atual: `CONTENT_BLOCK_SCHEMA_VERSION = 2`.
+O estado → versionado. Refer→ncia atual: `CONTENT_BLOCK_SCHEMA_VERSION = 2`.
 Fluxo: `schema antigo ? migration ? schema atual ? validation`.
-N�o destrua dados em migrations. Preserve Verdict, Status, stage, sources, evidence, validation, publication e advance.
+Não destrua dados em migrations. Preserve Verdict, Status, stage, sources, evidence, validation, publication e advance.
 
-## VALIDA��O
+## VALIDAÇÃO
 
-Valide: IDs obrigat�rios e �nicos; `type` permitido; `section` permitida; `position` inteiro n�o negativo; `content` objeto; links locais ou HTTPS; rejeite `javascript:` e URLs com credenciais; valide datas e metadados editoriais.
+Valide: IDs obrigat→rios e →nicos; `type` permitido; `section` permitida; `position` inteiro n→o negativo; `content` objeto; links locais ou HTTPS; rejeite `javascript:` e URLs com credenciais; valide datas e metadados editoriais.
 
-## COMPONENTES P�BLICOS
+## COMPONENTES PÚBLICOS
 
-O Console pode carregar p�ginas p�blicas para obter componentes reais. Refer�ncias: `/index.html`, `/articles/radar-setembro-22.html`, `/lab.html`.
+O Console pode carregar páginas p→blicas para obter componentes reais. Refer→ncias: `/index.html`, `/articles/radar-setembro-22.html`, `/lab.html`.
 Fluxo: `fetch ? parse HTML ? localizar componente ? reutilizar estrutura ? ContentBlock ? preview`.
-N�o duplique manualmente componentes existentes.
+Não duplique manualmente componentes existentes.
 
 ## BOOTSTRAP
 
-Nunca deixe o Console preso silenciosamente em `Loading editorial content�`. Mostre erros contextuais identificando a fonte problem�tica. Diagn�stico: `/console/` ? fontes p�blicas ? DevTools ? Network ? Console ? identificar camada ? corrigir somente essa camada. N�o esconda falhas usando mocks.
+Nunca deixe o Console preso silenciosamente em `Loading editorial content→`. Mostre erros contextuais identificando a fonte problem→tica. Diagn→stico: `/console/` ? fontes p→blicas ? DevTools ? Network ? Console ? identificar camada ? corrigir somente essa camada. Não esconda falhas usando mocks.
 
 ## INTERFACE
 
-O editor deve poder: selecionar, editar, mover, reordenar, ativar/desativar, visualizar, editar estado editorial, exportar, importar e confirmar `/advance`. Exiba claramente `Editorial stage` e `Advance readiness`. `stage ? approval`.
+O editor deve poder: selecionar, editar, mover, reordenar, ativar/desativar, visualizar, criar via `+ Add Block`, editar estado editorial, exportar, importar e confirmar `/advance`. Exiba claramente `Editorial stage` e `Advance readiness`. `stage ? approval`.
 
 ## PREVIEW
 
-Use identidade e componentes reais do ASP. Priorize estrutura, tipografia, hierarquia, conte�do, componentes, links e estado visual. Evite interface administrativa gen�rica que esconda o resultado editorial.
+Use identidade e componentes reais do ASP. Priorize estrutura, tipografia, hierarquia, conte→do, componentes, links e estado visual. Evite interface administrativa gen→rica que esconda o resultado editorial.
 
 ## NOTEBOOKLM / IA DE PESQUISA
 
 Use IA de pesquisa para:
-`fontes ? s�ntese ? evid�ncias ? candidato editorial`.
-Separe `FATO DA FONTE`, `INTERPRETA��O`, `INFORMA��O AUSENTE`, `PONTO A VALIDAR`.
-Nunca transforme infer�ncia em fato.
+`fontes ? síntese ? evidências ? candidato editorial`.
+Separe `FATO DA FONTE`, `INTERPRETAÇÃO`, `INFORMAÇÃO AUSENTE`, `PONTO A VALIDAR`.
+Nunca transforme infer→ncia em fato.
 Formato preferencial:
 
 ```text
@@ -2022,12 +2025,12 @@ HUMAN DECISION
 PENDING
 ```
 
-## DEEPSEEK HARNESS / COPILOT / AGENTES DE C�DIGO
+## DEEPSEEK HARNESS / COPILOT / AGENTES DE C→DIGO
 
-Antes de alterar: `ler README ? ler CONSOLE.MD ? localizar componentes ? localizar ContentBlock/state ? localizar testes ? entender fluxo ? menor altera��o ? teste de regress�o ? testes/lint/build/valida��o ? apresentar resultado`.
-Bug de carregamento = `diagn�stico ? corre��o cir�rgica ? teste ? valida��o`. N�o reescreva arquitetura, migre framework ou crie API/banco sem necessidade.
+Antes de alterar: `ler README ? ler CONSOLE.MD ? localizar componentes ? localizar ContentBlock/state ? localizar testes ? entender fluxo ? menor alteração ? teste de regress→o ? testes/lint/build/validação ? apresentar resultado`.
+Bug de carregamento = `diagn→stico ? corre→→o cir→rgica ? teste ? validação`. Não reescreva arquitetura, migre framework ou crie API/banco sem necessidade.
 
-## CONTRATO DE SA�DA
+## CONTRATO DE SA→DA
 
 Ao preparar material para o Console, use:
 
@@ -2051,19 +2054,19 @@ EDITORIAL METADATA
 - ADVANCE
 HUMAN REVIEW
 - pontos a confirmar
-- d�vidas
-- informa��o ausente
+- dúvidas
+- informação ausente
 - riscos editoriais
 ```
 
-## REGRA DE EVID�NCIA
+## REGRA DE EVID→NCIA
 
-`fonte confirmada ? publica��o autorizada`.
-N�o invente fonte, pre�o, data, condi��o, evid�ncia ou fato.
+`fonte confirmada ? publicação autorizada`.
+Não invente fonte, preço, data, condi→→o, evidência ou fato.
 
-## N�O FAZER
+## N→O FAZER
 
-N�o criar CMS, banco, React/Next sem necessidade, componentes falsos, fontes/pre�os/datas inventados, publica��o autom�tica, avan�o autom�tico ou automa��o futura prematura. N�o apagar metadados/hist�rico. N�o usar Verdict/Status como autoriza��o. N�o tratar GitHub Kanban como substituto do Console.
+Não criar CMS, banco, React/Next sem necessidade, componentes falsos, fontes/preços/datas inventados, publicação autom→tica, avan→o autom→tico ou automação futura prematura. Não apagar metadados/hist→rico. Não usar Verdict/Status como autorização. Não tratar GitHub Kanban como substituto do Console.
 
 ## TESTE DE ACEITE
 
@@ -2071,39 +2074,39 @@ Verifique:
 
 ```text
 [ ] /console abre
-[ ] fontes p�blicas carregam
+[ ] fontes p→blicas carregam
 [ ] componentes reais aparecem
-[ ] edi��o funciona
-[ ] edi��o sobrevive ao reload
+[ ] edi→→o funciona
+[ ] edi→→o sobrevive ao reload
 [ ] export/import funcionam
 [ ] move/reorder funcionam
 [ ] activate/deactivate funcionam
-[ ] Verdict n�o avan�a sozinho
-[ ] Status n�o avan�a sozinho
-[ ] /advance exige confirma��o humana
-[ ] /advance registra transi��o
-[ ] altera��o posterior invalida readiness
-[ ] estado inv�lido � rejeitado
-[ ] links perigosos s�o rejeitados
+[ ] Verdict n→o avan→a sozinho
+[ ] Status n→o avan→a sozinho
+[ ] /advance exige confirmação humana
+[ ] /advance registra transição
+[ ] alteração posterior invalida readiness
+[ ] estado inv→lido → rejeitado
+[ ] links perigosos s→o rejeitados
 [ ] migration preserva dados
-[ ] testes/lint/build/valida��o passam
+[ ] testes/lint/build/validação passam
 ```
 
-## AUTOMA��O FUTURA
+## AUTOMAÇÃO FUTURA
 
 Arquitetura planejada:
 `RADAR ? ASP CONSOLE ? HUMAN REVIEW ? /advance ? JEV ? Vercel AI Gateway ? VALIDATION ? PUBLICATION`.
-N�o implementar essa cadeia na Fase 2 sem instru��o expl�cita.
+Não implementar essa cadeia na Fase 2 sem instru→→o explícita.
 
 ## REGRA DE OURO
 
-O Console organiza, apresenta, permite editar e registra o estado editorial. A IA pode pesquisar, sintetizar, encontrar evid�ncias, preparar conte�do, sugerir estrutura, detectar inconsist�ncias e validar dados. A autoridade editorial permanece humana.
+O Console organiza, apresenta, permite editar e registra o estado editorial. A IA pode pesquisar, sintetizar, encontrar evidências, preparar conte→do, sugerir estrutura, detectar inconsist→ncias e validar dados. A autoridade editorial permanece humana.
 
 `ANTES DE /advance = human-in-the-loop`
 `DEPOIS DE /advance = automation-ready`
 
-## INSTRU��O FINAL
+## INSTRU→→O FINAL
 
-Leia o estado atual e `CONSOLE.MD` quando dispon�vel. Use componentes reais. Modele como ContentBlock. Separe conte�do de metadados. Preserve Verdict, Status, fontes e evid�ncias. N�o invente fatos. N�o trate valida��o como aprova��o. N�o avance automaticamente. Exija confirma��o humana para `/advance`. Invalide readiness ap�s mudan�as. Preserve schema e hist�rico. Fa�a mudan�as pequenas. Teste tudo. N�o introduza infraestrutura desnecess�ria.
+Leia o estado atual e `CONSOLE.MD` quando dispon→vel. Use componentes reais. Modele como ContentBlock. Separe conte→do de metadados. Preserve Verdict, Status, fontes e evidências. Não invente fatos. Não trate validação como aprovação. Não avance automaticamente. Exija confirmação humana para `/advance`. Invalide readiness ap→s mudan→as. Preserve schema e hist→rico. Fa→a mudan→as pequenas. Teste tudo. Não introduza infraestrutura desnecessária.
 
-**RESUMO:** Produza para o ASP como ContentBlocks que reutilizam componentes reais do site, mantenha conte�do separado de metadados editoriais, preserve evid�ncias/Verdict/Status, nunca infira aprova��o, mantenha o humano como autoridade antes de `/advance` e trate o estado ap�s `/advance` como pronto para futura automa��o � sem criar CMS, banco, framework ou publica��o autom�tica desnecess�rios.
+**RESUMO:** Produza para o ASP como ContentBlocks que reutilizam componentes reais do site, mantenha conte→do separado de metadados editoriais, preserve evidências/Verdict/Status, nunca infira aprovação, mantenha o humano como autoridade antes de `/advance` e trate o estado ap→s `/advance` como pronto para futura automação → sem criar CMS, banco, framework ou publicação autom→tica desnecessários.
