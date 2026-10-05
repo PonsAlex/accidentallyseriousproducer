@@ -139,8 +139,13 @@ function applyBlockContent(block, component) {
     }
     const link = component.querySelector(":scope > a");
     if (link) {
-      link.href = content.href;
+      if (content.href) link.href = content.href;
+      else link.removeAttribute("href");
       link.textContent = content.linkLabel;
+    }
+    if (time && !content.date) {
+      time.removeAttribute("datetime");
+      time.textContent = "";
     }
   } else if (block.type === "product-review") {
     const verdict = component.querySelector(".verdict-badge");
@@ -163,7 +168,8 @@ function applyBlockContent(block, component) {
     }
     const link = component.querySelector(":scope > a");
     if (link) {
-      link.href = content.href;
+      if (content.href) link.href = content.href;
+      else link.removeAttribute("href");
       link.textContent = content.linkLabel;
     }
   } else if (block.type === "project") {
@@ -183,7 +189,7 @@ export async function loadPublicComponentTemplates({
   parseDocument = (html) => new DOMParser().parseFromString(html, "text/html"),
   createOfferElement = (promotionId) => {
     const element = document.createElement("affiliate-offer");
-    element.setAttribute("promotion-id", promotionId);
+    if (promotionId) element.setAttribute("promotion-id", promotionId);
     return element;
   }
 } = {}) {
@@ -224,13 +230,16 @@ export async function loadPublicComponentTemplates({
     if (block.type === "deal") {
       return createOfferElement(block.content.promotionId);
     }
-    if (!template) {
+    const componentTemplate = template ?? [...templates.values()].find((item) => item.type === block.type);
+    if (!componentTemplate) {
       throw new Error(`No existing public component is mapped to content block ${block.id}.`);
     }
-    return applyBlockContent(block, template.component.cloneNode(true));
+    return applyBlockContent(block, componentTemplate.component.cloneNode(true));
   }
   renderPublicComponent.hasTemplate = (blockId, type) =>
-    templates.get(blockId)?.type === type;
+    templates.has(blockId)
+      ? templates.get(blockId).type === type
+      : [...templates.values()].some((template) => template.type === type);
 
   function readInitialContent(blockId) {
     const template = templates.get(blockId);

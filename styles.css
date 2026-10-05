@@ -1392,6 +1392,34 @@ affiliate-offer {
   font-size: 1.45rem;
 }
 
+.console-add-dialog {
+  width: min(calc(100% - 2rem), 30rem);
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #18181b;
+  color: var(--text);
+}
+
+.console-add-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.console-add-dialog form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.console-add-dialog h2 {
+  margin: 0;
+}
+
+.console-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
 .console-panel-heading .eyebrow {
   font-size: 0.68rem;
 }

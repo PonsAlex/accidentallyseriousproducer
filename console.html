@@ -39,6 +39,7 @@
               <p class="eyebrow">Inbox / Content</p>
               <h2>Existing components</h2>
             </div>
+            <button class="button button-primary" id="add-block" type="button">+ Add Block</button>
           </div>
           <p class="console-hint">These are public ASP components. Drag to move; select a component to edit it. Editorial process data is kept separately.</p>
           <ul class="console-content-list" id="content-list"></ul>
@@ -57,5 +58,30 @@
       </section>
     </div>
   </main>
+  <dialog class="console-add-dialog" id="add-block-dialog" aria-labelledby="add-block-title">
+    <form id="add-block-form">
+      <p class="eyebrow">ASP / Editorial system</p>
+      <h2 id="add-block-title">Add a content block</h2>
+      <label class="console-field" for="add-block-type">
+        <span>Component type</span>
+        <select id="add-block-type" name="type">
+          <option value="hero">Hero</option>
+          <option value="article">Article</option>
+          <option value="product-review">Product review</option>
+          <option value="deal">Deal</option>
+          <option value="project">Project</option>
+        </select>
+      </label>
+      <label class="console-field" for="add-block-section">
+        <span>Page section</span>
+        <select id="add-block-section" name="section"></select>
+      </label>
+      <p class="console-process-note">New blocks start as unpublished RADAR drafts. Creating one does not approve, advance, or publish it.</p>
+      <div class="console-dialog-actions">
+        <button class="button button-secondary" type="button" id="cancel-add-block">Cancel</button>
+        <button class="button button-primary" type="submit">Create block</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>

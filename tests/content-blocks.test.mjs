@@ -4,7 +4,10 @@ import { readFile } from "node:fs/promises";
 import {
   EDITORIAL_STATUSES,
   EDITORIAL_VERDICTS,
+  CONTENT_TYPE_SECTIONS,
+  addEditorialBlockToState,
   advanceEditorialBlock,
+  createEditorialBlock,
   createInitialEditorialState,
   invalidateEditorialAdvance,
   migrateEditorialState,
@@ -88,6 +91,118 @@ test("editorial metadata preserves evidence, source, verdict, validation and fut
   assert.equal(typeof block.metadata.validation, "object");
   assert.equal(typeof block.metadata.publication, "object");
   assert.equal(typeof block.metadata.advance.ready, "boolean");
+});
+
+test("new blocks use only compatible component types and start as unapproved RADAR drafts", () => {
+  const state = createInitialEditorialState({ products, promotions });
+  let id = 0;
+
+  for (const [type, sections] of Object.entries(CONTENT_TYPE_SECTIONS)) {
+    for (const section of sections) {
+      const block = createEditorialBlock({
+        type,
+        section,
+        existingBlocks: state.blocks,
+        idFactory: () => `test-${++id}`
+      });
+      validateEditorialState({
+        schemaVersion: 2,
+        revision: 1,
+        updatedAt: null,
+        blocks: [block]
+      });
+      assert.equal(block.type, type);
+      assert.equal(block.section, section);
+      assert.equal(block.status, "draft");
+      assert.equal(block.metadata.editorialStage, "RADAR");
+      assert.equal(block.metadata.enabled, true);
+      assert.equal(block.metadata.verdict, "");
+      assert.equal(block.metadata.editorialStatus, "");
+      assert.equal(block.metadata.publication.state, "unpublished");
+      assert.equal(block.metadata.advance.selected, false);
+      assert.equal(block.metadata.advance.ready, false);
+      assert.ok(Object.values(block.content).every((value) => value === "" || value === null || value === undefined));
+      if (type === "deal") {
+        assert.deepEqual(block.content, { promotionId: null });
+      }
+    }
+  }
+
+  assert.throws(
+    () => createEditorialBlock({ type: "deal", section: "home", idFactory: () => "invalid" }),
+    /not supported in section/
+  );
+});
+
+test("adding a block creates a unique persisted-ready state without mutating the prior state", () => {
+  const original = createInitialEditorialState({ products, promotions });
+  const originalCopy = structuredClone(original);
+  let id = 0;
+  const added = addEditorialBlockToState(original, {
+    type: "article",
+    section: "home",
+    idFactory: () => `article-${++id}`,
+    updatedAt: "2026-10-04T12:00:00Z"
+  });
+  const addedAgain = addEditorialBlockToState(added, {
+    type: "article",
+    section: "home",
+    idFactory: () => `article-${++id}`,
+    updatedAt: "2026-10-04T12:01:00Z"
+  });
+  const storage = new Map();
+  storage.set("asp-editorial-console-v1", JSON.stringify(addedAgain));
+  const restored = JSON.parse(storage.get("asp-editorial-console-v1"));
+
+  assert.deepEqual(original, originalCopy);
+  assert.equal(added.revision, original.revision + 1);
+  assert.equal(addedAgain.revision, added.revision + 1);
+  assert.notEqual(added.blocks.at(-1).id, addedAgain.blocks.at(-1).id);
+  assert.equal(restored.blocks.at(-1).id, addedAgain.blocks.at(-1).id);
+  assert.equal(restored.blocks.at(-1).metadata.advance.ready, false);
+  assert.throws(
+    () => addEditorialBlockToState(addedAgain, {
+      type: "article",
+      section: "home",
+      idFactory: () => "article-1"
+    }),
+    /IDs must be unique/
+  );
+});
+
+test("Add Block cancel closes the dialog without invoking block creation", async () => {
+  const [markup, consoleScript] = await Promise.all([
+    readFile(new URL("../console.html", import.meta.url), "utf8"),
+    readFile(new URL("../assets/editorial-console.mjs", import.meta.url), "utf8")
+  ]);
+
+  assert.match(
+    markup,
+    /<button(?=[^>]*id="cancel-add-block")(?=[^>]*type="button")[^>]*>Cancel/
+  );
+  assert.match(
+    consoleScript,
+    /document\.querySelector\("#cancel-add-block"\)\.addEventListener\("click", \(\) => \{\s*addBlockDialog\.close\(\);\s*\}\);/
+  );
+});
+
+test("an incomplete deal contains no invented offer facts and remains unpublished", () => {
+  const block = createEditorialBlock({
+    type: "deal",
+    section: "deals",
+    idFactory: () => "incomplete-deal"
+  });
+  const serialized = JSON.stringify(block);
+
+  assert.equal(block.content.promotionId, null);
+  assert.equal(block.status, "draft");
+  assert.equal(block.metadata.publication.state, "unpublished");
+  assert.equal(Object.hasOwn(block.content, "price"), false);
+  assert.equal(Object.hasOwn(block.content, "url"), false);
+  assert.equal(Object.hasOwn(block.content, "evidence"), false);
+  assert.equal(block.metadata.sources.length, 0);
+  assert.equal(block.metadata.evidence.priceConfirmed, false);
+  assert.doesNotMatch(serialized, /"verdict":"(?:Fire|Stash|Digital Furniture|Nah)"/);
 });
 
 test("Verdict and Status keep the README taxonomies and remain independent of advancement", () => {
@@ -255,6 +370,17 @@ test("public template loader builds every initial ASP content block from the pub
     assert.ok(rendered, `expected a renderable public component for ${block.id}`);
   }
   assert.deepEqual(offers.map((offer) => offer.promotionId).sort(), ["published-promotion"]);
+
+  for (const [type, sections] of Object.entries(CONTENT_TYPE_SECTIONS)) {
+    for (const section of sections) {
+      const block = createEditorialBlock({ type, section, idFactory: () => `new-${type}` });
+      if (type !== "deal") {
+        assert.equal(templates.renderPublicComponent.hasTemplate(block.id, type), true);
+      }
+      assert.ok(templates.renderPublicComponent(block), `expected a public type template for ${type}`);
+    }
+  }
+  assert.deepEqual(offers.at(-1).promotionId, null);
 });
 
 test("public template loader reports the failing page URL", async () => {

@@ -7,8 +7,10 @@ import {
 import {
   EDITORIAL_STAGE_ORDER,
   CONTENT_SECTIONS,
+  CONTENT_TYPE_SECTIONS,
   EDITORIAL_STATUSES,
   EDITORIAL_VERDICTS,
+  addEditorialBlockToState,
   advanceEditorialBlock,
   createInitialEditorialState,
   invalidateEditorialAdvance,
@@ -24,6 +26,10 @@ const contentList = document.querySelector("#content-list");
 const preview = document.querySelector("#page-preview");
 const editor = document.querySelector("#block-editor");
 const dataInput = document.querySelector("#state-import");
+const addBlockDialog = document.querySelector("#add-block-dialog");
+const addBlockForm = document.querySelector("#add-block-form");
+const addBlockType = document.querySelector("#add-block-type");
+const addBlockSection = document.querySelector("#add-block-section");
 
 let state;
 let promotionsById;
@@ -35,6 +41,10 @@ function validateConsoleState(value) {
   validateEditorialState(value);
   for (const block of value.blocks) {
     if (block.type === "deal") {
+      if (!block.content.promotionId) {
+        if (block.status === "draft" && block.metadata.publication.state === "unpublished") continue;
+        throw new TypeError(`Deal block ${block.id} needs an approved public promotion.`);
+      }
       const promotion = promotionsById.get(block.content.promotionId);
       if (!promotion || !isPromotionPublic(promotion)) {
         throw new TypeError(`Deal block ${block.id} does not reference an approved public promotion.`);
@@ -90,7 +100,7 @@ function getBlock(id) {
 function getBlockTitle(block) {
   if (block.type === "deal") {
     const promotion = promotionsById.get(block.content.promotionId);
-    return productsById.get(promotion?.productId)?.name ?? block.content.promotionId;
+    return productsById.get(promotion?.productId)?.name ?? block.content.promotionId ?? "Deal needs promotion data";
   }
   return block.content.title || block.id;
 }
@@ -225,10 +235,27 @@ function renderBlockEditor(block) {
     editor.append(createInput(label, `content.${name}`, block.content[name], { multiline }));
   }
   if (block.type === "deal") {
+    const approvedPromotions = [...promotionsById.values()]
+      .filter(isPromotionPublic)
+      .sort((left, right) => left.id.localeCompare(right.id));
+    editor.append(createSelect(
+      "Approved public promotion",
+      "content.promotionId",
+      [
+        ["", "No approved promotion selected"],
+        ...approvedPromotions.map((promotion) => [
+          promotion.id,
+          `${productsById.get(promotion.productId)?.name ?? promotion.id} · ${promotion.id}`
+        ])
+      ],
+      block.content.promotionId
+    ));
     editor.append(createElement(
       "p",
       "console-process-note",
-      `Offer facts are controlled by the reviewed promotion and product records (${block.content.promotionId}); this block uses the public offer component.`
+      block.content.promotionId
+        ? `Offer facts are controlled by the reviewed promotion and product records (${block.content.promotionId}); this block uses the public offer component.`
+        : "This deal stays incomplete until you select an approved public promotion. No offer facts are created here."
     ));
   }
 
@@ -340,6 +367,13 @@ function appendPreviewBlock(block) {
   }
 
   wrapper.append(renderPublicComponent(block));
+  if (block.type === "deal" && !block.content.promotionId) {
+    wrapper.append(createElement(
+      "p",
+      "console-deal-description",
+      "Select an approved public promotion to preview this deal."
+    ));
+  }
   return wrapper;
 }
 
@@ -402,6 +436,7 @@ function handleEditorChange(event) {
   let value = event.target.type === "checkbox" ? event.target.checked : event.target.value;
   if (field === "position") value = Number(value);
   if (field.endsWith(".href") && value === "") value = undefined;
+  if (field === "content.promotionId" && value === "") value = null;
   if (field === "metadata.sources") {
     value = value.split(/\r?\n/).map((source) => source.trim()).filter(Boolean);
   }
@@ -410,6 +445,37 @@ function handleEditorChange(event) {
   if (summary) summary.textContent = `Editorial stage: ${block.metadata.editorialStage}. Advance readiness: not confirmed. Stage changes only through explicit /advance confirmation.`;
   updateBlockField(block, field, value);
   saveState();
+}
+
+function updateAddBlockSections() {
+  const sections = CONTENT_TYPE_SECTIONS[addBlockType.value] ?? [];
+  addBlockSection.replaceChildren();
+  for (const section of sections) {
+    const option = createElement("option", "", CONTENT_SECTIONS[section]);
+    option.value = section;
+    addBlockSection.append(option);
+  }
+}
+
+function addBlock(event) {
+  event.preventDefault();
+  try {
+    const nextState = addEditorialBlockToState(state, {
+      type: addBlockType.value,
+      section: addBlockSection.value
+    });
+    validateConsoleState(nextState);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(nextState));
+    state = nextState;
+    selectedBlockId = state.blocks.at(-1).id;
+    addBlockDialog.close();
+    addBlockForm.reset();
+    updateAddBlockSections();
+    render();
+    statusMessage("Content block created and saved in this browser as a draft.");
+  } catch (error) {
+    statusMessage(`Could not add content block: ${error.message}`, true);
+  }
 }
 
 function selectBlock(id) {
@@ -498,6 +564,15 @@ async function start() {
     }
     if (state.blocks.length > 0) selectedBlockId = state.blocks[0].id;
     render();
+    document.querySelector("#add-block").addEventListener("click", () => {
+      updateAddBlockSections();
+      addBlockDialog.showModal();
+    });
+    document.querySelector("#cancel-add-block").addEventListener("click", () => {
+      addBlockDialog.close();
+    });
+    addBlockType.addEventListener("change", updateAddBlockSections);
+    addBlockForm.addEventListener("submit", addBlock);
     document.querySelector("#export-state").addEventListener("click", exportState);
     dataInput.addEventListener("change", () => importState(dataInput.files?.[0]));
     editor.addEventListener("input", handleEditorChange);
