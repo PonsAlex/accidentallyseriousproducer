@@ -5,6 +5,11 @@ import {
   PUBLIC_COMPONENT_BLOCK_IDS
 } from "./public-component-templates.mjs";
 import {
+  createConsoleExportEnvelope,
+  importConsoleState,
+  validateConsoleEditorialState
+} from "./console-export.mjs";
+import {
   EDITORIAL_STAGE_ORDER,
   CONTENT_SECTIONS,
   CONTENT_TYPE_SECTIONS,
@@ -16,8 +21,7 @@ import {
   invalidateEditorialAdvance,
   migrateEditorialState,
   moveEditorialBlock,
-  normalizeBlockPositions,
-  validateEditorialState
+  normalizeBlockPositions
 } from "./content-blocks.mjs";
 
 const STORAGE_KEY = "asp-editorial-console-v1";
@@ -38,24 +42,10 @@ let renderPublicComponent;
 let selectedBlockId = null;
 
 function validateConsoleState(value) {
-  validateEditorialState(value);
-  for (const block of value.blocks) {
-    if (block.type === "deal") {
-      if (!block.content.promotionId) {
-        if (block.status === "draft" && block.metadata.publication.state === "unpublished") continue;
-        throw new TypeError(`Deal block ${block.id} needs an approved public promotion.`);
-      }
-      const promotion = promotionsById.get(block.content.promotionId);
-      if (!promotion || !isPromotionPublic(promotion)) {
-        throw new TypeError(`Deal block ${block.id} does not reference an approved public promotion.`);
-      }
-      continue;
-    }
-    if (!renderPublicComponent?.hasTemplate(block.id, block.type)) {
-      throw new TypeError(`Content block ${block.id} does not match an existing public component.`);
-    }
-  }
-  return value;
+  return validateConsoleEditorialState(value, {
+    promotionsById,
+    hasTemplate: (id, type) => renderPublicComponent?.hasTemplate(id, type) ?? false
+  });
 }
 
 function toggleBlock(id) {
@@ -512,25 +502,30 @@ function handleDrop(event) {
 }
 
 function exportState() {
-  const file = new Blob([`${JSON.stringify(state, null, 2)}\n`], { type: "application/json" });
+  validateConsoleState(state);
+  const envelope = createConsoleExportEnvelope(state);
+  const file = new Blob([`${JSON.stringify(envelope, null, 2)}\n`], { type: "application/json" });
   const url = URL.createObjectURL(file);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "asp-editorial-state.json";
+  link.download = "asp-console-export.json";
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 0);
-  statusMessage("Editorial state exported as JSON.");
+  statusMessage("Editorial state exported as ASP Console Export v1 JSON.");
 }
 
 async function importState(file) {
   if (!file) return;
   try {
-    const imported = migrateEditorialState(JSON.parse(await file.text()));
-    validateConsoleState(imported);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(imported));
-    state = imported;
-    selectedBlockId = null;
-    render();
+    importConsoleState(await file.text(), {
+      validateState: validateConsoleState,
+      persist: (candidate) => localStorage.setItem(STORAGE_KEY, JSON.stringify(candidate)),
+      apply: (candidate) => {
+        state = candidate;
+        selectedBlockId = null;
+        render();
+      }
+    });
     statusMessage("Editorial state imported and saved in this browser.");
   } catch (error) {
     statusMessage(`Could not import editorial state: ${error.message}`, true);

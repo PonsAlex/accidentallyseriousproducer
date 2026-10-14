@@ -88,8 +88,10 @@ JEV, AI Gateway, or publication.
 
 Editorial state is stored in the current browser's local storage. Use
 **Export state** to keep a JSON copy or transfer state, and **Import state** to
-restore one in a browser. Version 1 state exports are migrated on load to the
-current schema version while retaining existing content and editorial metadata.
+restore one in a browser. Export state downloads the ASP Console Export v1
+envelope; Import state accepts that envelope and the legacy raw state file.
+Legacy schema-v1 states are migrated to the current schema version while
+retaining existing content and editorial metadata.
 
 The console is a local editorial workspace, not an authenticated or shared
 server-side CMS. It does not write the public content files, change promotion
@@ -100,31 +102,29 @@ content blocks.
 
 The versioned block state retains evidence, sources, editorial selection,
 verdict, status, validation, publication state, and future `/advance` readiness
-fields. A later integration can consume an exported/persisted state at the
-human-confirmation boundary without adding JEV, AI Gateway, or publication
-automation in this phase.
+fields. The Console exports this state inside the ASP Console Export v1
+envelope and accepts legacy state files at the human-confirmation boundary.
+This does not add JEV, AI Gateway, or publication automation.
 
 ## ASP Console Export Contract v1
 
-This section defines the proposed versioned hand-off format for the Console,
-JEV, and implementation agents. It does not describe a format currently emitted
-by the Console: **Export state** currently downloads the editorial state object
-itself as `asp-editorial-state.json`. That object has `schemaVersion: 2`; it has
-no export envelope, `format`, `formatVersion`, `exportedAt`, or `source`
-metadata. The current importer accepts that state shape and migrates supported
-schema-v1 states; it does not recognize this proposed envelope.
+This section documents the versioned hand-off format for the Console, JEV, and
+implementation agents. **Export state** downloads `asp-console-export.json`
+using the envelope below. Import state also accepts legacy files containing the
+editorial state directly, including schema-v1 files supported by the existing
+migration. The envelope does not change the schema of the enclosed state.
 
-### A. Proposed export envelope
+### A. Export envelope
 
-The target format wraps, rather than replaces or reshapes, the existing
-editorial state:
+The format wraps, rather than replaces or reshapes, the existing editorial
+state:
 
-| Envelope field | Contract v1 meaning |
+| Envelope field | Contract v1 value and meaning |
 | --- | --- |
 | `format` | Fixed identifier `asp-console-export`. |
 | `formatVersion` | Version of this interchange envelope. It is `1` for this contract and does not version the blocks. |
 | `exportedAt` | Time the snapshot was created, as an ISO 8601 UTC timestamp (for example, `2026-10-14T14:30:00.000Z`). |
-| `source.application` | Stable identifier for the exporting application. The proposed identifier is `asp-editorial-console`; it is not currently emitted. |
+| `source.application` | Stable identifier for the exporting application: `asp-editorial-console`. |
 | `source.contentSchemaVersion` | The block-state schema version contained in `state`; it is `2` for the current schema. |
 | `source.revision` | The `state.revision` captured in this snapshot. |
 | `source.updatedAt` | The `state.updatedAt` captured in this snapshot (a timestamp string or `null`, as allowed by the current state). |
@@ -141,8 +141,7 @@ The following is a complete illustrative envelope with one article block. All
 copy, URLs, timestamps, and editorial values are fictitious; `example.invalid`
 is a reserved example domain. The block ID is an existing ASP article-component
 ID so the example also satisfies the current Console's component-template
-identity check. The example assumes the proposed wrapper has been implemented;
-the current Export state button does not produce it.
+identity check.
 
 ```json
 {
@@ -312,7 +311,7 @@ Other checks currently performed:
 - If `content.date` exists, it must be a real calendar date in exact
   `YYYY-MM-DD` form. Other date-like properties are not checked by this rule.
 - `state.updatedAt` may be `null` or any string for which `Date.parse` returns
-  a finite value; this is looser than the proposed envelope's strict ISO 8601
+  a finite value; this is looser than the envelope's strict ISO 8601
   UTC `exportedAt`. The state validator does not require UTC or a specific
   timestamp spelling.
 - Console import validates deal references against the currently loaded
@@ -323,25 +322,34 @@ Other checks currently performed:
   invalid import does not replace the current in-memory state or stored state.
 
 Import rejection is not a complete external-file security boundary: the
-current schema validator is intentionally limited, does not validate every
-nested field, and there is no envelope-aware importer yet. Implementations
-consuming an export must validate untrusted JSON independently.
+current schema validator is intentionally limited and does not validate every
+nested field. Other systems consuming an export must validate untrusted JSON
+independently.
 
-### C. Future integration validation
+### C. Import validation and compatibility
 
-The future envelope-aware importer should validate the wrapper before applying
-any changes: exact `format`, supported `formatVersion`, supported
-`source.contentSchemaVersion`, matching source/state revision and update time,
-and a supported `state.schemaVersion`. It should then validate the complete
-state, promotion references against the current public catalog, and any
-required safety constraints. It should reject malformed or incompatible input
-without partially changing local storage or visible editor state.
+The importer rejects an unsupported `format`, `formatVersion`, or source
+application; invalid `exportedAt`; missing source/state objects; mismatched
+`source.contentSchemaVersion`, `source.revision`, or `source.updatedAt`; and
+envelope states whose schema is not the current schema v2. Direct legacy state
+files continue through the existing schema-v1-to-v2 migration; no other
+migration is performed. Both paths then use `validateEditorialState` and the
+Console's existing component-template and public-promotion checks before
+persisting or applying the candidate.
 
-These are requirements/recommendations for the future integration, not
-additional guarantees of the existing Console. In particular, the existing
-validator does not enforce type/section compatibility, strict ISO timestamps
-for all date fields, evidence/validation nested key types, or a strict schema
-for arbitrary fields.
+The import operation parses, prepares, and validates the complete candidate
+before writing local storage or replacing the in-memory state. A parse,
+envelope, schema, block, component, or promotion validation error is reported
+in the Console; the prior state remains intact. A local-storage write failure
+also prevents updating the in-memory state. This atomicity covers import
+validation and persistence; it does not make rendering or browser storage an
+external transaction.
+
+The envelope does not strengthen the underlying block schema beyond the
+existing validators. In particular, type/section compatibility, all nested
+evidence/validation key types, and a closed schema for arbitrary fields remain
+unenforced. Implementations must not interpret schema-valid data as factually
+verified.
 
 ### D. Compatibility strategy
 
@@ -349,15 +357,14 @@ The intended compatibility path is:
 
 1. Keep `asp-editorial-state.json` and its current state shape usable as the
    legacy file format.
-2. Introduce `asp-console-export` as a separate, versioned envelope. Do not
-   use `formatVersion` as a replacement for `state.schemaVersion`.
-3. In a future importer, recognize both the envelope and legacy state files;
-   migrate only explicitly supported legacy state versions.
+2. The Console uses `asp-console-export` as a separate, versioned envelope.
+   Do not use `formatVersion` as a replacement for `state.schemaVersion`.
+3. The importer recognizes both the envelope and legacy state files; it
+   migrates only the explicitly supported raw schema-v1 state.
 4. Validate the complete candidate before saving it or applying visible
-   changes. A rejected import must not leave a partially applied state.
-5. Treat the above as a compatibility strategy only. Envelope recognition,
-   envelope export, and legacy/envelope round-trip compatibility are **not
-   implemented** until code and tests demonstrate them.
+   changes. Rejected imports leave the prior local state intact.
+5. These compatibility behaviors are implemented and covered by tests; future
+   schema migrations still require explicit code and tests.
 
 ### E. Security and limits of authority
 
@@ -421,31 +428,30 @@ explicitly prohibit merging or publishing without human approval. Agents should
 report changed files, checks actually run, branch/PR and verified preview URL
 if available, plus unresolved factual or schema questions.
 
-### G. Recommended test matrix for future implementation
+### G. Export/import test coverage
 
-The status below reflects the code and tests present on `main` at the time this
-contract was documented. “Exists partially” means some relevant code or a
-nearby unit test exists, but the complete contract behavior is not covered by a
+The matrix describes the current implementation. “Exists partially” means
+relevant validation exists, but complete contract behavior is not covered by a
 test.
 
-| Recommended case | Current status | Evidence / gap |
+| Case | Current status | Evidence / gap |
 | --- | --- | --- |
-| Export and import preserve all state data | Exists partially | Current export serializes the whole state and import validates before storage; no Console-level export/import round-trip test covers full content and metadata. |
-| Round-trip the new envelope | Pending | The Console emits/accepts no envelope and there is no envelope test. |
-| Import a legacy state | Exists partially | v1-to-v2 migration is implemented and unit-tested; importing a legacy file through the Console is not tested. |
-| Reject malformed JSON | Exists partially | `JSON.parse` errors are caught by import; no malformed-file Console test verifies state remains unchanged. |
-| Reject unsupported envelope or schema versions | Exists partially | State schema v1 is rejected by the state validator and this is tested; envelope version recognition/rejection is not implemented. |
-| Reject divergent envelope and state versions | Pending | There is no envelope version comparison. |
+| Export and import preserve all state data | Implemented | `tests/console-export.test.mjs` round-trips full content and metadata. |
+| Round-trip the v1 envelope | Implemented | Exported envelope imports with source fields matching its complete state snapshot. |
+| Import a legacy state | Implemented | Raw schema-v2 import and raw schema-v1 migration are tested. |
+| Reject malformed JSON | Implemented | Malformed JSON rejection and unchanged stored/in-memory state are tested. |
+| Reject unsupported envelope or schema versions | Implemented | Unknown format/version and unsupported envelope/raw state schemas are tested. |
+| Reject divergent envelope and state fields | Implemented | Application, content-schema version, revision, and updatedAt inconsistencies are tested. |
 | Reject missing required fields | Exists partially | Top-level and selected block/metadata structures are checked, but nested evidence/validation fields and individual content fields are not comprehensively enforced or tested. |
 | Reject duplicate IDs | Implemented | Duplicate block IDs are rejected by validation and covered by a unit test. |
 | Reject unsupported types and sections; enforce type/section compatibility | Exists partially | Unsupported types are rejected and tested; recognized sections are checked in code, but pairing is not enforced by state import validation and is not tested as an import invariant. |
 | Reject invalid statuses and positions | Exists partially | Allowed status and non-negative integer position checks exist; targeted rejection tests are absent. Duplicate positions remain permitted. |
 | Reject unsafe URLs | Exists partially | `content.href` safety checks exist and a `javascript:` URL rejection is tested; protocol, credential, and path boundary cases are not fully tested, and `metadata.sources` are not URL-validated. |
 | Reject invalid dates | Exists partially | Exact `content.date` validation is implemented and an impossible calendar date is tested; other timestamp fields are not strictly validated. |
-| Reject promotions that are unapproved or nonexistent | Exists partially | Console import checks catalog membership and `isPromotionPublic`; tests verify initial seeding excludes a draft/review-required promotion but not invalid imports. |
-| Preserve sources, evidence, and metadata | Exists partially | Migration defaults and metadata retention/movement are tested in part; full import/export preservation is not tested. |
-| Reject invalid input without partial local-state changes | Exists partially | The importer validates before local-storage write and state assignment; no test asserts stored and visible state remain unchanged on every rejection path. |
+| Reject promotions that are unapproved or nonexistent | Implemented | The imported-deal checks reject draft/review-required and missing promotion references; both are tested. |
+| Preserve sources, evidence, validation, publication, and advance metadata | Implemented | Round-trip assertions cover each field group and retained nested metadata. |
+| Reject invalid input without partial local-state changes | Implemented | Rejected candidate tests verify persistence/apply are not called; failed storage writes do not update in-memory state. |
 
-The existing relevant test coverage is primarily in
-`tests/content-blocks.test.mjs`. This matrix does not claim that the pending
-integration behavior has been executed or tested.
+The envelope and import transaction tests are in `tests/console-export.test.mjs`;
+the underlying block schema and migration tests remain in
+`tests/content-blocks.test.mjs`.
