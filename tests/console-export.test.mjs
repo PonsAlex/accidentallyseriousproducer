@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import {
+  ConsoleImportApplyError,
   CONSOLE_EXPORT_APPLICATION,
   CONSOLE_EXPORT_FORMAT,
   CONSOLE_EXPORT_FORMAT_VERSION,
@@ -133,7 +134,9 @@ test("console export and import controls use the envelope implementation", async
   assert.match(consoleSource, /createConsoleExportEnvelope\(state\)/);
   assert.match(consoleSource, /link\.download = "asp-console-export\.json"/);
   assert.match(consoleSource, /importConsoleState\(await file\.text\(\)/);
-  assert.match(consoleSource, /statusMessage\(`Could not import editorial state: \$\{error\.message\}`/);
+  assert.match(consoleSource, /error instanceof ConsoleImportApplyError/);
+  assert.match(consoleSource, /Import was saved and is active, but the Console could not refresh its display/);
+  assert.match(consoleSource, /Could not import editorial state: \$\{error\.message\}/);
 });
 
 test("legacy schema-v2 state files remain importable", () => {
@@ -276,4 +279,34 @@ test("failed persistence does not update the in-memory state", () => {
     apply: (candidate) => { currentState = candidate; }
   }), /storage unavailable/);
   assert.deepEqual(currentState, previous);
+});
+
+test("failed apply after persistence is reported as a view refresh failure", () => {
+  const previous = makeState();
+  const candidate = makeState();
+  candidate.revision = previous.revision + 1;
+  const json = JSON.stringify(makeEnvelope(candidate));
+  let currentState = structuredClone(previous);
+  let storedState = JSON.stringify(previous);
+
+  assert.throws(() => importConsoleState(json, {
+    validateState,
+    persist: (value) => {
+      storedState = JSON.stringify(value);
+    },
+    apply: (value) => {
+      currentState = value;
+      throw new Error("render failed");
+    }
+  }), (error) => {
+    assert.ok(error instanceof ConsoleImportApplyError);
+    assert.equal(error.cause.message, "render failed");
+    assert.match(error.message, /state was saved/);
+    return true;
+  });
+
+  assert.deepEqual(currentState, candidate);
+  assert.deepEqual(JSON.parse(storedState), candidate);
+  assert.notDeepEqual(currentState, previous);
+  assert.notEqual(storedState, JSON.stringify(previous));
 });

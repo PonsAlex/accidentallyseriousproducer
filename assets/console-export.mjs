@@ -9,6 +9,13 @@ export const CONSOLE_EXPORT_FORMAT = "asp-console-export";
 export const CONSOLE_EXPORT_FORMAT_VERSION = 1;
 export const CONSOLE_EXPORT_APPLICATION = "asp-editorial-console";
 
+export class ConsoleImportApplyError extends Error {
+  constructor(cause) {
+    super("Editorial state was saved, but applying it to the Console view failed.", { cause });
+    this.name = "ConsoleImportApplyError";
+  }
+}
+
 function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
@@ -136,6 +143,10 @@ export function importConsoleState(json, { validateState, persist, apply }) {
   const candidate = prepareConsoleImport(JSON.parse(json));
   validateState(candidate);
   persist(candidate);
-  apply(candidate);
+  try {
+    apply(candidate);
+  } catch (error) {
+    throw new ConsoleImportApplyError(error);
+  }
   return candidate;
 }

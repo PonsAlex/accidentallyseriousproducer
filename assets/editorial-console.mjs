@@ -5,6 +5,7 @@ import {
   PUBLIC_COMPONENT_BLOCK_IDS
 } from "./public-component-templates.mjs";
 import {
+  ConsoleImportApplyError,
   createConsoleExportEnvelope,
   importConsoleState,
   validateConsoleEditorialState
@@ -528,7 +529,14 @@ async function importState(file) {
     });
     statusMessage("Editorial state imported and saved in this browser.");
   } catch (error) {
-    statusMessage(`Could not import editorial state: ${error.message}`, true);
+    if (error instanceof ConsoleImportApplyError) {
+      statusMessage(
+        `Import was saved and is active, but the Console could not refresh its display. Reload the page to refresh it. Details: ${error.cause?.message ?? error.message}`,
+        true
+      );
+    } else {
+      statusMessage(`Could not import editorial state: ${error.message}`, true);
+    }
   } finally {
     dataInput.value = "";
   }

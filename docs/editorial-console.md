@@ -343,7 +343,11 @@ envelope, schema, block, component, or promotion validation error is reported
 in the Console; the prior state remains intact. A local-storage write failure
 also prevents updating the in-memory state. This atomicity covers import
 validation and persistence; it does not make rendering or browser storage an
-external transaction.
+external transaction. If rendering fails after persistence, the imported state
+remains saved and active in memory while the view may be stale or partially
+refreshed. The Console reports this separately from an import rejection and
+instructs the user to reload; it does not claim the import failed or attempt an
+unsafe rollback of browser storage and DOM state.
 
 The envelope does not strengthen the underlying block schema beyond the
 existing validators. In particular, type/section compatibility, all nested
