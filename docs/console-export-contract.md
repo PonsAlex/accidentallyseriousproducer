@@ -85,7 +85,7 @@ The Console Import state path remains responsible for existing schema migration 
 
 This is a minimal structural example, not a publishable article or a complete valid block:
 
-\`\`\`json
+```json
 {
   "schemaVersion": 2,
   "revision": 1,
@@ -144,6 +144,6 @@ This is a minimal structural example, not a publishable article or a complete va
     }
   ]
 }
-\`\`\`
+```
 
 The example illustrates field placement only. Runtime validation and actual public component templates remain authoritative for complete valid content.
