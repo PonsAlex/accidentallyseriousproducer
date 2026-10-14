@@ -89,7 +89,7 @@ JEV, AI Gateway, or publication.
 Editorial state is stored in the current browser's local storage. Use
 **Export state** to keep a JSON copy or transfer state, and **Import state** to
 restore one in a browser. Version 1 state exports are migrated on load to the
-current schema version while retaining existing content and editorial metadata.
+current schema version while retaining existing content and editorial metadata. The current JSON shape and the hand-off rules for JEV and implementation agents are documented in [Console JSON Export Contract](console-export-contract.md).
 
 The console is a local editorial workspace, not an authenticated or shared
 server-side CMS. It does not write the public content files, change promotion
