@@ -174,6 +174,13 @@ is a local editorial workspace, not shared server-side storage: edits do not
 modify the public HTML/data source files or automatically publish. For schema
 and scope details, see [Editorial Console](docs/editorial-console.md).
 
+#### Console export contract
+
+The Console currently exports its versioned editorial state directly. The
+proposed ASP Console Export Contract v1 defines a separate versioned envelope
+for future JEV and implementation-agent hand-offs; envelope support is not yet
+implemented. See the [contract, compatibility, and test matrix](docs/editorial-console.md#asp-console-export-contract-v1).
+
 Use **+ Add Block** to create one blank `hero`, `article`, `product-review`,
 `deal` or `project` draft in its compatible page section. New blocks reuse the
 existing public component template for their type and are saved to this
@@ -228,12 +235,13 @@ Responsibilities and hand-offs:
    after reviewing the PR, passing checks and preview. No agent may merge to
    `main` or publish autonomously.
 
-**Integration boundary:** the console's JSON export is the contract between
-editorial preparation and code implementation. The next implementation task is
-to document and validate that export contract, then connect JEV's structured
-output to the correct console fields and pass the reviewed export to DSH or the
-chosen coding agent. Do not build a second CMS or duplicate the public component
-system.
+**Integration boundary:** the Console's current JSON export is raw editorial
+state; the documented ASP Console Export Contract v1 is the target hand-off
+format for code implementation. The next implementation task is to implement
+and test that envelope, then connect JEV's structured output to the correct
+Console fields and pass the reviewed export to DSH or the chosen coding agent.
+Neither the envelope nor JEV integration is implemented. Do not build a second
+CMS or duplicate the public component system.
 
 **Provider and safety constraints:** keep ChatGPT and Codex direct account
 authentication separate from optional OmniRoute provider combos. Do not make
