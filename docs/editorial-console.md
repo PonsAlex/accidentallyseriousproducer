@@ -413,6 +413,14 @@ ChatGPT/Codex direct account authentication remains distinct from optional
 OmniRoute provider options. Vercel AI Gateway is not a required dependency for
 this workflow.
 
+For an implementation hand-off, provide the reviewed export together with a
+separate scoped task identifying the intended outcome and block IDs, allowed
+repository scope, approved source material, required checks, and the
+expectation of a Draft PR and preview where available. The instruction must
+explicitly prohibit merging or publishing without human approval. Agents should
+report changed files, checks actually run, branch/PR and verified preview URL
+if available, plus unresolved factual or schema questions.
+
 ### G. Recommended test matrix for future implementation
 
 The status below reflects the code and tests present on `main` at the time this
