@@ -187,8 +187,61 @@ records the same block's stage transition, timestamp and readiness signal.
 Verdict, Status, checklists, validation and visual position cannot authorize
 advancement. Any later edit, move or deactivation clears readiness and requires
 confirmation again. This local signal does not call the GitHub Issue workflow.
-JEV, AI Gateway and automatic publication are out of scope; the GitHub Project
-and existing Issue-based `/advance` workflow remain compatible and unchanged.
+### Console automation workflow
+
+The target workflow is:
+
+```text
+DATA / RADAR
+  → JEV classifies and structures the input
+  → CONSOLE EDIT fills the matching existing ASP content blocks
+  → HUMAN REVIEW and EXPORT
+  → IMPLEMENTATION AGENT (Codex / GitHub Copilot / DeepSeek Harness)
+  → BRANCH + TESTS + DRAFT PR + CLOUDFLARE PREVIEW
+  → FINAL HUMAN REVIEW
+  → MANUAL MERGE / PUBLICATION
+```
+
+Responsibilities and hand-offs:
+
+1. **Data input** — collect the editorial evidence package: source URLs, product
+   and offer facts, dates, conditions, and draft copy. Keep private source material
+   and runtime candidates outside this public repository.
+2. **JEV / Console Edit** — JEV classifies and maps the supplied information to
+   the fields of the existing ASP content-block schema. The Console remains the
+   visual editing surface built around real ASP components, not a generic CMS.
+   JEV may prepare or fill structured data; it must not invent missing facts,
+   make the final editorial Verdict, or change site code.
+3. **Human review / export** — the editor checks copy, evidence, metadata, links,
+   dates, required fields, Verdict and Status. Exporting the console state is the
+   explicit hand-off to implementation; export is not permission to publish.
+4. **Implementation agent** — Codex, GitHub Copilot or DeepSeek Harness (DSH)
+   receives the reviewed export and a scoped task. The agent applies only the
+   required repository changes, preserves existing component contracts and
+   editorial evidence, runs the relevant lint, tests and build, and prepares a
+   branch and Draft PR.
+5. **Preview / final review** — the agent makes the Cloudflare Pages preview
+   available where the deployment integration permits it and reports the branch,
+   PR, checks and preview URL. The editor verifies the rendered result and asks
+   for corrections or approves the change.
+6. **Manual merge / publication** — only the human editor authorizes the merge
+   after reviewing the PR, passing checks and preview. No agent may merge to
+   `main` or publish autonomously.
+
+**Integration boundary:** the console's JSON export is the contract between
+editorial preparation and code implementation. The next implementation task is
+to document and validate that export contract, then connect JEV's structured
+output to the correct console fields and pass the reviewed export to DSH or the
+chosen coding agent. Do not build a second CMS or duplicate the public component
+system.
+
+**Provider and safety constraints:** keep ChatGPT and Codex direct account
+authentication separate from optional OmniRoute provider combos. Do not make
+Vercel AI Gateway a required intermediary for this workflow. Preserve the
+existing `ContentBlock` schema, evidence and source references, `Verdict`,
+`Status`, human confirmation and the current Issue-based `/advance` flow.
+The `/advance` signal is not a substitute for PR approval, merge authorization
+or publication approval.
 
 The private project board is `@PonsAlex's ASP project` (Project 1). Its active
 editorial items currently include the consolidated radar in issue #38 and the
@@ -330,9 +383,15 @@ taxonomy or affiliate changes.
 ## Next milestones
 
 1. protect `main` with required CI checks and human review;
-2. version and validate the ASP Evidence Package / Odysseus Editorial Contract
+2. define and validate the console export contract used by JEV and the
+   implementation agent;
+3. connect JEV's structured output to existing Console fields without changing
+   the public component model;
+4. automate the reviewed-export hand-off to DSH or the selected coding agent,
+   including branch, CI, Draft PR and preview reporting;
+5. version and validate the ASP Evidence Package / Odysseus Editorial Contract
    v1.1.0;
-3. add GitHub Issue and PR templates aligned with the editorial workflow.
+6. add GitHub Issue and PR templates aligned with the editorial workflow.
 
 ## Legal note
 
