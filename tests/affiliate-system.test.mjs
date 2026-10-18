@@ -352,7 +352,7 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
     )
   );
 
-  assert.equal(programs.length, 9);
+  assert.equal(programs.length, 14);
   assert.deepEqual(
     programs.find((entry) => entry.id === "wa-production"),
     {
@@ -365,17 +365,24 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
       status: "active"
     }
   );
-  assert.deepEqual(
-    products.map((entry) => entry.id),
-    ["waves-analog-sale", "acustica-gold-6", "dawjunkie-big-bottom"]
+  // Registering a program must not create offerings for it.
+  assert.equal(
+    products.some((entry) => entry.programId === "wa-production"),
+    false
   );
-  assert.deepEqual(
-    affiliateLinks.map((entry) => entry.id),
-    ["link-waves-analog-26", "link-acustica-gold6-26", "link-dawjunkie-bb-26"]
+  assert.equal(
+    affiliateLinks.some((entry) => entry.programId === "wa-production"),
+    false
   );
+  // The expired September promotions were removed during the October reset.
+  const expired = [
+    "promo-waves-sep26",
+    "promo-acustica-sep26",
+    "promo-dawjunkie-sep26"
+  ];
   assert.deepEqual(
-    promotions.map((entry) => entry.id),
-    ["promo-waves-sep26", "promo-acustica-sep26", "promo-dawjunkie-sep26"]
+    promotions.map((entry) => entry.id).filter((id) => expired.includes(id)),
+    []
   );
 });
 
@@ -609,18 +616,18 @@ test("resume o modelo editorial no About", async () => {
   assert.match(html, /Nah\s+and Breaking/);
 });
 
-test("mantem inalterados os corpos editoriais dos artigos #001 e #002", async () => {
-  const [articleOne, articleTwo] = await Promise.all([
-    readHtml("articles/addict-some-plugins-001.html"),
-    readHtml("articles/addict-some-plugins-002.html")
-  ]);
+test("as paginas aposentadas no reset nao voltam", async () => {
+  const retired = [
+    "articles/addict-some-plugins-001.html",
+    "articles/addict-some-plugins-002.html",
+    "articles/radar-setembro-22.html",
+    "lab.html"
+  ];
 
-  assert.equal(
-    hashMainSection(articleOne),
-    "6a04b0753e8ce14964d60905bc5b4904a83e33f31ba2675cf7d8d87454f04a63"
-  );
-  assert.equal(
-    hashMainSection(articleTwo),
-    "a40f96929dbffced30903dc2fd24f43924f5e0b57d8044ad8d1336974efae9f4"
-  );
+  for (const page of retired) {
+    await assert.rejects(
+      readFile(new URL(`../${page}`, import.meta.url), "utf8"),
+      `retired page ${page} should not exist`
+    );
+  }
 });

@@ -1,0 +1,47 @@
+{
+  "_comment": "Example only. A validated editorial record already carries its facts, its draft copy and the Verdict/Status a human assigned. Jev resolves placement and reports gaps; the fill copies values verbatim and invents nothing. Do not put private source material here.",
+  "inputVersion": "1.0",
+  "recordId": "gold-6-intro",
+  "type": "product-review",
+  "blockId": "radar-gold-6-review",
+  "facts": {
+    "product": {
+      "name": "Acustica Audio GOLD 6",
+      "developer": "Acustica Audio",
+      "category": "plugin"
+    },
+    "offer": {
+      "promoPrice": 99,
+      "regularPrice": 149,
+      "currency": "EUR",
+      "startsAt": null,
+      "endsAt": "2026-09-25T23:59:59Z"
+    },
+    "restrictions": [
+      "Introductory pricing; the regular price applies after the offer window."
+    ],
+    "sources": [
+      "https://www.acusticaaudio.com/gold6"
+    ]
+  },
+  "draftCopy": {
+    "title": "Acustica Audio GOLD 6",
+    "body": "GOLD 6 arrives with an introductory price of EUR 99 through September 25. It targets producers who value sampled console character and harmonic depth over CPU efficiency.",
+    "verdict": "A serious sound investment, provided the system can carry the load.",
+    "href": "/go/link-acustica-gold6-26",
+    "linkLabel": "View Intro Offer"
+  },
+  "editorial": {
+    "verdict": "Fire",
+    "editorialStatus": "New Release",
+    "selection": "Develop"
+  },
+  "evidence": {
+    "sourceConfirmed": true,
+    "productConfirmed": true,
+    "priceConfirmed": true,
+    "datesConfirmed": true,
+    "termsConfirmed": false,
+    "sufficient": true
+  }
+}

@@ -31,5 +31,60 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-09-22T10:00:00Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-illformed-glitch-2",
+    "productId": "illformed-glitch-2",
+    "programId": "illformed",
+    "destinationUrl": "https://illformed.com/glitch/",
+    "fallbackUrl": "https://illformed.com/glitch/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-18T00:15:09.678Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-steinberg-steinberg-classics-collection",
+    "productId": "steinberg-steinberg-classics-collection",
+    "programId": "steinberg",
+    "destinationUrl": "https://www.steinberg.net",
+    "fallbackUrl": "https://www.steinberg.net",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-18T00:15:09.855Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-u-he-zebralette-3",
+    "productId": "u-he-zebralette-3",
+    "programId": "u-he",
+    "destinationUrl": "https://u-he.com/products/plug-ins/zebralette3/",
+    "fallbackUrl": "https://u-he.com/products/plug-ins/zebralette3/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-18T00:15:09.971Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-moth-production-whirl-dt",
+    "productId": "moth-production-whirl-dt",
+    "programId": "moth-production",
+    "destinationUrl": "https://mothproduction.hu/en/shop?plugin=whirldt",
+    "fallbackUrl": "https://mothproduction.hu/en/shop?plugin=whirldt",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-18T00:15:10.103Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-azazel-audio-visualcomp-2",
+    "productId": "azazel-audio-visualcomp-2",
+    "programId": "azazel-audio",
+    "destinationUrl": "https://azazelaudio.com/visualcomp-2",
+    "fallbackUrl": "https://azazelaudio.com/visualcomp-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-18T00:15:10.229Z",
+    "allowFallback": true
   }
 ]

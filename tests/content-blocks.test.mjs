@@ -44,7 +44,7 @@ test("initial blocks use the public ASP catalog and never seed the review-requir
     .map((block) => block.content.promotionId)
     .sort();
 
-  assert.deepEqual(dealIds, ["promo-acustica-sep26", "promo-dawjunkie-sep26"]);
+  assert.deepEqual(dealIds, []);
 });
 
 test("initial content blocks represent existing ASP component types and omit unapproved promotions", () => {
@@ -53,7 +53,7 @@ test("initial content blocks represent existing ASP component types and omit una
       content: { eyebrow: "Public eyebrow", title: "Public headline" },
       metadata: {}
     },
-    "radar-waves-review": {
+    "product-review-u-he-zebralette-3": {
       content: { title: "Public review", body: "Public body" },
       metadata: { editorialStage: "PREPARAÇÃO" }
     }
@@ -67,15 +67,16 @@ test("initial content blocks represent existing ASP component types and omit una
   assert.ok(state.blocks.some((block) => block.type === "hero"));
   assert.ok(state.blocks.some((block) => block.type === "article"));
   assert.ok(state.blocks.some((block) => block.type === "product-review"));
-  assert.ok(state.blocks.some((block) => block.type === "project"));
+  // The ASP Lab is deactivated, so no project block is seeded until it returns.
+  assert.equal(state.blocks.some((block) => block.type === "project"), false);
   assert.deepEqual(
     state.blocks.filter((block) => block.type === "deal").map((block) => block.content.promotionId),
     ["published-promotion"]
   );
-  const pendingReview = state.blocks.find((block) => block.id === "radar-waves-review");
-  assert.equal(pendingReview.status, "review");
-  assert.equal(pendingReview.metadata.editorialStage, "PREPARAÇÃO");
-  assert.equal(pendingReview.metadata.editorialStatus, "");
+  const seeded = state.blocks.find((block) => block.id === "product-review-u-he-zebralette-3");
+  assert.equal(seeded.status, "published");
+  assert.equal(seeded.metadata.editorialStage, "PREPARAÇÃO");
+  assert.equal(seeded.metadata.editorialStatus, "");
   assert.equal(state.blocks[0].content.title, "Public headline");
   assert.equal(state.blocks[0].content.eyebrow, "Public eyebrow");
 });
@@ -225,7 +226,7 @@ test("Verdict and Status keep the README taxonomies and remain independent of ad
   });
   assert.equal(advanced.fromStage, "RADAR");
   assert.equal(advanced.toStage, "PREPARAÇÃO");
-  assert.equal(block.id, "radar-gold-6-review");
+  assert.equal(block.id, "product-review-illformed-glitch-2");
   assert.equal(block.metadata.verdict, originalVerdict);
   assert.equal(block.metadata.editorialStatus, originalStatus);
   assert.equal(block.metadata.advance.ready, true);
@@ -241,18 +242,18 @@ test("Verdict and Status keep the README taxonomies and remain independent of ad
 
 test("moving components changes section and order without replacing content or editorial metadata", () => {
   const state = createInitialEditorialState({ products, promotions });
-  const selected = state.blocks.find((block) => block.id === "home-plugin-audit");
+  const selected = state.blocks.find((block) => block.id === "home-radar-article");
   selected.metadata.sources.push("https://example.com/source");
   selected.metadata.verdict = "Fire";
   const moved = moveEditorialBlock(state.blocks, {
     id: selected.id,
     section: "articles",
-    beforeId: "radar-gold-6-review"
+    beforeId: "product-review-illformed-glitch-2"
   });
   const relocated = moved.find((block) => block.id === selected.id);
 
   assert.equal(relocated.section, "articles");
-  assert.ok(relocated.position < moved.find((block) => block.id === "radar-gold-6-review").position);
+  assert.ok(relocated.position < moved.find((block) => block.id === "product-review-illformed-glitch-2").position);
   assert.deepEqual(relocated.content, selected.content);
   assert.deepEqual(relocated.metadata, selected.metadata);
   assert.equal(state.blocks.find((block) => block.id === selected.id).section, "home");
@@ -284,20 +285,18 @@ test("schema v1 local state migrates without discarding verdict, status, or edit
 });
 
 test("console component templates map to markup present on the actual public pages", async () => {
-  const [home, radar, lab, templates, dealsPage] = await Promise.all([
+  const [home, radar, templates, dealsPage] = await Promise.all([
     readFile(new URL("../index.html", import.meta.url), "utf8"),
-    readFile(new URL("../articles/radar-setembro-22.html", import.meta.url), "utf8"),
-    readFile(new URL("../lab.html", import.meta.url), "utf8"),
+    readFile(new URL("../articles/radar-outubro-26.html", import.meta.url), "utf8"),
     readFile(new URL("../assets/public-component-templates.mjs", import.meta.url), "utf8"),
     readFile(new URL("../assets/deals-page.mjs", import.meta.url), "utf8")
   ]);
   assert.match(home, /<section class="hero">/);
-  assert.ok((home.match(/class="featured-card"/g) ?? []).length >= 2);
-  assert.ok((radar.match(/class="product-review"/g) ?? []).length >= 2);
-  assert.match(lab, /class="project-card"/);
+  assert.ok((home.match(/class="featured-card"/g) ?? []).length >= 1);
+  assert.ok((radar.match(/class="product-review"/g) ?? []).length >= 5);
   assert.match(templates, /add\("home-hero", "hero", documents\.home, "main > \.hero"\)/);
   assert.match(templates, /add\("home-radar-article", "article", documents\.home, "\.featured-card", 0\)/);
-  assert.match(templates, /add\("radar-gold-6-review", "product-review", documents\.radar, "\.product-review", 0\)/);
+  assert.match(templates, /add\("product-review-illformed-glitch-2", "product-review", documents\.radar, "\.product-review", 0\)/);
   assert.match(templates, /readInitialContent/);
   assert.match(templates, /PUBLIC_COMPONENT_BLOCK_IDS/);
   assert.match(templates, /createElement\("affiliate-offer"\)/);
@@ -307,8 +306,7 @@ test("console component templates map to markup present on the actual public pag
 test("public template loader builds every initial ASP content block from the public pages", async () => {
   const pageFiles = new Map([
     ["/index.html", new URL("../index.html", import.meta.url)],
-    ["/articles/radar-setembro-22.html", new URL("../articles/radar-setembro-22.html", import.meta.url)],
-    ["/lab.html", new URL("../lab.html", import.meta.url)]
+    ["/articles/radar-outubro-26.html", new URL("../articles/radar-outubro-26.html", import.meta.url)]
   ]);
   const requested = [];
   const fetcher = async (url) => {
@@ -327,8 +325,7 @@ test("public template loader builds every initial ASP content block from the pub
       const patterns = {
         "main > .hero": /<main\b[^>]*>\s*<section class="hero">/,
         ".featured-card": /class="featured-card"/g,
-        ".product-review": /class="product-review"/g,
-        ".project-card": /class="project-card"/g
+        ".product-review": /class="product-review"/g
       };
       const pattern = patterns[selector];
       assert.ok(pattern, `unexpected public component selector: ${selector}`);
@@ -357,11 +354,11 @@ test("public template loader builds every initial ASP content block from the pub
   assert.deepEqual(actualIds, [
     "home-hero",
     "home-radar-article",
-    "home-plugin-audit",
-    "radar-gold-6-review",
-    "radar-big-bottom-review",
-    "radar-waves-review",
-    "lab-jack-in-the-box"
+    "product-review-illformed-glitch-2",
+    "product-review-steinberg-steinberg-classics-collection",
+    "product-review-u-he-zebralette-3",
+    "product-review-moth-production-whirl-dt",
+    "product-review-azazel-audio-visualcomp-2"
   ]);
   assert.deepEqual(actualIds, [...PUBLIC_COMPONENT_BLOCK_IDS]);
   assert.equal(state.blocks.length, 8);
@@ -371,7 +368,10 @@ test("public template loader builds every initial ASP content block from the pub
   }
   assert.deepEqual(offers.map((offer) => offer.promotionId).sort(), ["published-promotion"]);
 
+  // The ASP Lab is deactivated, so no public page carries a project block; every
+  // other type must still resolve a public template.
   for (const [type, sections] of Object.entries(CONTENT_TYPE_SECTIONS)) {
+    if (type === "project") continue;
     for (const section of sections) {
       const block = createEditorialBlock({ type, section, idFactory: () => `new-${type}` });
       if (type !== "deal") {
@@ -428,7 +428,7 @@ test("block ordering is stable and positions are normalized per section", () => 
   const home = state.blocks.filter((block) => block.section === "home").reverse();
   const normalized = normalizeBlockPositions(home);
 
-  assert.deepEqual(normalized.map((block) => block.position), [0, 10, 20]);
+  assert.deepEqual(normalized.map((block) => block.position), [0, 10]);
   assert.deepEqual(
     normalized.map((block) => block.id),
     [...home].sort((left, right) => left.position - right.position).map((block) => block.id)

@@ -29,7 +29,6 @@ const productionFiles = [
   "fire-or-nah.html",
   "favicon.svg",
   "index.html",
-  "lab.html",
   "privacy.html",
   "styles.css"
 ];

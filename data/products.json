@@ -31,5 +31,60 @@
     "status": "active",
     "createdAt": "2026-09-22T10:00:00Z",
     "updatedAt": "2026-09-22T10:00:00Z"
+  },
+  {
+    "id": "illformed-glitch-2",
+    "slug": "illformed-glitch-2",
+    "programId": "illformed",
+    "name": "Glitch 2",
+    "category": "plugin",
+    "description": "Glitch 2",
+    "status": "active",
+    "createdAt": "2026-10-18T00:15:09.678Z",
+    "updatedAt": "2026-10-18T00:15:09.678Z"
+  },
+  {
+    "id": "steinberg-steinberg-classics-collection",
+    "slug": "steinberg-steinberg-classics-collection",
+    "programId": "steinberg",
+    "name": "Steinberg Classics Collection",
+    "category": "bundle",
+    "description": "Steinberg Classics Collection",
+    "status": "active",
+    "createdAt": "2026-10-18T00:15:09.855Z",
+    "updatedAt": "2026-10-18T00:15:09.855Z"
+  },
+  {
+    "id": "u-he-zebralette-3",
+    "slug": "u-he-zebralette-3",
+    "programId": "u-he",
+    "name": "Zebralette 3",
+    "category": "plugin",
+    "description": "Zebralette 3",
+    "status": "active",
+    "createdAt": "2026-10-18T00:15:09.971Z",
+    "updatedAt": "2026-10-18T00:15:09.971Z"
+  },
+  {
+    "id": "moth-production-whirl-dt",
+    "slug": "moth-production-whirl-dt",
+    "programId": "moth-production",
+    "name": "Whirl DT",
+    "category": "plugin",
+    "description": "Whirl DT",
+    "status": "active",
+    "createdAt": "2026-10-18T00:15:10.103Z",
+    "updatedAt": "2026-10-18T00:15:10.103Z"
+  },
+  {
+    "id": "azazel-audio-visualcomp-2",
+    "slug": "azazel-audio-visualcomp-2",
+    "programId": "azazel-audio",
+    "name": "VisualComp 2",
+    "category": "plugin",
+    "description": "VisualComp 2",
+    "status": "active",
+    "createdAt": "2026-10-18T00:15:10.229Z",
+    "updatedAt": "2026-10-18T00:15:10.229Z"
   }
 ]

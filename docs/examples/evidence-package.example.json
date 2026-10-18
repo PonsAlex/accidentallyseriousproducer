@@ -1,0 +1,432 @@
+{
+  "_comment": "Example only. This is the canonical shape of an ASP evidence package, as produced by NotebookLM or Odysseus and handed to a human editor. All URLs use the reserved example.invalid domain. It carries no Verdict, no Status, no validation or publication state: those are human decisions. See docs/prompts/evidence-package-prompt.md.",
+  "packageVersion": "1.0",
+  "scanDate": "2026-10-15",
+  "channelsMonitored": [
+    "Free Plugin Wala - YouTube",
+    "Greg Kocis - YouTube",
+    "AnDerington - YouTube",
+    "Plugin Librarian - YouTube",
+    "FREE PLUGINS FREE - YouTube",
+    "Producer Notes - newsletter",
+    "Deals Digest - newsletter",
+    "Audio Toolshed - official blog"
+  ],
+  "candidatesAccepted": 6,
+  "candidatesRejected": 3,
+  "rejectedSummary": [
+    "Genre music discount, not a plugin offer",
+    "Editorial article about mixing technique, no offer",
+    "Software unrelated to music production"
+  ],
+  "records": [
+    {
+      "recordId": "unitedplugins-firemaximizer",
+      "productKind": "plugin",
+      "offerNature": "limited-free",
+      "limitedBy": "time",
+      "primarySourceFound": true,
+      "developer": {
+        "name": "UnitedPlugins",
+        "developerOfficialUrl": "https://example.invalid/unitedplugins"
+      },
+      "acquisitionUrl": "https://example.invalid/unitedplugins/firemaximizer",
+      "product": {
+        "name": "FireMaximizer",
+        "category": "plugin",
+        "whatItIs": "Multiband maximizer and limiter audio effect plugin"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": 137,
+        "regularPriceSource": "UnitedPlugins Official Store",
+        "currency": "USD",
+        "startsAt": null,
+        "endsAt": null,
+        "endsAtDate": "2026-10-18",
+        "dateOnly": true,
+        "permanent": false,
+        "couponCode": "SiyuFMX100",
+        "couponScope": "creator-affiliated",
+        "couponOwner": "Siyu",
+        "couponPublishable": "unknown"
+      },
+      "copyStatus": "final",
+      "readerFacingCopy": {
+        "title": "UnitedPlugins - FireMaximizer",
+        "summary": "UnitedPlugins offers the FireMaximizer plugin for free using a promotional coupon code until October 18, 2026.",
+        "body": "FireMaximizer is a multiband limiter and maximizer plugin designed for mastering and bus processing. It combines dynamic control and saturation functions. The plugin is available at no cost during a limited-time promotional offer on the official website."
+      },
+      "evidence": [
+        {
+          "role": "primary",
+          "name": "UnitedPlugins Official Store",
+          "url": "https://example.invalid/unitedplugins/firemaximizer",
+          "date": "2026-10-05",
+          "fact": "Official product page allowing $0 checkout with a promotional coupon code."
+        },
+        {
+          "role": "secondary",
+          "name": "Greg Kocis - YouTube",
+          "url": "https://example.invalid/youtube/greg-kocis-firemaximizer",
+          "date": "2026-10-05",
+          "fact": "Video announcing FireMaximizer free until October 18 with a creator coupon code."
+        }
+      ],
+      "restrictions": [
+        "Requires applying a valid promotional coupon code at checkout."
+      ],
+      "openQuestions": [
+        "What is the exact expiration time and timezone on October 18, 2026?"
+      ],
+      "missingFacts": [
+        "endsAt"
+      ],
+      "notApplicable": [],
+      "toValidate": [
+        "Confirm whether an iLok user account is required for license activation."
+      ],
+      "pendingHumanDecision": true
+    },
+    {
+      "recordId": "arturia-pigments-play",
+      "productKind": "plugin",
+      "offerNature": "permanent-free",
+      "limitedBy": "none",
+      "primarySourceFound": true,
+      "developer": {
+        "name": "Arturia",
+        "developerOfficialUrl": "https://example.invalid/arturia"
+      },
+      "acquisitionUrl": "https://example.invalid/arturia/pigments-play",
+      "product": {
+        "name": "Pigments Play",
+        "category": "plugin",
+        "whatItIs": "Software synthesizer instrument featuring preset playback and six synthesis engines"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": null,
+        "regularPriceSource": null,
+        "currency": null,
+        "startsAt": null,
+        "endsAt": null,
+        "endsAtDate": null,
+        "dateOnly": false,
+        "permanent": true,
+        "couponCode": null,
+        "couponScope": null,
+        "couponOwner": null,
+        "couponPublishable": null
+      },
+      "copyStatus": "final",
+      "readerFacingCopy": {
+        "title": "Arturia - Pigments Play",
+        "summary": "Arturia has released Pigments Play, a free freeware edition of its Pigments synthesizer.",
+        "body": "Pigments Play is a free virtual instrument from Arturia that includes 100 factory presets and access to six synthesis engines, including Virtual Analog, Wavetable, Sample, Granular, Harmonic, and Modal."
+      },
+      "evidence": [
+        {
+          "role": "primary",
+          "name": "Arturia Official Web Page",
+          "url": "https://example.invalid/arturia/pigments-play",
+          "date": "2026-10-05",
+          "fact": "Official product page offering Pigments Play as a free software download."
+        },
+        {
+          "role": "secondary",
+          "name": "AnDerington - YouTube",
+          "url": "https://example.invalid/youtube/anderington-pigments-play",
+          "date": "2026-10-05",
+          "fact": "Video showcasing Pigments Play as a new free virtual instrument."
+        }
+      ],
+      "restrictions": [
+        "Requires an Arturia user account and installation via Arturia Software Center."
+      ],
+      "openQuestions": [],
+      "missingFacts": [],
+      "notApplicable": [
+        "regularPrice",
+        "endsAt",
+        "endsAtDate",
+        "couponCode"
+      ],
+      "toValidate": [
+        "Check whether user-purchased expansion sound banks for full Pigments can be loaded into Pigments Play."
+      ],
+      "pendingHumanDecision": true
+    },
+    {
+      "recordId": "audio-toolshed-airxciter",
+      "productKind": "plugin",
+      "offerNature": "permanent-free",
+      "limitedBy": "none",
+      "primarySourceFound": true,
+      "developer": {
+        "name": "Audio Toolshed",
+        "developerOfficialUrl": "https://example.invalid/audiotoolshed"
+      },
+      "acquisitionUrl": "https://example.invalid/audiotoolshed/plugins/airxciter",
+      "product": {
+        "name": "AirXciter",
+        "category": "plugin",
+        "whatItIs": "High-frequency audio exciter plugin for vocal and mix bus processing"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": null,
+        "regularPriceSource": null,
+        "currency": null,
+        "startsAt": null,
+        "endsAt": null,
+        "endsAtDate": null,
+        "dateOnly": false,
+        "permanent": true,
+        "couponCode": null,
+        "couponScope": null,
+        "couponOwner": null,
+        "couponPublishable": null
+      },
+      "copyStatus": "final",
+      "readerFacingCopy": {
+        "title": "Audio Toolshed - AirXciter",
+        "summary": "Audio Toolshed offers AirXciter as a free audio exciter plugin for vocal and master bus enhancement.",
+        "body": "AirXciter is a psychoacoustic processor plugin that adds high-frequency presence and clarity to vocal tracks and mix buses without introducing harshness."
+      },
+      "evidence": [
+        {
+          "role": "primary",
+          "name": "Audio Toolshed Official Website",
+          "url": "https://example.invalid/audiotoolshed/plugins/airxciter",
+          "date": "2026-09-15",
+          "fact": "Official product page listing AirXciter as a free software download."
+        },
+        {
+          "role": "secondary",
+          "name": "Audio Toolshed - YouTube",
+          "url": "https://example.invalid/youtube/audiotoolshed-airxciter",
+          "date": "2026-09-15",
+          "fact": "Video overview demonstrating high-frequency processing features of AirXciter."
+        }
+      ],
+      "restrictions": [],
+      "openQuestions": [],
+      "missingFacts": [
+        "systemRequirements"
+      ],
+      "notApplicable": [
+        "regularPrice",
+        "endsAt",
+        "endsAtDate",
+        "couponCode"
+      ],
+      "toValidate": [
+        "Test supported plugin formats (VST3, AU, AAX) on macOS and Windows operating systems."
+      ],
+      "pendingHumanDecision": true
+    },
+    {
+      "recordId": "subverselab-kaset",
+      "productKind": "plugin",
+      "offerNature": "limited-free",
+      "limitedBy": "quantity",
+      "primarySourceFound": true,
+      "developer": {
+        "name": "SubverseLab",
+        "developerOfficialUrl": "https://example.invalid/subverselab"
+      },
+      "acquisitionUrl": "https://example.invalid/subverselab/launch",
+      "product": {
+        "name": "Kaset",
+        "category": "plugin",
+        "whatItIs": "Cassette tape saturation and analog coloration audio effect plugin"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": null,
+        "regularPriceSource": null,
+        "currency": null,
+        "startsAt": null,
+        "endsAt": null,
+        "endsAtDate": null,
+        "dateOnly": false,
+        "permanent": false,
+        "couponCode": null,
+        "couponScope": null,
+        "couponOwner": null,
+        "couponPublishable": null
+      },
+      "copyStatus": "final",
+      "readerFacingCopy": {
+        "title": "SubverseLab - Kaset",
+        "summary": "SubverseLab offers its Kaset tape saturation plugin for free to the first 1,000 users.",
+        "body": "Kaset is an analog tape saturation plugin that models cassette tape coloration for individual audio tracks or the main mix bus. The developer is offering free downloads limited to the first 1,000 producers."
+      },
+      "evidence": [
+        {
+          "role": "primary",
+          "name": "SubverseLab Official Launch Page",
+          "url": "https://example.invalid/subverselab/launch",
+          "date": "2026-10-05",
+          "fact": "Official page stating the plugin is free for the first 1,000 users."
+        },
+        {
+          "role": "secondary",
+          "name": "FREE PLUGINS FREE - YouTube",
+          "url": "https://example.invalid/youtube/free-plugins-free-kaset",
+          "date": "2026-10-05",
+          "fact": "Video highlighting the 1,000-license launch promotion for Kaset."
+        }
+      ],
+      "restrictions": [
+        "Limited to the first 1,000 redeemed licenses."
+      ],
+      "openQuestions": [
+        "How many licenses remain unclaimed from the initial 1,000 quota?"
+      ],
+      "missingFacts": [
+        "regularPrice"
+      ],
+      "notApplicable": [
+        "endsAt",
+        "endsAtDate"
+      ],
+      "toValidate": [
+        "Attempt checkout on the launch page to verify whether the 1,000 free license threshold has been reached."
+      ],
+      "pendingHumanDecision": true
+    },
+    {
+      "recordId": "samplescience-rc909-pro",
+      "productKind": "plugin",
+      "offerNature": "limited-free",
+      "limitedBy": "time",
+      "primarySourceFound": true,
+      "developer": {
+        "name": "SampleScience",
+        "developerOfficialUrl": "https://example.invalid/samplescience"
+      },
+      "acquisitionUrl": "https://example.invalid/samplescience/rc909-pro",
+      "product": {
+        "name": "RC909 Pro",
+        "category": "plugin",
+        "whatItIs": "Virtual drum machine plugin based on the Roland TR-909"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": 30,
+        "regularPriceSource": "SampleScience Gumroad Store",
+        "currency": "USD",
+        "startsAt": null,
+        "endsAt": null,
+        "endsAtDate": "2026-10-31",
+        "dateOnly": true,
+        "permanent": false,
+        "couponCode": "free909drums",
+        "couponScope": "vendor-wide",
+        "couponOwner": null,
+        "couponPublishable": true
+      },
+      "copyStatus": "final",
+      "readerFacingCopy": {
+        "title": "SampleScience - RC909 Pro",
+        "summary": "SampleScience offers the RC909 Pro virtual drum machine for free with a coupon code.",
+        "body": "RC909 Pro is a virtual drum machine plugin modeled after the Roland TR-909. It features individual sound controls, envelope shaping, and built-in saturation effects. Users can acquire it for $0 using coupon code free909drums at checkout."
+      },
+      "evidence": [
+        {
+          "role": "primary",
+          "name": "SampleScience Store on Gumroad",
+          "url": "https://example.invalid/samplescience/rc909-pro",
+          "date": "2026-10-05",
+          "fact": "Official store page allowing a $30 discount with coupon code free909drums."
+        },
+        {
+          "role": "secondary",
+          "name": "Plugin Librarian - YouTube",
+          "url": "https://example.invalid/youtube/plugin-librarian-rc909",
+          "date": "2026-10-05",
+          "fact": "Video confirming the vendor-wide coupon code for a free download."
+        }
+      ],
+      "restrictions": [
+        "Requires applying coupon code free909drums at checkout."
+      ],
+      "openQuestions": [
+        "What is the exact expiration time and timezone on October 31, 2026?"
+      ],
+      "missingFacts": [
+        "endsAt"
+      ],
+      "notApplicable": [],
+      "toValidate": [
+        "Verify whether there is a limit on redemptions per user account."
+      ],
+      "pendingHumanDecision": true
+    },
+    {
+      "recordId": "sonic-labs-audio-the-josie-td3",
+      "productKind": "plugin",
+      "offerNature": "limited-free",
+      "limitedBy": "time",
+      "primarySourceFound": false,
+      "developer": {
+        "name": "Sonic Labs Audio",
+        "developerOfficialUrl": null
+      },
+      "acquisitionUrl": null,
+      "product": {
+        "name": "The Josie TD3",
+        "category": "plugin",
+        "whatItIs": "Dynamic compressor audio effect plugin"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": 29,
+        "regularPriceSource": "Free Plugin Wala - YouTube",
+        "currency": "USD",
+        "startsAt": null,
+        "endsAt": null,
+        "endsAtDate": null,
+        "dateOnly": false,
+        "permanent": false,
+        "couponCode": null,
+        "couponScope": null,
+        "couponOwner": null,
+        "couponPublishable": null
+      },
+      "copyStatus": "final",
+      "readerFacingCopy": {
+        "title": "Sonic Labs Audio - The Josie TD3",
+        "summary": "Sonic Labs Audio provides The Josie TD3 compressor plugin for free for a limited time.",
+        "body": "The Josie TD3 is a dynamic compressor audio plugin designed for transient shaping and bus compression. It is temporarily available at no cost instead of its regular $29 list price."
+      },
+      "evidence": [
+        {
+          "role": "secondary",
+          "name": "Free Plugin Wala - YouTube",
+          "url": "https://example.invalid/youtube/free-plugin-wala-josie-td3",
+          "date": "2026-10-15",
+          "fact": "Video stating a limited-time free promotion ($29 to $0) for The Josie TD3 plugin."
+        }
+      ],
+      "restrictions": [],
+      "openQuestions": [
+        "What is the official developer website URL for Sonic Labs Audio?",
+        "What is the exact end date for this limited-time free offer?"
+      ],
+      "missingFacts": [
+        "developerOfficialUrl",
+        "acquisitionUrl",
+        "endsAt",
+        "endsAtDate"
+      ],
+      "notApplicable": [],
+      "toValidate": [
+        "Locate the official product page to verify the developer domain and current list price."
+      ],
+      "pendingHumanDecision": true
+    }
+  ]
+}

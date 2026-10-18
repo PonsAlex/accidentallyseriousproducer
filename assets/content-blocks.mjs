@@ -227,15 +227,7 @@ export function createInitialEditorialState(data, publicComponents = {}) {
       content: {}
     }),
     createPublicBlock({
-      id: "home-plugin-audit",
-      type: "article",
-      section: "home",
-      position: 30,
-      status: "published",
-      content: {}
-    }),
-    createPublicBlock({
-      id: "radar-gold-6-review",
+      id: "product-review-illformed-glitch-2",
       type: "product-review",
       section: "articles",
       position: 10,
@@ -243,7 +235,7 @@ export function createInitialEditorialState(data, publicComponents = {}) {
       content: {}
     }),
     createPublicBlock({
-      id: "radar-big-bottom-review",
+      id: "product-review-steinberg-steinberg-classics-collection",
       type: "product-review",
       section: "articles",
       position: 20,
@@ -251,18 +243,26 @@ export function createInitialEditorialState(data, publicComponents = {}) {
       content: {}
     }),
     createPublicBlock({
-      id: "radar-waves-review",
+      id: "product-review-u-he-zebralette-3",
       type: "product-review",
       section: "articles",
       position: 30,
-      status: "review",
+      status: "published",
       content: {}
     }),
     createPublicBlock({
-      id: "lab-jack-in-the-box",
-      type: "project",
-      section: "lab",
-      position: 10,
+      id: "product-review-moth-production-whirl-dt",
+      type: "product-review",
+      section: "articles",
+      position: 40,
+      status: "published",
+      content: {}
+    }),
+    createPublicBlock({
+      id: "product-review-azazel-audio-visualcomp-2",
+      type: "product-review",
+      section: "articles",
+      position: 50,
       status: "published",
       content: {}
     })

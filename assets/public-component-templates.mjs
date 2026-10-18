@@ -2,18 +2,17 @@ import { EDITORIAL_STATUSES, EDITORIAL_VERDICTS } from "./content-blocks.mjs";
 
 const PAGE_TEMPLATES = Object.freeze({
   home: "/index.html",
-  radar: "/articles/radar-setembro-22.html",
-  lab: "/lab.html"
+  radar: "/articles/radar-outubro-26.html"
 });
 
 export const PUBLIC_COMPONENT_BLOCK_IDS = Object.freeze([
   "home-hero",
   "home-radar-article",
-  "home-plugin-audit",
-  "radar-gold-6-review",
-  "radar-big-bottom-review",
-  "radar-waves-review",
-  "lab-jack-in-the-box"
+  "product-review-illformed-glitch-2",
+  "product-review-steinberg-steinberg-classics-collection",
+  "product-review-u-he-zebralette-3",
+  "product-review-moth-production-whirl-dt",
+  "product-review-azazel-audio-visualcomp-2"
 ]);
 
 async function fetchPage(url, fetcher, parseDocument) {
@@ -216,11 +215,11 @@ export async function loadPublicComponentTemplates({
 
   add("home-hero", "hero", documents.home, "main > .hero");
   add("home-radar-article", "article", documents.home, ".featured-card", 0);
-  add("home-plugin-audit", "article", documents.home, ".featured-card", 1);
-  add("radar-gold-6-review", "product-review", documents.radar, ".product-review", 0);
-  add("radar-big-bottom-review", "product-review", documents.radar, ".product-review", 1);
-  add("radar-waves-review", "product-review", documents.radar, ".product-review", 2);
-  add("lab-jack-in-the-box", "project", documents.lab, ".project-card");
+  add("product-review-illformed-glitch-2", "product-review", documents.radar, ".product-review", 0);
+  add("product-review-steinberg-steinberg-classics-collection", "product-review", documents.radar, ".product-review", 1);
+  add("product-review-u-he-zebralette-3", "product-review", documents.radar, ".product-review", 2);
+  add("product-review-moth-production-whirl-dt", "product-review", documents.radar, ".product-review", 3);
+  add("product-review-azazel-audio-visualcomp-2", "product-review", documents.radar, ".product-review", 4);
 
   function renderPublicComponent(block) {
     const template = templates.get(block.id);

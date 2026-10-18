@@ -76,5 +76,45 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "illformed",
+    "name": "illformed",
+    "homepage": "https://illformed.com/glitch/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "steinberg",
+    "name": "Steinberg",
+    "homepage": "https://www.steinberg.net",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "u-he",
+    "name": "u-he",
+    "homepage": "https://u-he.com/products/plug-ins/zebralette3/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "moth-production",
+    "name": "Moth Production",
+    "homepage": "https://mothproduction.hu/en/shop?plugin=whirldt",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "azazel-audio",
+    "name": "Azazel Audio",
+    "homepage": "https://azazelaudio.com/visualcomp-2",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
