@@ -47,11 +47,11 @@
     "id": "link-steinberg-steinberg-classics-collection",
     "productId": "steinberg-steinberg-classics-collection",
     "programId": "steinberg",
-    "destinationUrl": "https://www.steinberg.net",
+    "destinationUrl": "https://www.steinberg.net/vst-instruments/steinberg-classics/",
     "fallbackUrl": "https://www.steinberg.net",
     "status": "active",
     "requiresReview": false,
-    "lastVerifiedAt": "2026-10-18T00:15:09.855Z",
+    "lastVerifiedAt": "2026-10-18T02:05:00.000Z",
     "allowFallback": true
   },
   {
