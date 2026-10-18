@@ -66,7 +66,6 @@ final Verdict.
 ├── index.html                         # Homepage
 ├── about.html                         # Project and editorial approach
 ├── fire-or-nah.html                   # Verdict / Status taxonomy
-├── lab.html                           # ASP Lab
 ├── console.html                       # Visual editorial console
 ├── privacy.html
 ├── affiliate-disclosure.html
@@ -235,11 +234,26 @@ Responsibilities and hand-offs:
    `main` or publish autonomously.
 
 **Integration boundary:** the Console's current JSON export is the documented
-ASP Console Export Contract v1 envelope, containing the editorial state. JEV
-integration is not implemented; connect any future structured output only to
-the correct Console fields and pass the reviewed export to DSH or the chosen
-coding agent. Do not build a second CMS or duplicate the public component
-system.
+ASP Console Export Contract v1 envelope, containing the editorial state. The
+hand-off is implemented as human-invoked commands, described in
+[the evidence package contract](docs/evidence-package.md) and
+[the Jev integration contract](docs/jev-integration.md):
+
+- `npm run validate:input` checks an evidence package and rejects editorial
+  authority fields, redaction markers, fabricated timestamps and coupons that
+  leak into published copy;
+- `npm run jev:adapt` converts a valid package into editorial input records plus
+  a human review checklist, deciding nothing editorial;
+- `npm run jev:fill` maps an already-validated editorial record into the correct
+  content block, copying supplied facts and copy verbatim and carrying the Verdict
+  and Status a human assigned;
+- `npm run jev:review` audits an existing state and adds `metadata.jev`
+  advisories only, writing no editorial decision.
+
+The three Jev commands fail closed without a credential, and none is triggered by
+`/advance`. Connect any further structured output only to the correct Console
+fields and pass the reviewed export to DSH or the chosen coding agent. Do not
+build a second CMS or duplicate the public component system.
 
 **Provider and safety constraints:** keep ChatGPT and Codex direct account
 authentication separate from optional OmniRoute provider combos. Do not make
@@ -352,10 +366,73 @@ Additional commands:
 ```bash
 npm run validate:data
 npm run validate:candidate -- /absolute/path/to/private-candidate.json
+npm run validate:input -- --input docs/examples/evidence-package.example.json
+npm run report:package -- --input docs/examples/evidence-package.example.json
+npm run publish:scaffold -- --records records.json --record <recordId>
+npm run article:generate -- --state asp-console-export.json --slug <slug> --title "<title>"
+npm run candidate:to-package -- --input docs/examples/odysseus-candidate.example.json
+npm run jev:adapt -- --input package.json
+npm run jev:fill -- --records docs/examples/editorial-input.example.json --print-request
+npm run jev:review -- --print-request
 ```
 
 Candidate validation is read-only. It reports errors and editorial warnings
 without importing or publishing the candidate.
+
+`publish:scaffold` writes the three catalog records a block needs (program,
+product, link) from a validated editorial record. It leaves exactly one field to
+the human — the destination URL — and proposes a Status from the offer facts. It
+never sets a Verdict. Re-run with `--apply` to merge into `data/`.
+
+`article:generate` renders a published page from the Console state, using the
+markup the site already has. It refuses a block without a Verdict: the site's
+premise is that a human decided. Editorial decisions travel in one small file:
+
+```json
+{
+  "product-review-u-he-zebralette-3": {
+    "verdict": "Fire",
+    "status": "Free",
+    "note": "One sentence that becomes the Verdict line on the page."
+  }
+}
+```
+
+Pass it with `--decisions`, and `--state-out` writes the Console export with those
+decisions applied so both stay in step. `--only` publishes a subset.
+
+`validate:input` checks an evidence package — the artifact NotebookLM or Odysseus
+produce — against the rules a prompt cannot guarantee: no editorial authority
+fields, no private email metadata or credentials, no redaction markers, no
+fabricated timestamp, no coupon leaking into published copy. See
+[the evidence package contract](docs/evidence-package.md) and
+[its prompt](docs/prompts/evidence-package-prompt.md).
+
+`candidate:to-package` bridges a private Odysseus email candidate into an
+evidence package record, after PREPARAÇÃO confirms the primary source. It is
+deterministic, refuses to guess, and never carries sender, subject, message ID or
+an affiliate URL found in an email. See
+[the Odysseus prompt](docs/prompts/odysseus-candidate-prompt.md).
+
+`jev:adapt` converts a valid package into editorial input records plus a human
+review checklist. It is deterministic code with no model call, and it leaves
+every editorial decision open: no Verdict, no Status, no selection, no confirmed
+evidence flag and no public `/go/` link.
+
+`jev:fill` is the administrative fill from an already-validated editorial
+record: it places supplied facts and draft copy into the correct ASP content
+block, chooses the block type, and carries the Verdict and Status a human already
+assigned. The mapping is deterministic code and copies values verbatim, so an
+absent value stays empty and is reported as a gap instead of being invented.
+
+`jev:review` is the human-invoked Jev advisory pass over an exported Console
+state. It classifies the material an editor already supplied, reports missing
+evidence and keeps raw probabilities. It writes only `metadata.jev` and never the
+editorial Verdict, Status, evidence, stage or publication gates.
+
+Neither command is triggered by `/advance`, neither publishes, approves or
+merges, and both fail closed without a credential. See
+[the Jev integration contract](docs/jev-integration.md).
 
 ## Build and deployment
 

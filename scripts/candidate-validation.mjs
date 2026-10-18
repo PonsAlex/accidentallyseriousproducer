@@ -206,13 +206,15 @@ export function validatePromotionCandidate(
     );
   }
 
-  const hasPrice =
-    offer.promoPrice !== null &&
-    offer.promoPrice !== undefined ||
-    offer.regularPrice !== null &&
-    offer.regularPrice !== undefined;
+  // A currency is only meaningful for a non-zero amount. `promoPrice: 0` is how a
+  // free offer is expressed, and "USD 0" states nothing.
+  const hasMonetaryAmount =
+    (typeof offer.promoPrice === "number" && offer.promoPrice > 0) ||
+    (typeof offer.regularPrice === "number" && offer.regularPrice > 0);
+  const currencyDeclared =
+    offer.currency !== null && offer.currency !== undefined && offer.currency !== "";
   if (
-    hasPrice &&
+    hasMonetaryAmount &&
     (typeof offer.currency !== "string" ||
       !/^[A-Z]{3}$/.test(offer.currency))
   ) {
@@ -222,6 +224,14 @@ export function validatePromotionCandidate(
       "CANDIDATE_PRICE_WITHOUT_CURRENCY",
       "$.offer.currency",
       "Confirme a moeda antes da aprovação."
+    );
+  } else if (!hasMonetaryAmount && currencyDeclared) {
+    add(
+      report,
+      "warnings",
+      "CANDIDATE_CURRENCY_WITHOUT_PRICE",
+      "$.offer.currency",
+      "Há moeda declarada sem valor maior que zero; zero não é valor monetário."
     );
   }
 

@@ -1,0 +1,129 @@
+{
+  "_comment": "Intentionally invalid. This fixture exists only so npm run validate:input can be shown rejecting the classic failure shapes: an automated sweep claiming editorial authority, a fabricated end timestamp, a redacted URL, a creator coupon embedded in published copy, and a record with no primary source. Do not treat any value here as real. See tests/evidence-package.test.mjs.",
+  "packageVersion": "1.0",
+  "scanDate": "2026-10-15",
+  "channelsMonitored": 46,
+  "candidatesAccepted": 9,
+  "candidatesRejected": 0,
+  "rejectedSummary": [],
+  "records": [
+    {
+      "recordId": "sloppy-freebie",
+      "productKind": "freebie",
+      "offerNature": "limited-free",
+      "limitedBy": "time",
+      "primarySourceFound": true,
+      "verdict": "confirmed",
+      "developer": {
+        "name": "Sonic Labs Audio",
+        "developerOfficialUrl": "[suspicious link removed]"
+      },
+      "acquisitionUrl": "https://example.invalid/sonic-labs-audio/josie-td3",
+      "product": {
+        "name": "The Josie TD3",
+        "category": "plugin",
+        "whatItIs": "Dynamic compressor audio effect plugin"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": 29,
+        "regularPriceSource": null,
+        "currency": "USD",
+        "startsAt": null,
+        "endsAt": "2026-10-18T23:59:59Z",
+        "endsAtDate": "2026-10-18",
+        "dateOnly": true,
+        "permanent": false,
+        "couponCode": "SiyuFMX100",
+        "couponScope": "creator-affiliated",
+        "couponOwner": null,
+        "couponPublishable": "unknown"
+      },
+      "copyStatus": "draft",
+      "readerFacingCopy": {
+        "title": "Sonic Labs Audio - The Josie TD3",
+        "summary": "A compressor plugin is free for a limited time.",
+        "body": "The Josie TD3 is a compressor plugin. Apply coupon code SiyuFMX100 at checkout to get it for free until October 18, 2026."
+      },
+      "evidence": [
+        {
+          "role": "secondary",
+          "name": "Free Plugin Wala - YouTube",
+          "url": "https://example.invalid/youtube/free-plugin-wala-josie-td3",
+          "date": "2026-10-15",
+          "fact": "Video stating a limited-time free promotion for The Josie TD3 plugin."
+        }
+      ],
+      "restrictions": [],
+      "openQuestions": [
+        "What is the exact expiration time and timezone on October 18, 2026?"
+      ],
+      "missingFacts": [
+        "regularPrice"
+      ],
+      "notApplicable": [
+        "regularPrice"
+      ],
+      "toValidate": [
+        "Confirm the official developer page."
+      ],
+      "pendingHumanDecision": true
+    },
+    {
+      "recordId": "no-primary-source",
+      "productKind": "plugin",
+      "offerNature": "limited-free",
+      "limitedBy": "time",
+      "developer": {
+        "name": "Colossal Audio Plugins",
+        "developerOfficialUrl": null
+      },
+      "acquisitionUrl": null,
+      "product": {
+        "name": "Aegis Limiter",
+        "category": "plugin",
+        "whatItIs": "Parametric limiter plugin"
+      },
+      "offer": {
+        "promoPrice": 0,
+        "regularPrice": null,
+        "regularPriceSource": null,
+        "currency": null,
+        "startsAt": null,
+        "endsAt": null,
+        "endsAtDate": null,
+        "dateOnly": false,
+        "permanent": false,
+        "couponCode": null,
+        "couponScope": null,
+        "couponOwner": null,
+        "couponPublishable": null
+      },
+      "copyStatus": "draft",
+      "readerFacingCopy": {
+        "title": "Colossal Audio Plugins - Aegis Limiter",
+        "summary": "A new parametric limiter plugin is available for free.",
+        "body": "Aegis Limiter is a parametric limiter plugin intended for peak control during mastering."
+      },
+      "evidence": [
+        {
+          "role": "secondary",
+          "name": "theta wave audio - YouTube",
+          "url": "https://example.invalid/youtube/theta-wave-aegis-limiter",
+          "date": "2026-10-15",
+          "fact": "Video presenting the new free limiter plugin."
+        }
+      ],
+      "restrictions": [],
+      "openQuestions": [
+        "What is the official developer page?"
+      ],
+      "missingFacts": [],
+      "notApplicable": [],
+      "toValidate": [
+        "Find the official developer page."
+      ],
+      "pendingHumanDecision": true
+    }
+  ]
+}

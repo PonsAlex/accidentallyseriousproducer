@@ -13,3 +13,18 @@ data/inbox/*
 data/runtime/
 !data/inbox/README.md
 !data/inbox/promotion-candidate.example.json
+
+# Local Jev advisory artifacts. Reports are working copies, not editorial records.
+asp-jev-suggestions.json
+asp-console-export.jev.json
+asp-console-export.filled.json
+asp-jev-fill-report.json
+asp-editorial-records.json
+asp-editorial-checklist.md
+asp-evidence-package.json
+asp-evidence-package.txt
+asp-package-pending-evidence.json
+asp-package-report.md
+asp-publish-scaffold.json
+asp-console-export.published.json
+asp-candidate-bridge-report.json

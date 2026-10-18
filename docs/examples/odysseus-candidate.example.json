@@ -1,0 +1,145 @@
+[
+  {
+    "_comment": "Example only. This is the private-storage shape Odysseus writes: one candidate per eligible email, in /app/data/asp_affiliate_candidates/ or G:\\ODYSSEUS\\data\\runtime\\asp_affiliate_candidates\\, never in the repository. It carries private email metadata that must never cross into a package. See docs/prompts/odysseus-candidate-prompt.md.",
+    "schemaVersion": "1.0",
+    "candidateId": "unitedplugins-firemaximizer",
+    "status": "candidate",
+    "requiresReview": true,
+    "source": {
+      "type": "email",
+      "messageId": "opaque-message-identifier",
+      "sender": "promo@unitedplugins.invalid",
+      "subject": "FireMaximizer is free until October 18",
+      "receivedAt": "2026-10-05T09:12:00-03:00"
+    },
+    "product": {
+      "name": "FireMaximizer",
+      "developer": "UnitedPlugins",
+      "category": "plugin",
+      "whatItIs": "Multiband maximizer and limiter audio effect plugin"
+    },
+    "merchant": {
+      "programId": null
+    },
+    "offer": {
+      "promoPrice": 0,
+      "regularPrice": 137,
+      "regularPriceSource": "UnitedPlugins Official Store",
+      "currency": "USD",
+      "discountPercent": null,
+      "couponCode": "SiyuFMX100",
+      "couponScope": "creator-affiliated",
+      "couponOwner": "Siyu",
+      "couponPublishable": "unknown",
+      "startsAt": null,
+      "endsAt": null,
+      "endsAtDate": "2026-10-18",
+      "dateOnly": true,
+      "permanent": false,
+      "timezoneSource": null
+    },
+    "offerNature": "limited-free",
+    "limitedBy": "time",
+    "freeQualification": "Requer código",
+    "primarySourceFound": true,
+    "links": {
+      "sourceUrl": "https://example.invalid/unitedplugins/firemaximizer",
+      "developerOfficialUrl": "https://example.invalid/unitedplugins",
+      "affiliateUrl": "https://example.invalid/affiliate/tracking-link"
+    },
+    "evidence": [
+      {
+        "role": "primary",
+        "name": "UnitedPlugins Official Store",
+        "url": "https://example.invalid/unitedplugins/firemaximizer",
+        "date": "2026-10-05",
+        "fact": "Official product page allowing $0 checkout with a promotional coupon code."
+      }
+    ],
+    "confidence": {
+      "product": "high",
+      "price": "high",
+      "dates": "medium",
+      "link": "high"
+    },
+    "restrictions": [
+      "Requires applying a valid promotional coupon code at checkout."
+    ],
+    "openQuestions": [
+      "What is the exact expiration time and timezone on October 18, 2026?"
+    ],
+    "missingFacts": [
+      "endsAt"
+    ],
+    "notApplicable": [],
+    "toValidate": [
+      "Confirm whether an iLok user account is required for license activation."
+    ]
+  },
+  {
+    "_comment": "Second candidate: no citable evidence was confirmed during PREPARAÇÃO, so the bridge refuses it rather than building a record on an email link alone.",
+    "schemaVersion": "1.0",
+    "candidateId": "sonic-labs-audio-the-josie-td3",
+    "status": "candidate",
+    "requiresReview": true,
+    "source": {
+      "type": "email",
+      "messageId": "opaque-message-identifier-2",
+      "sender": "deals@freepluginwala.invalid",
+      "subject": "The Josie TD3 is free for a limited time",
+      "receivedAt": "2026-10-10T08:00:00-03:00"
+    },
+    "product": {
+      "name": "The Josie TD3",
+      "developer": "Sonic Labs Audio",
+      "category": "plugin",
+      "whatItIs": "Dynamic compressor audio effect plugin"
+    },
+    "merchant": {
+      "programId": null
+    },
+    "offer": {
+      "promoPrice": 0,
+      "regularPrice": 29,
+      "currency": "USD",
+      "discountPercent": null,
+      "couponCode": null,
+      "startsAt": null,
+      "endsAt": null,
+      "endsAtDate": null,
+      "dateOnly": false,
+      "permanent": false,
+      "timezoneSource": null
+    },
+    "offerNature": "limited-free",
+    "limitedBy": "time",
+    "freeQualification": "Free temporário",
+    "primarySourceFound": false,
+    "links": {
+      "sourceUrl": "https://example.invalid/youtube/free-plugin-wala-josie-td3",
+      "developerOfficialUrl": null,
+      "affiliateUrl": null
+    },
+    "confidence": {
+      "product": "medium",
+      "price": "low",
+      "dates": "low",
+      "link": "medium"
+    },
+    "restrictions": [],
+    "openQuestions": [
+      "What is the official developer website URL for Sonic Labs Audio?",
+      "What is the exact end date for this limited-time free offer?"
+    ],
+    "missingFacts": [
+      "developerOfficialUrl",
+      "acquisitionUrl",
+      "endsAt",
+      "endsAtDate"
+    ],
+    "notApplicable": [],
+    "toValidate": [
+      "Locate the official product page to verify the developer domain and current list price."
+    ]
+  }
+]

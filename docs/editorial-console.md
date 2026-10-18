@@ -419,10 +419,17 @@ Final human review → Manual merge
 6. **Manual merge** occurs only after final human approval. Agents do not merge
    to `main` or publish autonomously.
 
-The existing Console has no JEV integration or repository-writing behavior.
+The existing Console page has no JEV integration or repository-writing behavior,
+and holds no credential. Two separate, human-invoked commands cover the Jev
+hand-off: `npm run jev:fill` maps an already-validated editorial record into the
+correct content block, and `npm run jev:review` adds `metadata.jev` advisories to
+an exported state. Neither is bound to `/advance`, neither writes repository code,
+and both are documented in
+[the Jev integration contract](jev-integration.md).
 ChatGPT/Codex direct account authentication remains distinct from optional
 OmniRoute provider options. Vercel AI Gateway is not a required dependency for
-this workflow.
+this workflow; when it is used it is one selectable route alongside the direct
+TypeSafe endpoint.
 
 For an implementation hand-off, provide the reviewed export together with a
 separate scoped task identifying the intended outcome and block IDs, allowed
