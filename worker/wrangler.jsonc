@@ -1,0 +1,30 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "asp-related",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-10-06",
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true,
+	// The Workers AI binding. Jev is reached as `typesafe/jev` through it, so this
+	// Worker carries no TypeSafe API key: usage bills to the Cloudflare account.
+	"ai": {
+		"binding": "AI"
+	},
+	// Serve the endpoint from the site's own origin, so the page needs no CORS at
+	// all. Only /api/* is taken over; the static Pages site is untouched.
+	"routes": [
+		{
+			"pattern": "accidentallyseriousproducer.com/api/*",
+			"zone_name": "accidentallyseriousproducer.com"
+		}
+	]
+	// Set this only if something calls the endpoint from another origin. With no
+	// value the Worker answers same-origin requests only.
+	// "vars": { "ALLOWED_ORIGIN": "https://accidentallyseriousproducer.com" }
+}
