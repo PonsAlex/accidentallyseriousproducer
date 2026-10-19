@@ -1,11 +1,6 @@
-import { describe, it, expect, vi } from "vitest";
-import worker, { type Env } from "../src/index";
-import {
-	JEV_MODEL,
-	buildRelatedRequest,
-	parseRelatedBody,
-	rankAnswers,
-} from "../src/questions";
+import { describe, it, expect, vi, afterEach } from "vitest";
+import worker, { type Env, activeRoute } from "../src/index";
+import { buildRelatedRequest, parseRelatedBody, rankAnswers } from "../src/questions";
 
 const article = {
 	title: "Five freeware plugins",
@@ -18,16 +13,25 @@ const candidates = [
 	{ id: "link-b", title: "Supreme Compressor", developer: "Other", category: "plugin" },
 ];
 
-function stubEnv(overrides: Partial<Env> = {}) {
-	const run = vi.fn(async () => ({
-		model: "jev-1.13.0",
-		answers: {
-			related_c0: { type: "noul", noul: 0.91 },
-			related_c1: { type: "noul", noul: 0.12 },
-		},
-	}));
+const answers = {
+	model: "jev-1.13.0",
+	answers: {
+		related_c0: { type: "noul", noul: 0.91 },
+		related_c1: { type: "noul", noul: 0.12 },
+	},
+};
+
+function stubAi(overrides: Partial<Env> = {}) {
+	const run = vi.fn(async () => answers);
 	const env = { AI: { run }, ...overrides } as unknown as Env;
 	return { env, run };
+}
+
+function stubTypesafe() {
+	const fetchMock = vi.fn(async () => new Response(JSON.stringify(answers), { status: 200 }));
+	vi.stubGlobal("fetch", fetchMock);
+	const env = { TYPESAFE_API_KEY: "test-key" } as unknown as Env;
+	return { env, fetchMock };
 }
 
 function post(body: unknown, headers: Record<string, string> = {}) {
@@ -37,6 +41,10 @@ function post(body: unknown, headers: Record<string, string> = {}) {
 		body: typeof body === "string" ? body : JSON.stringify(body),
 	});
 }
+
+afterEach(() => {
+	vi.unstubAllGlobals();
+});
 
 describe("related request shape", () => {
 	it("keys candidates by index and maps every question back to an id", () => {
@@ -56,13 +64,11 @@ describe("related request shape", () => {
 			id: `id-${index}`,
 			title: `Candidate ${index}`,
 		}));
-		const related = buildRelatedRequest(article, many);
-		expect(Object.keys(related.state.candidates)).toHaveLength(20);
+		expect(Object.keys(buildRelatedRequest(article, many).state.candidates)).toHaveLength(20);
 	});
 
 	it("ranks by relevance and keeps the id mapping", () => {
-		const related = buildRelatedRequest(article, candidates);
-		const rankings = rankAnswers(related, {
+		const rankings = rankAnswers(buildRelatedRequest(article, candidates), {
 			answers: { related_c0: { noul: 0.91 }, related_c1: { noul: 0.12 } },
 		});
 
@@ -73,8 +79,9 @@ describe("related request shape", () => {
 	});
 
 	it("treats a missing answer as zero instead of dropping the candidate", () => {
-		const related = buildRelatedRequest(article, candidates);
-		const rankings = rankAnswers(related, { answers: { related_c0: { noul: 0.4 } } });
+		const rankings = rankAnswers(buildRelatedRequest(article, candidates), {
+			answers: { related_c0: { noul: 0.4 } },
+		});
 		expect(rankings.map((entry) => entry.id)).toEqual(["link-a", "link-b"]);
 		expect(rankings[1].relevance).toBe(0);
 	});
@@ -95,11 +102,10 @@ describe("input validation", () => {
 
 	it("rejects more candidates than the cap", () => {
 		const many = Array.from({ length: 21 }, (_, index) => ({ id: `i${index}`, title: `t${index}` }));
-		const parsed = parseRelatedBody({ article, candidates: many });
-		expect(parsed.ok).toBe(false);
+		expect(parseRelatedBody({ article, candidates: many }).ok).toBe(false);
 	});
 
-	it("trims and truncates text instead of trusting its length", () => {
+	it("normalises and truncates text at the boundary", () => {
 		const parsed = parseRelatedBody({
 			article: { title: `  ${"a".repeat(1000)}  ` },
 			candidates,
@@ -109,86 +115,135 @@ describe("input validation", () => {
 	});
 });
 
+describe("route selection", () => {
+	it("prefers the TypeSafe key over the Workers AI binding", () => {
+		expect(activeRoute({ TYPESAFE_API_KEY: "k", AI: { run: vi.fn() } } as unknown as Env)).toBe("typesafe");
+		expect(activeRoute({ AI: { run: vi.fn() } } as unknown as Env)).toBe("workers-ai");
+		expect(activeRoute({} as unknown as Env)).toBe(null);
+		// An empty secret must not count as configured.
+		expect(activeRoute({ TYPESAFE_API_KEY: "" } as unknown as Env)).toBe(null);
+	});
+});
+
 describe("worker routes", () => {
-	it("answers /api/health without spending a model call", async () => {
-		const { env, run } = stubEnv();
+	it("answers /api/health with the active route and no model call", async () => {
+		const { env, run } = stubAi();
 		const response = await worker.fetch(new Request("https://asp.example/api/health"), env);
 
 		expect(response.status).toBe(200);
-		expect(await response.json()).toEqual({ ok: true, model: JEV_MODEL });
+		expect(await response.json()).toEqual({ ok: true, route: "workers-ai" });
 		expect(run).not.toHaveBeenCalled();
 	});
 
 	it("answers an unknown path with 404", async () => {
-		const { env } = stubEnv();
-		const response = await worker.fetch(new Request("https://asp.example/nope"), env);
-		expect(response.status).toBe(404);
+		const { env } = stubAi();
+		expect((await worker.fetch(new Request("https://asp.example/nope"), env)).status).toBe(404);
 	});
 
 	it("rejects a non-POST on the endpoint", async () => {
-		const { env } = stubEnv();
-		const response = await worker.fetch(new Request("https://asp.example/api/related"), env);
-		expect(response.status).toBe(405);
+		const { env } = stubAi();
+		expect((await worker.fetch(new Request("https://asp.example/api/related"), env)).status).toBe(405);
 	});
 
 	it("rejects malformed JSON and invalid bodies before calling the model", async () => {
-		const { env, run } = stubEnv();
+		const { env, run } = stubAi();
 
 		const malformed = await worker.fetch(post("{not json"), env);
 		expect(malformed.status).toBe(400);
 		expect(await malformed.json()).toEqual({ error: "invalid_json" });
 
-		const missing = await worker.fetch(post({ article }), env);
-		expect(missing.status).toBe(400);
-
+		expect((await worker.fetch(post({ article }), env)).status).toBe(400);
 		expect(run).not.toHaveBeenCalled();
 	});
 
-	it("fails closed when the AI binding is absent", async () => {
-		const env = {} as unknown as Env;
-		const response = await worker.fetch(post({ article, candidates }), env);
+	it("fails closed when no route is configured", async () => {
+		const response = await worker.fetch(post({ article, candidates }), {} as unknown as Env);
 		expect(response.status).toBe(503);
+		expect(await response.json()).toEqual({ error: "no_jev_route_configured" });
 	});
 
-	it("returns ranked ids from a successful call", async () => {
-		const { env, run } = stubEnv();
+	it("uses Workers AI when only the binding is present", async () => {
+		const { env, run } = stubAi();
 		const response = await worker.fetch(post({ article, candidates }), env);
 
 		expect(response.status).toBe(200);
-		const body = (await response.json()) as { model: string; rankings: { id: string; relevance: number }[] };
+		expect(run).toHaveBeenCalledOnce();
+		const [model, payload] = run.mock.calls[0] as unknown as [string, Record<string, unknown>];
+		expect(model).toBe("typesafe/jev");
+		expect(payload).toHaveProperty("state");
+		expect(payload).toHaveProperty("questions");
+		expect(payload).not.toHaveProperty("model");
+	});
+});
+
+describe("TypeSafe direct route", () => {
+	it("calls api.typesafe.ai with the model in the body and the key in the header", async () => {
+		const { env, fetchMock } = stubTypesafe();
+		const response = await worker.fetch(post({ article, candidates }), env);
+
+		expect(response.status).toBe(200);
+		expect(fetchMock).toHaveBeenCalledOnce();
+
+		const [url, init] = fetchMock.mock.calls[0] as unknown as [string, RequestInit];
+		expect(url).toBe("https://api.typesafe.ai/v1/systemone");
+		expect((init.headers as Record<string, string>).Authorization).toBe("Bearer test-key");
+
+		const body = JSON.parse(init.body as string);
+		expect(body.model).toBe("jev-latest");
+		expect(body).toHaveProperty("state");
+		expect(body).toHaveProperty("questions");
+		expect(body).not.toHaveProperty("text");
+	});
+
+	it("returns the same ranking shape as the Workers AI route", async () => {
+		const { env } = stubTypesafe();
+		const body = (await (await worker.fetch(post({ article, candidates }), env)).json()) as {
+			model: string;
+			rankings: unknown;
+		};
+
 		expect(body.model).toBe("jev-1.13.0");
 		expect(body.rankings).toEqual([
 			{ id: "link-a", relevance: 0.91 },
 			{ id: "link-b", relevance: 0.12 },
 		]);
-
-		// The model id and payload shape are the contract that was wrong before.
-		expect(run).toHaveBeenCalledOnce();
-		const [model, payload] = run.mock.calls[0] as unknown as [string, { state: unknown; questions: unknown }];
-		expect(model).toBe("typesafe/jev");
-		expect(payload).toHaveProperty("state");
-		expect(payload).toHaveProperty("questions");
-		expect(payload).not.toHaveProperty("text");
 	});
 
-	it("does not leak the model error to the caller", async () => {
-		const env = {
-			AI: {
-				run: async () => {
-					throw new Error("upstream secret detail");
-				},
-			},
-		} as unknown as Env;
-		const response = await worker.fetch(post({ article, candidates }), env);
+	it("retries an overload status and then succeeds", async () => {
+		let calls = 0;
+		const fetchMock = vi.fn(async () => {
+			calls += 1;
+			if (calls === 1) return new Response("busy", { status: 429 });
+			return new Response(JSON.stringify(answers), { status: 200 });
+		});
+		vi.stubGlobal("fetch", fetchMock);
+
+		const response = await worker.fetch(post({ article, candidates }), {
+			TYPESAFE_API_KEY: "test-key",
+		} as unknown as Env);
+
+		expect(response.status).toBe(200);
+		expect(fetchMock).toHaveBeenCalledTimes(2);
+	});
+
+	it("gives up after the retry budget and leaks nothing", async () => {
+		const fetchMock = vi.fn(async () => new Response("secret upstream detail", { status: 500 }));
+		vi.stubGlobal("fetch", fetchMock);
+
+		const response = await worker.fetch(post({ article, candidates }), {
+			TYPESAFE_API_KEY: "super-secret-key",
+		} as unknown as Env);
 
 		expect(response.status).toBe(502);
-		expect(JSON.stringify(await response.json())).not.toContain("upstream secret detail");
+		const text = JSON.stringify(await response.json());
+		expect(text).not.toContain("super-secret-key");
+		expect(text).not.toContain("secret upstream detail");
 	});
 });
 
 describe("CORS", () => {
 	it("sends no wildcard and nothing without a configured origin", async () => {
-		const { env } = stubEnv();
+		const { env } = stubAi();
 		const response = await worker.fetch(
 			new Request("https://asp.example/api/health", { headers: { Origin: "https://evil.example" } }),
 			env,
@@ -197,7 +252,7 @@ describe("CORS", () => {
 	});
 
 	it("echoes the allowed origin and nothing else", async () => {
-		const { env } = stubEnv({ ALLOWED_ORIGIN: "https://accidentallyseriousproducer.com" });
+		const { env } = stubAi({ ALLOWED_ORIGIN: "https://accidentallyseriousproducer.com" });
 
 		const allowed = await worker.fetch(
 			new Request("https://asp.example/api/health", {
