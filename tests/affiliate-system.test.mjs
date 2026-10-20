@@ -560,6 +560,23 @@ test("o banner monta as proprias colunas do grid", () => {
   assert.equal(renderPartnerBanner(undefined, { showDisclosure: true }), "");
 });
 
+test("o link de parceiro na pagina de disclosure carrega rel sponsored", async () => {
+  const html = await readFile(
+    new URL("../affiliate-disclosure.html", import.meta.url),
+    "utf8"
+  );
+  const href = "https://www.waproduction.com/#tl5yyfu43dtnu";
+  const index = html.indexOf(href);
+
+  assert.ok(index > 0, "the partner link should be on the disclosure page");
+
+  // A raw affiliate URL in markup is the exception here; the attributes are what
+  // keep it honest, so they are asserted rather than assumed.
+  const anchor = html.slice(html.lastIndexOf("<a", index), html.indexOf(">", index) + 1);
+  assert.match(anchor, /rel="sponsored noopener noreferrer"/);
+  assert.match(anchor, /target="_blank"/);
+});
+
 test("exibe disclosure junto de conteúdo afiliado", () => {
   const html = render({}, { showDisclosure: true });
 
