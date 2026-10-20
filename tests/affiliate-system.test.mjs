@@ -524,13 +524,16 @@ test("o banner monta as proprias colunas do grid", () => {
 
   // Exactly one wrapper. A page that adds its own .card-grid around the element
   // would put every card in a single grid cell and the second one would overflow.
-  assert.equal((html.match(/class="card-grid"/g) ?? []).length, 1);
+  assert.equal((html.match(/class="card-grid/g) ?? []).length, 1);
   assert.equal(
     (html.match(/class="content-card partner-banner"/g) ?? []).length,
     offers.length
   );
 
-  assert.match(html, /^<div class="card-grid"><article/);
+  // The partner grid adapts to the card count instead of always reserving three
+  // columns, which would leave a hole with two cards and squeeze the titles.
+  assert.match(html, /class="card-grid card-grid--partners"/);
+  assert.match(html, /^<div class="card-grid card-grid--partners"><article/);
   assert.match(html, /<\/article><\/div>$/);
 
   assert.equal(renderPartnerBanner([], { showDisclosure: true }), "");

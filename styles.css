@@ -1875,3 +1875,12 @@ affiliate-offer {
 asp-partner-banner {
   display: block;
 }
+
+/*
+ * The partner shelf holds however many cards the page asks for. A fixed
+ * three-column grid leaves an empty column when there are two, and squeezes the
+ * titles; auto-fit collapses the unused tracks so the cards fill the row.
+ */
+.card-grid--partners {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}

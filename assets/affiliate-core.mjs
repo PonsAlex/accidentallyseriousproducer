@@ -638,7 +638,7 @@ export function renderPartnerBanner(
     return "";
   }
 
-  return `<div class="card-grid">${cards.join("")}</div>`;
+  return `<div class="card-grid card-grid--partners">${cards.join("")}</div>`;
 }
 
 /**
