@@ -1,6 +1,8 @@
 import {
   AFFILIATE_DISCLOSURE,
   renderAffiliateOffer,
+  renderPartnerCard,
+  selectPartnerOffers,
   selectPromotion
 } from "./affiliate-core.mjs";
 import { loadAffiliateData } from "./affiliate-data.mjs";
@@ -107,6 +109,72 @@ export class AffiliateOfferElement extends HTMLElement {
   }
 }
 
+export class PartnerBannerElement extends HTMLElement {
+  static observedAttributes = [
+    "category",
+    "program-id",
+    "limit",
+    "show-disclosure",
+    "debug"
+  ];
+
+  connectedCallback() {
+    this.render();
+  }
+
+  attributeChangedCallback() {
+    if (this.isConnected) {
+      this.render();
+    }
+  }
+
+  async render() {
+    const renderToken = Symbol("partner-render");
+    this.renderToken = renderToken;
+    this.setAttribute("aria-busy", "true");
+
+    try {
+      const data = await loadAffiliateData();
+      if (this.renderToken !== renderToken) {
+        return;
+      }
+
+      const requested = Number(this.getAttribute("limit") ?? "1");
+      const offers = selectPartnerOffers(data, {
+        category: this.getAttribute("category"),
+        programId: this.getAttribute("program-id"),
+        limit: Number.isFinite(requested) ? requested : 1
+      });
+
+      const markup = offers
+        .map((offer) =>
+          renderPartnerCard(offer, {
+            showDisclosure: attributeIsEnabled(this, "show-disclosure")
+          })
+        )
+        .join("");
+
+      this.innerHTML = markup;
+      this.hidden = markup === "";
+      this.dispatchEvent(
+        new CustomEvent("partner-banner-rendered", {
+          bubbles: true,
+          detail: { linkIds: offers.map((offer) => offer.link.id) }
+        })
+      );
+    } catch (error) {
+      console.error("ASP partner banner configuration error:", error);
+      const debug = isDebugMode(this);
+      this.innerHTML = debug
+        ? '<p class="affiliate-config-error" role="alert">REVIEW REQUIRED: partner data could not be loaded.</p>'
+        : "";
+      this.hidden = !debug;
+    } finally {
+      this.removeAttribute("aria-busy");
+    }
+  }
+}
+
 export class AffiliateDisclosureElement extends HTMLElement {
   connectedCallback() {
     const aside = document.createElement("aside");
@@ -130,6 +198,10 @@ export class AffiliateDisclosureElement extends HTMLElement {
 
 if (!customElements.get("affiliate-offer")) {
   customElements.define("affiliate-offer", AffiliateOfferElement);
+}
+
+if (!customElements.get("asp-partner-banner")) {
+  customElements.define("asp-partner-banner", PartnerBannerElement);
 }
 
 if (!customElements.get("affiliate-disclosure")) {

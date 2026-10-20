@@ -18,7 +18,9 @@ import {
   isIsoDateTimeWithTimezone,
   isSafeHttpsUrl,
   renderAffiliateOffer,
+  renderPartnerCard,
   resolveAffiliateDestination,
+  selectPartnerOffers,
   shouldShowAffiliateDisclosure
 } from "../assets/affiliate-core.mjs";
 import {
@@ -399,6 +401,120 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
     promotions.map((entry) => entry.id).filter((id) => expired.includes(id)),
     []
   );
+});
+
+const partnerData = {
+  products: [
+    { id: "wa-production-midiq", name: "MIDIQ", category: "plugin", status: "active" },
+    { id: "wa-production-vocal-mega-pack-3", name: "Vocal Mega Pack 3", category: "bundle", status: "active" },
+    { id: "wa-production-gone", name: "Gone", category: "bundle", status: "archived" }
+  ],
+  affiliatePrograms: [
+    { id: "wa-production", name: "W.A. Production", status: "active", affiliateDisclosureRequired: true },
+    { id: "dead-program", name: "Dead", status: "inactive", affiliateDisclosureRequired: false }
+  ],
+  affiliateLinks: [
+    {
+      id: "link-wa-production-midiq",
+      productId: "wa-production-midiq",
+      programId: "wa-production",
+      destinationUrl: "https://www.waproduction.com/plugins/view/midiq#a_aid=tl5yyfu43dtnu&a_bid=8a8173be",
+      fallbackUrl: "https://www.waproduction.com/plugins/",
+      status: "active",
+      requiresReview: false
+    },
+    {
+      id: "link-wa-production-vocal-mega-pack-3",
+      productId: "wa-production-vocal-mega-pack-3",
+      programId: "wa-production",
+      destinationUrl: "https://www.waproduction.com/bundles/view/vocal-mega-pack-3#a_aid=tl5yyfu43dtnu&a_bid=16a4868c",
+      fallbackUrl: "https://www.waproduction.com/bundles/",
+      status: "active",
+      requiresReview: false
+    },
+    // Awaiting review: must never reach a banner.
+    {
+      id: "link-wa-production-gone",
+      productId: "wa-production-gone",
+      programId: "wa-production",
+      destinationUrl: "https://www.waproduction.com/gone",
+      status: "active",
+      requiresReview: true
+    },
+    // Program inactive: must never reach a banner.
+    {
+      id: "link-dead-program-x",
+      productId: "wa-production-midiq",
+      programId: "dead-program",
+      destinationUrl: "https://dead.example/x",
+      status: "active",
+      requiresReview: false
+    }
+  ]
+};
+
+test("o banner de parceiro so mostra destino utilizavel e programa ativo", () => {
+  const offers = selectPartnerOffers(partnerData, { limit: 5 });
+  assert.deepEqual(
+    offers.map((offer) => offer.link.id),
+    ["link-wa-production-midiq", "link-wa-production-vocal-mega-pack-3"]
+  );
+
+  // Archived product, review-pending link and inactive program are all excluded.
+  assert.equal(offers.some((offer) => offer.link.id === "link-wa-production-gone"), false);
+  assert.equal(offers.some((offer) => offer.link.id === "link-dead-program-x"), false);
+});
+
+test("o banner de parceiro filtra por categoria e respeita o limite", () => {
+  assert.deepEqual(
+    selectPartnerOffers(partnerData, { category: "bundle", limit: 5 }).map((offer) => offer.product.id),
+    ["wa-production-vocal-mega-pack-3"]
+  );
+  assert.equal(selectPartnerOffers(partnerData, { limit: 1 }).length, 1);
+  assert.equal(selectPartnerOffers(partnerData, { limit: 0 }).length, 0);
+  assert.equal(selectPartnerOffers(partnerData, { category: "course" }).length, 0);
+  assert.equal(selectPartnerOffers(null).length, 0);
+});
+
+test("o banner de parceiro aponta para /go/ e nunca para o link cru", () => {
+  const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
+  const html = renderPartnerCard(offer, { showDisclosure: true });
+
+  assert.match(html, /href="\/go\/link-wa-production-midiq"/);
+  assert.match(html, /rel="sponsored noopener noreferrer"/);
+  assert.match(html, /target="_blank"/);
+  // The tracking URL must not appear in the markup at all.
+  assert.equal(html.includes("a_bid="), false);
+  assert.equal(html.includes("waproduction.com"), false);
+  assert.match(html, new RegExp(AFFILIATE_DISCLOSURE.short));
+});
+
+test("o banner de parceiro mostra disclosure quando o programa exige", () => {
+  const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
+
+  // Requested off, but the program requires it.
+  const required = renderPartnerCard(offer, { showDisclosure: false });
+  assert.match(required, new RegExp(AFFILIATE_DISCLOSURE.short));
+
+  // A program that does not require it, with the attribute off, gets none.
+  const optional = renderPartnerCard(
+    { ...offer, program: { ...offer.program, affiliateDisclosureRequired: false } },
+    { showDisclosure: false }
+  );
+  assert.equal(optional.includes("affiliate-disclosure"), false);
+});
+
+test("o banner de parceiro escapa o nome e recusa link nao utilizavel", () => {
+  const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
+  const html = renderPartnerCard(
+    { ...offer, product: { ...offer.product, name: '<img src=x onerror="alert(1)">' } },
+    { showDisclosure: true }
+  );
+  assert.equal(html.includes("<img"), false);
+  assert.match(html, /&lt;img/);
+
+  assert.equal(renderPartnerCard({ ...offer, link: { ...offer.link, requiresReview: true } }), "");
+  assert.equal(renderPartnerCard({}), "");
 });
 
 test("exibe disclosure junto de conteúdo afiliado", () => {

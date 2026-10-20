@@ -558,6 +558,127 @@ export function selectPromotion(
   return contexts[0] ?? null;
 }
 
+const PARTNER_CATEGORY_LABELS = Object.freeze({
+  plugin: "Plugin",
+  bundle: "Bundle",
+  "sample-pack": "Sample pack",
+  "preset-pack": "Preset pack",
+  subscription: "Subscription",
+  "music-download": "Download",
+  "dj-service": "DJ service",
+  course: "Course",
+  other: "Product"
+});
+
+/**
+ * Render one partner card. The link goes through the /go/ intermediary like
+ * every other affiliate destination, so the raw tracking URL never reaches the
+ * markup.
+ */
+export function renderPartnerCard(
+  { product, program, link } = {},
+  { showDisclosure = false } = {}
+) {
+  if (
+    !product ||
+    !link ||
+    !isAffiliateLinkUsable(link) ||
+    !AFFILIATE_ID_PATTERN.test(link.id)
+  ) {
+    return "";
+  }
+
+  const programName = program?.name ?? "the vendor";
+  const categoryLabel =
+    PARTNER_CATEGORY_LABELS[product.category] ?? "Product";
+  // A program that requires disclosure gets it whether the page asked or not.
+  const disclose = showDisclosure || program?.affiliateDisclosureRequired === true;
+
+  const disclosure = disclose
+    ? `<p class="affiliate-disclosure affiliate-disclosure--short" role="note">${escapeHtml(
+        AFFILIATE_DISCLOSURE.short
+      )}</p>`
+    : "";
+
+  return `
+    <article class="content-card partner-banner" data-partner-link="${escapeHtml(link.id)}">
+      <span class="card-kicker">Partner</span>
+      <h3>${escapeHtml(product.name)}</h3>
+      <p>${escapeHtml(categoryLabel)} from ${escapeHtml(programName)}.</p>
+      <a
+        class="button button-primary"
+        href="/go/${encodeURIComponent(link.id)}"
+        target="_blank"
+        rel="sponsored noopener noreferrer"
+      >
+        Visit ${escapeHtml(programName)}<span class="sr-only"> for ${escapeHtml(product.name)}</span>
+      </a>
+      ${disclosure}
+    </article>
+  `.trim();
+}
+
+/**
+ * Pick partner offers for a banner.
+ *
+ * A partner banner shows a product that has a usable link but no promotion —
+ * the WA catalogue entries are exactly that: real, reviewed destinations with no
+ * price or deadline to announce. Everything is filtered by the same rules the
+ * offer element uses, so a link awaiting review can never reach the page.
+ */
+export function selectPartnerOffers(
+  data,
+  { category = null, programId = null, limit = 1 } = {}
+) {
+  const products = new Map(
+    (data?.products ?? []).map((product) => [product.id, product])
+  );
+  const programs = new Map(
+    (data?.affiliatePrograms ?? []).map((program) => [program.id, program])
+  );
+
+  const offers = [];
+  const seenProducts = new Set();
+
+  for (const link of data?.affiliateLinks ?? []) {
+    if (!isAffiliateLinkUsable(link) || !AFFILIATE_ID_PATTERN.test(link.id)) {
+      continue;
+    }
+
+    const product = products.get(link.productId);
+    if (!product || product.status !== "active") {
+      continue;
+    }
+
+    const program = programs.get(link.programId) ?? null;
+    if (program && program.status !== "active") {
+      continue;
+    }
+
+    if (category && product.category !== category) {
+      continue;
+    }
+    if (programId && link.programId !== programId) {
+      continue;
+    }
+
+    // One card per product, even when it has several links.
+    if (seenProducts.has(product.id)) {
+      continue;
+    }
+    seenProducts.add(product.id);
+
+    offers.push({ product, program, link });
+  }
+
+  offers.sort((left, right) =>
+    left.product.name.localeCompare(right.product.name, "en")
+  );
+
+  const bounded = Number.isFinite(limit) ? Math.max(0, Math.trunc(limit)) : 1;
+  return offers.slice(0, bounded);
+}
+
 export function shouldShowAffiliateDisclosure(contexts) {
   return contexts.some(
     ({ state, affiliateLink }) =>

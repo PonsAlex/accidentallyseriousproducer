@@ -22,6 +22,7 @@
 
   <link rel="stylesheet" href="/styles.css">
   <script type="module" src="/assets/deals-page.mjs"></script>
+  <script type="module" src="/assets/affiliate-elements.mjs"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -116,6 +117,20 @@
         That is not a technical problem. It just means the discount pile has not
         produced anything useful yet.
       </p>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Partner offer</p>
+            <h2>From the ASP affiliate shelf</h2>
+          </div>
+        </div>
+        <div class="card-grid">
+          <asp-partner-banner program-id="wa-production" category="bundle" limit="2" show-disclosure></asp-partner-banner>
+        </div>
+      </div>
     </section>
   </main>
 
