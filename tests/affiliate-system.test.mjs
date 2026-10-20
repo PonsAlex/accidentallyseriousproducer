@@ -18,6 +18,7 @@ import {
   isIsoDateTimeWithTimezone,
   isSafeHttpsUrl,
   renderAffiliateOffer,
+  renderPartnerBanner,
   renderPartnerCard,
   resolveAffiliateDestination,
   selectPartnerOffers,
@@ -515,6 +516,25 @@ test("o banner de parceiro escapa o nome e recusa link nao utilizavel", () => {
 
   assert.equal(renderPartnerCard({ ...offer, link: { ...offer.link, requiresReview: true } }), "");
   assert.equal(renderPartnerCard({}), "");
+});
+
+test("o banner monta as proprias colunas do grid", () => {
+  const offers = selectPartnerOffers(partnerData, { limit: 5 });
+  const html = renderPartnerBanner(offers, { showDisclosure: true });
+
+  // Exactly one wrapper. A page that adds its own .card-grid around the element
+  // would put every card in a single grid cell and the second one would overflow.
+  assert.equal((html.match(/class="card-grid"/g) ?? []).length, 1);
+  assert.equal(
+    (html.match(/class="content-card partner-banner"/g) ?? []).length,
+    offers.length
+  );
+
+  assert.match(html, /^<div class="card-grid"><article/);
+  assert.match(html, /<\/article><\/div>$/);
+
+  assert.equal(renderPartnerBanner([], { showDisclosure: true }), "");
+  assert.equal(renderPartnerBanner(undefined, { showDisclosure: true }), "");
 });
 
 test("exibe disclosure junto de conteúdo afiliado", () => {

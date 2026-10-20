@@ -1870,3 +1870,8 @@ affiliate-offer {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* A custom element is inline by default; it holds a block-level card grid. */
+asp-partner-banner {
+  display: block;
+}

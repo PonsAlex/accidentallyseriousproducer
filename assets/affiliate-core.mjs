@@ -619,6 +619,29 @@ export function renderPartnerCard(
 }
 
 /**
+ * Render the whole banner: the cards, wrapped in the grid they belong to.
+ *
+ * The wrapper is part of this function on purpose. A caller that wrapped the
+ * element in its own `.card-grid` would put every card in a single grid cell —
+ * the second one then overflows its row. Keeping the wrapper here makes the
+ * layout contract testable without a browser.
+ */
+export function renderPartnerBanner(
+  offers = [],
+  { showDisclosure = false } = {}
+) {
+  const cards = (offers ?? [])
+    .map((offer) => renderPartnerCard(offer, { showDisclosure }))
+    .filter((card) => card !== "");
+
+  if (cards.length === 0) {
+    return "";
+  }
+
+  return `<div class="card-grid">${cards.join("")}</div>`;
+}
+
+/**
  * Pick partner offers for a banner.
  *
  * A partner banner shows a product that has a usable link but no promotion —

@@ -1,7 +1,7 @@
 import {
   AFFILIATE_DISCLOSURE,
   renderAffiliateOffer,
-  renderPartnerCard,
+  renderPartnerBanner,
   selectPartnerOffers,
   selectPromotion
 } from "./affiliate-core.mjs";
@@ -146,14 +146,12 @@ export class PartnerBannerElement extends HTMLElement {
         limit: Number.isFinite(requested) ? requested : 1
       });
 
-      const markup = offers
-        .map((offer) =>
-          renderPartnerCard(offer, {
-            showDisclosure: attributeIsEnabled(this, "show-disclosure")
-          })
-        )
-        .join("");
+      const markup = renderPartnerBanner(offers, {
+        showDisclosure: attributeIsEnabled(this, "show-disclosure")
+      });
 
+      // The markup already carries its own `.card-grid` wrapper; wrapping it
+      // again outside would collapse every card into one grid cell.
       this.innerHTML = markup;
       this.hidden = markup === "";
       this.dispatchEvent(
