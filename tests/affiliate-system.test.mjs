@@ -784,6 +784,15 @@ test("a CSP permite o beacon oficial sem liberar scripts inseguros", async () =>
   assert.doesNotMatch(headers, /'unsafe-inline'|'unsafe-eval'/);
 });
 
+test("todo arquivo revalida, para que uma remoção não fique presa no cache", async () => {
+  const headers = await readFile(new URL("../_headers", import.meta.url), "utf8");
+
+  // Cloudflare Pages gives non-HTML assets s-maxage=604800. Without this rule a
+  // file removed from the output stays fetchable at the edge for a week, which
+  // is exactly what happened to the source tree when the build moved to dist.
+  assert.match(headers, /^\/\*\r?\n\s+Cache-Control: public, max-age=0, must-revalidate$/m);
+});
+
 test("explica VERDICT e STATUS na página Fire or Nah", async () => {
   const html = await readHtml("fire-or-nah.html");
 

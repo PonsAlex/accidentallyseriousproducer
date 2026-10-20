@@ -1,3 +1,11 @@
+# Cloudflare Pages caches anything that is not HTML for a week (s-maxage=604800).
+# That kept removed files alive at the edge long after the deployment stopped
+# serving them, so a source file deleted from the output could still be fetched
+# for seven days. Revalidate everything instead: a 304 costs one round trip and
+# a deletion takes effect on the next request.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
 /deals/*
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; connect-src 'self' https://cloudflareinsights.com; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=()
