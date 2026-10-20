@@ -343,6 +343,7 @@ ${sections}
         <a href="/fire-or-nah.html">Fire or Nah?</a>
         <a href="/deals/">Deals</a>
         <a href="/privacy.html">Privacy</a>
+        <a href="/articles/">All posts</a>
         <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
       </nav>
     </div>

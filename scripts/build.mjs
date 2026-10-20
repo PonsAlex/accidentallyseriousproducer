@@ -12,6 +12,7 @@ import {
   validateAffiliateData
 } from "./affiliate-validation.mjs";
 import { assertPublicCandidateBoundary } from "./public-boundary.mjs";
+import { buildDiscovery } from "./discovery.mjs";
 
 const rootDirectory = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -97,6 +98,13 @@ async function main() {
         path.join(outputDataDirectory, filename)
       )
     )
+  );
+
+  // The archive index, feed, sitemap and robots are derived from the pages just
+  // copied, so a published post cannot be missing from them.
+  const discovery = await buildDiscovery({ outputDirectory });
+  console.log(
+    `Descoberta: ${discovery.articles} artigo(s) no arquivo, feed e sitemap gerados.`
   );
 
   console.log(
