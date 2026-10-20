@@ -574,11 +574,11 @@ const PARTNER_CATEGORY_LABELS = Object.freeze({
  * Render one partner card. The link goes through the /go/ intermediary like
  * every other affiliate destination, so the raw tracking URL never reaches the
  * markup.
+ *
+ * The disclosure is not here: it belongs to the shelf as a whole, and repeating
+ * it under every card is noise. `renderPartnerBanner` adds it once.
  */
-export function renderPartnerCard(
-  { product, program, link } = {},
-  { showDisclosure = false } = {}
-) {
+export function renderPartnerCard({ product, program, link } = {}) {
   if (
     !product ||
     !link ||
@@ -591,14 +591,6 @@ export function renderPartnerCard(
   const programName = program?.name ?? "the vendor";
   const categoryLabel =
     PARTNER_CATEGORY_LABELS[product.category] ?? "Product";
-  // A program that requires disclosure gets it whether the page asked or not.
-  const disclose = showDisclosure || program?.affiliateDisclosureRequired === true;
-
-  const disclosure = disclose
-    ? `<p class="affiliate-disclosure affiliate-disclosure--short" role="note">${escapeHtml(
-        AFFILIATE_DISCLOSURE.short
-      )}</p>`
-    : "";
 
   return `
     <article class="content-card partner-banner" data-partner-link="${escapeHtml(link.id)}">
@@ -613,9 +605,21 @@ export function renderPartnerCard(
       >
         Visit ${escapeHtml(programName)}<span class="sr-only"> for ${escapeHtml(product.name)}</span>
       </a>
-      ${disclosure}
     </article>
   `.trim();
+}
+
+/**
+ * A program with `affiliateDisclosureRequired` gets a disclosure whether the page
+ * asked for one or not.
+ */
+export function needsPartnerDisclosure(offers, { showDisclosure = false } = {}) {
+  if (showDisclosure) {
+    return (offers ?? []).length > 0;
+  }
+  return (offers ?? []).some(
+    (offer) => offer?.program?.affiliateDisclosureRequired === true
+  );
 }
 
 /**
@@ -631,14 +635,21 @@ export function renderPartnerBanner(
   { showDisclosure = false } = {}
 ) {
   const cards = (offers ?? [])
-    .map((offer) => renderPartnerCard(offer, { showDisclosure }))
+    .map((offer) => renderPartnerCard(offer))
     .filter((card) => card !== "");
 
   if (cards.length === 0) {
     return "";
   }
 
-  return `<div class="card-grid card-grid--partners">${cards.join("")}</div>`;
+  // One disclosure for the shelf, not one per card.
+  const disclosure = needsPartnerDisclosure(offers, { showDisclosure })
+    ? `<p class="affiliate-disclosure affiliate-disclosure--short" role="note">${escapeHtml(
+        AFFILIATE_DISCLOSURE.short
+      )}</p>`
+    : "";
+
+  return `<div class="card-grid card-grid--partners">${cards.join("")}</div>${disclosure}`;
 }
 
 /**

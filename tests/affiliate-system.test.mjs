@@ -20,6 +20,7 @@ import {
   renderAffiliateOffer,
   renderPartnerBanner,
   renderPartnerCard,
+  needsPartnerDisclosure,
   resolveAffiliateDestination,
   selectPartnerOffers,
   shouldShowAffiliateDisclosure
@@ -479,7 +480,7 @@ test("o banner de parceiro filtra por categoria e respeita o limite", () => {
 
 test("o banner de parceiro aponta para /go/ e nunca para o link cru", () => {
   const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
-  const html = renderPartnerCard(offer, { showDisclosure: true });
+  const html = renderPartnerBanner([offer], { showDisclosure: true });
 
   assert.match(html, /href="\/go\/link-wa-production-midiq"/);
   assert.match(html, /rel="sponsored noopener noreferrer"/);
@@ -490,25 +491,41 @@ test("o banner de parceiro aponta para /go/ e nunca para o link cru", () => {
   assert.match(html, new RegExp(AFFILIATE_DISCLOSURE.short));
 });
 
+test("o disclosure aparece uma vez por prateleira, nao uma vez por card", () => {
+  const offers = selectPartnerOffers(partnerData, { limit: 5 });
+
+  const html = renderPartnerBanner(offers, { showDisclosure: true });
+  assert.equal((html.match(/affiliate-disclosure--short/g) ?? []).length, 1);
+  // It sits after the grid, not inside a card.
+  assert.match(html, /<\/div><p class="affiliate-disclosure/);
+  assert.equal(needsPartnerDisclosure(offers, { showDisclosure: true }), true);
+});
+
 test("o banner de parceiro mostra disclosure quando o programa exige", () => {
   const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
 
   // Requested off, but the program requires it.
-  const required = renderPartnerCard(offer, { showDisclosure: false });
+  const required = renderPartnerBanner([offer], { showDisclosure: false });
   assert.match(required, new RegExp(AFFILIATE_DISCLOSURE.short));
+  assert.equal(needsPartnerDisclosure([offer], { showDisclosure: false }), true);
 
   // A program that does not require it, with the attribute off, gets none.
-  const optional = renderPartnerCard(
-    { ...offer, program: { ...offer.program, affiliateDisclosureRequired: false } },
-    { showDisclosure: false }
-  );
+  const optionalOffer = {
+    ...offer,
+    program: { ...offer.program, affiliateDisclosureRequired: false }
+  };
+  const optional = renderPartnerBanner([optionalOffer], { showDisclosure: false });
   assert.equal(optional.includes("affiliate-disclosure"), false);
+  assert.equal(needsPartnerDisclosure([optionalOffer], { showDisclosure: false }), false);
+
+  // An empty shelf never claims a disclosure it does not show.
+  assert.equal(needsPartnerDisclosure([], { showDisclosure: true }), false);
 });
 
 test("o banner de parceiro escapa o nome e recusa link nao utilizavel", () => {
   const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
-  const html = renderPartnerCard(
-    { ...offer, product: { ...offer.product, name: '<img src=x onerror="alert(1)">' } },
+  const html = renderPartnerBanner(
+    [{ ...offer, product: { ...offer.product, name: '<img src=x onerror="alert(1)">' } }],
     { showDisclosure: true }
   );
   assert.equal(html.includes("<img"), false);
@@ -534,7 +551,8 @@ test("o banner monta as proprias colunas do grid", () => {
   // columns, which would leave a hole with two cards and squeeze the titles.
   assert.match(html, /class="card-grid card-grid--partners"/);
   assert.match(html, /^<div class="card-grid card-grid--partners"><article/);
-  assert.match(html, /<\/article><\/div>$/);
+  // Each card closes before the next one opens; the grid closes before the note.
+  assert.match(html, /<\/article><\/div><p class="affiliate-disclosure/);
 
   assert.equal(renderPartnerBanner([], { showDisclosure: true }), "");
   assert.equal(renderPartnerBanner(undefined, { showDisclosure: true }), "");
