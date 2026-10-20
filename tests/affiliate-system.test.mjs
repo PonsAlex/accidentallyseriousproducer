@@ -18,7 +18,11 @@ import {
   isIsoDateTimeWithTimezone,
   isSafeHttpsUrl,
   renderAffiliateOffer,
+  renderPartnerBanner,
+  renderPartnerCard,
+  needsPartnerDisclosure,
   resolveAffiliateDestination,
+  selectPartnerOffers,
   shouldShowAffiliateDisclosure
 } from "../assets/affiliate-core.mjs";
 import {
@@ -399,6 +403,159 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
     promotions.map((entry) => entry.id).filter((id) => expired.includes(id)),
     []
   );
+});
+
+const partnerData = {
+  products: [
+    { id: "wa-production-midiq", name: "MIDIQ", category: "plugin", status: "active" },
+    { id: "wa-production-vocal-mega-pack-3", name: "Vocal Mega Pack 3", category: "bundle", status: "active" },
+    { id: "wa-production-gone", name: "Gone", category: "bundle", status: "archived" }
+  ],
+  affiliatePrograms: [
+    { id: "wa-production", name: "W.A. Production", status: "active", affiliateDisclosureRequired: true },
+    { id: "dead-program", name: "Dead", status: "inactive", affiliateDisclosureRequired: false }
+  ],
+  affiliateLinks: [
+    {
+      id: "link-wa-production-midiq",
+      productId: "wa-production-midiq",
+      programId: "wa-production",
+      destinationUrl: "https://www.waproduction.com/plugins/view/midiq#a_aid=tl5yyfu43dtnu&a_bid=8a8173be",
+      fallbackUrl: "https://www.waproduction.com/plugins/",
+      status: "active",
+      requiresReview: false
+    },
+    {
+      id: "link-wa-production-vocal-mega-pack-3",
+      productId: "wa-production-vocal-mega-pack-3",
+      programId: "wa-production",
+      destinationUrl: "https://www.waproduction.com/bundles/view/vocal-mega-pack-3#a_aid=tl5yyfu43dtnu&a_bid=16a4868c",
+      fallbackUrl: "https://www.waproduction.com/bundles/",
+      status: "active",
+      requiresReview: false
+    },
+    // Awaiting review: must never reach a banner.
+    {
+      id: "link-wa-production-gone",
+      productId: "wa-production-gone",
+      programId: "wa-production",
+      destinationUrl: "https://www.waproduction.com/gone",
+      status: "active",
+      requiresReview: true
+    },
+    // Program inactive: must never reach a banner.
+    {
+      id: "link-dead-program-x",
+      productId: "wa-production-midiq",
+      programId: "dead-program",
+      destinationUrl: "https://dead.example/x",
+      status: "active",
+      requiresReview: false
+    }
+  ]
+};
+
+test("o banner de parceiro so mostra destino utilizavel e programa ativo", () => {
+  const offers = selectPartnerOffers(partnerData, { limit: 5 });
+  assert.deepEqual(
+    offers.map((offer) => offer.link.id),
+    ["link-wa-production-midiq", "link-wa-production-vocal-mega-pack-3"]
+  );
+
+  // Archived product, review-pending link and inactive program are all excluded.
+  assert.equal(offers.some((offer) => offer.link.id === "link-wa-production-gone"), false);
+  assert.equal(offers.some((offer) => offer.link.id === "link-dead-program-x"), false);
+});
+
+test("o banner de parceiro filtra por categoria e respeita o limite", () => {
+  assert.deepEqual(
+    selectPartnerOffers(partnerData, { category: "bundle", limit: 5 }).map((offer) => offer.product.id),
+    ["wa-production-vocal-mega-pack-3"]
+  );
+  assert.equal(selectPartnerOffers(partnerData, { limit: 1 }).length, 1);
+  assert.equal(selectPartnerOffers(partnerData, { limit: 0 }).length, 0);
+  assert.equal(selectPartnerOffers(partnerData, { category: "course" }).length, 0);
+  assert.equal(selectPartnerOffers(null).length, 0);
+});
+
+test("o banner de parceiro aponta para /go/ e nunca para o link cru", () => {
+  const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
+  const html = renderPartnerBanner([offer], { showDisclosure: true });
+
+  assert.match(html, /href="\/go\/link-wa-production-midiq"/);
+  assert.match(html, /rel="sponsored noopener noreferrer"/);
+  assert.match(html, /target="_blank"/);
+  // The tracking URL must not appear in the markup at all.
+  assert.equal(html.includes("a_bid="), false);
+  assert.equal(html.includes("waproduction.com"), false);
+  assert.match(html, new RegExp(AFFILIATE_DISCLOSURE.short));
+});
+
+test("o disclosure aparece uma vez por prateleira, nao uma vez por card", () => {
+  const offers = selectPartnerOffers(partnerData, { limit: 5 });
+
+  const html = renderPartnerBanner(offers, { showDisclosure: true });
+  assert.equal((html.match(/affiliate-disclosure--short/g) ?? []).length, 1);
+  // It sits after the grid, not inside a card.
+  assert.match(html, /<\/div><p class="affiliate-disclosure/);
+  assert.equal(needsPartnerDisclosure(offers, { showDisclosure: true }), true);
+});
+
+test("o banner de parceiro mostra disclosure quando o programa exige", () => {
+  const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
+
+  // Requested off, but the program requires it.
+  const required = renderPartnerBanner([offer], { showDisclosure: false });
+  assert.match(required, new RegExp(AFFILIATE_DISCLOSURE.short));
+  assert.equal(needsPartnerDisclosure([offer], { showDisclosure: false }), true);
+
+  // A program that does not require it, with the attribute off, gets none.
+  const optionalOffer = {
+    ...offer,
+    program: { ...offer.program, affiliateDisclosureRequired: false }
+  };
+  const optional = renderPartnerBanner([optionalOffer], { showDisclosure: false });
+  assert.equal(optional.includes("affiliate-disclosure"), false);
+  assert.equal(needsPartnerDisclosure([optionalOffer], { showDisclosure: false }), false);
+
+  // An empty shelf never claims a disclosure it does not show.
+  assert.equal(needsPartnerDisclosure([], { showDisclosure: true }), false);
+});
+
+test("o banner de parceiro escapa o nome e recusa link nao utilizavel", () => {
+  const [offer] = selectPartnerOffers(partnerData, { category: "plugin" });
+  const html = renderPartnerBanner(
+    [{ ...offer, product: { ...offer.product, name: '<img src=x onerror="alert(1)">' } }],
+    { showDisclosure: true }
+  );
+  assert.equal(html.includes("<img"), false);
+  assert.match(html, /&lt;img/);
+
+  assert.equal(renderPartnerCard({ ...offer, link: { ...offer.link, requiresReview: true } }), "");
+  assert.equal(renderPartnerCard({}), "");
+});
+
+test("o banner monta as proprias colunas do grid", () => {
+  const offers = selectPartnerOffers(partnerData, { limit: 5 });
+  const html = renderPartnerBanner(offers, { showDisclosure: true });
+
+  // Exactly one wrapper. A page that adds its own .card-grid around the element
+  // would put every card in a single grid cell and the second one would overflow.
+  assert.equal((html.match(/class="card-grid/g) ?? []).length, 1);
+  assert.equal(
+    (html.match(/class="content-card partner-banner"/g) ?? []).length,
+    offers.length
+  );
+
+  // The partner grid adapts to the card count instead of always reserving three
+  // columns, which would leave a hole with two cards and squeeze the titles.
+  assert.match(html, /class="card-grid card-grid--partners"/);
+  assert.match(html, /^<div class="card-grid card-grid--partners"><article/);
+  // Each card closes before the next one opens; the grid closes before the note.
+  assert.match(html, /<\/article><\/div><p class="affiliate-disclosure/);
+
+  assert.equal(renderPartnerBanner([], { showDisclosure: true }), "");
+  assert.equal(renderPartnerBanner(undefined, { showDisclosure: true }), "");
 });
 
 test("exibe disclosure junto de conteúdo afiliado", () => {

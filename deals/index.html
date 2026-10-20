@@ -22,6 +22,7 @@
 
   <link rel="stylesheet" href="/styles.css">
   <script type="module" src="/assets/deals-page.mjs"></script>
+  <script type="module" src="/assets/affiliate-elements.mjs"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -111,11 +112,31 @@
 
     <section id="deals-empty" class="deals-empty shell narrow">
       <p class="eyebrow">Editorial curation in progress</p>
-      <h2>No deals worth publishing right now.</h2>
+      <h2>No curated deals right now.</h2>
       <p>
-        That is not a technical problem. It just means the discount pile has not
-        produced anything useful yet.
+        A deal only lands here once the price and the end date are confirmed on the
+        vendor's own page. Until then this list stays empty on purpose.
       </p>
+      <p>
+        The partner shelf below is a different thing: a standing affiliate link to a
+        product ASP finds useful, with no discount and no deadline attached.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Partner shelf</p>
+            <h2>Standing affiliate links</h2>
+          </div>
+        </div>
+        <p class="section-note">
+          Not a deal. These are products with a reviewed destination and no
+          time-limited price, so there is no discount to chase and no deadline to miss.
+        </p>
+        <asp-partner-banner program-id="wa-production" category="bundle" limit="2" show-disclosure></asp-partner-banner>
+      </div>
     </section>
   </main>
 
