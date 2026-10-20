@@ -365,15 +365,30 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
       status: "active"
     }
   );
-  // Registering a program must not create offerings for it.
+  // W.A. Production now carries its first real affiliate offerings. Every link
+  // must be attributable: an a_aid identifies the affiliate, an a_bid the banner.
+  const waProducts = products.filter((entry) => entry.programId === "wa-production");
+  const waLinks = affiliateLinks.filter((entry) => entry.programId === "wa-production");
+  assert.equal(waProducts.length, 6);
+  assert.equal(waLinks.length, 6);
+  assert.equal(waProducts.every((entry) => entry.status === "active"), true);
+
+  for (const link of waLinks) {
+    assert.equal(link.requiresReview, false);
+    assert.equal(waProducts.some((product) => product.id === link.productId), true);
+    assert.match(link.destinationUrl, /^https:\/\/www\.waproduction\.com\//);
+    assert.match(link.destinationUrl, /[#&]a_aid=tl5yyfu43dtnu/);
+    assert.match(link.destinationUrl, /[#&]a_bid=[a-z0-9]+/i);
+    assert.match(link.fallbackUrl, /^https:\/\/www\.waproduction\.com\//);
+  }
+
+  // A product link is not an offer: no promotion may exist without a price and
+  // a verified end date.
   assert.equal(
-    products.some((entry) => entry.programId === "wa-production"),
+    promotions.some((entry) => waProducts.some((product) => product.id === entry.productId)),
     false
   );
-  assert.equal(
-    affiliateLinks.some((entry) => entry.programId === "wa-production"),
-    false
-  );
+
   // The expired September promotions were removed during the October reset.
   const expired = [
     "promo-waves-sep26",

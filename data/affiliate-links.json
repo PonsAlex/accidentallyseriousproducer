@@ -86,5 +86,71 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-18T00:15:10.229Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-midiq",
+    "productId": "wa-production-midiq",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/plugins/view/midiq#a_aid=tl5yyfu43dtnu&a_bid=8a8173be",
+    "fallbackUrl": "https://www.waproduction.com/plugins/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-20T00:40:28.308Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-biggifier",
+    "productId": "wa-production-biggifier",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/plugins/view/biggifier#a_aid=tl5yyfu43dtnu&a_bid=3202d9f2",
+    "fallbackUrl": "https://www.waproduction.com/plugins/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-20T00:40:28.308Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-edm-psytrance-mega-pack-2",
+    "productId": "wa-production-edm-psytrance-mega-pack-2",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/edm-psytrance-mega-pack-2#a_aid=tl5yyfu43dtnu&a_bid=9bd63336",
+    "fallbackUrl": "https://www.waproduction.com/bundles/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-20T00:40:28.308Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-vocal-mega-pack-3",
+    "productId": "wa-production-vocal-mega-pack-3",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/vocal-mega-pack-3#a_aid=tl5yyfu43dtnu&a_bid=16a4868c",
+    "fallbackUrl": "https://www.waproduction.com/bundles/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-20T00:40:28.308Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-tech-house-mega-pack-2",
+    "productId": "wa-production-tech-house-mega-pack-2",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/tech-house-mega-pack-2#a_aid=tl5yyfu43dtnu&a_bid=ce2bcb97",
+    "fallbackUrl": "https://www.waproduction.com/bundles/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-20T00:40:28.308Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-savage-future-bass-bundle-3",
+    "productId": "wa-production-savage-future-bass-bundle-3",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/savage-future-bass-bundle-3#a_aid=tl5yyfu43dtnu&a_bid=f0eb5af0",
+    "fallbackUrl": "https://www.waproduction.com/bundles/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-20T00:40:28.308Z",
+    "allowFallback": true
   }
 ]

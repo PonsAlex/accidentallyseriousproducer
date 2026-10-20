@@ -86,5 +86,71 @@
     "status": "active",
     "createdAt": "2026-10-18T00:15:10.229Z",
     "updatedAt": "2026-10-18T00:15:10.229Z"
+  },
+  {
+    "id": "wa-production-midiq",
+    "slug": "midiq",
+    "programId": "wa-production",
+    "name": "MIDIQ",
+    "category": "plugin",
+    "description": "MIDIQ",
+    "status": "active",
+    "createdAt": "2026-10-20T00:40:28.308Z",
+    "updatedAt": "2026-10-20T00:40:28.308Z"
+  },
+  {
+    "id": "wa-production-biggifier",
+    "slug": "biggifier",
+    "programId": "wa-production",
+    "name": "Biggifier by Aden",
+    "category": "plugin",
+    "description": "Biggifier by Aden",
+    "status": "active",
+    "createdAt": "2026-10-20T00:40:28.308Z",
+    "updatedAt": "2026-10-20T00:40:28.308Z"
+  },
+  {
+    "id": "wa-production-edm-psytrance-mega-pack-2",
+    "slug": "edm-psytrance-mega-pack-2",
+    "programId": "wa-production",
+    "name": "EDM Psytrance Mega Pack 2",
+    "category": "bundle",
+    "description": "EDM Psytrance Mega Pack 2",
+    "status": "active",
+    "createdAt": "2026-10-20T00:40:28.308Z",
+    "updatedAt": "2026-10-20T00:40:28.308Z"
+  },
+  {
+    "id": "wa-production-vocal-mega-pack-3",
+    "slug": "vocal-mega-pack-3",
+    "programId": "wa-production",
+    "name": "Vocal Mega Pack 3",
+    "category": "bundle",
+    "description": "Vocal Mega Pack 3",
+    "status": "active",
+    "createdAt": "2026-10-20T00:40:28.308Z",
+    "updatedAt": "2026-10-20T00:40:28.308Z"
+  },
+  {
+    "id": "wa-production-tech-house-mega-pack-2",
+    "slug": "tech-house-mega-pack-2",
+    "programId": "wa-production",
+    "name": "Tech House Mega Pack 2",
+    "category": "bundle",
+    "description": "Tech House Mega Pack 2",
+    "status": "active",
+    "createdAt": "2026-10-20T00:40:28.308Z",
+    "updatedAt": "2026-10-20T00:40:28.308Z"
+  },
+  {
+    "id": "wa-production-savage-future-bass-bundle-3",
+    "slug": "savage-future-bass-bundle-3",
+    "programId": "wa-production",
+    "name": "Savage Future Bass Bundle 3",
+    "category": "bundle",
+    "description": "Savage Future Bass Bundle 3",
+    "status": "active",
+    "createdAt": "2026-10-20T00:40:28.308Z",
+    "updatedAt": "2026-10-20T00:40:28.308Z"
   }
 ]
