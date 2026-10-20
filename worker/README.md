@@ -48,12 +48,32 @@ header would let any site spend that quota, so there isn't one — with no
 `accidentallyseriousproducer.com/api/*` is served by this Worker. Only `/api/*`
 is taken over; the static Pages site is untouched.
 
-## Requirements
+## Routes to Jev
 
-Workers AI needs credits on the account. Without them every model call fails with
-`2021: Insufficient AI Gateway credits`, and the endpoint answers `502`
-`{"error":"model_unavailable"}` — a deliberate fail-closed, with the detail going
-to the log rather than to the visitor.
+Two, chosen automatically at request time:
+
+| `TYPESAFE_API_KEY` | `AI` binding | Route used |
+| --- | --- | --- |
+| set | any | `api.typesafe.ai/v1/systemone`, model `jev-latest`, billed to TypeSafe |
+| absent | present | Workers AI `typesafe/jev`, billed to Cloudflare |
+| absent | absent | `503 no_jev_route_configured` |
+
+The direct route is preferred because it does not depend on Workers AI credits.
+`GET /api/health` reports which one is active, without spending a token.
+
+The two contracts differ in one detail: the direct call carries `model` in the
+body; Workers AI takes the model as the first argument.
+
+### Setting the secret
+
+```bash
+npx wrangler secret put TYPESAFE_API_KEY
+```
+
+The key never enters the repository and never reaches the browser. Without the
+Cloudflare route's credits, every Workers AI call answers `502`
+`{"error":"model_unavailable"}` with `2021: Insufficient AI Gateway credits` in
+the log — a deliberate fail-closed.
 
 ## Development
 
