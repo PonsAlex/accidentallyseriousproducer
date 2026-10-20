@@ -152,5 +152,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-20T00:40:28.308Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-slate-digital-complete-access-free-collection",
+    "productId": "slate-digital-complete-access-free-collection",
+    "programId": "slate-digital",
+    "destinationUrl": "https://slatedigital.com/free-collection/",
+    "fallbackUrl": "https://slatedigital.com/free-collection/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-20T13:35:20.619Z",
+    "allowFallback": true
   }
 ]
