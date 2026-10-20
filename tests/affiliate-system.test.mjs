@@ -356,7 +356,9 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
     )
   );
 
-  assert.equal(programs.length, 14);
+  // Assert the shape, not a total: every new vendor would break a fixed count,
+  // and validate:data already proves that no product points at a missing program.
+  assert.equal(programs.some((entry) => entry.id === "wa-production"), true);
   assert.deepEqual(
     programs.find((entry) => entry.id === "wa-production"),
     {

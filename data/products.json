@@ -152,5 +152,16 @@
     "status": "active",
     "createdAt": "2026-10-20T00:40:28.308Z",
     "updatedAt": "2026-10-20T00:40:28.308Z"
+  },
+  {
+    "id": "slate-digital-complete-access-free-collection",
+    "slug": "slate-digital-complete-access-free-collection",
+    "programId": "slate-digital",
+    "name": "Complete Access Free Collection",
+    "category": "bundle",
+    "description": "Complete Access Free Collection",
+    "status": "active",
+    "createdAt": "2026-10-20T13:35:20.619Z",
+    "updatedAt": "2026-10-20T13:35:20.619Z"
   }
 ]
