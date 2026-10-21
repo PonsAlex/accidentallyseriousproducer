@@ -265,6 +265,30 @@ export function createInitialEditorialState(data, publicComponents = {}) {
       position: 50,
       status: "published",
       content: {}
+    }),
+    createPublicBlock({
+      id: "product-review-slate-digital-complete-access-free-collection",
+      type: "product-review",
+      section: "articles",
+      position: 60,
+      status: "published",
+      content: {}
+    }),
+    createPublicBlock({
+      id: "product-review-ujam-detunicorn",
+      type: "product-review",
+      section: "articles",
+      position: 70,
+      status: "published",
+      content: {}
+    }),
+    createPublicBlock({
+      id: "product-review-air-music-technology-air-vocal-distortion",
+      type: "product-review",
+      section: "articles",
+      position: 80,
+      status: "published",
+      content: {}
     })
   ];
 

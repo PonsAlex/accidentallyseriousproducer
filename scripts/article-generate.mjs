@@ -367,15 +367,21 @@ ${sections}
  * author should see.
  */
 export function registrationSnippet(blocks, { slug, pageKey }) {
+  // `drops-outubro-26` is a valid slug and a valid object key once quoted, but
+  // `documents.drops-outubro-26` parses as subtraction. Emit what actually runs.
+  const isIdentifier = /^[A-Za-z_$][\w$]*$/.test(pageKey);
+  const documentRef = isIdentifier ? `documents.${pageKey}` : `documents["${pageKey}"]`;
+  const templateKey = isIdentifier ? pageKey : `"${pageKey}"`;
+
   const entries = blocks
     .map(
       (block, index) =>
-        `  add("${block.id}", "product-review", documents.${pageKey}, ".product-review", ${index});`
+        `  add("${block.id}", "product-review", ${documentRef}, ".product-review", ${index});`
     )
     .join("\n");
   return [
     `  // 1) PAGE_TEMPLATES`,
-    `  ${pageKey}: "/articles/${slug}.html",`,
+    `  ${templateKey}: "/articles/${slug}.html",`,
     ``,
     `  // 2) block registrations, after the existing add(...) calls for that page`,
     entries
