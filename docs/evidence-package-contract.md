@@ -56,6 +56,20 @@ estável (`fabricante-produto`). Reenviar o mesmo `recordId` não duplica: mescl
 Reenviar com dados piores **reverte o que está publicado** — antes de entregar um
 registro que já existe, rode `npm run intake:check`.
 
+### `product.demoUrl` (opcional)
+
+O vídeo oficial de demonstração do **próprio fabricante** para **este** produto. É
+mídia do produto, não evidência da oferta: ele mostra o plugin, não prova preço nem
+prazo, e por isso não entra em `evidence`.
+
+Duas armadilhas que já custaram tempo:
+
+1. Uma página de promoção pode embutir o vídeo de **outro** produto, herdado da
+   campanha anterior. Confira o título e o canal antes de registrar.
+2. Um vídeo de terceiro — review, blog, canal de deals — **não** é o vídeo oficial.
+   Se não houver vídeo do fabricante, deixe o campo de fora. Ausência é honesta;
+   substituto não é.
+
 ## 3. Valores permitidos
 
 ### Natureza da oferta

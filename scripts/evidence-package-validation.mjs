@@ -614,6 +614,18 @@ function validateRecord({ add, record, location, seenIds }) {
     }
   }
 
+  // The demo video is product media, not evidence: it shows the thing, it does
+  // not prove the offer. Optional, but a broken URL is still a defect — and it
+  // must be the vendor's own video for this product, never one found nearby.
+  if (isRecord(record.product)) {
+    validateUrlField({
+      add,
+      value: record.product.demoUrl,
+      location: `${location}.product.demoUrl`,
+      label: "The demo video URL"
+    });
+  }
+
   validateOffer({ add, offer: record.offer, record, location: `${location}.offer` });
 
   const declaredMissing = Array.isArray(record.missingFacts) ? record.missingFacts : [];

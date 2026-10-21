@@ -196,7 +196,10 @@ export function adaptEvidencePackage(pkg) {
         product: {
           name: record.product.name,
           developer: record.developer?.name ?? null,
-          category: record.product.category ?? record.productKind ?? null
+          category: record.product.category ?? record.productKind ?? null,
+          // The vendor's own demo video, when the package carries one. It is
+          // product media: it shows the thing, it does not prove the offer.
+          demoUrl: record.product.demoUrl ?? null
         },
         offer: {
           promoPrice: record.offer.promoPrice ?? null,

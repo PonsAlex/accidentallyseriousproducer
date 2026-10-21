@@ -142,6 +142,27 @@ test("a limited free offer may still name the price it is discounted from", () =
   assert.ok(fixture.records[0].offer.regularPrice > 0);
 });
 
+test("a product demo video must be a real https URL when present", () => {
+  const clean = validateEvidencePackage(
+    makePackageWithRecord((record) => {
+      record.product.demoUrl = "https://www.youtube.com/watch?v=BoCl2BoZwas";
+    })
+  );
+  assert.equal(codes(clean).includes("UNSAFE_URL"), false);
+
+  const redacted = validateEvidencePackage(
+    makePackageWithRecord((record) => {
+      record.product.demoUrl = "[suspicious link removed]";
+    })
+  );
+  assert.ok(codes(redacted).includes("UNSAFE_URL"));
+
+  // Optional: a package with no demo video is not at fault.
+  const absent = validateEvidencePackage(makePackageWithRecord(() => {}));
+  assert.equal(codes(absent).includes("UNSAFE_URL"), false);
+  assert.equal(codes(absent).includes("MISSING_URL"), false);
+});
+
 test("a fact cannot be both missing and not applicable", () => {
   const report = validateEvidencePackage(
     makePackageWithRecord((record) => {
