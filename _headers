@@ -29,6 +29,8 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
 
+# The `/*` rule already sets the same Cache-Control. Pages concatenates duplicate
+# rules instead of replacing them, so repeating it here produced
+# `Cache-Control: public, max-age=0, must-revalidate, public, max-age=0, ...`.
 /data/*
-  Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
