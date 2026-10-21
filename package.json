@@ -10,6 +10,7 @@
         "validate:candidate": "node scripts/validate-promotion-candidate.mjs",
         "validate:input": "node scripts/validate-evidence-package.mjs",
         "report:package": "node scripts/package-report.mjs",
+        "intake:check": "node scripts/intake-check.mjs",
         "campaigns:import": "node scripts/affiliate-campaigns.mjs",
         "discovery:build": "node scripts/discovery.mjs",
         "publish:scaffold": "node scripts/publish-scaffold.mjs",
