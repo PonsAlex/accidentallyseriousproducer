@@ -9,6 +9,7 @@ import {
   parseArgs,
   renderContract
 } from "../scripts/package-contract.mjs";
+import { validateEvidencePackage } from "../scripts/evidence-package-validation.mjs";
 import {
   COPY_STATUSES,
   COUPON_SCOPES,
@@ -150,4 +151,114 @@ test("renderContract handles an empty rule set without breaking", () => {
 
   assert.match(markdown, /0 códigos/);
   assert.match(markdown, /GERADO POR/);
+});
+
+/**
+ * A package that satisfies the contract as written. It exists so the contract's
+ * advice can be checked against the validator's behaviour instead of asserted
+ * from memory — the first version of the contract told the producer to emit
+ * `null` for a lost URL, which the validator rejects with MISSING_URL.
+ */
+function minimalPackage() {
+  return {
+    packageVersion: "1.0",
+    scanDate: "2026-10-20",
+    channelsMonitored: ["Example - YouTube"],
+    candidatesAccepted: 1,
+    candidatesRejected: 0,
+    rejectedSummary: [],
+    records: [
+      {
+        recordId: "acme-widget",
+        productKind: "plugin",
+        offerNature: "permanent-free",
+        limitedBy: "none",
+        primarySourceFound: true,
+        copyStatus: "final",
+        developer: {
+          name: "Acme",
+          developerOfficialUrl: "https://acme.test/widget"
+        },
+        acquisitionUrl: "https://acme.test/widget",
+        product: {
+          name: "Widget",
+          category: "plugin",
+          whatItIs: "A widget."
+        },
+        offer: {
+          promoPrice: 0,
+          regularPrice: null,
+          regularPriceSource: null,
+          currency: null,
+          startsAt: null,
+          endsAt: null,
+          endsAtDate: null,
+          dateOnly: false,
+          permanent: true,
+          couponCode: null,
+          couponScope: null,
+          couponOwner: null,
+          couponPublishable: null
+        },
+        readerFacingCopy: {
+          title: "Acme - Widget",
+          summary: "Acme ships a widget.",
+          body: "The widget does widget things."
+        },
+        evidence: [
+          {
+            role: "primary",
+            name: "Acme Official Page",
+            url: "https://acme.test/widget",
+            date: "2026-10-20",
+            fact: "Acme publishes the widget as a free download."
+          }
+        ],
+        restrictions: [],
+        openQuestions: [],
+        missingFacts: [],
+        notApplicable: [
+          "regularPrice",
+          "currency",
+          "endsAt",
+          "endsAtDate",
+          "couponCode",
+          "couponScope",
+          "couponOwner",
+          "couponPublishable"
+        ],
+        toValidate: [],
+        pendingHumanDecision: true
+      }
+    ]
+  };
+}
+
+test("the example package really satisfies the contract", () => {
+  const report = validateEvidencePackage(minimalPackage());
+
+  assert.equal(
+    report.errors.length,
+    0,
+    `fixture is not valid: ${report.errors.map((e) => `${e.code} ${e.path}`).join(", ")}`
+  );
+});
+
+test("an evidence entry without a URL is rejected, so the contract says to remove it", () => {
+  const broken = minimalPackage();
+  broken.records[0].evidence[0].url = null;
+
+  const codes = validateEvidencePackage(broken).errors.map((error) => error.code);
+
+  assert.ok(
+    codes.includes("MISSING_URL"),
+    `expected MISSING_URL, got ${codes.join(", ") || "(none)"}`
+  );
+});
+
+test("the contract never advises a null evidence URL", async () => {
+  const { markdown } = await buildContract();
+
+  assert.match(markdown, /remova a entrada de evidência inteira/i);
+  assert.doesNotMatch(markdown, /emita\s+`null`/i);
 });
