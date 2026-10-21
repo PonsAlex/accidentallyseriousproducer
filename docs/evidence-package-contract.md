@@ -151,8 +151,14 @@ Qualquer um destes derruba o registro:
 - `\[removed\]`
 - `\[redacted\]`
 
-Se a ferramenta de coleta removeu uma URL, emita `null`. **Nunca** o marcador: ele
-vira dado, e um dado falso é pior que a ausência dele.
+Se a ferramenta de coleta perdeu uma URL, **remova a entrada de evidência inteira**.
+Não existe meio-termo: uma entrada sem URL derruba o pacote com `MISSING_URL`, e um
+marcador no lugar da URL derruba com `REDACTED_URL`. Um fato que ninguém consegue
+conferir não é evidência — é o registro de que algo se perdeu.
+
+Se ao remover as entradas o registro ficar sem nenhuma fonte, ele não sai neste
+pacote. Perder um candidato custa uma linha; publicar uma fonte que não existe custa
+a credibilidade do site.
 
 ## 8. Fatos ausentes vs. não aplicáveis
 
