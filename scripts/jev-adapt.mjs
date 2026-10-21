@@ -208,6 +208,9 @@ export function adaptEvidencePackage(pkg) {
           regularPrice: record.offer.regularPrice ?? null,
           currency: record.offer.currency ?? null,
           startsAt: record.offer.startsAt ?? null,
+          // A date-only opening is still an opening: the page said "27 November"
+          // with no time, and losing that would make the offer look live today.
+          startsAtDate: record.offer.startsAtDate ?? null,
           endsAt: record.offer.endsAt ?? null,
           // A date-only deadline is still a deadline. Dropping it here loses the
           // fact and makes the fill report a gap that does not exist.

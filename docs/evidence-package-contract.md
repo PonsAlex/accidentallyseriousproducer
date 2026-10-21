@@ -160,6 +160,26 @@ três campos também.
 - `limitedBy: "quantity"` → sem prazo final; a escassez é de licenças.
 - `dateOnly: true` só faz sentido quando existe um prazo.
 
+### Oferta que ainda não abriu
+
+`offer.startsAtDate` (data, `YYYY-MM-DD`) é o par do `endsAtDate`. Use quando a
+fonte diz **quando começa** sem dizer a hora.
+
+- A fonte diz "from 27 November to 6 December"? → `startsAtDate: "2026-11-27"` e
+  `endsAtDate: "2026-12-06"`, com `startsAt` e `endsAt` nulos.
+- `dateOnly: true` com `startsAt` preenchido derruba o pacote
+  (`FABRICATED_TIMESTAMP`): a hora e o fuso teriam sido inventados.
+- Começo depois do fim derruba o pacote (`INVALID_OFFER_WINDOW`).
+
+Registrar o início não é detalhe contábil. Sem ele, uma oferta futura parece
+disponível hoje — e é isso que faz uma página dizer "grátis" sobre algo que só abre
+daqui a cinco semanas.
+
+Quem usa os dois campos é o **build**, não uma pessoa: a página passa a dizer
+"Opens 27 November 2026", depois "Ends 6 December 2026", depois "Ended", sozinha. O
+Status continua sendo julgamento humano, e `npm run freshness` avisa quando os dois
+discordam.
+
 ## 6. Cupons
 
 - `couponCode` presente → `couponScope` e `couponPublishable` obrigatórios.
@@ -265,7 +285,7 @@ encontrou; decidir o que publicar não é papel dele.
 
 ## 10. Toda regra que o validador emite
 
-71 códigos: 62 erros (bloqueiam) e 9 avisos (não bloqueiam).
+72 códigos: 63 erros (bloqueiam) e 9 avisos (não bloqueiam).
 
 | código | severidade |
 | --- | --- |
@@ -298,6 +318,7 @@ encontrou; decidir o que publicar não é papel dele.
 | `INVALID_LIMITED_BY` | erro |
 | `INVALID_LIST` | erro |
 | `INVALID_OFFER_NATURE` | erro |
+| `INVALID_OFFER_WINDOW` | erro |
 | `INVALID_PACKAGE` | erro |
 | `INVALID_PRICE` | erro |
 | `INVALID_PRODUCT_CATEGORY` | erro |
