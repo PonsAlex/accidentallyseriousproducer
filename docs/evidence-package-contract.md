@@ -56,6 +56,36 @@ estável (`fabricante-produto`). Reenviar o mesmo `recordId` não duplica: mescl
 Reenviar com dados piores **reverte o que está publicado** — antes de entregar um
 registro que já existe, rode `npm run intake:check`.
 
+### `product.demoUrl` (opcional)
+
+O vídeo oficial de demonstração do **próprio fabricante** para **este** produto. É
+mídia do produto, não evidência da oferta: ele mostra o plugin, não prova preço nem
+prazo, e por isso não entra em `evidence`.
+
+Duas armadilhas que já custaram tempo:
+
+1. Uma página de promoção pode embutir o vídeo de **outro** produto, herdado da
+   campanha anterior. Confira o título e o canal antes de registrar.
+2. Um vídeo de terceiro — review, blog, canal de deals — **não** é o vídeo oficial.
+   Se não houver vídeo do fabricante, deixe o campo de fora. Ausência é honesta;
+   substituto não é.
+
+### `product.demoLabel` (opcional, exige `demoUrl`)
+
+O texto do link. Sem ele o leitor é prometido ao vídeo **do produto**, então só o
+omita quando o vídeo for de fato do produto.
+
+Quando o único vídeo oficial cobre uma **coleção** que inclui o produto, registre-o
+com um rótulo que diga isso:
+
+```json
+"demoUrl": "https://www.youtube.com/watch?v=…",
+"demoLabel": "Watch the Vocal FX Collection demo"
+```
+
+Sem o rótulo, o link prometeria o produto e entregaria o pacote — que é a mesma
+classe de erro do vídeo trocado, só mais difícil de notar.
+
 ## 3. Valores permitidos
 
 ### Natureza da oferta
@@ -235,7 +265,7 @@ encontrou; decidir o que publicar não é papel dele.
 
 ## 10. Toda regra que o validador emite
 
-70 códigos: 61 erros (bloqueiam) e 9 avisos (não bloqueiam).
+71 códigos: 62 erros (bloqueiam) e 9 avisos (não bloqueiam).
 
 | código | severidade |
 | --- | --- |
@@ -259,6 +289,7 @@ encontrou; decidir o que publicar não é papel dele.
 | `INVALID_COUPON_PUBLISHABLE` | erro |
 | `INVALID_COUPON_SCOPE` | erro |
 | `INVALID_DATE` | erro |
+| `INVALID_DEMO_LABEL` | erro |
 | `INVALID_EVIDENCE_DATE` | erro |
 | `INVALID_EVIDENCE_ENTRY` | erro |
 | `INVALID_EVIDENCE_ROLE` | erro |

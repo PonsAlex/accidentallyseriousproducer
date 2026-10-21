@@ -291,6 +291,17 @@ export function buildBlockFromRecord(record, block, { type } = {}) {
     block.content = { ...block.content, ...copy };
   }
 
+  // The demo video travels with the package as a product fact, so it survives an
+  // edit to the copy. Absent stays absent: no placeholder is invented.
+  const demoUrl = record.facts?.product?.demoUrl;
+  if (type === "product-review" && isPlainString(demoUrl) && demoUrl.trim() !== "") {
+    block.content.demoUrl = demoUrl.trim();
+    const demoLabel = record.facts?.product?.demoLabel;
+    if (isPlainString(demoLabel) && demoLabel.trim() !== "") {
+      block.content.demoLabel = demoLabel.trim();
+    }
+  }
+
   const sources = Array.isArray(record.facts?.sources)
     ? record.facts.sources.filter((source) => isPlainString(source) && source.trim() !== "").map((source) => source.trim())
     : [];

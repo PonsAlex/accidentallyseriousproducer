@@ -220,6 +220,53 @@ test("the rendered page carries the markup the Console extracts", () => {
   assert.match(html, /"datePublished": "2026-10-17"/);
 });
 
+test("a reviewed demo video renders as a link, and its absence leaves nothing behind", () => {
+  const withDemo = renderArticlePage({
+    blocks: [
+      reviewBlock({
+        content: {
+          ...reviewBlock().content,
+          demoUrl: "https://www.youtube.com/watch?v=BoCl2BoZwas"
+        }
+      })
+    ],
+    slug: "s",
+    title: "T",
+    date: "2026-10-17"
+  });
+
+  assert.match(
+    withDemo,
+    /<a href="https:\/\/www\.youtube\.com\/watch\?v=BoCl2BoZwas" class="text-link" rel="noopener">Watch the official demo →<\/a>/
+  );
+
+  // A collection video says so, instead of promising a demo of the product.
+  const collection = renderArticlePage({
+    blocks: [
+      reviewBlock({
+        content: {
+          ...reviewBlock().content,
+          demoUrl: "https://www.youtube.com/watch?v=BoCl2BoZwas",
+          demoLabel: "Watch the Vocal FX Collection demo"
+        }
+      })
+    ],
+    slug: "s",
+    title: "T",
+    date: "2026-10-17"
+  });
+  assert.match(collection, />Watch the Vocal FX Collection demo →<\/a>/);
+  assert.equal(collection.includes("Watch the official demo"), false);
+
+  const without = renderArticlePage({
+    blocks: [reviewBlock()],
+    slug: "s",
+    title: "T",
+    date: "2026-10-17"
+  });
+  assert.equal(without.includes("Watch the official demo"), false);
+});
+
 test("a block with no destination gets no call to action", () => {
   const html = renderArticlePage({
     blocks: [reviewBlock({ content: { ...reviewBlock().content, href: "/go/link-u-he-zebralette-3", linkLabel: "Get it free" } })],

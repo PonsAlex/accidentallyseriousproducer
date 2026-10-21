@@ -614,6 +614,40 @@ function validateRecord({ add, record, location, seenIds }) {
     }
   }
 
+  // The demo video is product media, not evidence: it shows the thing, it does
+  // not prove the offer. Optional, but a broken URL is still a defect — and it
+  // must be the vendor's own video for this product, never one found nearby.
+  if (isRecord(record.product)) {
+    validateUrlField({
+      add,
+      value: record.product.demoUrl,
+      location: `${location}.product.demoUrl`,
+      label: "The demo video URL"
+    });
+
+    // A video that covers a collection is not a demo of one product. With no
+    // label the reader is promised the product itself, so the scope has to be
+    // stated rather than implied.
+    const demoLabel = record.product.demoLabel;
+    if (demoLabel !== null && demoLabel !== undefined) {
+      if (!isNonEmptyString(demoLabel) || demoLabel.length > 80) {
+        add(
+          "errors",
+          "INVALID_DEMO_LABEL",
+          `${location}.product.demoLabel`,
+          "The demo label must be a non-empty string of at most 80 characters."
+        );
+      } else if (record.product.demoUrl === null || record.product.demoUrl === undefined) {
+        add(
+          "errors",
+          "INVALID_DEMO_LABEL",
+          `${location}.product.demoLabel`,
+          "A demo label without a demo URL describes nothing: set demoUrl or drop the label."
+        );
+      }
+    }
+  }
+
   validateOffer({ add, offer: record.offer, record, location: `${location}.offer` });
 
   const declaredMissing = Array.isArray(record.missingFacts) ? record.missingFacts : [];

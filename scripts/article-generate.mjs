@@ -224,6 +224,14 @@ function renderReviewSection(block) {
     );
   }
 
+  if (content.demoUrl) {
+    lines.push(
+      `          <a href="${escapeHtml(content.demoUrl)}" class="text-link" rel="noopener">${escapeHtml(
+        content.demoLabel || "Watch the official demo"
+      )} →</a>`
+    );
+  }
+
   if (content.href) {
     lines.push(
       `          <a href="${escapeHtml(content.href)}" class="cta-button">${escapeHtml(

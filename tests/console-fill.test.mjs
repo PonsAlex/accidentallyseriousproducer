@@ -22,6 +22,62 @@ const rootDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)),
 
 const PUBLIC_PROMOTION_ID = "promo-acustica-sep26";
 
+test("the demo video travels from the product facts to the block content", () => {
+  const base = {
+    recordId: "acme-widget",
+    type: "product-review",
+    section: "articles",
+    position: 0,
+    facts: {
+      product: {
+        name: "Widget",
+        developer: "Acme",
+        category: "plugin",
+        demoUrl: "https://www.youtube.com/watch?v=BoCl2BoZwas"
+      },
+      offer: { promoPrice: 0, permanent: true },
+      sources: []
+    },
+    draftCopy: { title: "Widget", body: "A widget." }
+  };
+
+  const block = {
+    id: "product-review-acme-widget",
+    type: "product-review",
+    section: "articles",
+    position: 0,
+    content: {},
+    metadata: {}
+  };
+  buildBlockFromRecord(base, block, { type: "product-review" });
+  assert.equal(block.content.demoUrl, "https://www.youtube.com/watch?v=BoCl2BoZwas");
+
+  // A collection video carries its own label through to the block.
+  const collection = {
+    ...base,
+    facts: {
+      ...base.facts,
+      product: {
+        ...base.facts.product,
+        demoLabel: "Watch the Vocal FX Collection demo"
+      }
+    }
+  };
+  const collectionBlock = { ...block, content: {}, metadata: {} };
+  buildBlockFromRecord(collection, collectionBlock, { type: "product-review" });
+  assert.equal(collectionBlock.content.demoLabel, "Watch the Vocal FX Collection demo");
+
+  // Absent stays absent: a review without a vendor video gets no placeholder.
+  const bare = {
+    ...base,
+    facts: { ...base.facts, product: { ...base.facts.product, demoUrl: null } }
+  };
+  const bareBlock = { ...block, content: {}, metadata: {} };
+  buildBlockFromRecord(bare, bareBlock, { type: "product-review" });
+  assert.equal("demoUrl" in bareBlock.content, false);
+  assert.equal("demoLabel" in bareBlock.content, false);
+});
+
 function makeMetadata() {
   return {
     enabled: true,
