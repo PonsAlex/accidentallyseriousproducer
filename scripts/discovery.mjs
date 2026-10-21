@@ -274,6 +274,18 @@ export async function collectArticles(directory) {
  * Write the four artefacts and refuse to leave a half-broken one behind: a
  * generated page never passes through the linter, so it checks itself.
  */
+/**
+ * The home page is hand-written, so it can keep promoting a post that was
+ * replaced — which is how a freshly published article ends up reachable only
+ * from the footer. The archive, the feed and the sitemap all update themselves;
+ * the page a reader actually lands on does not.
+ */
+export function homePromotesNewest(homeHtml, articles) {
+  const newest = articles[0]?.pathname ?? null;
+  if (!newest) return { newest: null, promoted: true };
+  return { newest, promoted: homeHtml.includes(newest) };
+}
+
 export async function buildDiscovery({
   sourceDirectory = rootDirectory,
   outputDirectory = path.join(rootDirectory, "dist"),
@@ -282,6 +294,7 @@ export async function buildDiscovery({
   const homeHtml = await readFile(path.join(sourceDirectory, "index.html"), "utf8");
   const chrome = extractChrome(homeHtml);
   const articles = await collectArticles(path.join(sourceDirectory, "articles"));
+  const home = homePromotesNewest(homeHtml, articles);
 
   const articlesDirectory = path.join(outputDirectory, "articles");
   await mkdir(articlesDirectory, { recursive: true });
@@ -306,7 +319,7 @@ export async function buildDiscovery({
     writeFile(path.join(outputDirectory, "robots.txt"), robots, "utf8")
   ]);
 
-  return { articles: articles.length, newest: articles[0]?.date ?? null };
+  return { articles: articles.length, newest: articles[0]?.date ?? null, home };
 }
 
 const invokedDirectly =

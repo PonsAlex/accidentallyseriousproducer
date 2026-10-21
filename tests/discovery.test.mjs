@@ -9,6 +9,7 @@ import {
   buildDiscovery,
   escapeXml,
   extractChrome,
+  homePromotesNewest,
   parseArticle,
   renderArticlesIndex,
   renderAtomFeed,
@@ -155,6 +156,24 @@ test("an empty archive still renders a valid page", () => {
   const html = renderArticlesIndex([], { header: "<header></header>", footer: "<footer></footer>" });
   assert.match(html, /0 posts, newest first/);
   assert.match(html, /<h1>Every post<\/h1>/);
+});
+
+test("the home is flagged when it still promotes a replaced post", () => {
+  const articles = [
+    { pathname: "/articles/new.html" },
+    { pathname: "/articles/old.html" }
+  ];
+
+  const fresh = homePromotesNewest('<a href="/articles/new.html">Read</a>', articles);
+  assert.equal(fresh.promoted, true);
+  assert.equal(fresh.newest, "/articles/new.html");
+
+  // The archive, the feed and the sitemap update themselves; index.html does not.
+  const stale = homePromotesNewest('<a href="/articles/old.html">Read</a>', articles);
+  assert.equal(stale.promoted, false);
+
+  // With no posts there is no claim to make, so nothing to warn about.
+  assert.equal(homePromotesNewest("<html></html>", []).promoted, true);
 });
 
 test("buildDiscovery writes the four artefacts from the real pages", async () => {
