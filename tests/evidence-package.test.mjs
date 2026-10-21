@@ -163,6 +163,32 @@ test("a product demo video must be a real https URL when present", () => {
   assert.equal(codes(absent).includes("MISSING_URL"), false);
 });
 
+test("a demo label must have a video and stay short enough to read", () => {
+  const collection = validateEvidencePackage(
+    makePackageWithRecord((record) => {
+      record.product.demoUrl = "https://www.youtube.com/watch?v=BoCl2BoZwas";
+      record.product.demoLabel = "Watch the Vocal FX Collection demo";
+    })
+  );
+  assert.equal(codes(collection).includes("INVALID_DEMO_LABEL"), false);
+
+  // A label on its own promises a video that does not exist.
+  const orphan = validateEvidencePackage(
+    makePackageWithRecord((record) => {
+      record.product.demoLabel = "Watch the Vocal FX Collection demo";
+    })
+  );
+  assert.ok(codes(orphan).includes("INVALID_DEMO_LABEL"));
+
+  const rambling = validateEvidencePackage(
+    makePackageWithRecord((record) => {
+      record.product.demoUrl = "https://www.youtube.com/watch?v=BoCl2BoZwas";
+      record.product.demoLabel = "x".repeat(81);
+    })
+  );
+  assert.ok(codes(rambling).includes("INVALID_DEMO_LABEL"));
+});
+
 test("a fact cannot be both missing and not applicable", () => {
   const report = validateEvidencePackage(
     makePackageWithRecord((record) => {

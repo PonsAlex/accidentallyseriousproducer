@@ -240,6 +240,24 @@ test("a reviewed demo video renders as a link, and its absence leaves nothing be
     /<a href="https:\/\/www\.youtube\.com\/watch\?v=BoCl2BoZwas" class="text-link" rel="noopener">Watch the official demo →<\/a>/
   );
 
+  // A collection video says so, instead of promising a demo of the product.
+  const collection = renderArticlePage({
+    blocks: [
+      reviewBlock({
+        content: {
+          ...reviewBlock().content,
+          demoUrl: "https://www.youtube.com/watch?v=BoCl2BoZwas",
+          demoLabel: "Watch the Vocal FX Collection demo"
+        }
+      })
+    ],
+    slug: "s",
+    title: "T",
+    date: "2026-10-17"
+  });
+  assert.match(collection, />Watch the Vocal FX Collection demo →<\/a>/);
+  assert.equal(collection.includes("Watch the official demo"), false);
+
   const without = renderArticlePage({
     blocks: [reviewBlock()],
     slug: "s",

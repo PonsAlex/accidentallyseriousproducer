@@ -52,6 +52,21 @@ test("the demo video travels from the product facts to the block content", () =>
   buildBlockFromRecord(base, block, { type: "product-review" });
   assert.equal(block.content.demoUrl, "https://www.youtube.com/watch?v=BoCl2BoZwas");
 
+  // A collection video carries its own label through to the block.
+  const collection = {
+    ...base,
+    facts: {
+      ...base.facts,
+      product: {
+        ...base.facts.product,
+        demoLabel: "Watch the Vocal FX Collection demo"
+      }
+    }
+  };
+  const collectionBlock = { ...block, content: {}, metadata: {} };
+  buildBlockFromRecord(collection, collectionBlock, { type: "product-review" });
+  assert.equal(collectionBlock.content.demoLabel, "Watch the Vocal FX Collection demo");
+
   // Absent stays absent: a review without a vendor video gets no placeholder.
   const bare = {
     ...base,
@@ -60,6 +75,7 @@ test("the demo video travels from the product facts to the block content", () =>
   const bareBlock = { ...block, content: {}, metadata: {} };
   buildBlockFromRecord(bare, bareBlock, { type: "product-review" });
   assert.equal("demoUrl" in bareBlock.content, false);
+  assert.equal("demoLabel" in bareBlock.content, false);
 });
 
 function makeMetadata() {

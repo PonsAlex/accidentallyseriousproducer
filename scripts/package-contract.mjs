@@ -145,6 +145,22 @@ Duas armadilhas que já custaram tempo:
    Se não houver vídeo do fabricante, deixe o campo de fora. Ausência é honesta;
    substituto não é.
 
+### \`product.demoLabel\` (opcional, exige \`demoUrl\`)
+
+O texto do link. Sem ele o leitor é prometido ao vídeo **do produto**, então só o
+omita quando o vídeo for de fato do produto.
+
+Quando o único vídeo oficial cobre uma **coleção** que inclui o produto, registre-o
+com um rótulo que diga isso:
+
+\`\`\`json
+"demoUrl": "https://www.youtube.com/watch?v=…",
+"demoLabel": "Watch the Vocal FX Collection demo"
+\`\`\`
+
+Sem o rótulo, o link prometeria o produto e entregaria o pacote — que é a mesma
+classe de erro do vídeo trocado, só mais difícil de notar.
+
 ## 3. Valores permitidos
 
 ${enumTable("Natureza da oferta", [["offerNature", OFFER_NATURES]])}

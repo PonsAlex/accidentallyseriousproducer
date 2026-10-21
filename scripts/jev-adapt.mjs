@@ -199,7 +199,9 @@ export function adaptEvidencePackage(pkg) {
           category: record.product.category ?? record.productKind ?? null,
           // The vendor's own demo video, when the package carries one. It is
           // product media: it shows the thing, it does not prove the offer.
-          demoUrl: record.product.demoUrl ?? null
+          demoUrl: record.product.demoUrl ?? null,
+          // Stated when the video covers a collection rather than this product.
+          demoLabel: record.product.demoLabel ?? null
         },
         offer: {
           promoPrice: record.offer.promoPrice ?? null,

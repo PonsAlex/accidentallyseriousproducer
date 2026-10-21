@@ -296,6 +296,10 @@ export function buildBlockFromRecord(record, block, { type } = {}) {
   const demoUrl = record.facts?.product?.demoUrl;
   if (type === "product-review" && isPlainString(demoUrl) && demoUrl.trim() !== "") {
     block.content.demoUrl = demoUrl.trim();
+    const demoLabel = record.facts?.product?.demoLabel;
+    if (isPlainString(demoLabel) && demoLabel.trim() !== "") {
+      block.content.demoLabel = demoLabel.trim();
+    }
   }
 
   const sources = Array.isArray(record.facts?.sources)
