@@ -132,14 +132,14 @@ const EMAIL_ADDRESS_PATTERN = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+
  * Redaction artifacts. A sanitizer between the research tool and the consumer
  * replaces URLs with these; `isPlaceholderUrl` does not cover them.
  */
-const REDACTION_MARKERS = Object.freeze([
+export const REDACTION_MARKERS = Object.freeze([
   /\[suspicious link removed\]/i,
   /\[link removed\]/i,
   /\[removed\]/i,
   /\[redacted\]/i
 ]);
 
-const REQUIRED_COPY_FIELDS = Object.freeze(["title", "summary", "body"]);
+export const REQUIRED_COPY_FIELDS = Object.freeze(["title", "summary", "body"]);
 
 function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
