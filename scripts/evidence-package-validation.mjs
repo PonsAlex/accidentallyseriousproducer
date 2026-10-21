@@ -340,6 +340,22 @@ function validateOffer({ add, offer, record, location }) {
     }
   }
 
+  // A permanently free product has no current list price. Folding a historical
+  // price into `regularPrice` renders as a discount nobody can claim: there is
+  // nothing to discount from. The history belongs in the copy, not in a price.
+  if (
+    record.offerNature === "permanent-free" &&
+    offer.regularPrice !== null &&
+    offer.regularPrice !== undefined
+  ) {
+    add(
+      "errors",
+      "PERMANENT_FREE_WITH_REGULAR_PRICE",
+      `${location}.regularPrice`,
+      'offerNature is "permanent-free": a historical price is not a current regular price. Set regularPrice to null and keep the history in readerFacingCopy.'
+    );
+  }
+
   const limitedBy = record.limitedBy;
   if (limitedBy === "time" && endsAt == null && endsAtDate == null) {
     const declared = Array.isArray(record.missingFacts) ? record.missingFacts : [];

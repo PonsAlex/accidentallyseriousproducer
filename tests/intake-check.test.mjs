@@ -334,3 +334,41 @@ test("a redirect is reported without blocking the record", () => {
   } });
   assert.match(text, /destino redireciona para https:\/\/acme\.test\/widget-v2/);
 });
+
+test("a destination that is the bare domain is a homepage, a www hop is not", async () => {
+  const homepage = await verifyUrl("https://acme.test/widget", {
+    fetchImpl: async () => ({ ok: true, status: 200, url: "https://acme.test/" })
+  });
+  assert.equal(homepage.finalIsHomepage, true);
+
+  // Already the homepage before any redirect: still a homepage destination.
+  const alreadyHome = await verifyUrl("https://acme.test/", {
+    fetchImpl: async () => ({ ok: true, status: 200, url: "https://acme.test/" })
+  });
+  assert.equal(alreadyHome.finalIsHomepage, true);
+
+  const www = await verifyUrl("https://acme.test/widget", {
+    fetchImpl: async () => ({ ok: true, status: 200, url: "https://www.acme.test/widget" })
+  });
+  assert.equal(www.finalIsHomepage, false);
+});
+
+test("the report says when a destination is the brand homepage", () => {
+  const result = checkIntake({ records: [record()] }, { products: [], links: [] });
+  const text = formatIntakeReport({
+    ...result,
+    verifications: {
+      "acme-widget": {
+        ok: true,
+        status: 200,
+        redirected: true,
+        finalIsHomepage: true,
+        finalUrl: "https://acme.test/"
+      }
+    }
+  });
+
+  assert.match(text, /destino é a home da marca: https:\/\/acme\.test\//);
+  // A homepage destination is surfaced, not treated as unpublishable.
+  assert.equal(result.summary.publishable, 1);
+});

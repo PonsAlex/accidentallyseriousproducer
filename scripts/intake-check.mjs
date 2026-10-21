@@ -218,7 +218,9 @@ export function formatIntakeReport({ records, summary, verdict, verifications = 
       if (change.note) lines.push(`        ${change.note}`);
     }
     const check = verifications[entry.recordId];
-    if (check && check.ok && check.redirected) {
+    if (check && check.ok && check.finalIsHomepage) {
+      lines.push(`      · destino é a home da marca: ${check.finalUrl}`);
+    } else if (check && check.ok && check.redirected) {
       lines.push(`      · destino redireciona para ${check.finalUrl}`);
     }
   }
@@ -256,12 +258,22 @@ export async function verifyUrl(url, { fetchImpl, timeoutMs = 15000 } = {}) {
       ok: response.ok === true,
       status: response.status,
       redirected: finalUrl !== url,
+      // The reader ends on the bare domain instead of the page that explains the
+      // product. That holds whether the URL started there or redirected into it.
+      finalIsHomepage: pathDepth(finalUrl) === 0,
       finalUrl,
       reason: response.ok === true ? null : `HTTP ${response.status}`
     };
   } catch (error) {
     const message = error?.cause?.code ?? error?.message ?? String(error);
-    return { ok: false, status: 0, redirected: false, finalUrl: url, reason: message };
+    return {
+      ok: false,
+      status: 0,
+      redirected: false,
+      finalIsHomepage: false,
+      finalUrl: url,
+      reason: message
+    };
   } finally {
     clearTimeout(timer);
   }

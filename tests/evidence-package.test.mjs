@@ -111,6 +111,37 @@ test("a regular price must name its source", () => {
   assert.ok(codes(report).includes("MISSING_PRICE_SOURCE"));
 });
 
+test("a permanently free offer cannot carry a historical price as its regular price", () => {
+  // "$59, now free" on permanent freeware is a discount nobody can claim: there
+  // is no current list price to discount from.
+  const report = validateEvidencePackage(
+    makePackageWithRecord((record) => {
+      record.offerNature = "permanent-free";
+      record.limitedBy = "none";
+      record.missingFacts = [];
+      record.offer.permanent = true;
+      record.offer.endsAtDate = null;
+      record.offer.dateOnly = false;
+      record.offer.regularPrice = 59;
+      record.offer.currency = "USD";
+      record.offer.regularPriceSource =
+        "Historical commercial retail price prior to permanent freeware conversion";
+    })
+  );
+
+  assert.ok(codes(report).includes("PERMANENT_FREE_WITH_REGULAR_PRICE"));
+});
+
+test("a limited free offer may still name the price it is discounted from", () => {
+  // The canonical fixture is exactly this shape: a timed freebie off a paid list
+  // price, where the "was" price is real and current.
+  const report = validateEvidencePackage(clone(fixture));
+
+  assert.equal(codes(report).includes("PERMANENT_FREE_WITH_REGULAR_PRICE"), false);
+  assert.equal(fixture.records[0].offerNature, "limited-free");
+  assert.ok(fixture.records[0].offer.regularPrice > 0);
+});
+
 test("a fact cannot be both missing and not applicable", () => {
   const report = validateEvidencePackage(
     makePackageWithRecord((record) => {
@@ -482,7 +513,12 @@ test("a dateOnly flag with no deadline is a warning, not a false error", () => {
       record.offerNature = "permanent-free";
       record.limitedBy = "none";
       record.missingFacts = [];
-      record.notApplicable = ["endsAt", "endsAtDate"];
+      // A permanent freeware has no list price either; keeping the fixture's $137
+      // would make this record invalid for an unrelated reason.
+      record.offer.regularPrice = null;
+      record.offer.regularPriceSource = null;
+      record.offer.currency = null;
+      record.notApplicable = ["regularPrice", "currency", "endsAt", "endsAtDate"];
     })
   );
   assert.deepEqual(report.errors, []);

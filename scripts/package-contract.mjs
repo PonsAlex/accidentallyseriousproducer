@@ -167,6 +167,9 @@ três campos também.
 
 - \`offerNature: "permanent-free"\` → \`endsAt\` e \`endsAtDate\` nulos. Um grátis
   permanente não tem prazo final.
+- \`offerNature: "permanent-free"\` → \`regularPrice\` nulo. Preço histórico não é preço
+  normal: "$59, agora grátis" num freeware permanente é um desconto que ninguém pode
+  resgatar, porque não há de onde descontar. A história fica em \`readerFacingCopy\`.
 - \`offerNature: "limited-free"\` → \`limitedBy\` diferente de \`none\`.
 - \`limitedBy: "none"\` → nenhum prazo.
 - \`limitedBy: "time"\` → \`endsAt\` ou \`endsAtDate\` preenchido, **ou** declarado em
@@ -204,6 +207,22 @@ Se ao remover as entradas o registro ficar sem nenhuma fonte, ele não sai neste
 pacote. Perder um candidato custa uma linha; publicar uma fonte que não existe custa
 a credibilidade do site.
 
+### Qual destino registrar
+
+Registre a página que **explica o produto**. Não o checkout, não o carrinho, não a
+home da marca. Quem clica precisa entender o que é antes de decidir se quer.
+
+A porteira compara o destino recebido com o que já está publicado e trata como
+regressão:
+
+- um caminho de checkout ou carrinho;
+- um destino mais raso que o publicado — a home da marca no lugar da página do
+  produto.
+
+Redirecionar \`exemplo.com/produto\` para \`www.exemplo.com/produto\` é normal e não é
+problema. Redirecionar para a home não é: significa que a URL registrada não é a
+página do produto.
+
 ## 8. Fatos ausentes vs. não aplicáveis
 
 \`missingFacts\` e \`notApplicable\` só aceitam nomes desta lista. Um rótulo livre
@@ -238,9 +257,11 @@ ${codes.map((entry) => `| \`${entry.code}\` | ${entry.severity === "error" ? "er
 - [ ] \`candidatesRejected\` igual ao número de motivos em \`rejectedSummary\`
 - [ ] \`candidatesAccepted\` igual ao número de \`records\`
 - [ ] toda oferta \`permanent-free\` sem prazo final
+- [ ] toda oferta \`permanent-free\` sem \`regularPrice\`
 - [ ] \`dateOnly\` só onde existe prazo
 - [ ] \`productCategory\` coerente com \`productKind\`
 - [ ] toda URL abre — testada, não suposta
+- [ ] o destino é a página do produto: não checkout, não home da marca
 - [ ] \`npm run validate:input -- --input <pacote>\` sem erros
 - [ ] \`npm run intake:check -- --input <pacote> --verify\` revisado
 `;
