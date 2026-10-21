@@ -291,6 +291,15 @@ export function buildBlockFromRecord(record, block, { type } = {}) {
     block.content = { ...block.content, ...copy };
   }
 
+  // The offer window travels as facts, so the renderer can say "opens 27 November"
+  // without the editor restating dates in the copy.
+  for (const field of ["startsAtDate", "endsAtDate"]) {
+    const value = record.facts?.offer?.[field];
+    if (isPlainString(value) && value.trim() !== "") {
+      block.content[field] = value.trim();
+    }
+  }
+
   // The demo video travels with the package as a product fact, so it survives an
   // edit to the copy. Absent stays absent: no placeholder is invented.
   const demoUrl = record.facts?.product?.demoUrl;

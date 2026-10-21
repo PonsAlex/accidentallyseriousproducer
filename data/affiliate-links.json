@@ -163,5 +163,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-20T13:35:20.619Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ujam-detunicorn",
+    "productId": "ujam-detunicorn",
+    "programId": "ujam",
+    "destinationUrl": "https://www.ujam.com/detunicorn/",
+    "fallbackUrl": "https://www.ujam.com/detunicorn/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-21T23:13:01.588Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-air-music-technology-air-vocal-distortion",
+    "productId": "air-music-technology-air-vocal-distortion",
+    "programId": "air-music-technology",
+    "destinationUrl": "https://www.airmusictech.com/blackfriday/",
+    "fallbackUrl": "https://www.airmusictech.com/blackfriday/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-21T23:13:01.824Z",
+    "allowFallback": true
   }
 ]

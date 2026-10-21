@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { EDITORIAL_STATUSES, EDITORIAL_VERDICTS } from "../assets/content-blocks.mjs";
 import { createConsoleExportEnvelope, prepareConsoleImport } from "../assets/console-export.mjs";
+import { offerWindowLabel } from "./offer-phase.mjs";
 
 /**
  * Generate a published article page from the Console state.
@@ -202,7 +203,7 @@ export function publicationBlockers(blocks) {
   return blockers;
 }
 
-function renderReviewSection(block) {
+function renderReviewSection(block, now = new Date()) {
   const { content, metadata } = block;
   const lines = ["        <section class=\"product-review\">"];
   lines.push(`          <div class="verdict-badge ${verdictClass(metadata.verdict)}">${escapeHtml(metadata.verdict)}</div>`);
@@ -222,6 +223,16 @@ function renderReviewSection(block) {
     lines.push(
       `          <p class="editorial-note"><strong>Verdict:</strong> ${escapeHtml(content.verdict)}</p>`
     );
+  }
+
+  // The calendar says where the offer stands; the Status says what the editor
+  // thinks of it. Both are shown, and they are allowed to disagree.
+  const windowLabel = offerWindowLabel(
+    { startsAtDate: content.startsAtDate ?? null, endsAtDate: content.endsAtDate ?? null },
+    now
+  );
+  if (windowLabel) {
+    lines.push(`          <p class="offer-window">${escapeHtml(windowLabel)}</p>`);
   }
 
   if (content.demoUrl) {
@@ -246,8 +257,8 @@ function renderReviewSection(block) {
   return lines.join("\n");
 }
 
-export function renderArticlePage({ blocks, slug, title, deck, eyebrow, date }) {
-  const sections = blocks.map(renderReviewSection).join("\n\n");
+export function renderArticlePage({ blocks, slug, title, deck, eyebrow, date, now = new Date() }) {
+  const sections = blocks.map((block) => renderReviewSection(block, now)).join("\n\n");
   const canonical = `${SITE_ORIGIN}/articles/${slug}.html`;
   const metaTitle = escapeHtml(title);
   const metaDescription = escapeHtml(deck || title);
@@ -367,15 +378,21 @@ ${sections}
  * author should see.
  */
 export function registrationSnippet(blocks, { slug, pageKey }) {
+  // `drops-outubro-26` is a valid slug and a valid object key once quoted, but
+  // `documents.drops-outubro-26` parses as subtraction. Emit what actually runs.
+  const isIdentifier = /^[A-Za-z_$][\w$]*$/.test(pageKey);
+  const documentRef = isIdentifier ? `documents.${pageKey}` : `documents["${pageKey}"]`;
+  const templateKey = isIdentifier ? pageKey : `"${pageKey}"`;
+
   const entries = blocks
     .map(
       (block, index) =>
-        `  add("${block.id}", "product-review", documents.${pageKey}, ".product-review", ${index});`
+        `  add("${block.id}", "product-review", ${documentRef}, ".product-review", ${index});`
     )
     .join("\n");
   return [
     `  // 1) PAGE_TEMPLATES`,
-    `  ${pageKey}: "/articles/${slug}.html",`,
+    `  ${templateKey}: "/articles/${slug}.html",`,
     ``,
     `  // 2) block registrations, after the existing add(...) calls for that page`,
     entries

@@ -326,6 +326,13 @@ h3 {
   text-decoration: underline;
 }
 
+/* The offer window is a calendar fact, so it reads as a note, not as a verdict. */
+.offer-window {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .featured-card,
 .lab-card,
 .project-card {

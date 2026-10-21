@@ -12,6 +12,7 @@
         "report:package": "node scripts/package-report.mjs",
         "intake:check": "node scripts/intake-check.mjs",
         "contract:package": "node scripts/package-contract.mjs",
+        "freshness": "node scripts/freshness.mjs",
         "campaigns:import": "node scripts/affiliate-campaigns.mjs",
         "discovery:build": "node scripts/discovery.mjs",
         "publish:scaffold": "node scripts/publish-scaffold.mjs",

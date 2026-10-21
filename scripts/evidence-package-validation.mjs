@@ -258,7 +258,17 @@ function validateOffer({ add, offer, record, location }) {
     return;
   }
 
-  const { promoPrice, regularPrice, currency, startsAt, endsAt, endsAtDate, dateOnly, permanent } = offer;
+  const {
+    promoPrice,
+    regularPrice,
+    currency,
+    startsAt,
+    startsAtDate,
+    endsAt,
+    endsAtDate,
+    dateOnly,
+    permanent
+  } = offer;
   const prices = [promoPrice, regularPrice];
 
   for (const [index, price] of prices.entries()) {
@@ -308,6 +318,17 @@ function validateOffer({ add, offer, record, location }) {
   if (endsAtDate !== null && endsAtDate !== undefined && !isCalendarDate(endsAtDate)) {
     add("errors", "INVALID_DATE", `${location}.endsAtDate`, "Use a real calendar date in YYYY-MM-DD form.");
   }
+  if (startsAtDate !== null && startsAtDate !== undefined && !isCalendarDate(startsAtDate)) {
+    add("errors", "INVALID_DATE", `${location}.startsAtDate`, "Use a real calendar date in YYYY-MM-DD form.");
+  }
+  if (isCalendarDate(startsAtDate) && isCalendarDate(endsAtDate) && startsAtDate > endsAtDate) {
+    add(
+      "errors",
+      "INVALID_OFFER_WINDOW",
+      `${location}.startsAtDate`,
+      `The offer would open on ${startsAtDate}, after it closes on ${endsAtDate}.`
+    );
+  }
 
   // The headline rule: a date-only source must never grow an invented time.
   if (dateOnly === true && endsAt !== null && endsAt !== undefined) {
@@ -316,6 +337,15 @@ function validateOffer({ add, offer, record, location }) {
       "FABRICATED_TIMESTAMP",
       `${location}.endsAt`,
       "dateOnly is true but a full timestamp is present. The time and timezone were invented: set endsAt to null and keep only endsAtDate."
+    );
+  }
+  // The mirror rule for the start: "27 November" must not become midnight UTC.
+  if (dateOnly === true && startsAt !== null && startsAt !== undefined) {
+    add(
+      "errors",
+      "FABRICATED_TIMESTAMP",
+      `${location}.startsAt`,
+      "dateOnly is true but a full start timestamp is present. The time and timezone were invented: set startsAt to null and keep only startsAtDate."
     );
   }
   if (dateOnly === true && (endsAtDate === null || endsAtDate === undefined)) {

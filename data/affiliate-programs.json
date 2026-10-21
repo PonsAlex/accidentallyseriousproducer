@@ -124,5 +124,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "ujam",
+    "name": "UJAM",
+    "homepage": "https://www.ujam.com/detunicorn/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "air-music-technology",
+    "name": "AIR Music Technology",
+    "homepage": "https://www.airmusictech.com/blackfriday/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

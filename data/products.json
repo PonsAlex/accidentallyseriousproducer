@@ -163,5 +163,27 @@
     "status": "active",
     "createdAt": "2026-10-20T13:35:20.619Z",
     "updatedAt": "2026-10-20T13:35:20.619Z"
+  },
+  {
+    "id": "ujam-detunicorn",
+    "slug": "ujam-detunicorn",
+    "programId": "ujam",
+    "name": "Detunicorn",
+    "category": "plugin",
+    "description": "Detunicorn",
+    "status": "active",
+    "createdAt": "2026-10-21T23:13:01.588Z",
+    "updatedAt": "2026-10-21T23:13:01.588Z"
+  },
+  {
+    "id": "air-music-technology-air-vocal-distortion",
+    "slug": "air-music-technology-air-vocal-distortion",
+    "programId": "air-music-technology",
+    "name": "AIR Vocal Distortion",
+    "category": "plugin",
+    "description": "AIR Vocal Distortion",
+    "status": "active",
+    "createdAt": "2026-10-21T23:13:01.824Z",
+    "updatedAt": "2026-10-21T23:13:01.824Z"
   }
 ]

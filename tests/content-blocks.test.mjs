@@ -306,7 +306,8 @@ test("console component templates map to markup present on the actual public pag
 test("public template loader builds every initial ASP content block from the public pages", async () => {
   const pageFiles = new Map([
     ["/index.html", new URL("../index.html", import.meta.url)],
-    ["/articles/radar-outubro-26.html", new URL("../articles/radar-outubro-26.html", import.meta.url)]
+    ["/articles/radar-outubro-26.html", new URL("../articles/radar-outubro-26.html", import.meta.url)],
+    ["/articles/drops-outubro-26.html", new URL("../articles/drops-outubro-26.html", import.meta.url)]
   ]);
   const requested = [];
   const fetcher = async (url) => {
@@ -358,10 +359,13 @@ test("public template loader builds every initial ASP content block from the pub
     "product-review-steinberg-steinberg-classics-collection",
     "product-review-u-he-zebralette-3",
     "product-review-moth-production-whirl-dt",
-    "product-review-azazel-audio-visualcomp-2"
+    "product-review-azazel-audio-visualcomp-2",
+    "product-review-slate-digital-complete-access-free-collection",
+    "product-review-ujam-detunicorn",
+    "product-review-air-music-technology-air-vocal-distortion"
   ]);
   assert.deepEqual(actualIds, [...PUBLIC_COMPONENT_BLOCK_IDS]);
-  assert.equal(state.blocks.length, 8);
+  assert.equal(state.blocks.length, 11);
   for (const block of state.blocks) {
     const rendered = templates.renderPublicComponent(block);
     assert.ok(rendered, `expected a renderable public component for ${block.id}`);
