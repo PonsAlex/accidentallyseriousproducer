@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { EDITORIAL_STATUSES, EDITORIAL_VERDICTS } from "../assets/content-blocks.mjs";
 import { createConsoleExportEnvelope, prepareConsoleImport } from "../assets/console-export.mjs";
-import { offerWindowLabel } from "./offer-phase.mjs";
+import { offerPhase, offerWindowLabel, OFFER_PHASES } from "./offer-phase.mjs";
 
 /**
  * Generate a published article page from the Console state.
@@ -208,8 +208,19 @@ function renderReviewSection(block, now = new Date()) {
   const lines = ["        <section class=\"product-review\">"];
   lines.push(`          <div class="verdict-badge ${verdictClass(metadata.verdict)}">${escapeHtml(metadata.verdict)}</div>`);
 
+  const window = {
+    startsAtDate: content.startsAtDate ?? null,
+    endsAtDate: content.endsAtDate ?? null
+  };
+  const phase = offerPhase(window, now);
+  const expired = phase === OFFER_PHASES.ENDED;
+
+  // "Expired" replaces the Status rather than sitting beside it: a page that says
+  // "Free" and "Expired" at once is telling the reader two different things.
   const status = content.reviewLabel || metadata.editorialStatus;
-  if (status) {
+  if (expired) {
+    lines.push(`          <div class="status-badge expired">Expired</div>`);
+  } else if (status) {
     const known = EDITORIAL_STATUSES.find((entry) => entry.toLowerCase() === String(status).toLowerCase());
     lines.push(
       `          <div class="status-badge${known ? ` ${badgeClass(known)}` : ""}">${escapeHtml(status)}</div>`
@@ -227,10 +238,7 @@ function renderReviewSection(block, now = new Date()) {
 
   // The calendar says where the offer stands; the Status says what the editor
   // thinks of it. Both are shown, and they are allowed to disagree.
-  const windowLabel = offerWindowLabel(
-    { startsAtDate: content.startsAtDate ?? null, endsAtDate: content.endsAtDate ?? null },
-    now
-  );
+  const windowLabel = offerWindowLabel(window, now);
   if (windowLabel) {
     lines.push(`          <p class="offer-window">${escapeHtml(windowLabel)}</p>`);
   }
@@ -243,7 +251,11 @@ function renderReviewSection(block, now = new Date()) {
     );
   }
 
-  if (content.href) {
+  // An expired offer keeps its place in the radar and loses its button. A dead
+  // "Get it free" is worse than no button at all.
+  if (expired) {
+    lines.push("          <!-- Offer expired: no call to action is emitted. -->");
+  } else if (content.href) {
     lines.push(
       `          <a href="${escapeHtml(content.href)}" class="cta-button">${escapeHtml(
         content.linkLabel || "View offer"

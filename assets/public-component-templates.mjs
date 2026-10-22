@@ -2,8 +2,7 @@ import { EDITORIAL_STATUSES, EDITORIAL_VERDICTS } from "./content-blocks.mjs";
 
 const PAGE_TEMPLATES = Object.freeze({
   home: "/index.html",
-  radar: "/articles/radar-outubro-26.html",
-  drops: "/articles/drops-outubro-26.html"
+  radar: "/articles/radar-outubro-26.html"
 });
 
 export const PUBLIC_COMPONENT_BLOCK_IDS = Object.freeze([
@@ -225,8 +224,8 @@ export async function loadPublicComponentTemplates({
   add("product-review-moth-production-whirl-dt", "product-review", documents.radar, ".product-review", 3);
   add("product-review-azazel-audio-visualcomp-2", "product-review", documents.radar, ".product-review", 4);
   add("product-review-slate-digital-complete-access-free-collection", "product-review", documents.radar, ".product-review", 5);
-  add("product-review-ujam-detunicorn", "product-review", documents.drops, ".product-review", 0);
-  add("product-review-air-music-technology-air-vocal-distortion", "product-review", documents.drops, ".product-review", 1);
+  add("product-review-ujam-detunicorn", "product-review", documents.radar, ".product-review", 6);
+  add("product-review-air-music-technology-air-vocal-distortion", "product-review", documents.radar, ".product-review", 7);
 
   function renderPublicComponent(block) {
     const template = templates.get(block.id);

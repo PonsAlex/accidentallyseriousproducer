@@ -1,4 +1,8 @@
 /deals /deals/ 301
+# One publication per month: the "drops" page was a split of the October radar,
+# not its own edition. Anything pointing at it lands on the radar instead.
+/articles/drops-outubro-26 /articles/radar-outubro-26 301
+/articles/drops-outubro-26.html /articles/radar-outubro-26 301
 /data/inbox/* /404.html 302
 /data/runtime/* /404.html 302
 /go/* /affiliate-redirect/ 200
