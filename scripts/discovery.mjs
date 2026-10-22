@@ -332,12 +332,63 @@ export async function buildDiscovery({
     if (recent) await writeFile(builtHomePath, withRecent, "utf8");
   }
 
+  // Every article gets the edition before and after it, injected into the built
+  // copy. The source page stays free of links it cannot know about, and adding a
+  // month updates its neighbours on the next build instead of on someone's
+  // memory.
+  let navInjected = 0;
+  for (const [index, article] of articles.entries()) {
+    const builtPath = path.join(outputDirectory, article.pathname);
+    const source = await readFile(builtPath, "utf8").catch(() => null);
+    if (source === null) continue;
+    const withNav = injectArticleNav(source, renderArticleNav(articles, index));
+    if (withNav !== source) {
+      await writeFile(builtPath, withNav, "utf8");
+      navInjected += 1;
+    }
+  }
+
   return {
     articles: articles.length,
     newest: articles[0]?.date ?? null,
     home,
-    recentPosts: recent
+    recentPosts: recent,
+    articleNav: navInjected
   };
+}
+
+/**
+ * "Previous" is the older edition and "Next" the newer one, the way a magazine
+ * reads. Only the neighbours that exist are rendered.
+ */
+export function renderArticleNav(articles, index) {
+  const older = articles[index + 1] ?? null;
+  const newer = articles[index - 1] ?? null;
+  if (!older && !newer) return "";
+
+  const links = [];
+  if (older) {
+    links.push(
+      `    <a class="text-link" href="${escapeXml(older.pathname)}" rel="prev">← Previous: ${escapeXml(older.headline)}</a>`
+    );
+  }
+  if (newer) {
+    links.push(
+      `    <a class="text-link" href="${escapeXml(newer.pathname)}" rel="next">Next: ${escapeXml(newer.headline)} →</a>`
+    );
+  }
+
+  return `  <nav class="article-nav shell narrow" aria-label="More editions">
+${links.join("\n")}
+  </nav>`;
+}
+
+export function injectArticleNav(html, nav) {
+  if (!nav || typeof html !== "string") return html;
+  const anchor = '<footer class="site-footer">';
+  const at = html.indexOf(anchor);
+  if (at === -1) return html;
+  return `${html.slice(0, at)}${nav}\n\n  ${html.slice(at)}`;
 }
 
 /**
