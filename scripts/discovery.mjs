@@ -274,14 +274,28 @@ export async function collectArticles(directory) {
  * Write the four artefacts and refuse to leave a half-broken one behind: a
  * generated page never passes through the linter, so it checks itself.
  */
+/**
+ * The home page is hand-written, so it can keep promoting a post that was
+ * replaced — which is how a freshly published article ends up reachable only
+ * from the footer. The archive, the feed and the sitemap all update themselves;
+ * the page a reader actually lands on does not.
+ */
+export function homePromotesNewest(homeHtml, articles) {
+  const newest = articles[0]?.pathname ?? null;
+  if (!newest) return { newest: null, promoted: true };
+  return { newest, promoted: homeHtml.includes(newest) };
+}
+
 export async function buildDiscovery({
   sourceDirectory = rootDirectory,
   outputDirectory = path.join(rootDirectory, "dist"),
-  now = new Date()
+  now = new Date(),
+  recentPostsLimit = 5
 } = {}) {
   const homeHtml = await readFile(path.join(sourceDirectory, "index.html"), "utf8");
   const chrome = extractChrome(homeHtml);
   const articles = await collectArticles(path.join(sourceDirectory, "articles"));
+  const home = homePromotesNewest(homeHtml, articles);
 
   const articlesDirectory = path.join(outputDirectory, "articles");
   await mkdir(articlesDirectory, { recursive: true });
@@ -306,7 +320,69 @@ export async function buildDiscovery({
     writeFile(path.join(outputDirectory, "robots.txt"), robots, "utf8")
   ]);
 
-  return { articles: articles.length, newest: articles[0]?.date ?? null };
+  // The home is hand-written, so its "recent posts" list is injected into the
+  // built copy: a reader can always walk back through the last few editions,
+  // and the list cannot go stale the way a hand-maintained one would.
+  const builtHomePath = path.join(outputDirectory, "index.html");
+  const builtHome = await readFile(builtHomePath, "utf8").catch(() => null);
+  let recent = false;
+  if (builtHome !== null) {
+    const withRecent = injectRecentPosts(builtHome, articles, { limit: recentPostsLimit });
+    recent = withRecent !== builtHome;
+    if (recent) await writeFile(builtHomePath, withRecent, "utf8");
+  }
+
+  return {
+    articles: articles.length,
+    newest: articles[0]?.date ?? null,
+    home,
+    recentPosts: recent
+  };
+}
+
+/**
+ * Insert the recent-editions list immediately before the footer. Returns the
+ * markup untouched when there is nothing to list or the footer is missing.
+ */
+export function injectRecentPosts(homeHtml, articles, { limit = 5 } = {}) {
+  if (!Array.isArray(articles) || articles.length === 0) return homeHtml;
+  const anchor = '<footer class="site-footer">';
+  const at = homeHtml.indexOf(anchor);
+  if (at === -1) return homeHtml;
+
+  const section = renderRecentPosts(articles, { limit });
+  if (section === "") return homeHtml;
+  return `${homeHtml.slice(0, at)}${section}\n\n  ${homeHtml.slice(at)}`;
+}
+
+export function renderRecentPosts(articles, { limit = 5 } = {}) {
+  const recent = articles.slice(0, limit);
+  if (recent.length === 0) return "";
+
+  const cards = recent
+    .map(
+      (article) => `        <article class="content-card">
+          <span class="card-kicker">${escapeXml(humanDate(article.date))}</span>
+          <h3><a href="${escapeXml(article.pathname)}">${escapeXml(article.headline)}</a></h3>
+          <p>${escapeXml(article.deck || article.description)}</p>
+        </article>`
+    )
+    .join("\n");
+
+  return `  <section class="section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Previous editions</p>
+          <h2>More from the radar</h2>
+        </div>
+        <a class="text-link" href="/articles/">All posts →</a>
+      </div>
+      <div class="card-grid">
+${cards}
+      </div>
+    </div>
+  </section>`;
 }
 
 const invokedDirectly =

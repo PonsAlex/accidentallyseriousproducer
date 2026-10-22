@@ -333,6 +333,12 @@ h3 {
   font-size: 0.9rem;
 }
 
+/* Expired is a fact about the calendar, so it reads muted, not alarming. */
+.status-badge.expired {
+  background: rgba(170, 167, 160, 0.16);
+  color: var(--muted);
+}
+
 .featured-card,
 .lab-card,
 .project-card {

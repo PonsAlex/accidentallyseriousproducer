@@ -267,6 +267,56 @@ test("a reviewed demo video renders as a link, and its absence leaves nothing be
   assert.equal(without.includes("Watch the official demo"), false);
 });
 
+test("an expired offer keeps its place and loses its button", () => {
+  const html = renderArticlePage({
+    blocks: [
+      reviewBlock({
+        content: {
+          ...reviewBlock().content,
+          endsAtDate: "2026-11-18",
+          href: "/go/link-expired",
+          linkLabel: "Get it free"
+        }
+      })
+    ],
+    slug: "s",
+    title: "T",
+    date: "2026-10-21",
+    now: new Date("2026-11-19T12:00:00Z")
+  });
+
+  // "Expired" replaces the Status: a page cannot say Free and Expired at once.
+  assert.match(html, /<div class="status-badge expired">Expired<\/div>/);
+  assert.equal(html.includes('class="status-badge free"'), false);
+  // A dead "Get it free" is worse than no button.
+  assert.equal(html.includes("cta-button"), false);
+  assert.match(html, /Offer expired/);
+  assert.match(html, /Ended 18 November 2026/);
+});
+
+test("an offer that has not opened keeps its button and says when it opens", () => {
+  const html = renderArticlePage({
+    blocks: [
+      reviewBlock({
+        content: {
+          ...reviewBlock().content,
+          startsAtDate: "2026-11-27",
+          href: "/go/link-upcoming",
+          linkLabel: "Pre-sign up"
+        }
+      })
+    ],
+    slug: "s",
+    title: "T",
+    date: "2026-10-21",
+    now: new Date("2026-10-21T12:00:00Z")
+  });
+
+  assert.match(html, /Opens 27 November 2026/);
+  assert.match(html, /class="cta-button">Pre-sign up/);
+  assert.equal(html.includes("status-badge expired"), false);
+});
+
 test("a block with no destination gets no call to action", () => {
   const html = renderArticlePage({
     blocks: [reviewBlock({ content: { ...reviewBlock().content, href: "/go/link-u-he-zebralette-3", linkLabel: "Get it free" } })],

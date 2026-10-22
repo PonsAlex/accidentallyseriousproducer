@@ -306,8 +306,7 @@ test("console component templates map to markup present on the actual public pag
 test("public template loader builds every initial ASP content block from the public pages", async () => {
   const pageFiles = new Map([
     ["/index.html", new URL("../index.html", import.meta.url)],
-    ["/articles/radar-outubro-26.html", new URL("../articles/radar-outubro-26.html", import.meta.url)],
-    ["/articles/drops-outubro-26.html", new URL("../articles/drops-outubro-26.html", import.meta.url)]
+    ["/articles/radar-outubro-26.html", new URL("../articles/radar-outubro-26.html", import.meta.url)]
   ]);
   const requested = [];
   const fetcher = async (url) => {

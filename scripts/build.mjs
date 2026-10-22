@@ -106,6 +106,12 @@ async function main() {
   console.log(
     `Descoberta: ${discovery.articles} artigo(s) no arquivo, feed e sitemap gerados.`
   );
+  if (discovery.home?.promoted === false) {
+    console.warn(
+      `WARN A home não aponta para o post mais recente (${discovery.home.newest}). ` +
+        `O arquivo, o feed e o sitemap atualizam sozinhos; o index.html não.`
+    );
+  }
 
   console.log(
     `Build de produção concluído em ${path.relative(rootDirectory, outputDirectory)}.`

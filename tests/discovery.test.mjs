@@ -9,9 +9,12 @@ import {
   buildDiscovery,
   escapeXml,
   extractChrome,
+  homePromotesNewest,
+  injectRecentPosts,
   parseArticle,
   renderArticlesIndex,
   renderAtomFeed,
+  renderRecentPosts,
   renderRobots,
   renderSitemap
 } from "../scripts/discovery.mjs";
@@ -155,6 +158,52 @@ test("an empty archive still renders a valid page", () => {
   const html = renderArticlesIndex([], { header: "<header></header>", footer: "<footer></footer>" });
   assert.match(html, /0 posts, newest first/);
   assert.match(html, /<h1>Every post<\/h1>/);
+});
+
+test("the recent-editions list walks back through the last few posts", () => {
+  const articles = [
+    article({ pathname: "/articles/a.html", headline: "Post A", date: "2026-10-21" }),
+    article({ pathname: "/articles/b.html", headline: "Post B", date: "2026-09-21" }),
+    article({ pathname: "/articles/c.html", headline: "Post C", date: "2026-08-21" })
+  ];
+
+  const section = renderRecentPosts(articles, { limit: 2 });
+  assert.match(section, /More from the radar/);
+  assert.match(section, /href="\/articles\/a\.html"/);
+  assert.match(section, /href="\/articles\/b\.html"/);
+  assert.equal(section.includes("/articles/c.html"), false, "limit is respected");
+  assert.equal(renderRecentPosts([]), "", "nothing to list, nothing rendered");
+});
+
+test("the list is injected before the footer and leaves everything else alone", () => {
+  const home = '<body><main></main><footer class="site-footer">end</footer></body>';
+  const articles = [article({ pathname: "/articles/a.html", headline: "Post A" })];
+
+  const injected = injectRecentPosts(home, articles, { limit: 5 });
+  assert.ok(injected.indexOf("More from the radar") < injected.indexOf('<footer class="site-footer">'));
+  assert.ok(injected.includes("<footer"), "the footer survives");
+
+  // No footer, no injection: the home is left exactly as it was.
+  assert.equal(injectRecentPosts("<body></body>", articles), "<body></body>");
+  assert.equal(injectRecentPosts(home, []), home);
+});
+
+test("the home is flagged when it still promotes a replaced post", () => {
+  const articles = [
+    { pathname: "/articles/new.html" },
+    { pathname: "/articles/old.html" }
+  ];
+
+  const fresh = homePromotesNewest('<a href="/articles/new.html">Read</a>', articles);
+  assert.equal(fresh.promoted, true);
+  assert.equal(fresh.newest, "/articles/new.html");
+
+  // The archive, the feed and the sitemap update themselves; index.html does not.
+  const stale = homePromotesNewest('<a href="/articles/old.html">Read</a>', articles);
+  assert.equal(stale.promoted, false);
+
+  // With no posts there is no claim to make, so nothing to warn about.
+  assert.equal(homePromotesNewest("<html></html>", []).promoted, true);
 });
 
 test("buildDiscovery writes the four artefacts from the real pages", async () => {
