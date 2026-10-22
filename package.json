@@ -13,6 +13,8 @@
         "intake:check": "node scripts/intake-check.mjs",
         "contract:package": "node scripts/package-contract.mjs",
         "freshness": "node scripts/freshness.mjs",
+        "email:candidates": "node scripts/email-candidates.mjs",
+        "candidates:prepare": "node scripts/candidate-prepare.mjs",
         "campaigns:import": "node scripts/affiliate-campaigns.mjs",
         "discovery:build": "node scripts/discovery.mjs",
         "publish:scaffold": "node scripts/publish-scaffold.mjs",

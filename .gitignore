@@ -29,3 +29,8 @@ asp-publish-scaffold.json
 asp-affiliate-campaigns.json
 asp-console-export.published.json
 asp-candidate-bridge-report.json
+
+# Candidatos extraidos de email: carregam remetente, assunto e message-id.
+asp-candidates.json
+asp-candidates-prepared.json
+asp-candidate-prepare-report.json
