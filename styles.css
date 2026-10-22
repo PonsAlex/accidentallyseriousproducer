@@ -339,6 +339,17 @@ h3 {
   color: var(--muted);
 }
 
+/* Turning the page: the edition before and after this one. */
+.article-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
 .featured-card,
 .lab-card,
 .project-card {

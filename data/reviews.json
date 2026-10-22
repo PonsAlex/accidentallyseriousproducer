@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "reviews": [
+    {
+      "recordId": "azazel-audio-visualcomp-2",
+      "blockId": "product-review-azazel-audio-visualcomp-2",
+      "publishedAt": "2026-10-17",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Azazel Audio - VisualComp 2",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-azazel-audio-visualcomp-2",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "recordId": "illformed-glitch-2",
+      "blockId": "product-review-illformed-glitch-2",
+      "publishedAt": "2026-10-17",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "illformed - Glitch 2",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-illformed-glitch-2",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "recordId": "moth-production-whirl-dt",
+      "blockId": "product-review-moth-production-whirl-dt",
+      "publishedAt": "2026-10-17",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Moth Production - Whirl DT",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-moth-production-whirl-dt",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "recordId": "steinberg-steinberg-classics-collection",
+      "blockId": "product-review-steinberg-steinberg-classics-collection",
+      "publishedAt": "2026-10-17",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Steinberg - Steinberg Classics Collection",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-steinberg-steinberg-classics-collection",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "recordId": "u-he-zebralette-3",
+      "blockId": "product-review-u-he-zebralette-3",
+      "publishedAt": "2026-10-17",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "u-he - Zebralette 3",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-u-he-zebralette-3",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "recordId": "slate-digital-complete-access-free-collection",
+      "blockId": "product-review-slate-digital-complete-access-free-collection",
+      "publishedAt": "2026-10-20",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Slate Digital - Complete Access Free Collection",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-slate-digital-complete-access-free-collection",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "recordId": "air-music-technology-air-vocal-distortion",
+      "blockId": "product-review-air-music-technology-air-vocal-distortion",
+      "publishedAt": "2026-10-21",
+      "verdict": "Stash",
+      "status": "Breaking",
+      "productName": "AIR Music Technology - AIR Vocal Distortion",
+      "startsAtDate": "2026-11-27",
+      "endsAtDate": "2026-12-06",
+      "href": "/go/link-air-music-technology-air-vocal-distortion",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "recordId": "ujam-detunicorn",
+      "blockId": "product-review-ujam-detunicorn",
+      "publishedAt": "2026-10-21",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "UJAM - Detunicorn",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-18",
+      "href": "/go/link-ujam-detunicorn",
+      "updatedAt": "2026-10-21"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { mkdtemp, readFile } from "node:fs/promises";
+import { cp, mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -10,8 +10,10 @@ import {
   escapeXml,
   extractChrome,
   homePromotesNewest,
+  injectArticleNav,
   injectRecentPosts,
   parseArticle,
+  renderArticleNav,
   renderArticlesIndex,
   renderAtomFeed,
   renderRecentPosts,
@@ -204,6 +206,59 @@ test("the home is flagged when it still promotes a replaced post", () => {
 
   // With no posts there is no claim to make, so nothing to warn about.
   assert.equal(homePromotesNewest("<html></html>", []).promoted, true);
+});
+
+test("each built article carries the edition before and after it", async () => {
+  const source = await mkdtemp(path.join(tmpdir(), "asp-nav-src-"));
+  const output = await mkdtemp(path.join(tmpdir(), "asp-nav-out-"));
+
+  const home = `<!doctype html><html><body>
+    <header class="site-header"><nav>h</nav></header>
+    <main></main>
+    <footer class="site-footer">f</footer>
+  </body></html>`;
+
+  const page = (headline, date) => `<!doctype html><html><head>
+    <title>${headline}</title>
+    <meta name="description" content="deck">
+    <link rel="canonical" href="https://example.test/a">
+    <script type="application/ld+json">{"datePublished":"${date}"}</script>
+  </head><body>
+    <h1>${headline}</h1>
+    <footer class="site-footer">f</footer>
+  </body></html>`;
+
+  await mkdir(path.join(source, "articles"), { recursive: true });
+  await writeFile(path.join(source, "index.html"), home, "utf8");
+  await writeFile(path.join(source, "articles", "radar-newer.html"), page("Newer", "2026-10-21"), "utf8");
+  await writeFile(path.join(source, "articles", "radar-older.html"), page("Older", "2026-09-21"), "utf8");
+
+  // build.mjs copies the source into dist before discovery runs; do the same.
+  await cp(path.join(source, "articles"), path.join(output, "articles"), { recursive: true });
+  await cp(path.join(source, "index.html"), path.join(output, "index.html"));
+
+  const result = await buildDiscovery({ sourceDirectory: source, outputDirectory: output });
+  assert.equal(result.articleNav, 2, "both articles gained a nav");
+
+  const newer = await readFile(path.join(output, "articles", "radar-newer.html"), "utf8");
+  const older = await readFile(path.join(output, "articles", "radar-older.html"), "utf8");
+
+  // Newest edition: only a way back.
+  assert.match(newer, /rel="prev">← Previous: Older/);
+  assert.equal(newer.includes('rel="next"'), false);
+  assert.ok(newer.indexOf("article-nav") < newer.indexOf('<footer class="site-footer">'));
+
+  // Oldest edition: only a way forward.
+  assert.match(older, /rel="next">Next: Newer →/);
+  assert.equal(older.includes('rel="prev"'), false);
+});
+
+test("a lone article gets no nav at all", () => {
+  const articles = [article({ pathname: "/articles/only.html", headline: "Only" })];
+
+  assert.equal(renderArticleNav(articles, 0), "");
+  const page = '<footer class="site-footer">f</footer>';
+  assert.equal(injectArticleNav(page, ""), page);
 });
 
 test("buildDiscovery writes the four artefacts from the real pages", async () => {

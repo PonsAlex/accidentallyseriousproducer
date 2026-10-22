@@ -51,6 +51,7 @@ export function parseArgs(argv) {
     date: null,
     decisions: null,
     stateOut: null,
+    ledger: null,
     only: null,
     allowMissingVerdict: false,
     output: null,
@@ -66,6 +67,7 @@ export function parseArgs(argv) {
     ["--date", "date"],
     ["--decisions", "decisions"],
     ["--state-out", "stateOut"],
+    ["--ledger", "ledger"],
     ["--only", "only"],
     ["--output", "output"]
   ]);
@@ -411,6 +413,52 @@ export function registrationSnippet(blocks, { slug, pageKey }) {
   ].join("\n");
 }
 
+/**
+ * The ledger is the base the Audit reads. A page is presentation: it can be
+ * re-rendered, re-worded or redirected, while a review's verdict, window and
+ * publication date are facts that must survive the page.
+ */
+export function buildLedgerEntries(blocks, { publishedAt = null } = {}) {
+  return blocks
+    .filter((block) => block?.type === "product-review")
+    .map((block) => ({
+      recordId: block.id.replace(/^product-review-/, ""),
+      blockId: block.id,
+      publishedAt,
+      verdict: block.metadata?.verdict ?? null,
+      status: block.content?.reviewLabel || block.metadata?.editorialStatus || null,
+      productName: block.content?.title ?? null,
+      startsAtDate: block.content?.startsAtDate ?? null,
+      endsAtDate: block.content?.endsAtDate ?? null,
+      href: block.content?.href ?? null
+    }));
+}
+
+/**
+ * One row per record, oldest publication first. The first publication date is
+ * history: an edit must not move it, only record that it happened.
+ */
+export function mergeLedger(existing, entries) {
+  const byRecord = new Map((existing?.reviews ?? []).map((row) => [row.recordId, row]));
+
+  for (const entry of entries) {
+    const previous = byRecord.get(entry.recordId);
+    byRecord.set(entry.recordId, {
+      ...previous,
+      ...entry,
+      publishedAt: previous?.publishedAt ?? entry.publishedAt,
+      updatedAt: entry.publishedAt
+    });
+  }
+
+  const reviews = [...byRecord.values()].sort((left, right) => {
+    const byDate = String(left.publishedAt ?? "").localeCompare(String(right.publishedAt ?? ""));
+    return byDate !== 0 ? byDate : left.recordId.localeCompare(right.recordId);
+  });
+
+  return { version: 1, reviews };
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   if (options.help) {
@@ -485,6 +533,21 @@ async function main() {
       "utf8"
     );
     console.log(`Console export with the decisions applied: ${path.relative(rootDirectory, outPath)}`);
+  }
+
+  if (options.ledger) {
+    const ledgerPath = path.resolve(rootDirectory, options.ledger);
+    let existing = { version: 1, reviews: [] };
+    try {
+      existing = JSON.parse(await readFile(ledgerPath, "utf8"));
+    } catch {
+      existing = { version: 1, reviews: [] };
+    }
+    const merged = mergeLedger(existing, buildLedgerEntries(selected, { publishedAt: date }));
+    await writeFile(ledgerPath, `${JSON.stringify(merged, null, 2)}\n`, "utf8");
+    console.log(
+      `Ledger: ${merged.reviews.length} review(s) em ${path.relative(rootDirectory, ledgerPath)}`
+    );
   }
 
   console.log(`Wrote ${path.relative(rootDirectory, outputPath)} with ${selected.length} review(s).`);

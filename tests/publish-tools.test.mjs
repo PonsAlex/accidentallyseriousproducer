@@ -2,7 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   applyDecisions,
+  buildLedgerEntries,
   escapeHtml,
+  mergeLedger,
   publicationBlockers,
   registrationSnippet,
   renderArticlePage,
@@ -315,6 +317,56 @@ test("an offer that has not opened keeps its button and says when it opens", () 
   assert.match(html, /Opens 27 November 2026/);
   assert.match(html, /class="cta-button">Pre-sign up/);
   assert.equal(html.includes("status-badge expired"), false);
+});
+
+test("the ledger keeps the facts a page is allowed to lose", () => {
+  const block = reviewBlock({
+    content: {
+      ...reviewBlock().content,
+      href: "/go/link-u-he-zebralette-3",
+      linkLabel: "Get it free",
+      endsAtDate: "2026-11-18"
+    }
+  });
+
+  const [entry] = buildLedgerEntries([block], { publishedAt: "2026-10-21" });
+
+  assert.equal(entry.recordId, "u-he-zebralette-3");
+  assert.equal(entry.publishedAt, "2026-10-21");
+  assert.equal(entry.verdict, "Fire");
+  assert.equal(entry.status, "Free");
+  assert.equal(entry.endsAtDate, "2026-11-18");
+  assert.equal(entry.href, "/go/link-u-he-zebralette-3");
+});
+
+test("publishing the same review again updates it without moving its first date", () => {
+  const first = mergeLedger({ version: 1, reviews: [] }, [
+    { recordId: "a", publishedAt: "2026-10-01", verdict: "Stash", status: "Free" }
+  ]);
+  assert.equal(first.reviews[0].publishedAt, "2026-10-01");
+
+  const edited = mergeLedger(first, [
+    { recordId: "a", publishedAt: "2026-10-21", verdict: "Fire", status: "Last Chance" }
+  ]);
+
+  assert.equal(edited.reviews.length, 1, "no duplicate row");
+  assert.equal(edited.reviews[0].verdict, "Fire");
+  assert.equal(edited.reviews[0].status, "Last Chance");
+  // The first publication is history; an edit records itself in updatedAt.
+  assert.equal(edited.reviews[0].publishedAt, "2026-10-01");
+  assert.equal(edited.reviews[0].updatedAt, "2026-10-21");
+});
+
+test("the ledger reads oldest first, so the Audit can just walk it", () => {
+  const merged = mergeLedger({ version: 1, reviews: [] }, [
+    { recordId: "later", publishedAt: "2026-10-21" },
+    { recordId: "earlier", publishedAt: "2026-09-01" }
+  ]);
+
+  assert.deepEqual(
+    merged.reviews.map((row) => row.recordId),
+    ["earlier", "later"]
+  );
 });
 
 test("a block with no destination gets no call to action", () => {
