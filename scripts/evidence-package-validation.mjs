@@ -63,6 +63,7 @@ export const KNOWN_FACT_NAMES = Object.freeze([
   "regularPriceSource",
   "currency",
   "startsAt",
+  "startsAtDate",
   "endsAt",
   "endsAtDate",
   "permanent",

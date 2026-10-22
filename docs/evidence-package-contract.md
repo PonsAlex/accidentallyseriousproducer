@@ -249,6 +249,7 @@ como `"expiryDate"` não é lido por ninguém — é o mesmo que não declarar n
 - `regularPriceSource`
 - `currency`
 - `startsAt`
+- `startsAtDate`
 - `endsAt`
 - `endsAtDate`
 - `permanent`

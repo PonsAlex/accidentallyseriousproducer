@@ -140,5 +140,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "gforce-software",
+    "name": "GForce Software",
+    "homepage": "https://www.gforcesoftware.com/product/m-tron-select-2/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
