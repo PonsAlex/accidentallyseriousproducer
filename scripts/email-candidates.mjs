@@ -236,7 +236,9 @@ export function buildCandidate(item, { vendorUrl = null } = {}) {
     },
     merchant: { programId: null },
     offer: {
-      promoPrice: firstNumber(price),
+      // The email's price is a hint, not a fact: it rarely carries a currency,
+      // and PREPARAÇÃO reads the real one off the vendor page.
+      promoPrice: null,
       regularPrice: null,
       regularPriceSource: null,
       currency: null,
@@ -272,7 +274,7 @@ export function buildCandidate(item, { vendorUrl = null } = {}) {
     openQuestions: [
       "Read the offer on the vendor page before building a record from this lead."
     ],
-    missingFacts: [],
+    missingFacts: endsAtDate ? [] : ["endsAt", "endsAtDate"],
     notApplicable: [],
     toValidate: [
       "Confirm price, deadline and coupon on the vendor page; the email is a lead, not a source."
@@ -306,6 +308,27 @@ export function selectLeads(items, { days = 14, now = new Date(), limit = 200 } 
   }
 
   return leads;
+}
+
+/**
+ * One candidate per product, newest email first. The same announcement arrives
+ * from the vendor, from a shop and from a newsletter, and the package cannot take
+ * two records with one identity.
+ */
+export function dedupeCandidates(candidates) {
+  const ordered = [...candidates].sort((left, right) => {
+    const byDate = String(right?.source?.receivedAt ?? "").localeCompare(
+      String(left?.source?.receivedAt ?? "")
+    );
+    return byDate !== 0 ? byDate : String(left.candidateId).localeCompare(String(right.candidateId));
+  });
+
+  const seen = new Set();
+  return ordered.filter((candidate) => {
+    if (seen.has(candidate.candidateId)) return false;
+    seen.add(candidate.candidateId);
+    return true;
+  });
 }
 
 export function buildReport(candidates, { feed, days, now }) {
@@ -427,8 +450,8 @@ async function main() {
   const items = JSON.parse(await readFile(options.feed, "utf8"));
   const now = options.now ? new Date(`${options.now}T12:00:00`) : new Date();
   const leads = selectLeads(items, { days: options.days, now, limit: options.top });
-  const candidates = leads.map((item) =>
-    buildCandidate(item, { vendorUrl: extractVendorUrl(item) })
+  const candidates = dedupeCandidates(
+    leads.map((item) => buildCandidate(item, { vendorUrl: extractVendorUrl(item) }))
   );
 
   await writeFile(options.output, `${JSON.stringify(candidates, null, 2)}\n`, "utf8");

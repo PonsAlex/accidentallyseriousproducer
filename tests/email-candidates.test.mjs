@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   buildCandidate,
+  dedupeCandidates,
   extractVendorUrl,
   isTrackingUrl,
   parseReceivedAt,
@@ -141,6 +142,33 @@ test("leads older than the window are left behind", () => {
     leads.map((item) => item.message_id),
     ["<new@x>"]
   );
+});
+
+test("the same announcement from three senders becomes one candidate", () => {
+  const base = email({ detected_plugin: "Acme Widget", detected_developer: "Acme Audio" });
+  const older = { ...buildCandidate(base, {}), source: { ...buildCandidate(base, {}).source, receivedAt: "2026-10-01T10:00:00Z" } };
+  const newer = { ...buildCandidate(base, {}), source: { ...buildCandidate(base, {}).source, receivedAt: "2026-10-20T10:00:00Z" } };
+  const other = { ...buildCandidate(email({ detected_plugin: "Other Thing", detected_developer: "Other" }), {}) };
+
+  const deduped = dedupeCandidates([older, newer, other]);
+
+  assert.equal(deduped.length, 2);
+  const acme = deduped.find((candidate) => candidate.candidateId === "acme-audio-acme-widget");
+  assert.ok(acme, "one row for the repeated product");
+  // The newest email wins, because it is the most current wording.
+  assert.equal(acme.source.receivedAt, "2026-10-20T10:00:00Z");
+});
+
+test("a lead with no deadline declares the gap instead of claiming one", () => {
+  const withoutDeadline = buildCandidate(email({ detected_deadline: "" }), {});
+  assert.deepEqual(withoutDeadline.missingFacts, ["endsAt", "endsAtDate"]);
+  // The email's own price is a hint: it rarely carries a currency.
+  assert.equal(withoutDeadline.offer.promoPrice, null);
+  assert.equal(withoutDeadline.lead.detectedPrice, null);
+
+  const withDeadline = buildCandidate(email({ detected_deadline: "18 de outubro de 2026" }), {});
+  assert.equal(withDeadline.offer.endsAtDate, "2026-10-18");
+  assert.deepEqual(withDeadline.missingFacts, []);
 });
 
 test("slug never returns a leading or trailing hyphen", () => {
