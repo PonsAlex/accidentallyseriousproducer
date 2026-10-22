@@ -185,5 +185,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-21T23:13:01.824Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-gforce-software-axxess",
+    "productId": "gforce-software-axxess",
+    "programId": "gforce-software",
+    "destinationUrl": "https://www.gforcesoftware.com/product/axxess/",
+    "fallbackUrl": "https://www.gforcesoftware.com/product/axxess/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-22T12:25:27.051Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-gforce-software-m-tron-select-2",
+    "productId": "gforce-software-m-tron-select-2",
+    "programId": "gforce-software",
+    "destinationUrl": "https://www.gforcesoftware.com/product/m-tron-select-2/",
+    "fallbackUrl": "https://www.gforcesoftware.com/product/m-tron-select-2/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-22T12:25:27.253Z",
+    "allowFallback": true
   }
 ]

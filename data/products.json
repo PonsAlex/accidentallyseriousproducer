@@ -185,5 +185,27 @@
     "status": "active",
     "createdAt": "2026-10-21T23:13:01.824Z",
     "updatedAt": "2026-10-21T23:13:01.824Z"
+  },
+  {
+    "id": "gforce-software-axxess",
+    "slug": "gforce-software-axxess",
+    "programId": "gforce-software",
+    "name": "Axxess",
+    "category": "plugin",
+    "description": "Axxess",
+    "status": "active",
+    "createdAt": "2026-10-22T12:25:27.051Z",
+    "updatedAt": "2026-10-22T12:25:27.051Z"
+  },
+  {
+    "id": "gforce-software-m-tron-select-2",
+    "slug": "gforce-software-m-tron-select-2",
+    "programId": "gforce-software",
+    "name": "M-Tron Select 2",
+    "category": "plugin",
+    "description": "M-Tron Select 2",
+    "status": "active",
+    "createdAt": "2026-10-22T12:25:27.253Z",
+    "updatedAt": "2026-10-22T12:25:27.253Z"
   }
 ]
