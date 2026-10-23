@@ -11,7 +11,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-azazel-audio-visualcomp-2",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "illformed-glitch-2",
@@ -23,7 +23,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-illformed-glitch-2",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "moth-production-whirl-dt",
@@ -35,7 +35,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-moth-production-whirl-dt",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "steinberg-steinberg-classics-collection",
@@ -47,7 +47,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-steinberg-steinberg-classics-collection",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "u-he-zebralette-3",
@@ -59,7 +59,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-u-he-zebralette-3",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "slate-digital-complete-access-free-collection",
@@ -71,7 +71,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-slate-digital-complete-access-free-collection",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "air-music-technology-air-vocal-distortion",
@@ -83,7 +83,7 @@
       "startsAtDate": "2026-11-27",
       "endsAtDate": "2026-12-06",
       "href": "/go/link-air-music-technology-air-vocal-distortion",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "ujam-detunicorn",
@@ -95,7 +95,7 @@
       "startsAtDate": null,
       "endsAtDate": "2026-11-18",
       "href": "/go/link-ujam-detunicorn",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "gforce-software-axxess",
@@ -107,7 +107,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-gforce-software-axxess",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
     },
     {
       "recordId": "gforce-software-m-tron-select-2",
@@ -119,7 +119,19 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-gforce-software-m-tron-select-2",
-      "updatedAt": "2026-10-22"
+      "updatedAt": "2026-10-23"
+    },
+    {
+      "recordId": "d16-group-echolite",
+      "blockId": "product-review-d16-group-echolite",
+      "publishedAt": "2026-10-23",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "D16 Group - Echolite",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-d16-group-echolite",
+      "updatedAt": "2026-10-23"
     }
   ]
 }
