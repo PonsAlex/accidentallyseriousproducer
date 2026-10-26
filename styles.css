@@ -1908,3 +1908,31 @@ asp-partner-banner {
 .card-grid--partners {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
+
+/* Plugin Audit */
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.audit-table caption {
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #8a8a8a);
+  padding-bottom: 0.5rem;
+}
+
+.audit-table th,
+.audit-table td {
+  text-align: left;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule, #e2e2e2);
+}
+
+.audit-table td {
+  text-align: right;
+}

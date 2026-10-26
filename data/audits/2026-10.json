@@ -1,0 +1,40 @@
+{
+  "slug": "audit-outubro-26",
+  "month": "2026-10",
+  "date": "2026-10-25",
+  "eyebrow": "Plugin Audit",
+  "title": "Plugin Audit: October 2026",
+  "deck": "Twelve finds, six of them called Fire. This is where we check that number instead of defending it.",
+  "opening": [
+    "Twelve things landed on the radar in October, published over seven days. We called six of them Fire.",
+    "That is half, and half is not a bar — it is a coin. This audit exists to say which of the six we would defend with a straight face, and which we suspect we liked because they were free."
+  ],
+  "ratioNote": "We would rather write that sentence down than quietly lower what Fire means.",
+  "defended": {
+    "illformed-glitch-2": "Sixteen years old and still the least polite plugin here. Nothing free does that to a drum loop.",
+    "u-he-zebralette-3": "A free synthesizer from u-he is not a loss-leader; it is the engine they built the paid Zebra on.",
+    "slate-digital-complete-access-free-collection": "Sixteen plugins for nothing, and the caveats are about the account, not the tools.",
+    "ujam-detunicorn": "A real instrument with a real deadline. On 19 November we find out whether we miss it.",
+    "d16-group-echolite": "No account, no coupon, no date. That is what a freebie is supposed to feel like.",
+    "the-crow-hill-company-100-year-old-piano": "Recorded before anyone restored it, which is the entire point."
+  },
+  "demoted": {
+    "azazel-audio-visualcomp-2": "Good, and already covered by something you probably own.",
+    "moth-production-whirl-dt": "A nice idea we would not reach for twice.",
+    "steinberg-steinberg-classics-collection": "Legacy instruments with legacy installers.",
+    "air-music-technology-air-vocal-distortion": "Not open yet. It cannot earn Fire from a waiting list.",
+    "gforce-software-axxess": "One of a series of GForce giveaways; the series is the story, not the plugin.",
+    "gforce-software-m-tron-select-2": "A good M-Tron, and a better one is free elsewhere."
+  },
+  "mistakes": [
+    "The Slate cover pointed at a checkout page instead of the product page. A reader would have been asked for money before reading a word.",
+    "The Steinberg link went to the company home page rather than the instrument. The editor caught it, not us.",
+    "The first title counted items — Six Freeware Picks — so every addition meant rewriting the headline. The month is the edition now, and the title carries the date instead.",
+    "One publication replaced October's page with a split version, throwing away what the month had already accumulated. The diagnosis was right; the cure was not.",
+    "The email pipeline was merged able to produce packages but blind to product names: 'lifetime updates' arrived as if it were a product. It is refused at the gate until that is fixed."
+  ],
+  "closing": [
+    "Nothing expired in October, so the Expired badge has still never fired in production. The first honest test is 19 November, when Detunicorn runs out.",
+    "Next audit: the last Sunday of November."
+  ]
+}
