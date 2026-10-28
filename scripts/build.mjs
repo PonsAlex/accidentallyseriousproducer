@@ -26,6 +26,7 @@ const productionFiles = [
   "_redirects",
   "about.html",
   "affiliate-disclosure.html",
+  "classic-house-template.html",
   "console.html",
   "fire-or-nah.html",
   "favicon.svg",
@@ -38,7 +39,8 @@ const productionDirectories = [
   "affiliate-redirect",
   "articles",
   "assets",
-  "deals"
+  "deals",
+  "downloads"
 ];
 
 const publicDataFiles = [
