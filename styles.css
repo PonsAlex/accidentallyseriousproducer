@@ -1936,3 +1936,45 @@ asp-partner-banner {
 .audit-table td {
   text-align: right;
 }
+
+/* Wide tables scroll instead of squeezing */
+.table-scroll {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.table-scroll .audit-table {
+  margin: 0;
+  min-width: 32rem;
+}
+
+.audit-table caption {
+  caption-side: top;
+}
+
+.audit-table .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.audit-table.matrix td,
+.audit-table.matrix th {
+  text-align: center;
+  padding: 0.35rem 0.45rem;
+  white-space: nowrap;
+}
+
+.audit-table.matrix tbody th {
+  text-align: left;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.audit-table thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted, #8a8a8a);
+  border-bottom: 1px solid var(--rule, #e2e2e2);
+}
