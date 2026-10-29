@@ -251,5 +251,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-29T12:15:36.379Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-hornet-plugins-filtersolo",
+    "productId": "hornet-plugins-filtersolo",
+    "programId": "hornet-plugins",
+    "destinationUrl": "https://www.hornetplugins.com/plugins/hornet-filtersolo/",
+    "fallbackUrl": "https://www.hornetplugins.com/plugins/hornet-filtersolo/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-29T21:27:52.955Z",
+    "allowFallback": true
   }
 ]
