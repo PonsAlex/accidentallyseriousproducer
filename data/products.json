@@ -229,5 +229,27 @@
     "status": "active",
     "createdAt": "2026-10-23T23:52:05.250Z",
     "updatedAt": "2026-10-23T23:52:05.250Z"
+  },
+  {
+    "id": "native-instruments-empire-breaks",
+    "slug": "native-instruments-empire-breaks",
+    "programId": "native-instruments",
+    "name": "Empire Breaks",
+    "category": "plugin",
+    "description": "Empire Breaks",
+    "status": "active",
+    "createdAt": "2026-10-29T12:15:36.138Z",
+    "updatedAt": "2026-10-29T12:15:36.138Z"
+  },
+  {
+    "id": "scaler-music-scaler-detector",
+    "slug": "scaler-music-scaler-detector",
+    "programId": "scaler-music",
+    "name": "Scaler Detector",
+    "category": "plugin",
+    "description": "Scaler Detector",
+    "status": "active",
+    "createdAt": "2026-10-29T12:15:36.379Z",
+    "updatedAt": "2026-10-29T12:15:36.379Z"
   }
 ]

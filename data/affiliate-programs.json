@@ -164,5 +164,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "native-instruments",
+    "name": "Native Instruments",
+    "homepage": "https://vochlea.com/free/empire-breaks",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "scaler-music",
+    "name": "Scaler Music",
+    "homepage": "https://scalermusic.com/products/scaler-detector/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

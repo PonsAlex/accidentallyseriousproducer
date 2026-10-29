@@ -229,5 +229,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-23T23:52:05.250Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-native-instruments-empire-breaks",
+    "productId": "native-instruments-empire-breaks",
+    "programId": "native-instruments",
+    "destinationUrl": "https://vochlea.com/free/empire-breaks",
+    "fallbackUrl": "https://vochlea.com/free/empire-breaks",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-29T12:15:36.138Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-scaler-music-scaler-detector",
+    "productId": "scaler-music-scaler-detector",
+    "programId": "scaler-music",
+    "destinationUrl": "https://scalermusic.com/products/scaler-detector/",
+    "fallbackUrl": "https://scalermusic.com/products/scaler-detector/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-29T12:15:36.379Z",
+    "allowFallback": true
   }
 ]
