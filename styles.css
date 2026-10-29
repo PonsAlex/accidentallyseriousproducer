@@ -1978,3 +1978,20 @@ asp-partner-banner {
   color: var(--muted, #8a8a8a);
   border-bottom: 1px solid var(--rule, #e2e2e2);
 }
+
+/* Reproduced document pages */
+.doc-pages {
+  margin: 2rem 0;
+}
+
+.doc-page {
+  margin: 0 0 1.5rem;
+}
+
+.doc-page img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule, #e2e2e2);
+  background: #fff;
+}
