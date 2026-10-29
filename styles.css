@@ -2345,3 +2345,18 @@ asp-partner-banner {
 .audit-table.matrix td {
   padding: 0.3rem 0.35rem;
 }
+
+
+/* The arrangement map breaks out of the prose column: it is the densest figure */
+.doc-figure-wrap--wide {
+  width: min(var(--max-width), 100vw - 2rem);
+  margin-left: calc((100% - min(var(--max-width), 100vw - 2rem)) / 2);
+  margin-right: 0;
+}
+
+.doc-figure-wrap figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
