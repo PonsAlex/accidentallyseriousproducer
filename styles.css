@@ -1995,3 +1995,59 @@ asp-partner-banner {
   border: 1px solid var(--rule, #e2e2e2);
   background: #fff;
 }
+
+/* Long-form guide: code blocks, quotes and task lists */
+.prose-page pre {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: #f4f6f8;
+  border: 1px solid #e2e6ea;
+  border-radius: 4px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  tab-size: 2;
+}
+
+.prose-page code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: #f1f3f5;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.prose-page blockquote {
+  margin: 1.5rem 0;
+  padding: 0.15rem 0 0.15rem 1.25rem;
+  border-left: 3px solid currentColor;
+  opacity: 0.9;
+}
+
+.prose-page blockquote p {
+  margin: 0;
+}
+
+.task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.task-list li {
+  position: relative;
+  padding-left: 1.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.task-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 0.85em;
+  height: 0.85em;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.45;
+}
