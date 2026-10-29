@@ -29,6 +29,7 @@ const STATIC_PAGES = Object.freeze([
   "/",
   "/articles/",
   "/deals/",
+  "/classic-house-template.html",
   "/fire-or-nah.html",
   "/about.html",
   "/privacy.html",
