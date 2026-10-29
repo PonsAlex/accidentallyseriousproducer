@@ -251,5 +251,16 @@
     "status": "active",
     "createdAt": "2026-10-29T12:15:36.379Z",
     "updatedAt": "2026-10-29T12:15:36.379Z"
+  },
+  {
+    "id": "hornet-plugins-filtersolo",
+    "slug": "hornet-plugins-filtersolo",
+    "programId": "hornet-plugins",
+    "name": "FilterSolo",
+    "category": "plugin",
+    "description": "FilterSolo",
+    "status": "active",
+    "createdAt": "2026-10-29T21:27:52.955Z",
+    "updatedAt": "2026-10-29T21:27:52.955Z"
   }
 ]

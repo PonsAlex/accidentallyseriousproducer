@@ -180,5 +180,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "hornet-plugins",
+    "name": "HoRNet Plugins",
+    "homepage": "https://www.hornetplugins.com/plugin-category/free/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
