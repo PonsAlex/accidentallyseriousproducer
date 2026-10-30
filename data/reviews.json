@@ -182,6 +182,18 @@
       "updatedAt": "2026-10-30"
     },
     {
+      "recordId": "pulsar-audio-digitape",
+      "blockId": "product-review-pulsar-audio-digitape",
+      "publishedAt": "2026-10-30",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Pulsar Audio - DigiTape",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-pulsar-audio-digitape",
+      "updatedAt": "2026-10-30"
+    },
+    {
       "recordId": "pulsar-modular-q-bit",
       "blockId": "product-review-pulsar-modular-q-bit",
       "publishedAt": "2026-10-30",
