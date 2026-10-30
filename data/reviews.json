@@ -11,7 +11,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-azazel-audio-visualcomp-2",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "illformed-glitch-2",
@@ -23,7 +23,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-illformed-glitch-2",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "moth-production-whirl-dt",
@@ -35,7 +35,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-moth-production-whirl-dt",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "steinberg-steinberg-classics-collection",
@@ -47,7 +47,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-steinberg-steinberg-classics-collection",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "u-he-zebralette-3",
@@ -59,7 +59,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-u-he-zebralette-3",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "slate-digital-complete-access-free-collection",
@@ -71,7 +71,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-slate-digital-complete-access-free-collection",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "air-music-technology-air-vocal-distortion",
@@ -83,7 +83,7 @@
       "startsAtDate": "2026-11-27",
       "endsAtDate": "2026-12-06",
       "href": "/go/link-air-music-technology-air-vocal-distortion",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "ujam-detunicorn",
@@ -95,7 +95,7 @@
       "startsAtDate": null,
       "endsAtDate": "2026-11-18",
       "href": "/go/link-ujam-detunicorn",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "gforce-software-axxess",
@@ -107,7 +107,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-gforce-software-axxess",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "gforce-software-m-tron-select-2",
@@ -119,7 +119,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-gforce-software-m-tron-select-2",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "d16-group-echolite",
@@ -131,7 +131,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-d16-group-echolite",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "the-crow-hill-company-100-year-old-piano",
@@ -143,7 +143,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-the-crow-hill-company-100-year-old-piano",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "hornet-plugins-filtersolo",
@@ -155,7 +155,7 @@
       "startsAtDate": null,
       "endsAtDate": "2026-10-31",
       "href": "/go/link-hornet-plugins-filtersolo",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "native-instruments-empire-breaks",
@@ -167,7 +167,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-native-instruments-empire-breaks",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
     },
     {
       "recordId": "scaler-music-scaler-detector",
@@ -179,7 +179,19 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-scaler-music-scaler-detector",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-10-30"
+    },
+    {
+      "recordId": "ujam-ufx-distort",
+      "blockId": "product-review-ujam-ufx-distort",
+      "publishedAt": "2026-10-30",
+      "verdict": "Fire",
+      "status": "Last Chance",
+      "productName": "UJAM - UFX Distort",
+      "startsAtDate": null,
+      "endsAtDate": "2026-10-31",
+      "href": "/go/link-ujam-ufx-distort",
+      "updatedAt": "2026-10-30"
     }
   ]
 }

@@ -262,5 +262,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-29T21:27:52.955Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ujam-ufx-distort",
+    "productId": "ujam-ufx-distort",
+    "programId": "ujam",
+    "destinationUrl": "https://www.ujam.com/campaigns/free-distortion/",
+    "fallbackUrl": "https://www.ujam.com/campaigns/free-distortion/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-30T12:38:44.848Z",
+    "allowFallback": true
   }
 ]
