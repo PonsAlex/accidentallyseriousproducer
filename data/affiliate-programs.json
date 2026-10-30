@@ -188,5 +188,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "pulsar-modular",
+    "name": "Pulsar Modular",
+    "homepage": "https://www.pulsarmodular.com/product/q-bit/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
