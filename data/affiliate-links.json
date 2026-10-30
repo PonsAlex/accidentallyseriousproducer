@@ -284,5 +284,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-30T13:29:01.462Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-pulsar-audio-digitape",
+    "productId": "pulsar-audio-digitape",
+    "programId": "pulsar-audio",
+    "destinationUrl": "https://pulsar.audio/digitape/",
+    "fallbackUrl": "https://pulsar.audio/digitape/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-10-30T22:11:50.764Z",
+    "allowFallback": true
   }
 ]
