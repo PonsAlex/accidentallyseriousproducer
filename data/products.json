@@ -262,5 +262,16 @@
     "status": "active",
     "createdAt": "2026-10-29T21:27:52.955Z",
     "updatedAt": "2026-10-29T21:27:52.955Z"
+  },
+  {
+    "id": "ujam-ufx-distort",
+    "slug": "ujam-ufx-distort",
+    "programId": "ujam",
+    "name": "UFX Distort",
+    "category": "plugin",
+    "description": "UFX Distort",
+    "status": "active",
+    "createdAt": "2026-10-30T12:38:44.848Z",
+    "updatedAt": "2026-10-30T12:38:44.848Z"
   }
 ]
