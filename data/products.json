@@ -328,5 +328,38 @@
     "status": "active",
     "createdAt": "2026-11-02T01:48:39.472Z",
     "updatedAt": "2026-11-02T01:48:39.472Z"
+  },
+  {
+    "id": "psp-audioware-classicqlite",
+    "slug": "psp-audioware-classicqlite",
+    "programId": "psp-audioware",
+    "name": "ClassicQlite",
+    "category": "plugin",
+    "description": "ClassicQlite",
+    "status": "active",
+    "createdAt": "2026-11-02T21:51:37.149Z",
+    "updatedAt": "2026-11-02T21:51:37.149Z"
+  },
+  {
+    "id": "flame-sound-vatrica",
+    "slug": "flame-sound-vatrica",
+    "programId": "flame-sound",
+    "name": "Vatrica",
+    "category": "plugin",
+    "description": "Vatrica",
+    "status": "active",
+    "createdAt": "2026-11-02T21:51:37.477Z",
+    "updatedAt": "2026-11-02T21:51:37.477Z"
+  },
+  {
+    "id": "thenatan-everything-bundle",
+    "slug": "thenatan-everything-bundle",
+    "programId": "thenatan",
+    "name": "Everything Bundle",
+    "category": "bundle",
+    "description": "All 46 Thenatan plugins",
+    "status": "active",
+    "createdAt": "2026-11-02T21:52:19.686Z",
+    "updatedAt": "2026-11-02T21:52:19.686Z"
   }
 ]

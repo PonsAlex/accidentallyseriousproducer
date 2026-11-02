@@ -216,7 +216,7 @@
   {
     "id": "flame-sound",
     "name": "Flame Sound",
-    "homepage": "https://flamesound.com/ujam/",
+    "homepage": "https://flamesound.com/vatrica/",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
@@ -225,6 +225,22 @@
     "id": "busy-works-beats",
     "name": "Busy Works Beats",
     "homepage": "https://busyworksbeats.com/softclipper",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "psp-audioware",
+    "name": "PSP Audioware",
+    "homepage": "https://www.pspaudioware.com/products/psp-classicqlite",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "thenatan",
+    "name": "Thenatan",
+    "homepage": "https://www.thenatan.store/",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"

@@ -16,5 +16,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-02T00:56:04.961Z",
     "updatedAt": "2026-11-02T00:58:25.263Z"
+  },
+  {
+    "id": "promo-thenatan-everything-black-friday-2026",
+    "productId": "thenatan-everything-bundle",
+    "affiliateLinkId": "link-thenatan-everything-bundle",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "Black Friday early access: all 46 plugins for $39, against $791.50 bought one by one.",
+    "startsAt": null,
+    "endsAt": "2026-11-19T23:59:59-03:00",
+    "promoPrice": 39,
+    "regularPrice": 791.5,
+    "currency": "USD",
+    "discountPercent": 95,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-02T21:52:19.686Z",
+    "updatedAt": "2026-11-02T21:52:19.686Z"
   }
 ]
