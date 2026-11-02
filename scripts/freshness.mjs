@@ -82,6 +82,41 @@ export function checkFreshness(state, now = new Date()) {
   return { today: todayIso(now), findings };
 }
 
+/**
+ * The same check, over the ledger — which is what the published pages are built
+ * from. `freshness` used to read the console state alone, and that file is a local
+ * artefact: it held three reviews from months earlier while eighteen were live.
+ *
+ * Ended offers are counted and left out of the findings, because the build now
+ * derives `Expired` for them on its own. What remains is the case no build can
+ * decide: an offer that has *opened* while its Status still promises it is coming.
+ */
+export function checkLedgerFreshness(reviews, now = new Date()) {
+  const findings = [];
+  let ended = 0;
+
+  for (const review of Array.isArray(reviews) ? reviews : []) {
+    const block = {
+      id: review?.blockId ?? review?.recordId,
+      type: "product-review",
+      content: {
+        reviewLabel: review?.status ?? "",
+        startsAtDate: review?.startsAtDate ?? null,
+        endsAtDate: review?.endsAtDate ?? null
+      }
+    };
+    const mismatch = detectMismatch(block, now);
+    if (!mismatch) continue;
+    if (mismatch.kind === MISMATCH_KINDS.ENDED) {
+      ended += 1;
+      continue;
+    }
+    findings.push({ blockId: block.id, status: review?.status ?? "", ...mismatch });
+  }
+
+  return { today: todayIso(now), findings, ended };
+}
+
 export function formatFreshnessReport({ today, findings }) {
   if (findings.length === 0) {
     return `Nenhuma divergência em ${today}: Status e calendário concordam.`;
@@ -101,19 +136,22 @@ export function formatFreshnessReport({ today, findings }) {
 const USAGE = `ASP freshness check: Status x calendar
 
 Usage:
+  node scripts/freshness.mjs --ledger <path> [--now <YYYY-MM-DD>] [--fail]
   node scripts/freshness.mjs --state <path> [--now <YYYY-MM-DD>] [--fail]
 
 Options:
-  --state <path>     Console state to inspect (required)
+  --ledger <path>    Review ledger of what is published (data/reviews.json)
+  --state <path>     Console state to inspect, when working before publication
   --now <date>       Pretend it is this date, for trying a future moment
   --fail             Exit 1 when a divergence exists, for CI
   --help             Show this message
 
 Read-only. It compares the Status an editor chose with the phase the offer dates
-imply, and reports where the page may be saying something that stopped being true.`;
+imply, and reports where the page may be saying something that stopped being true.
+Ended offers are not reported: the build derives Expired for those on its own.`;
 
 export function parseArgs(argv) {
-  const options = { state: null, now: null, fail: false, help: false };
+  const options = { state: null, ledger: null, now: null, fail: false, help: false };
 
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
@@ -122,6 +160,11 @@ export function parseArgs(argv) {
         index += 1;
         if (index >= argv.length) throw new Error("--state requires a path.");
         options.state = argv[index];
+        break;
+      case "--ledger":
+        index += 1;
+        if (index >= argv.length) throw new Error("--ledger requires a path.");
+        options.ledger = argv[index];
         break;
       case "--now":
         index += 1;
@@ -163,19 +206,30 @@ async function main() {
     return;
   }
 
-  if (!options.state) {
-    console.error("ERROR FRESHNESS: --state is required.");
+  if (!options.state && !options.ledger) {
+    console.error("ERROR FRESHNESS: --ledger or --state is required.");
     console.error(USAGE);
     process.exitCode = 1;
     return;
   }
 
-  const raw = JSON.parse(await readFile(path.resolve(rootDirectory, options.state), "utf8"));
-  const state = raw.state ?? raw;
   const now = options.now ? new Date(`${options.now}T12:00:00Z`) : new Date();
-  const report = checkFreshness(state, now);
+  let report;
+
+  if (options.ledger) {
+    const { reviews } = JSON.parse(
+      await readFile(path.resolve(rootDirectory, options.ledger), "utf8")
+    );
+    report = checkLedgerFreshness(reviews, now);
+  } else {
+    const raw = JSON.parse(await readFile(path.resolve(rootDirectory, options.state), "utf8"));
+    report = checkFreshness(raw.state ?? raw, now);
+  }
 
   console.log(formatFreshnessReport(report));
+  if (report.ended > 0) {
+    console.log(`\n${report.ended} oferta(s) vencida(s): o build já as marca como Expired.`);
+  }
   if (options.fail && report.findings.length > 0) {
     process.exitCode = 1;
   }

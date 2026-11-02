@@ -12,6 +12,7 @@ import {
   validateAffiliateData
 } from "./affiliate-validation.mjs";
 import { assertPublicCandidateBoundary } from "./public-boundary.mjs";
+import { applyExpiry } from "./expire-offers.mjs";
 import { buildDiscovery } from "./discovery.mjs";
 
 const rootDirectory = path.resolve(
@@ -101,6 +102,23 @@ async function main() {
       )
     )
   );
+
+  // Derived here, not remembered from the day the page was generated: an offer
+  // whose end date has passed loses its Status and its button in the built page.
+  const expiry = await applyExpiry({
+    directory: outputDirectory,
+    ledgerPath: path.join(rootDirectory, "data", "reviews.json")
+  });
+  if (expiry.patched.length > 0) {
+    console.log(
+      `Expiração: ${expiry.patched.length} oferta(s) marcada(s) como Expired — ${expiry.patched.join(", ")}.`
+    );
+  }
+  if (expiry.pending.length > 0) {
+    console.warn(
+      `WARN ${expiry.pending.length} oferta(s) vencida(s) sem página publicada: ${expiry.pending.join(", ")}.`
+    );
+  }
 
   // The archive index, feed, sitemap and robots are derived from the pages just
   // copied, so a published post cannot be missing from them.
