@@ -366,11 +366,11 @@
     "id": "link-plugin-boutique-reaktor-prism",
     "productId": "plugin-boutique-reaktor-prism",
     "programId": "plugin-boutique",
-    "destinationUrl": "https://www.pluginboutique.com/product/1-Instruments/4-Synth/12391-Reaktor-Prism?a_aid=5241029371df1",
-    "fallbackUrl": "https://www.pluginboutique.com/product/1-Instruments/4-Synth/12391-Reaktor-Prism",
+    "destinationUrl": "https://www.pluginboutique.com/product/1-Instruments/31-Synth-Presets/15381-Melodic-Club-Tech-for-Serum-2?a_aid=5241029371df1",
+    "fallbackUrl": "https://www.pluginboutique.com/product/1-Instruments/31-Synth-Presets/15381-Melodic-Club-Tech-for-Serum-2",
     "status": "active",
     "requiresReview": false,
-    "lastVerifiedAt": "2026-11-02T22:28:50.430Z",
+    "lastVerifiedAt": "2026-11-02T22:41:14.215Z",
     "allowFallback": true
   }
 ]

@@ -41,7 +41,7 @@
     "affiliateLinkId": "link-plugin-boutique-reaktor-prism",
     "publicationStatus": "published",
     "requiresReview": false,
-    "headline": "Free with any paid purchase: choose Prism, Evolve Elastic Lite or ReSing SE. Ends 5 November.",
+    "headline": "Free with any purchase from $2 — add the $2 Serum pack and choose Prism at checkout. Ends 5 November.",
     "startsAt": null,
     "endsAt": "2026-11-05T23:59:59-03:00",
     "promoPrice": 0,
@@ -51,6 +51,6 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-02T22:28:50.430Z",
-    "updatedAt": "2026-11-02T22:28:50.430Z"
+    "updatedAt": "2026-11-02T22:41:14.215Z"
   }
 ]
