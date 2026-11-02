@@ -111,7 +111,7 @@ async function main() {
   });
   if (expiry.patched.length > 0) {
     console.log(
-      `Expiração: ${expiry.patched.length} oferta(s) marcada(s) como Expired — ${expiry.patched.join(", ")}.`
+      `Expiração: ${expiry.patched.length} oferta(s) marcada(s) como encerrada(s) — ${expiry.patched.join(", ")}.`
     );
   }
   if (expiry.pending.length > 0) {

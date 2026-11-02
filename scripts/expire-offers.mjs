@@ -42,10 +42,12 @@ export function expiredRecords(reviews, now = new Date()) {
 
 const SECTION_PATTERN = /<section class="product-review">[\s\S]*?<\/section>/g;
 
+export const ENDED_LABEL = "Offer ended";
+
 /**
  * Rewrite one rendered review section so it reads as ended. Mirrors what
  * `renderReviewSection` emits for an ended offer: the Status is replaced rather
- * than joined by "Expired", and the call to action becomes a comment.
+ * than joined by the ended label, and the call to action becomes a comment.
  */
 export function patchSection(section, review, now = new Date()) {
   const label = offerWindowLabel(
@@ -56,7 +58,7 @@ export function patchSection(section, review, now = new Date()) {
   let patched = section
     .replace(
       /<div class="status-badge[^"]*">[^<]*<\/div>/,
-      '<div class="status-badge expired">Expired</div>'
+      `<div class="status-badge expired">${ENDED_LABEL}</div>`
     )
     .replace(/<p class="offer-window">[^<]*<\/p>/, `<p class="offer-window">${escapeHtml(label)}</p>`)
     .replace(
@@ -230,7 +232,7 @@ async function main() {
   }
 
   if (result.patched.length > 0) {
-    console.log(`Expiração: ${result.patched.length} oferta(s) marcada(s) como Expired — ${result.patched.join(", ")}.`);
+    console.log(`Expiração: ${result.patched.length} oferta(s) marcada(s) como encerrada(s) — ${result.patched.join(", ")}.`);
   } else {
     console.log("Expiração: nada a fazer.");
   }
