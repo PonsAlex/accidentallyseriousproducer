@@ -212,5 +212,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "flame-sound",
+    "name": "Flame Sound",
+    "homepage": "https://flamesound.com/ujam/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "busy-works-beats",
+    "name": "Busy Works Beats",
+    "homepage": "https://busyworksbeats.com/softclipper",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
