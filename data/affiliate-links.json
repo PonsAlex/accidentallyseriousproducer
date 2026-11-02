@@ -328,5 +328,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-02T01:48:39.472Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-psp-audioware-classicqlite",
+    "productId": "psp-audioware-classicqlite",
+    "programId": "psp-audioware",
+    "destinationUrl": "https://www.pspaudioware.com/products/psp-classicqlite",
+    "fallbackUrl": "https://www.pspaudioware.com/products/psp-classicqlite",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-02T21:51:37.149Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-flame-sound-vatrica",
+    "productId": "flame-sound-vatrica",
+    "programId": "flame-sound",
+    "destinationUrl": "https://flamesound.com/vatrica/",
+    "fallbackUrl": "https://flamesound.com/vatrica/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-02T21:51:37.477Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-thenatan-everything-bundle",
+    "productId": "thenatan-everything-bundle",
+    "programId": "thenatan",
+    "destinationUrl": "https://www.thenatan.store/shop/",
+    "fallbackUrl": "https://www.thenatan.store/shop/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-02T21:52:19.686Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-plugin-boutique-reaktor-prism",
+    "productId": "plugin-boutique-reaktor-prism",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/product/1-Instruments/31-Synth-Presets/15381-Melodic-Club-Tech-for-Serum-2?a_aid=5241029371df1",
+    "fallbackUrl": "https://www.pluginboutique.com/product/1-Instruments/31-Synth-Presets/15381-Melodic-Club-Tech-for-Serum-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-02T22:41:14.215Z",
+    "allowFallback": true
   }
 ]

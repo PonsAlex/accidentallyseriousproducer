@@ -227,7 +227,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-busy-works-beats-soft-clipper-3000",
-      "updatedAt": "2026-11-01"
+      "updatedAt": "2026-11-02"
     },
     {
       "recordId": "flame-sound-pyro",
@@ -239,7 +239,31 @@
       "startsAtDate": null,
       "endsAtDate": "2026-11-30",
       "href": "/go/link-flame-sound-pyro",
-      "updatedAt": "2026-11-01"
+      "updatedAt": "2026-11-02"
+    },
+    {
+      "recordId": "flame-sound-vatrica",
+      "blockId": "product-review-flame-sound-vatrica",
+      "publishedAt": "2026-11-02",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Flame Sound - Vatrica",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-flame-sound-vatrica",
+      "updatedAt": "2026-11-02"
+    },
+    {
+      "recordId": "psp-audioware-classicqlite",
+      "blockId": "product-review-psp-audioware-classicqlite",
+      "publishedAt": "2026-11-02",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "PSP Audioware - ClassicQlite",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-psp-audioware-classicqlite",
+      "updatedAt": "2026-11-02"
     }
   ]
 }
