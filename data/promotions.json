@@ -34,5 +34,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-02T21:52:19.686Z",
     "updatedAt": "2026-11-02T21:52:19.686Z"
+  },
+  {
+    "id": "promo-plugin-boutique-november-gifts-2026",
+    "productId": "plugin-boutique-reaktor-prism",
+    "affiliateLinkId": "link-plugin-boutique-reaktor-prism",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "Free with any paid purchase: choose Prism, Evolve Elastic Lite or ReSing SE. Ends 5 November.",
+    "startsAt": null,
+    "endsAt": "2026-11-05T23:59:59-03:00",
+    "promoPrice": 0,
+    "regularPrice": 69,
+    "currency": "USD",
+    "discountPercent": 100,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-02T22:28:50.430Z",
+    "updatedAt": "2026-11-02T22:28:50.430Z"
   }
 ]

@@ -361,5 +361,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-02T21:52:19.686Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-plugin-boutique-reaktor-prism",
+    "productId": "plugin-boutique-reaktor-prism",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/product/1-Instruments/4-Synth/12391-Reaktor-Prism?a_aid=5241029371df1",
+    "fallbackUrl": "https://www.pluginboutique.com/product/1-Instruments/4-Synth/12391-Reaktor-Prism",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-02T22:28:50.430Z",
+    "allowFallback": true
   }
 ]
