@@ -216,6 +216,18 @@
       "endsAtDate": "2026-10-31",
       "href": "/go/link-ujam-ufx-distort",
       "updatedAt": "2026-10-30"
+    },
+    {
+      "recordId": "flame-sound-pyro",
+      "blockId": "product-review-flame-sound-pyro",
+      "publishedAt": "2026-11-01",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Flame Sound - Pyro",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-flame-sound-pyro",
+      "updatedAt": "2026-11-01"
     }
   ]
 }
