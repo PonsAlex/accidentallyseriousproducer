@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "promo-waveform-pro-halloween-2026",
+    "productId": "tracktion-waveform-pro",
+    "affiliateLinkId": "link-tracktion-waveform-pro",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "Waveform 14.1 adds plugin building and mix analysis; the whole site is 40% off through 6 November.",
+    "startsAt": null,
+    "endsAt": "2026-11-06T23:59:59-03:00",
+    "promoPrice": 149,
+    "regularPrice": 249,
+    "currency": "USD",
+    "discountPercent": 40,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-02T00:56:04.961Z",
+    "updatedAt": "2026-11-02T00:58:25.263Z"
+  }
+]

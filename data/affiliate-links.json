@@ -295,5 +295,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-10-30T22:11:50.764Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-tracktion-waveform-pro",
+    "productId": "tracktion-waveform-pro",
+    "programId": "tracktion",
+    "destinationUrl": "https://www.tracktion.com/products/waveform-pro-buy",
+    "fallbackUrl": "https://www.tracktion.com/products/waveform-pro",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-02T00:56:04.961Z",
+    "allowFallback": true
   }
 ]
