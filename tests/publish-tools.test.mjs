@@ -287,8 +287,8 @@ test("an expired offer keeps its place and loses its button", () => {
     now: new Date("2026-11-19T12:00:00Z")
   });
 
-  // "Expired" replaces the Status: a page cannot say Free and Expired at once.
-  assert.match(html, /<div class="status-badge expired">Expired<\/div>/);
+  // "Offer ended" replaces the Status: a page cannot say Free and ended at once.
+  assert.match(html, /<div class="status-badge expired">Offer ended<\/div>/);
   assert.equal(html.includes('class="status-badge free"'), false);
   // A dead "Get it free" is worse than no button.
   assert.equal(html.includes("cta-button"), false);

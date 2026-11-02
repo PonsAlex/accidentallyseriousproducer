@@ -217,11 +217,12 @@ function renderReviewSection(block, now = new Date()) {
   const phase = offerPhase(window, now);
   const expired = phase === OFFER_PHASES.ENDED;
 
-  // "Expired" replaces the Status rather than sitting beside it: a page that says
-  // "Free" and "Expired" at once is telling the reader two different things.
+  // "Offer ended" replaces the Status rather than sitting beside it: a page that
+  // says "Free" and "Offer ended" at once is telling the reader two things. The
+  // wording is factual on purpose — the date does the work, not the exclamation.
   const status = content.reviewLabel || metadata.editorialStatus;
   if (expired) {
-    lines.push(`          <div class="status-badge expired">Expired</div>`);
+    lines.push(`          <div class="status-badge expired">Offer ended</div>`);
   } else if (status) {
     const known = EDITORIAL_STATUSES.find((entry) => entry.toLowerCase() === String(status).toLowerCase());
     lines.push(

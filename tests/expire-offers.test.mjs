@@ -61,7 +61,7 @@ test("the section loses its Status, its window and its button", () => {
   const now = new Date("2026-11-01T12:00:00");
   const patched = patchSection(section(), review({ endsAtDate: "2026-10-31" }), now);
 
-  assert.match(patched, /<div class="status-badge expired">Expired<\/div>/);
+  assert.match(patched, /<div class="status-badge expired">Offer ended<\/div>/);
   assert.match(patched, /<p class="offer-window">Ended 31 October 2026<\/p>/);
   assert.equal(patched.includes('class="cta-button"'), false);
   assert.match(patched, /<!-- Offer expired: no call to action is emitted\. -->/);
@@ -108,7 +108,7 @@ test("an offer that never appeared in an article is not silently ignored", () =>
 
   assert.deepEqual(result.patched, []);
   // The caller decides what to do; this function simply reports nothing matched.
-  assert.equal(result.html.includes("Expired"), false);
+  assert.equal(result.html.includes("Offer ended"), false);
 });
 
 test("a product name with an ampersand still matches its escaped heading", () => {
