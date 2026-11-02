@@ -295,5 +295,16 @@
     "status": "active",
     "createdAt": "2026-10-30T22:11:50.764Z",
     "updatedAt": "2026-10-30T22:11:50.764Z"
+  },
+  {
+    "id": "tracktion-waveform-pro",
+    "slug": "tracktion-waveform-pro",
+    "programId": "tracktion",
+    "name": "Waveform Pro",
+    "category": "other",
+    "description": "Waveform Pro 14.1",
+    "status": "active",
+    "createdAt": "2026-11-02T00:56:04.961Z",
+    "updatedAt": "2026-11-02T00:56:04.961Z"
   }
 ]

@@ -19,6 +19,7 @@ import {
   loadPublicComponentTemplates,
   PUBLIC_COMPONENT_BLOCK_IDS
 } from "../assets/public-component-templates.mjs";
+import { isPromotionPublic } from "../assets/affiliate-core.mjs";
 
 const products = [
   { id: "published-product", name: "Published Product", description: "Existing product." },
@@ -30,21 +31,45 @@ const promotions = [
   { id: "draft-promotion", productId: "draft-product", publicationStatus: "draft", requiresReview: true }
 ];
 
-test("initial blocks use the public ASP catalog and never seed the review-required Waves offer", async () => {
+test("initial blocks seed a deal only for a promotion the public catalogue allows", () => {
+  // The fixture above carries one published promotion and one the editor has not
+  // approved. Only the first may become a block.
+  const state = createInitialEditorialState({ products, promotions });
+  const dealIds = state.blocks
+    .filter((block) => block.type === "deal")
+    .map((block) => block.content.promotionId)
+    .sort();
+
+  assert.deepEqual(dealIds, ["published-promotion"]);
+});
+
+test("the published catalogue seeds exactly its public promotions, and no review-required one", async () => {
   const [publicProducts, publicPromotions] = await Promise.all([
     readFile(new URL("../data/products.json", import.meta.url), "utf8"),
     readFile(new URL("../data/promotions.json", import.meta.url), "utf8")
   ]);
+  const catalog = JSON.parse(publicPromotions);
   const state = createInitialEditorialState({
     products: JSON.parse(publicProducts),
-    promotions: JSON.parse(publicPromotions)
+    promotions: catalog
   });
   const dealIds = state.blocks
     .filter((block) => block.type === "deal")
     .map((block) => block.content.promotionId)
     .sort();
 
-  assert.deepEqual(dealIds, []);
+  // Whatever the catalogue holds today, the blocks must match it — no more, and
+  // never a promotion still waiting for review.
+  const expected = catalog
+    .filter((promotion) => isPromotionPublic(promotion))
+    .map((promotion) => promotion.id)
+    .sort();
+  assert.deepEqual(dealIds, expected);
+
+  for (const id of dealIds) {
+    const promotion = catalog.find((entry) => entry.id === id);
+    assert.notEqual(promotion.requiresReview, true, `${id} is waiting for review`);
+  }
 });
 
 test("initial content blocks represent existing ASP component types and omit unapproved promotions", () => {
