@@ -317,5 +317,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-02T01:34:08.340Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-busy-works-beats-soft-clipper-3000",
+    "productId": "busy-works-beats-soft-clipper-3000",
+    "programId": "busy-works-beats",
+    "destinationUrl": "https://busyworksbeats.com/softclipper",
+    "fallbackUrl": "https://busyworksbeats.com/softclipper",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-02T01:48:39.472Z",
+    "allowFallback": true
   }
 ]

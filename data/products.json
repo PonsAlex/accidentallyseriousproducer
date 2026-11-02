@@ -317,5 +317,16 @@
     "status": "active",
     "createdAt": "2026-11-02T01:34:08.340Z",
     "updatedAt": "2026-11-02T01:34:08.340Z"
+  },
+  {
+    "id": "busy-works-beats-soft-clipper-3000",
+    "slug": "busy-works-beats-soft-clipper-3000",
+    "programId": "busy-works-beats",
+    "name": "Soft Clipper 3000",
+    "category": "plugin",
+    "description": "Soft Clipper 3000",
+    "status": "active",
+    "createdAt": "2026-11-02T01:48:39.472Z",
+    "updatedAt": "2026-11-02T01:48:39.472Z"
   }
 ]
