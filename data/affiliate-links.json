@@ -372,5 +372,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-02T22:41:14.215Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-baby-audio-crystalline",
+    "productId": "baby-audio-crystalline",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/products/8900-Crystalline?a_aid=5241029371df1",
+    "fallbackUrl": "https://www.pluginboutique.com/products/8900-Crystalline",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T13:03:04.102Z",
+    "allowFallback": true
   }
 ]
