@@ -59,6 +59,22 @@ Verdict and Status are independent.
 Automation may validate facts and status conditions, but it may not assign the
 final Verdict.
 
+### Publishing cadence
+
+Findings accumulate; they are not published one at a time. A single item per pull
+request means a merge in the middle of a batch leaves the rest orphaned, and it
+asks a reader to return for one paragraph.
+
+- **Weekly cut.** One batch per week, prepared and opened as a single pull request.
+- **Volume escape.** Five verified items before the week is out is reason enough to
+  cut early rather than sit on the fifth.
+- **Event override.** Something extraordinary — a launch, a Black Friday avalanche,
+  an offer that dies within days — ships when it happens, not on the calendar.
+
+Regeneration is idempotent: `article:generate` run again with six reviews instead
+of four produces the same page, larger. Accumulating therefore costs nothing but
+patience.
+
 ## Repository structure
 
 ```text
