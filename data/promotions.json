@@ -52,5 +52,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-02T22:28:50.430Z",
     "updatedAt": "2026-11-02T22:41:14.215Z"
+  },
+  {
+    "id": "promo-baby-audio-crystalline-2026",
+    "productId": "baby-audio-crystalline",
+    "affiliateLinkId": "link-baby-audio-crystalline",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "Baby Audio's Crystalline at $5 instead of $99 until 9 December. Buy before 5 November and the free Reaktor Prism comes with it.",
+    "startsAt": null,
+    "endsAt": "2026-12-09T23:59:59-03:00",
+    "promoPrice": 5,
+    "regularPrice": 99,
+    "currency": "USD",
+    "discountPercent": 94,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-03T13:03:04.102Z",
+    "updatedAt": "2026-11-03T13:47:22.745Z"
   }
 ]
