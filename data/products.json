@@ -416,5 +416,16 @@
     "status": "active",
     "createdAt": "2026-11-03T22:16:48.980Z",
     "updatedAt": "2026-11-03T22:16:48.980Z"
+  },
+  {
+    "id": "riverflux-audio-bit-layer",
+    "slug": "riverflux-audio-bit-layer",
+    "programId": "riverflux-audio",
+    "name": "BIT LAYER",
+    "category": "plugin",
+    "description": "BIT LAYER",
+    "status": "active",
+    "createdAt": "2026-11-03T23:00:34.662Z",
+    "updatedAt": "2026-11-03T23:00:34.662Z"
   }
 ]

@@ -416,5 +416,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-03T22:16:48.980Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-bit-layer",
+    "productId": "riverflux-audio-bit-layer",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/BITLAYER",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/BITLAYER",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:00:34.662Z",
+    "allowFallback": true
   }
 ]

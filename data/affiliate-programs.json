@@ -268,5 +268,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "riverflux-audio",
+    "name": "RiverFlux Audio",
+    "homepage": "https://riverfluxaudio.gumroad.com/l/BITLAYER",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
