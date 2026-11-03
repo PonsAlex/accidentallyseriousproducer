@@ -383,5 +383,38 @@
     "status": "active",
     "createdAt": "2026-11-03T13:03:04.102Z",
     "updatedAt": "2026-11-03T13:03:04.102Z"
+  },
+  {
+    "id": "black-salt-audio-low-control",
+    "slug": "black-salt-audio-low-control",
+    "programId": "black-salt-audio",
+    "name": "Low Control",
+    "category": "plugin",
+    "description": "Low Control",
+    "status": "active",
+    "createdAt": "2026-11-03T22:16:48.746Z",
+    "updatedAt": "2026-11-03T22:16:48.746Z"
+  },
+  {
+    "id": "karanyi-sounds-brigade",
+    "slug": "karanyi-sounds-brigade",
+    "programId": "karanyi-sounds",
+    "name": "Brigade",
+    "category": "plugin",
+    "description": "Brigade",
+    "status": "active",
+    "createdAt": "2026-11-03T22:16:48.871Z",
+    "updatedAt": "2026-11-03T22:16:48.871Z"
+  },
+  {
+    "id": "ffosso-ffosso",
+    "slug": "ffosso-ffosso",
+    "programId": "ffosso",
+    "name": "FFOSSO",
+    "category": "other",
+    "description": "FFOSSO",
+    "status": "active",
+    "createdAt": "2026-11-03T22:16:48.980Z",
+    "updatedAt": "2026-11-03T22:16:48.980Z"
   }
 ]

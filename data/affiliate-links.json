@@ -383,5 +383,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-03T13:03:04.102Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-black-salt-audio-low-control",
+    "productId": "black-salt-audio-low-control",
+    "programId": "black-salt-audio",
+    "destinationUrl": "https://blacksaltaudio.com/free/",
+    "fallbackUrl": "https://blacksaltaudio.com/free/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T22:16:48.746Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-karanyi-sounds-brigade",
+    "productId": "karanyi-sounds-brigade",
+    "programId": "karanyi-sounds",
+    "destinationUrl": "https://karanyisounds.com/pages/brigade",
+    "fallbackUrl": "https://karanyisounds.com/pages/brigade",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T22:16:48.871Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-ffosso-ffosso",
+    "productId": "ffosso-ffosso",
+    "programId": "ffosso",
+    "destinationUrl": "https://www.ffosso.com/",
+    "fallbackUrl": "https://www.ffosso.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T22:16:48.980Z",
+    "allowFallback": true
   }
 ]
