@@ -427,5 +427,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-03T23:00:34.662Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-relic",
+    "productId": "riverflux-audio-relic",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/relic",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/relic",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:12:53.927Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-echo-layer",
+    "productId": "riverflux-audio-echo-layer",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/ECHOLAYER",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/ECHOLAYER",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:12:54.064Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-phixer",
+    "productId": "riverflux-audio-phixer",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/phixer",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/phixer",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:12:54.193Z",
+    "allowFallback": true
   }
 ]
