@@ -67,6 +67,9 @@ site that publishes late reads as late no matter how good the writing is.
 
 - **Daily cut at 20:00 BRT.** Whatever is ready goes up. Nothing is held back for a
   larger batch.
+- **Furo.** A finding nobody else has published yet ships the moment it is verified,
+  not at 20:00. A scoop is worth more in the first hour than in the second day, and
+  a deferred one is not a scoop at all — it is the same news, later.
 - **Event override.** Something extraordinary — a launch, an offer that dies within
   hours — ships when it happens, not at 20:00.
 

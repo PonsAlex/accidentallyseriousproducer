@@ -109,7 +109,10 @@ export function badgeClass(label) {
 
 function verdictClass(verdict) {
   const known = EDITORIAL_VERDICTS.find((entry) => entry.toLowerCase() === String(verdict).toLowerCase());
-  return badgeClass(known ?? verdict);
+  const slug = badgeClass(known ?? verdict);
+  // "???" is all punctuation, so badgeClass strips it to nothing. Name the class
+  // after what the verdict means rather than leaving an empty one.
+  return slug === "" ? "unknown" : slug;
 }
 
 /**

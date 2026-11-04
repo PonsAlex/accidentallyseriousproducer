@@ -39,7 +39,12 @@ export const EDITORIAL_VERDICTS = Object.freeze([
   "Fire",
   "Stash",
   "Digital Furniture",
-  "Nah"
+  "Nah",
+  // Not a judgement, an admission. The radar may publish something whose name is
+  // not public yet — Waves announces a plugin and reveals it later — and calling
+  // that Fire or Stash would be inventing an opinion about a product nobody has
+  // seen. "???" says so, and says it loudly.
+  "???"
 ]);
 
 export const EDITORIAL_STAGE_ORDER = Object.freeze([

@@ -21,7 +21,8 @@ const VERDICT_LABELS = Object.freeze({
   fire: "Fire",
   stash: "Stash",
   "digital-furniture": "Digital Furniture",
-  nah: "Nah"
+  nah: "Nah",
+  unknown: "???"
 });
 
 /** Static pages that belong in the sitemap, in the order they matter. */

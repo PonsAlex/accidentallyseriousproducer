@@ -79,6 +79,7 @@ export const STAGE_CHECKLISTS = {
         "Stash",
         "Digital Furniture",
         "Nah",
+        "???",
         "Sem Verdict"
       ]
     }

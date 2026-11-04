@@ -424,6 +424,14 @@ h3 {
   color: #c07d76;
 }
 
+/* "???" is not a judgement, so it does not get a filled pill like Fire. An
+   outlined one says the opposite of settled. */
+.product-review .verdict-badge.unknown {
+  background: transparent;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+}
+
 .featured-deck {
   margin-bottom: 1.4rem;
   font-size: 1.25rem;

@@ -232,7 +232,7 @@ test("an incomplete deal contains no invented offer facts and remains unpublishe
 });
 
 test("Verdict and Status keep the README taxonomies and remain independent of advancement", () => {
-  assert.deepEqual(EDITORIAL_VERDICTS, ["Fire", "Stash", "Digital Furniture", "Nah"]);
+  assert.deepEqual(EDITORIAL_VERDICTS, ["Fire", "Stash", "Digital Furniture", "Nah", "???"]);
   assert.deepEqual(
     EDITORIAL_STATUSES.filter(Boolean),
     ["Breaking", "New Release", "Free", "Call an Ambulance", "Last Chance", "Updated"]

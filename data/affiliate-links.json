@@ -460,5 +460,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-03T23:12:54.193Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-waves-unannounced-plugin",
+    "productId": "waves-unannounced-plugin",
+    "programId": "waves",
+    "destinationUrl": "https://www.waves.com/black-friday-2026/free-plugin-signup",
+    "fallbackUrl": "https://www.waves.com/black-friday-2026/free-plugin-signup",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-04T13:33:51.028Z",
+    "allowFallback": true
   }
 ]

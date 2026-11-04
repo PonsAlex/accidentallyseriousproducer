@@ -65,6 +65,7 @@ const VERDICT_CRITERIA = Object.freeze({
   Stash: "Claim it for later. Useful, but not needed right now.",
   "Digital Furniture": "Works, but mostly occupies space.",
   Nah: "Skip the hassle. Not worth the download or the money.",
+  "???": "The product is not public yet — publish the offer, not an opinion about it.",
   [JEV_UNDETERMINED]:
     "The supplied material is not enough to place a verdict, or placing a verdict is not the machine's decision."
 });
