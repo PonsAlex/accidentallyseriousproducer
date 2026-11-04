@@ -314,6 +314,18 @@
       "updatedAt": "2026-11-04"
     },
     {
+      "recordId": "glitch-state-lab-glitch-drive",
+      "blockId": "product-review-glitch-state-lab-glitch-drive",
+      "publishedAt": "2026-11-04",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Glitch State Lab - Glitch Drive",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-glitch-state-lab-glitch-drive",
+      "updatedAt": "2026-11-04"
+    },
+    {
       "recordId": "karanyi-sounds-brigade",
       "blockId": "product-review-karanyi-sounds-brigade",
       "publishedAt": "2026-11-04",
