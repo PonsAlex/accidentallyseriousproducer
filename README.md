@@ -61,19 +61,18 @@ final Verdict.
 
 ### Publishing cadence
 
-Findings accumulate; they are not published one at a time. A single item per pull
-request means a merge in the middle of a batch leaves the rest orphaned, and it
-asks a reader to return for one paragraph.
+Findings accumulate briefly, then ship — every day, not every week. A weekly cut
+means the radar arrives carrying news that has been everywhere else for days, and a
+site that publishes late reads as late no matter how good the writing is.
 
-- **Weekly cut.** One batch per week, prepared and opened as a single pull request.
-- **Volume escape.** Five verified items before the week is out is reason enough to
-  cut early rather than sit on the fifth.
-- **Event override.** Something extraordinary — a launch, a Black Friday avalanche,
-  an offer that dies within days — ships when it happens, not on the calendar.
+- **Daily cut at 20:00 BRT.** Whatever is ready goes up. Nothing is held back for a
+  larger batch.
+- **Event override.** Something extraordinary — a launch, an offer that dies within
+  hours — ships when it happens, not at 20:00.
 
 Regeneration is idempotent: `article:generate` run again with six reviews instead
-of four produces the same page, larger. Accumulating therefore costs nothing but
-patience.
+of four produces the same page, larger. Adding a finding to a page that is already
+live costs one regeneration, which is what makes a daily rhythm affordable.
 
 ## Repository structure
 
