@@ -266,6 +266,18 @@
       "updatedAt": "2026-11-04"
     },
     {
+      "recordId": "audio-spices-free-spice",
+      "blockId": "product-review-audio-spices-free-spice",
+      "publishedAt": "2026-11-04",
+      "verdict": "???",
+      "status": "Breaking",
+      "productName": "Audio Spices - Unannounced spice",
+      "startsAtDate": "2026-11-27",
+      "endsAtDate": "2026-11-27",
+      "href": "/go/link-audio-spices-unannounced-spice",
+      "updatedAt": "2026-11-04"
+    },
+    {
       "recordId": "black-salt-audio-low-control",
       "blockId": "product-review-black-salt-audio-low-control",
       "publishedAt": "2026-11-04",
@@ -275,6 +287,18 @@
       "startsAtDate": null,
       "endsAtDate": "2026-11-12",
       "href": "/go/link-black-salt-audio-low-control",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "expetri",
+      "blockId": "product-review-expetri",
+      "publishedAt": "2026-11-04",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Expetri",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-expetri-expetri",
       "updatedAt": "2026-11-04"
     },
     {
@@ -359,6 +383,18 @@
       "startsAtDate": "2026-11-27",
       "endsAtDate": null,
       "href": "/go/link-waves-unannounced-plugin",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "ysia-bubblegum",
+      "blockId": "product-review-ysia-bubblegum",
+      "publishedAt": "2026-11-04",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "ysia - bubblegum",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-ysia-bubblegum",
       "updatedAt": "2026-11-04"
     }
   ]

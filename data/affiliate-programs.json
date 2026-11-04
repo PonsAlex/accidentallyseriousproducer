@@ -284,5 +284,45 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "ysia",
+    "name": "ysia",
+    "homepage": "https://ysia.world/bubblegum/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "expetri",
+    "name": "Expetri",
+    "homepage": "https://expetri.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "glitch-state-lab",
+    "name": "Glitch State Lab",
+    "homepage": "https://pluginomat.com/product/glitch-drive-by-glitch-state-lab/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "audio-spices",
+    "name": "Audio Spices",
+    "homepage": "https://audio-spices.com/free-spice",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "samplescience",
+    "name": "SampleScience",
+    "homepage": "https://samplescience.gumroad.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

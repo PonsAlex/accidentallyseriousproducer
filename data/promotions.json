@@ -70,5 +70,27 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-03T13:03:04.102Z",
     "updatedAt": "2026-11-03T13:47:22.745Z"
+  },
+  {
+    "id": "promo-samplescience-majestic-celesta-2026",
+    "productId": "samplescience-majestic-celesta",
+    "affiliateLinkId": "link-samplescience-majestic-celesta",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "$30 down to $15 for 48 hours, and the developer promises it will not be this cheap again this year.",
+    "startsAt": null,
+    "endsAt": "2026-11-06T23:59:59-03:00",
+    "promoPrice": 15,
+    "regularPrice": 30,
+    "currency": "USD",
+    "discountPercent": 50,
+    "couponCode": "bellpiano",
+    "couponScope": "vendor-wide",
+    "couponOwner": "SampleScience",
+    "couponPublishable": true,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-04T18:03:51.726Z",
+    "updatedAt": "2026-11-04T18:03:51.726Z"
   }
 ]
