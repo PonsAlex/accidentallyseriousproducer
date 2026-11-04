@@ -471,5 +471,60 @@
     "status": "active",
     "createdAt": "2026-11-04T13:33:51.028Z",
     "updatedAt": "2026-11-04T13:33:51.028Z"
+  },
+  {
+    "id": "ysia-bubblegum",
+    "slug": "ysia-bubblegum",
+    "programId": "ysia",
+    "name": "bubblegum",
+    "category": "plugin",
+    "description": "bubblegum",
+    "status": "active",
+    "createdAt": "2026-11-04T18:02:50.457Z",
+    "updatedAt": "2026-11-04T18:02:50.457Z"
+  },
+  {
+    "id": "expetri-expetri",
+    "slug": "expetri-expetri",
+    "programId": "expetri",
+    "name": "Expetri",
+    "category": "plugin",
+    "description": "Expetri",
+    "status": "active",
+    "createdAt": "2026-11-04T18:02:50.574Z",
+    "updatedAt": "2026-11-04T18:02:50.574Z"
+  },
+  {
+    "id": "glitch-state-lab-glitch-drive",
+    "slug": "glitch-state-lab-glitch-drive",
+    "programId": "glitch-state-lab",
+    "name": "Glitch Drive",
+    "category": "plugin",
+    "description": "Glitch Drive",
+    "status": "active",
+    "createdAt": "2026-11-04T18:02:50.704Z",
+    "updatedAt": "2026-11-04T18:02:50.704Z"
+  },
+  {
+    "id": "audio-spices-unannounced-spice",
+    "slug": "audio-spices-unannounced-spice",
+    "programId": "audio-spices",
+    "name": "Unannounced spice",
+    "category": "plugin",
+    "description": "Unannounced spice",
+    "status": "active",
+    "createdAt": "2026-11-04T18:02:50.831Z",
+    "updatedAt": "2026-11-04T18:02:50.831Z"
+  },
+  {
+    "id": "samplescience-majestic-celesta",
+    "slug": "samplescience-majestic-celesta",
+    "programId": "samplescience",
+    "name": "Majestic Celesta",
+    "category": "plugin",
+    "description": "SampleScience Majestic Celesta",
+    "status": "active",
+    "createdAt": "2026-11-04T18:03:51.726Z",
+    "updatedAt": "2026-11-04T18:03:51.726Z"
   }
 ]

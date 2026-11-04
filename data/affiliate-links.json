@@ -471,5 +471,60 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-04T13:33:51.028Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ysia-bubblegum",
+    "productId": "ysia-bubblegum",
+    "programId": "ysia",
+    "destinationUrl": "https://ysia.world/bubblegum/",
+    "fallbackUrl": "https://ysia.world/bubblegum/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-04T18:02:50.457Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-expetri-expetri",
+    "productId": "expetri-expetri",
+    "programId": "expetri",
+    "destinationUrl": "https://expetri.com/",
+    "fallbackUrl": "https://expetri.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-04T18:02:50.574Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-glitch-state-lab-glitch-drive",
+    "productId": "glitch-state-lab-glitch-drive",
+    "programId": "glitch-state-lab",
+    "destinationUrl": "https://pluginomat.com/product/glitch-drive-by-glitch-state-lab/",
+    "fallbackUrl": "https://pluginomat.com/product/glitch-drive-by-glitch-state-lab/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-04T18:02:50.704Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-audio-spices-unannounced-spice",
+    "productId": "audio-spices-unannounced-spice",
+    "programId": "audio-spices",
+    "destinationUrl": "https://audio-spices.com/free-spice",
+    "fallbackUrl": "https://audio-spices.com/free-spice",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-04T18:02:50.831Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-samplescience-majestic-celesta",
+    "productId": "samplescience-majestic-celesta",
+    "programId": "samplescience",
+    "destinationUrl": "https://samplescience.gumroad.com/l/majesticcelesta/bellpiano",
+    "fallbackUrl": "https://samplescience.gumroad.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-04T18:03:51.726Z",
+    "allowFallback": true
   }
 ]
