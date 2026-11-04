@@ -348,6 +348,18 @@
       "endsAtDate": null,
       "href": "/go/link-riverflux-audio-relic",
       "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "waves-unannounced-black-friday",
+      "blockId": "product-review-waves-unannounced-black-friday",
+      "publishedAt": "2026-11-04",
+      "verdict": "???",
+      "status": "Breaking",
+      "productName": "Waves - Unannounced plugin",
+      "startsAtDate": "2026-11-27",
+      "endsAtDate": null,
+      "href": "/go/link-waves-unannounced-plugin",
+      "updatedAt": "2026-11-04"
     }
   ]
 }

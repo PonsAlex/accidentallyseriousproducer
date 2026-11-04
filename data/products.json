@@ -460,5 +460,16 @@
     "status": "active",
     "createdAt": "2026-11-03T23:12:54.193Z",
     "updatedAt": "2026-11-03T23:12:54.193Z"
+  },
+  {
+    "id": "waves-unannounced-plugin",
+    "slug": "waves-unannounced-plugin",
+    "programId": "waves",
+    "name": "Unannounced plugin",
+    "category": "plugin",
+    "description": "Unannounced plugin",
+    "status": "active",
+    "createdAt": "2026-11-04T13:33:51.028Z",
+    "updatedAt": "2026-11-04T13:33:51.028Z"
   }
 ]
