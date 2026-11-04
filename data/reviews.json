@@ -227,7 +227,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-busy-works-beats-soft-clipper-3000",
-      "updatedAt": "2026-11-02"
+      "updatedAt": "2026-11-04"
     },
     {
       "recordId": "flame-sound-pyro",
@@ -239,7 +239,7 @@
       "startsAtDate": null,
       "endsAtDate": "2026-11-30",
       "href": "/go/link-flame-sound-pyro",
-      "updatedAt": "2026-11-02"
+      "updatedAt": "2026-11-04"
     },
     {
       "recordId": "flame-sound-vatrica",
@@ -251,7 +251,7 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-flame-sound-vatrica",
-      "updatedAt": "2026-11-02"
+      "updatedAt": "2026-11-04"
     },
     {
       "recordId": "psp-audioware-classicqlite",
@@ -263,7 +263,91 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-psp-audioware-classicqlite",
-      "updatedAt": "2026-11-02"
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "black-salt-audio-low-control",
+      "blockId": "product-review-black-salt-audio-low-control",
+      "publishedAt": "2026-11-04",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Black Salt Audio - Low Control",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-12",
+      "href": "/go/link-black-salt-audio-low-control",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "ffosso",
+      "blockId": "product-review-ffosso",
+      "publishedAt": "2026-11-04",
+      "verdict": "Digital Furniture",
+      "status": "Free",
+      "productName": "FFOSSO",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-ffosso-ffosso",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "karanyi-sounds-brigade",
+      "blockId": "product-review-karanyi-sounds-brigade",
+      "publishedAt": "2026-11-04",
+      "verdict": "Stash",
+      "status": "Breaking",
+      "productName": "Karanyi Sounds - Brigade",
+      "startsAtDate": "2026-11-27",
+      "endsAtDate": null,
+      "href": "/go/link-karanyi-sounds-brigade",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "riverflux-audio-bit-layer",
+      "blockId": "product-review-riverflux-audio-bit-layer",
+      "publishedAt": "2026-11-04",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "RiverFlux Audio - BIT LAYER",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-riverflux-audio-bit-layer",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "riverflux-audio-echo-layer",
+      "blockId": "product-review-riverflux-audio-echo-layer",
+      "publishedAt": "2026-11-04",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "RiverFlux Audio - ECHO LAYER",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-riverflux-audio-echo-layer",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "riverflux-audio-phixer",
+      "blockId": "product-review-riverflux-audio-phixer",
+      "publishedAt": "2026-11-04",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "RiverFlux Audio - PHIXER",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-riverflux-audio-phixer",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "recordId": "riverflux-audio-relic",
+      "blockId": "product-review-riverflux-audio-relic",
+      "publishedAt": "2026-11-04",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "RiverFlux Audio - Relic",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-riverflux-audio-relic",
+      "updatedAt": "2026-11-04"
     }
   ]
 }

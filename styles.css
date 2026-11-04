@@ -390,6 +390,40 @@ h3 {
   color: var(--accent);
 }
 
+/* The Verdict is the argument the site exists to make, so it gets the same pill
+   as the Status — but filled rather than tinted, because the opinion should read
+   before the status. Fire is the bar, so only Fire gets the solid accent; a Stash
+   recedes to grey, furniture to a dimmer brown, and Nah to a dull red. */
+.product-review .verdict-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 0.55rem;
+  padding: 0.38rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.product-review .verdict-badge.stash {
+  background: rgba(170, 167, 160, 0.13);
+  color: var(--muted);
+}
+
+.product-review .verdict-badge.digital-furniture {
+  background: rgba(138, 129, 119, 0.18);
+  color: #9d9489;
+}
+
+.product-review .verdict-badge.nah {
+  background: rgba(184, 103, 95, 0.16);
+  color: #c07d76;
+}
+
 .featured-deck {
   margin-bottom: 1.4rem;
   font-size: 1.25rem;
@@ -982,6 +1016,18 @@ h3 {
 
 .article-body > p {
   color: #d5d1ca;
+}
+
+/* Eleven reviews stacked in one page read as a single wall unless each one has
+   an edge. The hairline is the same one the sections of the site use. */
+.article-body .product-review {
+  padding-block: 2.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.article-body .product-review:first-of-type {
+  padding-top: 1.4rem;
+  border-top: 0;
 }
 
 .article-body blockquote {
