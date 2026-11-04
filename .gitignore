@@ -34,3 +34,12 @@ asp-candidate-bridge-report.json
 asp-candidates.json
 asp-candidates-prepared.json
 asp-candidate-prepare-report.json
+# Local editorial console artifacts. The state is a working copy that goes stale
+# the moment a review is published; the export is what an editor downloads from
+# the console. Neither belongs in the repository.
+asp-editorial-state.json
+asp-console-export.json
+
+# Agent tooling, not part of the site.
+.agents/
+skills-lock.json

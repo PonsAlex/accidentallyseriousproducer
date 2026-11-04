@@ -383,5 +383,82 @@
     "status": "active",
     "createdAt": "2026-11-03T13:03:04.102Z",
     "updatedAt": "2026-11-03T13:03:04.102Z"
+  },
+  {
+    "id": "black-salt-audio-low-control",
+    "slug": "black-salt-audio-low-control",
+    "programId": "black-salt-audio",
+    "name": "Low Control",
+    "category": "plugin",
+    "description": "Low Control",
+    "status": "active",
+    "createdAt": "2026-11-03T22:16:48.746Z",
+    "updatedAt": "2026-11-03T22:16:48.746Z"
+  },
+  {
+    "id": "karanyi-sounds-brigade",
+    "slug": "karanyi-sounds-brigade",
+    "programId": "karanyi-sounds",
+    "name": "Brigade",
+    "category": "plugin",
+    "description": "Brigade",
+    "status": "active",
+    "createdAt": "2026-11-03T22:16:48.871Z",
+    "updatedAt": "2026-11-03T22:16:48.871Z"
+  },
+  {
+    "id": "ffosso-ffosso",
+    "slug": "ffosso-ffosso",
+    "programId": "ffosso",
+    "name": "FFOSSO",
+    "category": "other",
+    "description": "FFOSSO",
+    "status": "active",
+    "createdAt": "2026-11-03T22:16:48.980Z",
+    "updatedAt": "2026-11-03T22:16:48.980Z"
+  },
+  {
+    "id": "riverflux-audio-bit-layer",
+    "slug": "riverflux-audio-bit-layer",
+    "programId": "riverflux-audio",
+    "name": "BIT LAYER",
+    "category": "plugin",
+    "description": "BIT LAYER",
+    "status": "active",
+    "createdAt": "2026-11-03T23:00:34.662Z",
+    "updatedAt": "2026-11-03T23:00:34.662Z"
+  },
+  {
+    "id": "riverflux-audio-relic",
+    "slug": "riverflux-audio-relic",
+    "programId": "riverflux-audio",
+    "name": "Relic",
+    "category": "bundle",
+    "description": "Relic",
+    "status": "active",
+    "createdAt": "2026-11-03T23:12:53.927Z",
+    "updatedAt": "2026-11-03T23:12:53.927Z"
+  },
+  {
+    "id": "riverflux-audio-echo-layer",
+    "slug": "riverflux-audio-echo-layer",
+    "programId": "riverflux-audio",
+    "name": "ECHO LAYER",
+    "category": "plugin",
+    "description": "ECHO LAYER",
+    "status": "active",
+    "createdAt": "2026-11-03T23:12:54.064Z",
+    "updatedAt": "2026-11-03T23:12:54.064Z"
+  },
+  {
+    "id": "riverflux-audio-phixer",
+    "slug": "riverflux-audio-phixer",
+    "programId": "riverflux-audio",
+    "name": "PHIXER",
+    "category": "plugin",
+    "description": "PHIXER",
+    "status": "active",
+    "createdAt": "2026-11-03T23:12:54.193Z",
+    "updatedAt": "2026-11-03T23:12:54.193Z"
   }
 ]

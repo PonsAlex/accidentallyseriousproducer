@@ -383,5 +383,82 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-03T13:03:04.102Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-black-salt-audio-low-control",
+    "productId": "black-salt-audio-low-control",
+    "programId": "black-salt-audio",
+    "destinationUrl": "https://blacksaltaudio.com/free/",
+    "fallbackUrl": "https://blacksaltaudio.com/free/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T22:16:48.746Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-karanyi-sounds-brigade",
+    "productId": "karanyi-sounds-brigade",
+    "programId": "karanyi-sounds",
+    "destinationUrl": "https://karanyisounds.com/pages/brigade",
+    "fallbackUrl": "https://karanyisounds.com/pages/brigade",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T22:16:48.871Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-ffosso-ffosso",
+    "productId": "ffosso-ffosso",
+    "programId": "ffosso",
+    "destinationUrl": "https://www.ffosso.com/",
+    "fallbackUrl": "https://www.ffosso.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T22:16:48.980Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-bit-layer",
+    "productId": "riverflux-audio-bit-layer",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/BITLAYER",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/BITLAYER",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:00:34.662Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-relic",
+    "productId": "riverflux-audio-relic",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/relic",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/relic",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:12:53.927Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-echo-layer",
+    "productId": "riverflux-audio-echo-layer",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/ECHOLAYER",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/ECHOLAYER",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:12:54.064Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-phixer",
+    "productId": "riverflux-audio-phixer",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/phixer",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/phixer",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-03T23:12:54.193Z",
+    "allowFallback": true
   }
 ]
