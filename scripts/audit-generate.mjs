@@ -15,7 +15,7 @@ import { OFFER_PHASES, formatOfferDate, offerPhase } from "./offer-phase.mjs";
 
 const rootDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-const VERDICT_ORDER = Object.freeze(["Fire", "Stash", "Digital Furniture", "Nah"]);
+const VERDICT_ORDER = Object.freeze(["Fire", "Stash", "Digital Furniture", "Nah", "???"]);
 
 function byVerdict(reviews) {
   const counts = Object.fromEntries(VERDICT_ORDER.map((verdict) => [verdict, 0]));
