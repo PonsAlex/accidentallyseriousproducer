@@ -23,7 +23,7 @@
     "affiliateLinkId": "link-thenatan-everything-bundle",
     "publicationStatus": "published",
     "requiresReview": false,
-    "headline": "Thenatan's Everything Bundle: all 46 plugins plus three extras for $39, against $2,889.50 one by one. The twelve 2026 releases alone are $29.",
+    "headline": "All 46 plugins plus three extras for $39, against $2,889.50 one by one. The twelve 2026 releases alone are $29.",
     "startsAt": null,
     "endsAt": "2026-11-19T23:59:59-03:00",
     "promoPrice": 39,
@@ -33,7 +33,7 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-02T21:52:19.686Z",
-    "updatedAt": "2026-11-05T19:04:54.107Z"
+    "updatedAt": "2026-11-05T19:17:22.393Z"
   },
   {
     "id": "promo-plugin-boutique-november-gifts-2026",
@@ -59,7 +59,7 @@
     "affiliateLinkId": "link-baby-audio-crystalline",
     "publicationStatus": "published",
     "requiresReview": false,
-    "headline": "Baby Audio's Crystalline at $5 instead of $99 until 9 December. Buy before 5 November and the free Reaktor Prism comes with it.",
+    "headline": "$5 instead of $99 until 9 December. Buy before 5 November and the free Reaktor Prism comes with it.",
     "startsAt": null,
     "endsAt": "2026-12-09T23:59:59-03:00",
     "promoPrice": 5,
@@ -69,7 +69,7 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-03T13:03:04.102Z",
-    "updatedAt": "2026-11-03T13:47:22.745Z"
+    "updatedAt": "2026-11-05T19:17:22.393Z"
   },
   {
     "id": "promo-samplescience-majestic-celesta-2026",

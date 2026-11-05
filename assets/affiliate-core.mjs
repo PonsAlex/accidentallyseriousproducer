@@ -437,6 +437,13 @@ export function renderAffiliateOffer({
     typeof product?.developer === "string" && product.developer.trim() !== ""
       ? product.developer
       : null;
+  // "Everything Bundle / Thenatan" read as a title with a faded footnote. The maker
+  // belongs in the name: "Thenatan's Everything Bundle". Brands ending in s take a
+  // bare apostrophe, the way anyone would write it by hand.
+  const possessive = developer
+    ? `${developer}${/[sS]$/.test(developer) ? "'" : "'s"}`
+    : null;
+  const title = possessive ? `${possessive} ${productName}` : productName;
   const headline =
     typeof promotion.headline === "string" && promotion.headline.trim() !== ""
       ? promotion.headline
@@ -462,8 +469,7 @@ export function renderAffiliateOffer({
       <div class="offer-main">
         ${renderOfferStatus(state)}
         <div class="offer-heading">
-          <h3>${escapeHtml(productName)}</h3>
-          ${developer ? `<p class="offer-developer">${escapeHtml(developer)}</p>` : ""}
+          <h3>${escapeHtml(title)}</h3>
         </div>
         ${headline ? `<p class="offer-headline">${escapeHtml(headline)}</p>` : ""}
         ${pricing}
