@@ -209,6 +209,18 @@ h3 {
   font-size: clamp(1.1rem, 2vw, 1.35rem);
 }
 
+/* The thesis under the subheadline is not another paragraph: it is the sentence
+   the whole playbook exists to defend. The rule on the left gives it weight
+   without turning it into a pull quote. */
+.puzzle-thesis {
+  max-width: 680px;
+  margin-top: 1.5rem;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
