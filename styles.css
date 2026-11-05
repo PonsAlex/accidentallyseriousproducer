@@ -1252,6 +1252,15 @@ affiliate-offer {
   font-size: 0.94rem;
 }
 
+/* Where the deal happens, when that is not the maker's own shop. Quieter than the
+   title but present, because "free with any purchase" means nothing without it. */
+.offer-retailer {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+}
+
 .offer-headline {
   max-width: 720px;
   margin: 0.7rem 0 0;
