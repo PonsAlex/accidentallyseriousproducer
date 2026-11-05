@@ -537,16 +537,5 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-05T17:50:43.416Z",
     "allowFallback": true
-  },
-  {
-    "id": "link-thenatan-2026-bundle",
-    "productId": "thenatan-2026-bundle",
-    "programId": "thenatan",
-    "destinationUrl": "https://www.thenatan.store/",
-    "fallbackUrl": "https://www.thenatan.store/",
-    "status": "active",
-    "requiresReview": false,
-    "lastVerifiedAt": "2026-11-05T17:53:37.649Z",
-    "allowFallback": true
   }
 ]

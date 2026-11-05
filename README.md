@@ -61,15 +61,21 @@ final Verdict.
 
 ### Publishing cadence
 
-Findings accumulate briefly, then ship — every day, not every week. A weekly cut
-means the radar arrives carrying news that has been everywhere else for days, and a
-site that publishes late reads as late no matter how good the writing is.
+Two kinds of page, and the cadence only governs one of them.
+
+**Fixed pages** — the guide, About, the taxonomy, the legal pages. They change when
+they need to change and have nothing to do with the schedule. The guide is not a
+radar and not a deal.
+
+**Dynamic publications** — the monthly radar and the deals index. These are what the
+cadence below governs.
 
 - **Daily cut at 20:00 BRT.** Whatever is ready goes up. Nothing is held back for a
   larger batch.
-- **Furo.** A finding nobody else has published yet ships the moment it is verified,
-  not at 20:00. A scoop is worth more in the first hour than in the second day, and
-  a deferred one is not a scoop at all — it is the same news, later.
+- **Furo.** When the editor declares a scoop, the finding ships the moment it is
+  verified, not at 20:00. The trigger is the editor's word, not the writer's
+  judgement: "this is worth more in the first hour" is an editorial call, and the
+  person who owns the calendar makes it.
 - **Event override.** Something extraordinary — a launch, an offer that dies within
   hours — ships when it happens, not at 20:00.
 
