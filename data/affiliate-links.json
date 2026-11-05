@@ -526,5 +526,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-04T18:03:51.726Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-puremagnetik-studies",
+    "productId": "puremagnetik-studies",
+    "programId": "puremagnetik",
+    "destinationUrl": "https://puremagnetik.com/products/studies-free",
+    "fallbackUrl": "https://puremagnetik.com/products/studies-free",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-05T17:50:43.416Z",
+    "allowFallback": true
   }
 ]
