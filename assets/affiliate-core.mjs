@@ -444,6 +444,15 @@ export function renderAffiliateOffer({
     ? `${developer}${/[sS]$/.test(developer) ? "'" : "'s"}`
     : null;
   const title = possessive ? `${possessive} ${productName}` : productName;
+
+  // Where the offer actually lives. When the shop is the maker, saying it twice is
+  // noise; when a store runs a promotion on someone else's plugin, the reader needs
+  // to know the deal is at a shop and not at the developer's own site.
+  const retailer =
+    typeof program?.name === "string" && program.name.trim() !== "" ? program.name : null;
+  const showRetailer =
+    retailer !== null && retailer.toLowerCase() !== String(developer ?? "").toLowerCase();
+
   const headline =
     typeof promotion.headline === "string" && promotion.headline.trim() !== ""
       ? promotion.headline
@@ -470,6 +479,7 @@ export function renderAffiliateOffer({
         ${renderOfferStatus(state)}
         <div class="offer-heading">
           <h3>${escapeHtml(title)}</h3>
+          ${showRetailer ? `<p class="offer-retailer">at ${escapeHtml(retailer)}</p>` : ""}
         </div>
         ${headline ? `<p class="offer-headline">${escapeHtml(headline)}</p>` : ""}
         ${pricing}
