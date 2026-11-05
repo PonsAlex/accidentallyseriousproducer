@@ -526,5 +526,16 @@
     "status": "active",
     "createdAt": "2026-11-04T18:03:51.726Z",
     "updatedAt": "2026-11-04T18:03:51.726Z"
+  },
+  {
+    "id": "puremagnetik-studies",
+    "slug": "puremagnetik-studies",
+    "programId": "puremagnetik",
+    "name": "Studies",
+    "category": "bundle",
+    "description": "Studies",
+    "status": "active",
+    "createdAt": "2026-11-05T17:50:43.416Z",
+    "updatedAt": "2026-11-05T17:50:43.416Z"
   }
 ]
