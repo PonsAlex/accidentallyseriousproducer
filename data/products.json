@@ -537,5 +537,16 @@
     "status": "active",
     "createdAt": "2026-11-05T17:50:43.416Z",
     "updatedAt": "2026-11-05T17:50:43.416Z"
+  },
+  {
+    "id": "thenatan-2026-bundle",
+    "slug": "thenatan-2026-bundle",
+    "programId": "thenatan",
+    "name": "2026 Bundle",
+    "category": "bundle",
+    "description": "Thenatan's twelve 2026 plugins plus three extras",
+    "status": "active",
+    "createdAt": "2026-11-05T17:53:37.649Z",
+    "updatedAt": "2026-11-05T17:53:37.649Z"
   }
 ]

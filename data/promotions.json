@@ -23,17 +23,17 @@
     "affiliateLinkId": "link-thenatan-everything-bundle",
     "publicationStatus": "published",
     "requiresReview": false,
-    "headline": "Black Friday early access: all 46 plugins for $39, against $791.50 bought one by one.",
+    "headline": "Black Friday early access: all 46 plugins plus three extras for $39, against $2,889.50 bought one by one.",
     "startsAt": null,
     "endsAt": "2026-11-19T23:59:59-03:00",
     "promoPrice": 39,
-    "regularPrice": 791.5,
+    "regularPrice": 2889.5,
     "currency": "USD",
-    "discountPercent": 95,
+    "discountPercent": 98,
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-02T21:52:19.686Z",
-    "updatedAt": "2026-11-02T21:52:19.686Z"
+    "updatedAt": "2026-11-05T17:53:37.649Z"
   },
   {
     "id": "promo-plugin-boutique-november-gifts-2026",
@@ -92,5 +92,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-04T18:03:51.726Z",
     "updatedAt": "2026-11-04T18:03:51.726Z"
+  },
+  {
+    "id": "promo-thenatan-2026-bundle-black-friday-2026",
+    "productId": "thenatan-2026-bundle",
+    "affiliateLinkId": "link-thenatan-2026-bundle",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "The twelve 2026 releases plus three extras for $29, against $791.50 one by one. The cheaper of Thenatan's two bundles.",
+    "startsAt": null,
+    "endsAt": "2026-11-19T23:59:59-03:00",
+    "promoPrice": 29,
+    "regularPrice": 791.5,
+    "currency": "USD",
+    "discountPercent": 96,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-05T17:53:37.649Z",
+    "updatedAt": "2026-11-05T17:53:37.649Z"
   }
 ]
