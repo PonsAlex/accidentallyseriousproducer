@@ -70,14 +70,15 @@ radar and not a deal.
 **Dynamic publications** — the monthly radar and the deals index. These are what the
 cadence below governs.
 
-- **Daily cut at 20:00 BRT.** Whatever is ready goes up. Nothing is held back for a
-  larger batch.
-- **Furo.** When the editor declares a scoop, the finding ships the moment it is
-  verified, not at 20:00. The trigger is the editor's word, not the writer's
-  judgement: "this is worth more in the first hour" is an editorial call, and the
-  person who owns the calendar makes it.
-- **Event override.** Something extraordinary — a launch, an offer that dies within
-  hours — ships when it happens, not at 20:00.
+- **The queue grows until 20:00 BRT.** Findings accumulate during the day. At 20:00
+  whatever is ready and cleared goes up in one cut.
+- **Nothing ready, nothing published.** A quiet day produces no page, and saying so
+  in one line is the whole output. The schedule is not a quota.
+- **Immediate publication only on a specific order from the editor**, and only after
+  the filter and the double evaluation: the writer reviews it, the editor approves
+  it. No standing permission, no self-declared urgency, no "this is worth more in
+  the first hour" — that judgement belongs to the person who owns the calendar, and
+  saying it out loud is what makes it an order rather than an interpretation.
 
 Regeneration is idempotent: `article:generate` run again with six reviews instead
 of four produces the same page, larger. Adding a finding to a page that is already
