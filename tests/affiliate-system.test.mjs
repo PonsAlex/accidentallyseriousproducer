@@ -371,29 +371,43 @@ test("cadastra W.A. Production sem publicar produtos, links ou promoções", asy
       status: "active"
     }
   );
-  // W.A. Production now carries its first real affiliate offerings. Every link
-  // must be attributable: an a_aid identifies the affiliate, an a_bid the banner.
+  // W.A. Production carries real affiliate offerings. Every link must be
+  // attributable, and the panel hands out two forms: a per-product link
+  // (#a_aid=…&a_bid=…) and a general one for the whole shop (#<aid>).
   const waProducts = products.filter((entry) => entry.programId === "wa-production");
   const waLinks = affiliateLinks.filter((entry) => entry.programId === "wa-production");
-  assert.equal(waProducts.length, 6);
-  assert.equal(waLinks.length, 6);
+  assert.equal(waProducts.length >= 6, true);
+  assert.equal(waLinks.length, waProducts.length);
   assert.equal(waProducts.every((entry) => entry.status === "active"), true);
 
   for (const link of waLinks) {
     assert.equal(link.requiresReview, false);
     assert.equal(waProducts.some((product) => product.id === link.productId), true);
     assert.match(link.destinationUrl, /^https:\/\/www\.waproduction\.com\//);
-    assert.match(link.destinationUrl, /[#&]a_aid=tl5yyfu43dtnu/);
-    assert.match(link.destinationUrl, /[#&]a_bid=[a-z0-9]+/i);
+    const perProduct =
+      /[#&]a_aid=tl5yyfu43dtnu/.test(link.destinationUrl) &&
+      /[#&]a_bid=[a-z0-9]+/i.test(link.destinationUrl);
+    const general = /#tl5yyfu43dtnu$/.test(link.destinationUrl);
+    assert.equal(
+      perProduct || general,
+      true,
+      `${link.id} carries no affiliate parameters, so it would earn nothing`
+    );
     assert.match(link.fallbackUrl, /^https:\/\/www\.waproduction\.com\//);
   }
 
-  // A product link is not an offer: no promotion may exist without a price and
-  // a verified end date.
-  assert.equal(
-    promotions.some((entry) => waProducts.some((product) => product.id === entry.productId)),
-    false
-  );
+  // A W.A. promotion is allowed now, and must be an offer rather than a link
+  // pretending to be one: it needs a deadline and a link that belongs to it.
+  for (const promotion of promotions.filter((entry) =>
+    waProducts.some((product) => product.id === entry.productId)
+  )) {
+    assert.equal(typeof promotion.endsAt, "string", `${promotion.id} has no end date`);
+    assert.equal(
+      waLinks.some((link) => link.id === promotion.affiliateLinkId),
+      true,
+      `${promotion.id} points at a link that does not exist`
+    );
+  }
 
   // The expired September promotions were removed during the October reset.
   const expired = [

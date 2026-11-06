@@ -542,5 +542,17 @@
     "status": "active",
     "createdAt": "2026-11-05T17:50:43.416Z",
     "updatedAt": "2026-11-05T17:50:43.416Z"
+  },
+  {
+    "id": "wa-production-mixboss",
+    "slug": "wa-production-mixboss",
+    "programId": "wa-production",
+    "name": "MixBoss",
+    "category": "plugin",
+    "description": "W.A. Production MixBoss multi-effect",
+    "developer": "W.A. Production",
+    "status": "active",
+    "createdAt": "2026-11-06T15:39:32.676Z",
+    "updatedAt": "2026-11-06T15:39:32.676Z"
   }
 ]
