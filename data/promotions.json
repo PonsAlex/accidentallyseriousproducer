@@ -41,7 +41,7 @@
     "affiliateLinkId": "link-baby-audio-crystalline",
     "publicationStatus": "published",
     "requiresReview": false,
-    "headline": "$5 instead of $99 until 9 December. Until 5 November, any Plugin Boutique purchase from $2 also unlocks a free gift: Reaktor Prism, Evolve Elastic Lite or ReSing SE.",
+    "headline": "$5 instead of $99 until 9 December. Until 12 November, any Plugin Boutique purchase also unlocks a free gift: Tape Suite by UVI or Evolve Elastic Lite by Excite Audio.",
     "startsAt": null,
     "endsAt": "2026-12-09T23:59:59-03:00",
     "promoPrice": 5,
@@ -51,7 +51,7 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-03T13:03:04.102Z",
-    "updatedAt": "2026-11-05T19:46:59.432Z"
+    "updatedAt": "2026-11-06T18:43:54.239Z"
   },
   {
     "id": "promo-samplescience-majestic-celesta-2026",
@@ -77,20 +77,21 @@
   },
   {
     "id": "promo-wa-production-black-friday-2026",
-    "productId": "wa-production-mixboss",
-    "affiliateLinkId": "link-wa-production-mixboss",
+    "productId": "wa-production-black-friday-month",
+    "affiliateLinkId": "link-wa-production-black-friday-month",
     "publicationStatus": "published",
     "requiresReview": false,
-    "headline": "Black Friday Month: every plugin at least 60% off through November, plus a free plugin of your choice with any order. MixBoss is $12.90, Detroubler $9.90, Ultimate Synths $36.",
+    "headline": "Every plugin in the store is at least 60% off for the whole of November, with this week's deals up to 97% off. Featured: MixBoss $12.90, Detroubler $9.90, Ultimate Synths $36, Ultimate Mastering $19.90. A free plugin of your choice with any purchase until 2 December.",
     "startsAt": null,
     "endsAt": "2026-11-30T23:59:59-03:00",
-    "promoPrice": 12.9,
-    "regularPrice": 59.9,
-    "currency": "USD",
-    "discountPercent": 79,
+    "promoPrice": null,
+    "regularPrice": null,
+    "currency": null,
+    "discountPercent": null,
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-06T15:39:32.676Z",
-    "updatedAt": "2026-11-06T15:39:32.676Z"
+    "updatedAt": "2026-11-06T18:43:54.239Z",
+    "regularPriceSource": null
   }
 ]

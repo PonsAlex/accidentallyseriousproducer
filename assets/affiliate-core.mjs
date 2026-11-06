@@ -450,8 +450,12 @@ export function renderAffiliateOffer({
   // to know the deal is at a shop and not at the developer's own site.
   const retailer =
     typeof program?.name === "string" && program.name.trim() !== "" ? program.name : null;
+  // "W. A. Production" and "W.A. Production" are the same shop typed twice, so the
+  // comparison ignores punctuation and case. Saying "at W.A. Production" under
+  // "W. A. Production's Black Friday Month" is noise, not attribution.
+  const comparable = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "");
   const showRetailer =
-    retailer !== null && retailer.toLowerCase() !== String(developer ?? "").toLowerCase();
+    retailer !== null && comparable(retailer) !== comparable(developer);
 
   const headline =
     typeof promotion.headline === "string" && promotion.headline.trim() !== ""
