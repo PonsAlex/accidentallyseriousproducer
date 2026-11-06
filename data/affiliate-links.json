@@ -548,5 +548,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-06T18:43:54.239Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-oxo-music-oxo-synth2",
+    "productId": "oxo-music-oxo-synth2",
+    "programId": "oxo-music",
+    "destinationUrl": "https://oxo-music.com/products/oxo_synth2",
+    "fallbackUrl": "https://oxo-music.com/products/oxo_synth2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-06T18:59:06.560Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-duy-audio-dad-vinyl",
+    "productId": "duy-audio-dad-vinyl",
+    "programId": "duy-audio",
+    "destinationUrl": "https://audioplugin.deals/product/dad-vinyl-by-duy-audio/",
+    "fallbackUrl": "https://audioplugin.deals/product/dad-vinyl-by-duy-audio/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-06T19:59:43.660Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-krotos-audio-sound-design-kit",
+    "productId": "krotos-audio-sound-design-kit",
+    "programId": "krotos-audio",
+    "destinationUrl": "https://krotos.studio/free-bundle",
+    "fallbackUrl": "https://krotos.studio/free-bundle",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-06T20:55:50.706Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-polyend-patch",
+    "productId": "polyend-patch",
+    "programId": "polyend",
+    "destinationUrl": "https://polyend.com/product/patch/",
+    "fallbackUrl": "https://polyend.com/product/patch/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-06T22:36:45.864Z",
+    "allowFallback": true
   }
 ]
