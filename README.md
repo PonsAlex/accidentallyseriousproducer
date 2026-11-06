@@ -80,6 +80,17 @@ cadence below governs.
   the first hour" — that judgement belongs to the person who owns the calendar, and
   saying it out loud is what makes it an order rather than an interpretation.
 
+**Affiliate partner promotions are the standing exception.** Items from
+**W. A. Production**, **Carbonated** and **Sound Morph** ship the moment they are
+verified, without waiting for 20:00 and without the editor having to say so each
+time. These are partners whose campaigns the site has agreed to carry: a sale that
+runs for a week and appears on our page on day three is worth less to them and to
+the reader. The exception is per partner, not per feeling — an offer from anywhere
+else still waits for the cut or for an explicit order.
+
+The filter and the double evaluation still apply to these: the facts are checked on
+the partner's own page, and the editor sees the card before it goes up.
+
 Regeneration is idempotent: `article:generate` run again with six reviews instead
 of four produces the same page, larger. Adding a finding to a page that is already
 live costs one regeneration, which is what makes a daily rhythm affordable.
