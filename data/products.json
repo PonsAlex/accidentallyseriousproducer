@@ -554,5 +554,49 @@
     "status": "active",
     "createdAt": "2026-11-06T18:43:54.239Z",
     "updatedAt": "2026-11-06T18:43:54.239Z"
+  },
+  {
+    "id": "oxo-music-oxo-synth2",
+    "slug": "oxo-music-oxo-synth2",
+    "programId": "oxo-music",
+    "name": "Oxo Synth2",
+    "category": "plugin",
+    "description": "Oxo Synth2",
+    "status": "active",
+    "createdAt": "2026-11-06T18:59:06.560Z",
+    "updatedAt": "2026-11-06T18:59:06.560Z"
+  },
+  {
+    "id": "duy-audio-dad-vinyl",
+    "slug": "duy-audio-dad-vinyl",
+    "programId": "duy-audio",
+    "name": "DaD Vinyl",
+    "category": "plugin",
+    "description": "DaD Vinyl",
+    "status": "active",
+    "createdAt": "2026-11-06T19:59:43.660Z",
+    "updatedAt": "2026-11-06T19:59:43.660Z"
+  },
+  {
+    "id": "krotos-audio-sound-design-kit",
+    "slug": "krotos-audio-sound-design-kit",
+    "programId": "krotos-audio",
+    "name": "Sound Design Kit",
+    "category": "bundle",
+    "description": "Sound Design Kit",
+    "status": "active",
+    "createdAt": "2026-11-06T20:55:50.706Z",
+    "updatedAt": "2026-11-06T20:55:50.706Z"
+  },
+  {
+    "id": "polyend-patch",
+    "slug": "polyend-patch",
+    "programId": "polyend",
+    "name": "Patch",
+    "category": "sample-pack",
+    "description": "Patch",
+    "status": "active",
+    "createdAt": "2026-11-06T22:36:45.864Z",
+    "updatedAt": "2026-11-06T22:36:45.864Z"
   }
 ]

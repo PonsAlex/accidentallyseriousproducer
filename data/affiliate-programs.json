@@ -332,5 +332,37 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "oxo-music",
+    "name": "OXO-Music",
+    "homepage": "https://oxo-music.com/products/oxo_synth2",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "duy-audio",
+    "name": "DUY Audio",
+    "homepage": "https://audioplugin.deals/product/dad-vinyl-by-duy-audio/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "krotos-audio",
+    "name": "Krotos Audio",
+    "homepage": "https://krotos.studio/free-bundle",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "polyend",
+    "name": "Polyend",
+    "homepage": "https://polyend.com/product/patch/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
