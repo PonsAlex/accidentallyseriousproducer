@@ -381,7 +381,7 @@
     "fallbackUrl": "https://www.pluginboutique.com/products/8900-Crystalline",
     "status": "active",
     "requiresReview": false,
-    "lastVerifiedAt": "2026-11-03T13:03:04.102Z",
+    "lastVerifiedAt": "2026-11-06T18:43:54.239Z",
     "allowFallback": true
   },
   {
@@ -539,14 +539,14 @@
     "allowFallback": true
   },
   {
-    "id": "link-wa-production-mixboss",
-    "productId": "wa-production-mixboss",
+    "id": "link-wa-production-black-friday-month",
+    "productId": "wa-production-black-friday-month",
     "programId": "wa-production",
     "destinationUrl": "https://www.waproduction.com/#tl5yyfu43dtnu",
     "fallbackUrl": "https://www.waproduction.com/special-offer",
     "status": "active",
     "requiresReview": false,
-    "lastVerifiedAt": "2026-11-06T15:39:32.676Z",
+    "lastVerifiedAt": "2026-11-06T18:43:54.239Z",
     "allowFallback": true
   }
 ]
