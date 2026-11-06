@@ -537,5 +537,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-05T17:50:43.416Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-mixboss",
+    "productId": "wa-production-mixboss",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-06T15:39:32.676Z",
+    "allowFallback": true
   }
 ]
