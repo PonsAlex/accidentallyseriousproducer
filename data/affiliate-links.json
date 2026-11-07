@@ -592,5 +592,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-06T22:36:45.864Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-jordon-lumley-scramble",
+    "productId": "jordon-lumley-scramble",
+    "programId": "jordon-lumley",
+    "destinationUrl": "https://scrambleplugin.com/with/tlib/?ref=tlib",
+    "fallbackUrl": "https://scrambleplugin.com/with/tlib/?ref=tlib",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-07T21:38:42.938Z",
+    "allowFallback": true
   }
 ]
