@@ -598,5 +598,16 @@
     "status": "active",
     "createdAt": "2026-11-06T22:36:45.864Z",
     "updatedAt": "2026-11-06T22:36:45.864Z"
+  },
+  {
+    "id": "jordon-lumley-scramble",
+    "slug": "jordon-lumley-scramble",
+    "programId": "jordon-lumley",
+    "name": "SCRAMBLE",
+    "category": "plugin",
+    "description": "SCRAMBLE",
+    "status": "active",
+    "createdAt": "2026-11-07T21:38:42.938Z",
+    "updatedAt": "2026-11-07T21:38:42.938Z"
   }
 ]
