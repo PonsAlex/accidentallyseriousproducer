@@ -372,5 +372,45 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "saint-mike-dsp",
+    "name": "Saint Mike DSP",
+    "homepage": "https://saintmikedsp.com/plugins/endovel",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "knightsnare",
+    "name": "Knightsnare",
+    "homepage": "https://knightsnare.gumroad.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "bogren-digital",
+    "name": "Bogren Digital",
+    "homepage": "https://bogrendigital.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "epica-audio",
+    "name": "Épica Audio",
+    "homepage": "https://www.epicaaudio.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "never-found",
+    "name": "Never Found",
+    "homepage": "https://neverfoundaudio.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

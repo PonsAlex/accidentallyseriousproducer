@@ -603,5 +603,60 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-07T21:38:42.938Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-saint-mike-dsp-endovel",
+    "productId": "saint-mike-dsp-endovel",
+    "programId": "saint-mike-dsp",
+    "destinationUrl": "https://saintmikedsp.com/plugins/endovel",
+    "fallbackUrl": "https://saintmikedsp.com/plugins/endovel",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-09T15:47:35.645Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-knightsnare-free-plugin-set",
+    "productId": "knightsnare-free-plugin-set",
+    "programId": "knightsnare",
+    "destinationUrl": "https://knightsnare.gumroad.com/",
+    "fallbackUrl": "https://knightsnare.gumroad.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-09T18:00:44.874Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-bogren-digital-bdr-1000-tuner",
+    "productId": "bogren-digital-bdr-1000-tuner",
+    "programId": "bogren-digital",
+    "destinationUrl": "https://bogrendigital.com/",
+    "fallbackUrl": "https://bogrendigital.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-09T18:00:45.013Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-epica-audio-punch",
+    "productId": "epica-audio-punch",
+    "programId": "epica-audio",
+    "destinationUrl": "https://www.epicaaudio.com/",
+    "fallbackUrl": "https://www.epicaaudio.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-09T21:21:55.569Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-never-found-vt-mini",
+    "productId": "never-found-vt-mini",
+    "programId": "never-found",
+    "destinationUrl": "https://neverfoundaudio.com/",
+    "fallbackUrl": "https://neverfoundaudio.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-09T21:21:55.697Z",
+    "allowFallback": true
   }
 ]

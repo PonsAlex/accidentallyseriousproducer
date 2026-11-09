@@ -609,5 +609,60 @@
     "status": "active",
     "createdAt": "2026-11-07T21:38:42.938Z",
     "updatedAt": "2026-11-07T21:38:42.938Z"
+  },
+  {
+    "id": "saint-mike-dsp-endovel",
+    "slug": "saint-mike-dsp-endovel",
+    "programId": "saint-mike-dsp",
+    "name": "Endovel",
+    "category": "plugin",
+    "description": "Endovel",
+    "status": "active",
+    "createdAt": "2026-11-09T15:47:35.645Z",
+    "updatedAt": "2026-11-09T15:47:35.645Z"
+  },
+  {
+    "id": "knightsnare-free-plugin-set",
+    "slug": "knightsnare-free-plugin-set",
+    "programId": "knightsnare",
+    "name": "Free Plugin Set",
+    "category": "bundle",
+    "description": "Free Plugin Set",
+    "status": "active",
+    "createdAt": "2026-11-09T18:00:44.874Z",
+    "updatedAt": "2026-11-09T18:00:44.874Z"
+  },
+  {
+    "id": "bogren-digital-bdr-1000-tuner",
+    "slug": "bogren-digital-bdr-1000-tuner",
+    "programId": "bogren-digital",
+    "name": "BDR-1000 Tuner",
+    "category": "plugin",
+    "description": "BDR-1000 Tuner",
+    "status": "active",
+    "createdAt": "2026-11-09T18:00:45.013Z",
+    "updatedAt": "2026-11-09T18:00:45.013Z"
+  },
+  {
+    "id": "epica-audio-punch",
+    "slug": "epica-audio-punch",
+    "programId": "epica-audio",
+    "name": "Punch",
+    "category": "plugin",
+    "description": "Punch",
+    "status": "active",
+    "createdAt": "2026-11-09T21:21:55.569Z",
+    "updatedAt": "2026-11-09T21:21:55.569Z"
+  },
+  {
+    "id": "never-found-vt-mini",
+    "slug": "never-found-vt-mini",
+    "programId": "never-found",
+    "name": "VT-Mini",
+    "category": "plugin",
+    "description": "VT-Mini",
+    "status": "active",
+    "createdAt": "2026-11-09T21:21:55.697Z",
+    "updatedAt": "2026-11-09T21:21:55.697Z"
   }
 ]
