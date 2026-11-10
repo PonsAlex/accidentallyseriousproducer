@@ -803,5 +803,17 @@
     "status": "active",
     "createdAt": "2026-11-10T22:37:16.059Z",
     "updatedAt": "2026-11-10T22:37:16.059Z"
+  },
+  {
+    "id": "glitchmachines-complete-collection",
+    "slug": "glitchmachines-complete-collection",
+    "programId": "plugin-boutique",
+    "name": "Complete Collection",
+    "category": "bundle",
+    "description": "Glitchmachines' plugin collection, on sale at Plugin Boutique",
+    "developer": "Glitchmachines",
+    "status": "active",
+    "createdAt": "2026-11-10T22:46:57.136Z",
+    "updatedAt": "2026-11-10T22:46:57.136Z"
   }
 ]

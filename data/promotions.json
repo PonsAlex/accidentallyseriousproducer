@@ -247,5 +247,25 @@
     "couponScope": "vendor-wide",
     "couponOwner": "Carbonated Audio",
     "couponPublishable": true
+  },
+  {
+    "id": "promo-glitchmachines-black-friday-2026",
+    "productId": "glitchmachines-complete-collection",
+    "affiliateLinkId": "link-glitchmachines-complete-collection",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "placement": "partner-shelf",
+    "placementOrder": 21,
+    "headline": "The Complete Collection starts from $20 and the sample packs from $10, both until 22 November. Glitchmachines builds its instruments out of broken sequencers and misbehaving effects.",
+    "startsAt": null,
+    "endsAt": "2026-11-22T23:59:59-03:00",
+    "promoPrice": null,
+    "regularPrice": null,
+    "currency": null,
+    "discountPercent": null,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-10T22:46:57.136Z",
+    "updatedAt": "2026-11-10T22:46:57.136Z"
   }
 ]
