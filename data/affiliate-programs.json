@@ -452,5 +452,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "carbonated-audio",
+    "name": "Carbonated Audio",
+    "homepage": "https://carbonatedaudio.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

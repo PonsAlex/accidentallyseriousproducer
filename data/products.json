@@ -767,5 +767,17 @@
     "status": "active",
     "createdAt": "2026-11-10T18:57:08.954Z",
     "updatedAt": "2026-11-10T18:57:08.954Z"
+  },
+  {
+    "id": "carbonated-all-plugins-bundle",
+    "slug": "carbonated-all-plugins-bundle",
+    "programId": "carbonated-audio",
+    "name": "All Plugins Bundle",
+    "category": "bundle",
+    "description": "All nine Carbonated Audio plugins in one purchase",
+    "developer": "Carbonated Audio",
+    "status": "active",
+    "createdAt": "2026-11-10T22:18:37.887Z",
+    "updatedAt": "2026-11-10T22:18:37.887Z"
   }
 ]

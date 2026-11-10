@@ -757,5 +757,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-10T18:57:08.954Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-carbonated-all-plugins-bundle",
+    "productId": "carbonated-all-plugins-bundle",
+    "programId": "carbonated-audio",
+    "destinationUrl": "https://carbonatedaudio.com/",
+    "fallbackUrl": "https://carbonatedaudio.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T22:18:37.887Z",
+    "allowFallback": true
   }
 ]
