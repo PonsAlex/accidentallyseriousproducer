@@ -412,5 +412,45 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "crlff-digital",
+    "name": "CRLFF digital",
+    "homepage": "https://www.crlffdigital.com/qr-250.html",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "titanscore-audio",
+    "name": "Titanscore Audio",
+    "homepage": "https://titanscoreaudio.com/lumivox",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "godlike-loops",
+    "name": "Godlike Loops",
+    "homepage": "https://vstalarm.com/product/godlike-swell-cinematic-pad-maker-by-godlike-loops/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "djw-audio",
+    "name": "DJW Audio",
+    "homepage": "https://djwaudio.co/#home",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "fuse-audio-labs",
+    "name": "Fuse Audio Labs",
+    "homepage": "https://fuseaudiolabs.com/#/pages/product?id=907321017",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

@@ -712,5 +712,60 @@
     "status": "active",
     "createdAt": "2026-11-10T14:07:04.852Z",
     "updatedAt": "2026-11-10T14:07:04.852Z"
+  },
+  {
+    "id": "crlff-digital-qr-250",
+    "slug": "crlff-digital-qr-250",
+    "programId": "crlff-digital",
+    "name": "QR-250",
+    "category": "plugin",
+    "description": "QR-250",
+    "status": "active",
+    "createdAt": "2026-11-10T18:47:36.684Z",
+    "updatedAt": "2026-11-10T18:47:36.684Z"
+  },
+  {
+    "id": "titanscore-audio-lumivox",
+    "slug": "titanscore-audio-lumivox",
+    "programId": "titanscore-audio",
+    "name": "Lumivox",
+    "category": "plugin",
+    "description": "Lumivox",
+    "status": "active",
+    "createdAt": "2026-11-10T18:47:36.835Z",
+    "updatedAt": "2026-11-10T18:47:36.835Z"
+  },
+  {
+    "id": "godlike-loops-godlike-swell",
+    "slug": "godlike-loops-godlike-swell",
+    "programId": "godlike-loops",
+    "name": "Godlike Swell",
+    "category": "plugin",
+    "description": "Godlike Swell",
+    "status": "active",
+    "createdAt": "2026-11-10T18:47:36.983Z",
+    "updatedAt": "2026-11-10T18:47:36.983Z"
+  },
+  {
+    "id": "djw-audio-dw-303",
+    "slug": "djw-audio-dw-303",
+    "programId": "djw-audio",
+    "name": "DW-303",
+    "category": "plugin",
+    "description": "DW-303",
+    "status": "active",
+    "createdAt": "2026-11-10T18:57:08.835Z",
+    "updatedAt": "2026-11-10T18:57:08.835Z"
+  },
+  {
+    "id": "fuse-audio-labs-free-bundle",
+    "slug": "fuse-audio-labs-free-bundle",
+    "programId": "fuse-audio-labs",
+    "name": "Free Bundle",
+    "category": "bundle",
+    "description": "Free Bundle",
+    "status": "active",
+    "createdAt": "2026-11-10T18:57:08.954Z",
+    "updatedAt": "2026-11-10T18:57:08.954Z"
   }
 ]
