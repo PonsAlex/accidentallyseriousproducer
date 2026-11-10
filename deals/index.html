@@ -56,6 +56,28 @@
 
     <div id="deals-disclosure" class="shell deals-disclosure" hidden></div>
 
+    <section class="section" id="partner-shelf">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Partner shelf</p>
+            <h2>Affiliate partners</h2>
+          </div>
+        </div>
+        <p class="section-note">
+          The programmes ASP works with, first because they are programmes and not
+          accidents. The campaign on top is time-limited and says so; the standing
+          links below carry no discount and no deadline.
+        </p>
+
+        <section id="partner-featured" class="deal-section" hidden>
+          <div class="offer-list"></div>
+        </section>
+
+        <asp-partner-banner program-id="wa-production" category="bundle" limit="2" show-disclosure></asp-partner-banner>
+      </div>
+    </section>
+
     <section id="active-offers" class="deal-section shell" hidden>
       <div class="section-heading">
         <div>
@@ -118,25 +140,9 @@
         vendor's own page. Until then this list stays empty on purpose.
       </p>
       <p>
-        The partner shelf below is a different thing: a standing affiliate link to a
-        product ASP finds useful, with no discount and no deadline attached.
+        The partner shelf above is a different thing: the programmes ASP works
+        with, and standing links that carry no discount and no deadline.
       </p>
-    </section>
-
-    <section class="section">
-      <div class="shell">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Partner shelf</p>
-            <h2>Standing affiliate links</h2>
-          </div>
-        </div>
-        <p class="section-note">
-          Not a deal. These are products with a reviewed destination and no
-          time-limited price, so there is no discount to chase and no deadline to miss.
-        </p>
-        <asp-partner-banner program-id="wa-production" category="bundle" limit="2" show-disclosure></asp-partner-banner>
-      </div>
     </section>
   </main>
 
