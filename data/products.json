@@ -832,12 +832,12 @@
     "id": "scaler-music-scaler",
     "slug": "scaler-music-scaler",
     "programId": "plugin-boutique",
-    "name": "Scaler",
+    "name": "Scaler Music",
     "category": "bundle",
     "description": "Scaler by Scaler Music, on sale at Plugin Boutique",
     "developer": "Scaler Music",
     "status": "active",
     "createdAt": "2026-11-10T22:58:11.849Z",
-    "updatedAt": "2026-11-10T22:58:11.849Z"
+    "updatedAt": "2026-11-10T23:25:24.869Z"
   }
 ]

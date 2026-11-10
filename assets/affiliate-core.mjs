@@ -437,25 +437,34 @@ export function renderAffiliateOffer({
     typeof product?.developer === "string" && product.developer.trim() !== ""
       ? product.developer
       : null;
-  // On the partner shelf the section heading already names the programme, so five
-  // cards starting "W. A. Production's …" would repeat the heading five times.
-  // Everywhere else the maker belongs in the name, because nothing else says it.
+
+  const comparable = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+  const programme = typeof program?.name === "string" ? program.name : null;
+
+  // Three cases, and they are not the same sentence:
+  //   shop is not the maker      "Sonarworks SoundID"      — the brand travels with
+  //                                                          the product, because the
+  //                                                          partner is a distributor
+  //   shelf, shop is the maker   "Spritz"                  — the heading says whose
+  //   anywhere else              "Thenatan's Everything..." — nothing else says whose
   const insidePartnerShelf = promotion?.placement === "partner-shelf";
-  const possessive =
-    developer && !insidePartnerShelf
-      ? `${developer}${/[sS]$/.test(developer) ? "'" : "'s"}`
-      : null;
-  const title = possessive ? `${possessive} ${productName}` : productName;
+  const shopIsMaker = developer !== null && comparable(programme) === comparable(developer);
+
+  let title = productName;
+  if (developer !== null && !shopIsMaker) {
+    title =
+      comparable(developer) === comparable(productName)
+        ? developer
+        : `${developer} ${productName}`;
+  } else if (developer !== null && shopIsMaker && !insidePartnerShelf) {
+    title = `${developer}${/[sS]$/.test(developer) ? "'" : "'s"} ${productName}`;
+  }
 
   // Where the offer actually lives. When the shop is the maker, saying it twice is
   // noise; when a store runs a promotion on someone else's plugin, the reader needs
   // to know the deal is at a shop and not at the developer's own site.
   const retailer =
     typeof program?.name === "string" && program.name.trim() !== "" ? program.name : null;
-  // "W. A. Production" and "W.A. Production" are the same shop typed twice, so the
-  // comparison ignores punctuation and case. Saying "at W.A. Production" under
-  // "W. A. Production's Black Friday Month" is noise, not attribution.
-  const comparable = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "");
   const showRetailer =
     !insidePartnerShelf &&
     retailer !== null &&
