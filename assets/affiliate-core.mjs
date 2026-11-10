@@ -437,12 +437,14 @@ export function renderAffiliateOffer({
     typeof product?.developer === "string" && product.developer.trim() !== ""
       ? product.developer
       : null;
-  // "Everything Bundle / Thenatan" read as a title with a faded footnote. The maker
-  // belongs in the name: "Thenatan's Everything Bundle". Brands ending in s take a
-  // bare apostrophe, the way anyone would write it by hand.
-  const possessive = developer
-    ? `${developer}${/[sS]$/.test(developer) ? "'" : "'s"}`
-    : null;
+  // On the partner shelf the section heading already names the programme, so five
+  // cards starting "W. A. Production's …" would repeat the heading five times.
+  // Everywhere else the maker belongs in the name, because nothing else says it.
+  const insidePartnerShelf = promotion?.placement === "partner-shelf";
+  const possessive =
+    developer && !insidePartnerShelf
+      ? `${developer}${/[sS]$/.test(developer) ? "'" : "'s"}`
+      : null;
   const title = possessive ? `${possessive} ${productName}` : productName;
 
   // Where the offer actually lives. When the shop is the maker, saying it twice is
@@ -455,7 +457,9 @@ export function renderAffiliateOffer({
   // "W. A. Production's Black Friday Month" is noise, not attribution.
   const comparable = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "");
   const showRetailer =
-    retailer !== null && comparable(retailer) !== comparable(developer);
+    !insidePartnerShelf &&
+    retailer !== null &&
+    comparable(retailer) !== comparable(developer);
 
   const headline =
     typeof promotion.headline === "string" && promotion.headline.trim() !== ""
