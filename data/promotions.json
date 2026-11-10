@@ -51,7 +51,9 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-03T13:03:04.102Z",
-    "updatedAt": "2026-11-06T18:43:54.239Z"
+    "updatedAt": "2026-11-10T22:37:16.059Z",
+    "placement": "partner-shelf",
+    "placementOrder": 20
   },
   {
     "id": "promo-samplescience-majestic-celesta-2026",
@@ -93,7 +95,8 @@
     "createdAt": "2026-11-06T15:39:32.676Z",
     "updatedAt": "2026-11-10T13:48:29.108Z",
     "regularPriceSource": null,
-    "placement": "partner-shelf"
+    "placement": "partner-shelf",
+    "placementOrder": 1
   },
   {
     "id": "promo-wa-production-mixboss-black-friday-2026",
@@ -112,7 +115,8 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-10T14:07:04.852Z",
-    "updatedAt": "2026-11-10T14:07:04.852Z"
+    "updatedAt": "2026-11-10T14:07:04.852Z",
+    "placementOrder": 2
   },
   {
     "id": "promo-wa-production-detroubler-black-friday-2026",
@@ -131,7 +135,8 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-10T14:07:04.852Z",
-    "updatedAt": "2026-11-10T14:07:04.852Z"
+    "updatedAt": "2026-11-10T14:07:04.852Z",
+    "placementOrder": 3
   },
   {
     "id": "promo-wa-production-ultimate-synths-bundle-black-friday-2026",
@@ -150,7 +155,8 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-10T14:07:04.852Z",
-    "updatedAt": "2026-11-10T14:07:04.852Z"
+    "updatedAt": "2026-11-10T14:07:04.852Z",
+    "placementOrder": 4
   },
   {
     "id": "promo-wa-production-ultimate-mastering-tools-black-friday-2026",
@@ -169,7 +175,8 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-10T14:07:04.852Z",
-    "updatedAt": "2026-11-10T14:07:04.852Z"
+    "updatedAt": "2026-11-10T14:07:04.852Z",
+    "placementOrder": 5
   },
   {
     "id": "promo-carbonated-asp20-2026",
@@ -192,5 +199,53 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-10T22:18:37.887Z",
     "updatedAt": "2026-11-10T22:18:37.887Z"
+  },
+  {
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "placement": "partner-shelf",
+    "startsAt": null,
+    "currency": "USD",
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-10T22:37:16.059Z",
+    "updatedAt": "2026-11-10T22:37:16.059Z",
+    "id": "promo-carbonated-spritz-asp20-2026",
+    "productId": "carbonated-spritz",
+    "affiliateLinkId": "link-carbonated-spritz",
+    "placementOrder": 10,
+    "headline": "A tempo-synced effects rack driven by curves you draw — throw it on a loop and it comes back as a new pattern. $49, or $39.20 with the code ASP20.",
+    "endsAt": "2026-11-30T23:59:59-03:00",
+    "promoPrice": 39.2,
+    "regularPrice": 49,
+    "discountPercent": 20,
+    "couponCode": "ASP20",
+    "couponScope": "vendor-wide",
+    "couponOwner": "Carbonated Audio",
+    "couponPublishable": true
+  },
+  {
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "placement": "partner-shelf",
+    "startsAt": null,
+    "currency": "USD",
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-10T22:37:16.059Z",
+    "updatedAt": "2026-11-10T22:37:16.059Z",
+    "id": "promo-carbonated-foam-asp20-2026",
+    "productId": "carbonated-foam",
+    "affiliateLinkId": "link-carbonated-foam",
+    "placementOrder": 11,
+    "headline": "A reverb built to make room rather than to fill it, with zero latency. $49, or $39.20 with the code ASP20.",
+    "endsAt": "2026-11-30T23:59:59-03:00",
+    "promoPrice": 39.2,
+    "regularPrice": 49,
+    "discountPercent": 20,
+    "couponCode": "ASP20",
+    "couponScope": "vendor-wide",
+    "couponOwner": "Carbonated Audio",
+    "couponPublishable": true
   }
 ]
