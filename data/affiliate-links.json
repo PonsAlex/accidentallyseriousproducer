@@ -542,11 +542,11 @@
     "id": "link-wa-production-black-friday-month",
     "productId": "wa-production-black-friday-month",
     "programId": "wa-production",
-    "destinationUrl": "https://www.waproduction.com/#tl5yyfu43dtnu",
-    "fallbackUrl": "https://www.waproduction.com/special-offer",
+    "destinationUrl": "https://www.waproduction.com/special-offer#a_aid=tl5yyfu43dtnu&a_bid=1817d9bd",
+    "fallbackUrl": "https://www.waproduction.com/#tl5yyfu43dtnu",
     "status": "active",
     "requiresReview": false,
-    "lastVerifiedAt": "2026-11-06T18:43:54.239Z",
+    "lastVerifiedAt": "2026-11-10T13:48:29.108Z",
     "allowFallback": true
   },
   {

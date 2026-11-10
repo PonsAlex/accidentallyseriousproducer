@@ -57,9 +57,15 @@ async function renderDealsPage() {
     );
 
     for (const context of visibleContexts) {
-      const sectionId = SECTION_BY_STATE[context.state];
-      const container = document.querySelector(`#${sectionId} .offer-list`);
-      const section = document.querySelector(`#${sectionId}`);
+      // A partner campaign is not a deal among deals. It sits at the top of the
+      // page, above the deals it competes with, because that is what the partner
+      // agreed to and what the reader came for if they follow the programme.
+      const inPartnerShelf =
+        context.promotion?.placement === "partner-shelf" &&
+        context.state === PROMOTION_STATES.ACTIVE;
+      const targetId = inPartnerShelf ? "partner-featured" : SECTION_BY_STATE[context.state];
+      const container = document.querySelector(`#${targetId} .offer-list`);
+      const section = document.querySelector(`#${targetId}`);
       if (!container || !section) {
         continue;
       }
