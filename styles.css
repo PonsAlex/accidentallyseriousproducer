@@ -1182,6 +1182,20 @@ affiliate-offer {
   margin-bottom: clamp(3rem, 7vw, 5rem);
 }
 
+/* The partner shelf is grouped by programme: one heading, then that partner's
+   cards. The heading is what lets the cards keep plain product names. */
+.partner-group + .partner-group {
+  margin-top: 3rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.partner-group-title {
+  margin-bottom: 1.1rem;
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  letter-spacing: 0.01em;
+}
+
 .deal-section {
   padding: clamp(3rem, 7vw, 5rem) 0;
   border-top: 1px solid var(--line);

@@ -768,5 +768,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-10T22:18:37.887Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-carbonated-spritz",
+    "productId": "carbonated-spritz",
+    "programId": "carbonated-audio",
+    "destinationUrl": "https://carbonatedaudio.com/spritz",
+    "fallbackUrl": "https://carbonatedaudio.com/spritz",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T22:37:16.059Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-carbonated-foam",
+    "productId": "carbonated-foam",
+    "programId": "carbonated-audio",
+    "destinationUrl": "https://carbonatedaudio.com/foam",
+    "fallbackUrl": "https://carbonatedaudio.com/foam",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T22:37:16.059Z",
+    "allowFallback": true
   }
 ]

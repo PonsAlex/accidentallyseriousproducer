@@ -779,5 +779,29 @@
     "status": "active",
     "createdAt": "2026-11-10T22:18:37.887Z",
     "updatedAt": "2026-11-10T22:18:37.887Z"
+  },
+  {
+    "id": "carbonated-spritz",
+    "slug": "carbonated-spritz",
+    "programId": "carbonated-audio",
+    "name": "Spritz",
+    "category": "plugin",
+    "description": "Spritz by Carbonated Audio",
+    "developer": "Carbonated Audio",
+    "status": "active",
+    "createdAt": "2026-11-10T22:37:16.059Z",
+    "updatedAt": "2026-11-10T22:37:16.059Z"
+  },
+  {
+    "id": "carbonated-foam",
+    "slug": "carbonated-foam",
+    "programId": "carbonated-audio",
+    "name": "Foam",
+    "category": "plugin",
+    "description": "Foam by Carbonated Audio",
+    "developer": "Carbonated Audio",
+    "status": "active",
+    "createdAt": "2026-11-10T22:37:16.059Z",
+    "updatedAt": "2026-11-10T22:37:16.059Z"
   }
 ]

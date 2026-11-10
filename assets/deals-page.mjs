@@ -56,14 +56,46 @@ async function renderDealsPage() {
         state !== PROMOTION_STATES.REVIEW_REQUIRED || debug
     );
 
-    for (const context of visibleContexts) {
+    // The partner shelf is grouped by programme, one heading per partner, so the
+    // cards can carry plain product names: the heading already says whose they are.
+    // Groups appear in the order the data gives them, not in file order.
+    const partnerGroups = document.querySelector("#partner-groups");
+    const groupByProgramme = new Map();
+    const ordered = [...visibleContexts].sort(
+      (a, b) =>
+        (a.promotion?.placementOrder ?? Number.MAX_SAFE_INTEGER) -
+        (b.promotion?.placementOrder ?? Number.MAX_SAFE_INTEGER)
+    );
+
+    for (const context of ordered) {
       // A partner campaign is not a deal among deals. It sits at the top of the
       // page, above the deals it competes with, because that is what the partner
       // agreed to and what the reader came for if they follow the programme.
       const inPartnerShelf =
         context.promotion?.placement === "partner-shelf" &&
         context.state === PROMOTION_STATES.ACTIVE;
-      const targetId = inPartnerShelf ? "partner-featured" : SECTION_BY_STATE[context.state];
+
+      if (inPartnerShelf) {
+        const programmeId = context.program?.id ?? "unknown";
+        let group = groupByProgramme.get(programmeId);
+        if (!group) {
+          const wrapper = document.createElement("div");
+          wrapper.className = "partner-group";
+          const heading = document.createElement("h3");
+          heading.className = "partner-group-title";
+          heading.textContent = context.program?.name ?? "Partner";
+          const list = document.createElement("div");
+          list.className = "offer-list";
+          wrapper.append(heading, list);
+          partnerGroups.append(wrapper);
+          group = list;
+          groupByProgramme.set(programmeId, group);
+        }
+        appendOffer(group, context, debug);
+        continue;
+      }
+
+      const targetId = SECTION_BY_STATE[context.state];
       const container = document.querySelector(`#${targetId} .offer-list`);
       const section = document.querySelector(`#${targetId}`);
       if (!container || !section) {
@@ -72,6 +104,10 @@ async function renderDealsPage() {
 
       appendOffer(container, context, debug);
       section.hidden = false;
+    }
+
+    if (groupByProgramme.size > 0 && partnerGroups) {
+      partnerGroups.closest("section").hidden = false;
     }
 
     if (shouldShowAffiliateDisclosure(visibleContexts)) {
