@@ -702,5 +702,71 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-10T14:07:04.852Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-crlff-digital-qr-250",
+    "productId": "crlff-digital-qr-250",
+    "programId": "crlff-digital",
+    "destinationUrl": "https://www.crlffdigital.com/qr-250.html",
+    "fallbackUrl": "https://www.crlffdigital.com/qr-250.html",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T18:47:36.684Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-titanscore-audio-lumivox",
+    "productId": "titanscore-audio-lumivox",
+    "programId": "titanscore-audio",
+    "destinationUrl": "https://titanscoreaudio.com/lumivox",
+    "fallbackUrl": "https://titanscoreaudio.com/lumivox",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T18:47:36.835Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-godlike-loops-godlike-swell",
+    "productId": "godlike-loops-godlike-swell",
+    "programId": "godlike-loops",
+    "destinationUrl": "https://vstalarm.com/product/godlike-swell-cinematic-pad-maker-by-godlike-loops/",
+    "fallbackUrl": "https://vstalarm.com/product/godlike-swell-cinematic-pad-maker-by-godlike-loops/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T18:47:36.983Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-djw-audio-dw-303",
+    "productId": "djw-audio-dw-303",
+    "programId": "djw-audio",
+    "destinationUrl": "https://djwaudio.co/#home",
+    "fallbackUrl": "https://djwaudio.co/#home",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T18:57:08.835Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-fuse-audio-labs-free-bundle",
+    "productId": "fuse-audio-labs-free-bundle",
+    "programId": "fuse-audio-labs",
+    "destinationUrl": "https://fuseaudiolabs.com/#/pages/product?id=907321017",
+    "fallbackUrl": "https://fuseaudiolabs.com/#/pages/product?id=907321017",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T18:57:08.954Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-carbonated-all-plugins-bundle",
+    "productId": "carbonated-all-plugins-bundle",
+    "programId": "carbonated-audio",
+    "destinationUrl": "https://carbonatedaudio.com/",
+    "fallbackUrl": "https://carbonatedaudio.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T22:18:37.887Z",
+    "allowFallback": true
   }
 ]

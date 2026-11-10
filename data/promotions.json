@@ -170,5 +170,27 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-10T14:07:04.852Z",
     "updatedAt": "2026-11-10T14:07:04.852Z"
+  },
+  {
+    "id": "promo-carbonated-asp20-2026",
+    "productId": "carbonated-all-plugins-bundle",
+    "affiliateLinkId": "link-carbonated-all-plugins-bundle",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "20% off the whole catalogue with the code ASP20, which belongs to this site. The nine-plugin bundle is $99 against $227 separately, and the code takes it to $79.20.",
+    "startsAt": null,
+    "endsAt": "2026-11-30T23:59:59-03:00",
+    "promoPrice": 99,
+    "regularPrice": 227,
+    "currency": "USD",
+    "discountPercent": 56,
+    "couponCode": "ASP20",
+    "couponScope": "vendor-wide",
+    "couponOwner": "Carbonated Audio",
+    "couponPublishable": true,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-10T22:18:37.887Z",
+    "updatedAt": "2026-11-10T22:18:37.887Z"
   }
 ]
