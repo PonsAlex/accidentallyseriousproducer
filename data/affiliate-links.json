@@ -658,5 +658,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-09T21:21:55.697Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-mixboss",
+    "productId": "wa-production-mixboss",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/plugins/view/mixboss#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T14:07:04.852Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-detroubler",
+    "productId": "wa-production-detroubler",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/plugins/view/detroubler#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T14:07:04.852Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-ultimate-synths-bundle",
+    "productId": "wa-production-ultimate-synths-bundle",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/ultimate-synths-bundle#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T14:07:04.852Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-ultimate-mastering-tools",
+    "productId": "wa-production-ultimate-mastering-tools",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/ultimate-mastering-tools#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T14:07:04.852Z",
+    "allowFallback": true
   }
 ]

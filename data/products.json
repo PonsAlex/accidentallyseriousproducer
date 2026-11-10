@@ -664,5 +664,53 @@
     "status": "active",
     "createdAt": "2026-11-09T21:21:55.697Z",
     "updatedAt": "2026-11-09T21:21:55.697Z"
+  },
+  {
+    "id": "wa-production-mixboss",
+    "slug": "wa-production-mixboss",
+    "programId": "wa-production",
+    "name": "MixBoss",
+    "category": "plugin",
+    "description": "MixBoss by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-10T14:07:04.852Z",
+    "updatedAt": "2026-11-10T14:07:04.852Z"
+  },
+  {
+    "id": "wa-production-detroubler",
+    "slug": "wa-production-detroubler",
+    "programId": "wa-production",
+    "name": "Detroubler",
+    "category": "plugin",
+    "description": "Detroubler by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-10T14:07:04.852Z",
+    "updatedAt": "2026-11-10T14:07:04.852Z"
+  },
+  {
+    "id": "wa-production-ultimate-synths-bundle",
+    "slug": "wa-production-ultimate-synths-bundle",
+    "programId": "wa-production",
+    "name": "Ultimate Synths Bundle",
+    "category": "bundle",
+    "description": "Ultimate Synths Bundle by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-10T14:07:04.852Z",
+    "updatedAt": "2026-11-10T14:07:04.852Z"
+  },
+  {
+    "id": "wa-production-ultimate-mastering-tools",
+    "slug": "wa-production-ultimate-mastering-tools",
+    "programId": "wa-production",
+    "name": "Ultimate Mastering Tools",
+    "category": "bundle",
+    "description": "Ultimate Mastering Tools by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-10T14:07:04.852Z",
+    "updatedAt": "2026-11-10T14:07:04.852Z"
   }
 ]
