@@ -815,5 +815,29 @@
     "status": "active",
     "createdAt": "2026-11-10T22:46:57.136Z",
     "updatedAt": "2026-11-10T22:46:57.136Z"
+  },
+  {
+    "id": "sonarworks-soundid",
+    "slug": "sonarworks-soundid",
+    "programId": "plugin-boutique",
+    "name": "SoundID",
+    "category": "bundle",
+    "description": "SoundID by Sonarworks, on sale at Plugin Boutique",
+    "developer": "Sonarworks",
+    "status": "active",
+    "createdAt": "2026-11-10T22:58:11.849Z",
+    "updatedAt": "2026-11-10T22:58:11.849Z"
+  },
+  {
+    "id": "scaler-music-scaler",
+    "slug": "scaler-music-scaler",
+    "programId": "plugin-boutique",
+    "name": "Scaler",
+    "category": "bundle",
+    "description": "Scaler by Scaler Music, on sale at Plugin Boutique",
+    "developer": "Scaler Music",
+    "status": "active",
+    "createdAt": "2026-11-10T22:58:11.849Z",
+    "updatedAt": "2026-11-10T22:58:11.849Z"
   }
 ]

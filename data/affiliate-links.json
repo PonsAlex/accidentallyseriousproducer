@@ -801,5 +801,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-10T22:46:57.136Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-sonarworks-soundid",
+    "productId": "sonarworks-soundid",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/250-Sonarworks",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T22:58:11.849Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-scaler-music-scaler",
+    "productId": "scaler-music-scaler",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/444-Scaler-Music",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-10T22:58:11.849Z",
+    "allowFallback": true
   }
 ]
