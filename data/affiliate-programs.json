@@ -484,5 +484,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "goeran-meyer",
+    "name": "Goeran Meyer",
+    "homepage": "https://www.goeranmeyer.com/plugins/zenith",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

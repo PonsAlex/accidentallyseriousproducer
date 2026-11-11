@@ -856,5 +856,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-11T21:19:17.231Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-goeran-meyer-myr-zenith",
+    "productId": "goeran-meyer-myr-zenith",
+    "programId": "goeran-meyer",
+    "destinationUrl": "https://www.goeranmeyer.com/plugins/zenith",
+    "fallbackUrl": "https://www.goeranmeyer.com/plugins/zenith",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-11T21:31:45.855Z",
+    "allowFallback": true
   }
 ]

@@ -872,5 +872,16 @@
     "status": "active",
     "createdAt": "2026-11-11T21:19:17.231Z",
     "updatedAt": "2026-11-11T21:19:17.231Z"
+  },
+  {
+    "id": "goeran-meyer-myr-zenith",
+    "slug": "goeran-meyer-myr-zenith",
+    "programId": "goeran-meyer",
+    "name": "MYR ZENITH",
+    "category": "plugin",
+    "description": "MYR ZENITH",
+    "status": "active",
+    "createdAt": "2026-11-11T21:31:45.855Z",
+    "updatedAt": "2026-11-11T21:31:45.855Z"
   }
 ]
