@@ -839,5 +839,38 @@
     "status": "active",
     "createdAt": "2026-11-10T22:58:11.849Z",
     "updatedAt": "2026-11-10T23:25:24.869Z"
+  },
+  {
+    "id": "reasonable-audio-preamble",
+    "slug": "reasonable-audio-preamble",
+    "programId": "reasonable-audio",
+    "name": "PREAMBLE",
+    "category": "plugin",
+    "description": "PREAMBLE",
+    "status": "active",
+    "createdAt": "2026-11-11T21:19:16.946Z",
+    "updatedAt": "2026-11-11T21:19:16.946Z"
+  },
+  {
+    "id": "lemus-ro-drums-808",
+    "slug": "lemus-ro-drums-808",
+    "programId": "lemus",
+    "name": "ro-drums-808",
+    "category": "plugin",
+    "description": "ro-drums-808",
+    "status": "active",
+    "createdAt": "2026-11-11T21:19:17.073Z",
+    "updatedAt": "2026-11-11T21:19:17.073Z"
+  },
+  {
+    "id": "tonecraft-tomgraft",
+    "slug": "tonecraft-tomgraft",
+    "programId": "tonecraft",
+    "name": "TOMGRAFT",
+    "category": "plugin",
+    "description": "TOMGRAFT",
+    "status": "active",
+    "createdAt": "2026-11-11T21:19:17.231Z",
+    "updatedAt": "2026-11-11T21:19:17.231Z"
   }
 ]

@@ -460,5 +460,29 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "reasonable-audio",
+    "name": "Reasonable Audio",
+    "homepage": "https://reasonableaudio.com/preamble",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "lemus",
+    "name": "Lemus",
+    "homepage": "https://lemusdev.org/ro-drums-808",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "tonecraft",
+    "name": "Tonecraft",
+    "homepage": "https://tonecraft02.gumroad.com/l/tomgraft",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

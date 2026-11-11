@@ -823,5 +823,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-10T22:58:11.849Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-reasonable-audio-preamble",
+    "productId": "reasonable-audio-preamble",
+    "programId": "reasonable-audio",
+    "destinationUrl": "https://reasonableaudio.com/preamble",
+    "fallbackUrl": "https://reasonableaudio.com/preamble",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-11T21:19:16.946Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-lemus-ro-drums-808",
+    "productId": "lemus-ro-drums-808",
+    "programId": "lemus",
+    "destinationUrl": "https://lemusdev.org/ro-drums-808",
+    "fallbackUrl": "https://lemusdev.org/ro-drums-808",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-11T21:19:17.073Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-tonecraft-tomgraft",
+    "productId": "tonecraft-tomgraft",
+    "programId": "tonecraft",
+    "destinationUrl": "https://tonecraft02.gumroad.com/l/tomgraft",
+    "fallbackUrl": "https://tonecraft02.gumroad.com/l/tomgraft",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-11T21:19:17.231Z",
+    "allowFallback": true
   }
 ]
