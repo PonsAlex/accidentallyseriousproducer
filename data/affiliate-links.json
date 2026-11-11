@@ -867,5 +867,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-11T21:31:45.855Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-kilohearts-pitch-shifter",
+    "productId": "kilohearts-pitch-shifter",
+    "programId": "kilohearts",
+    "destinationUrl": "https://kilohearts.com/products/pitch_shifter",
+    "fallbackUrl": "https://kilohearts.com/products/pitch_shifter",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-11T22:02:27.018Z",
+    "allowFallback": true
   }
 ]

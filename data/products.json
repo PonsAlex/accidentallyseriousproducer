@@ -883,5 +883,16 @@
     "status": "active",
     "createdAt": "2026-11-11T21:31:45.855Z",
     "updatedAt": "2026-11-11T21:31:45.855Z"
+  },
+  {
+    "id": "kilohearts-pitch-shifter",
+    "slug": "kilohearts-pitch-shifter",
+    "programId": "kilohearts",
+    "name": "Pitch Shifter",
+    "category": "plugin",
+    "description": "Pitch Shifter",
+    "status": "active",
+    "createdAt": "2026-11-11T22:02:27.018Z",
+    "updatedAt": "2026-11-11T22:02:27.018Z"
   }
 ]

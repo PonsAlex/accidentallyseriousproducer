@@ -492,5 +492,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "kilohearts",
+    "name": "Kilohearts",
+    "homepage": "https://kilohearts.com/products/pitch_shifter",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
