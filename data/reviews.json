@@ -684,6 +684,18 @@
       "endsAtDate": null,
       "href": "/go/link-gazillion-industries-smplutility",
       "updatedAt": "2026-11-12"
+    },
+    {
+      "recordId": "hakuna-hakunizer",
+      "blockId": "product-review-hakuna-hakunizer",
+      "publishedAt": "2026-11-12",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Hakuna Audio - HAKUNIZER",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-hakuna-audio-hakunizer",
+      "updatedAt": "2026-11-12"
     }
   ]
 }

@@ -900,5 +900,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-12T21:06:44.748Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-hakuna-audio-hakunizer",
+    "productId": "hakuna-audio-hakunizer",
+    "programId": "hakuna-audio",
+    "destinationUrl": "https://hakunaaudio.com/plugins/hakunizer/",
+    "fallbackUrl": "https://hakunaaudio.com/plugins/hakunizer/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-12T21:14:29.321Z",
+    "allowFallback": true
   }
 ]
