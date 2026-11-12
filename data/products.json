@@ -894,5 +894,17 @@
     "status": "active",
     "createdAt": "2026-11-11T22:02:27.018Z",
     "updatedAt": "2026-11-11T22:02:27.018Z"
+  },
+  {
+    "id": "wa-production-modulo",
+    "slug": "wa-production-modulo",
+    "programId": "wa-production",
+    "name": "Modulo",
+    "category": "plugin",
+    "description": "W.A. Production Modulo sequencer-driven multi-effects",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-12T12:59:36.882Z",
+    "updatedAt": "2026-11-12T12:59:36.882Z"
   }
 ]

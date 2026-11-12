@@ -878,5 +878,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-11T22:02:27.018Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-modulo",
+    "productId": "wa-production-modulo",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/plugins/view/modulo#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-12T12:59:36.882Z",
+    "allowFallback": true
   }
 ]
