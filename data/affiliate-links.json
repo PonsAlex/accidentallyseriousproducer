@@ -889,5 +889,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-12T12:59:36.882Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-gazillion-industries-smplutility",
+    "productId": "gazillion-industries-smplutility",
+    "programId": "gazillion-industries",
+    "destinationUrl": "https://gazillionindustries.com/smplutility/",
+    "fallbackUrl": "https://gazillionindustries.com/smplutility/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-12T21:06:44.748Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-hakuna-audio-hakunizer",
+    "productId": "hakuna-audio-hakunizer",
+    "programId": "hakuna-audio",
+    "destinationUrl": "https://hakunaaudio.com/plugins/hakunizer/",
+    "fallbackUrl": "https://hakunaaudio.com/plugins/hakunizer/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-12T21:14:29.321Z",
+    "allowFallback": true
   }
 ]

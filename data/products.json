@@ -906,5 +906,27 @@
     "status": "active",
     "createdAt": "2026-11-12T12:59:36.882Z",
     "updatedAt": "2026-11-12T12:59:36.882Z"
+  },
+  {
+    "id": "gazillion-industries-smplutility",
+    "slug": "gazillion-industries-smplutility",
+    "programId": "gazillion-industries",
+    "name": "SMPLUTILITY",
+    "category": "other",
+    "description": "SMPLUTILITY",
+    "status": "active",
+    "createdAt": "2026-11-12T21:06:44.748Z",
+    "updatedAt": "2026-11-12T21:06:44.748Z"
+  },
+  {
+    "id": "hakuna-audio-hakunizer",
+    "slug": "hakuna-audio-hakunizer",
+    "programId": "hakuna-audio",
+    "name": "HAKUNIZER",
+    "category": "plugin",
+    "description": "HAKUNIZER",
+    "status": "active",
+    "createdAt": "2026-11-12T21:14:29.321Z",
+    "updatedAt": "2026-11-12T21:14:29.321Z"
   }
 ]

@@ -500,5 +500,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "gazillion-industries",
+    "name": "Gazillion Industries",
+    "homepage": "https://gazillionindustries.com/smplutility/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "hakuna-audio",
+    "name": "Hakuna Audio",
+    "homepage": "https://hakunaaudio.com/plugins/hakunizer/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
