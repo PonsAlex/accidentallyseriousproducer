@@ -309,5 +309,25 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-10T22:58:11.849Z",
     "updatedAt": "2026-11-10T22:58:11.849Z"
+  },
+  {
+    "id": "promo-wa-production-modulo-black-friday-2026",
+    "productId": "wa-production-modulo",
+    "affiliateLinkId": "link-wa-production-modulo",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "placement": "partner-shelf",
+    "placementOrder": 6,
+    "headline": "Modulate everything: $12 against a regular $49.90. A sequencer drives a multi-effects rack, so movement is written rather than drawn by hand.",
+    "startsAt": null,
+    "endsAt": "2026-11-30T23:59:59-03:00",
+    "promoPrice": 12,
+    "regularPrice": 49.9,
+    "currency": "USD",
+    "discountPercent": 76,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-12T12:59:36.882Z",
+    "updatedAt": "2026-11-12T12:59:36.882Z"
   }
 ]
