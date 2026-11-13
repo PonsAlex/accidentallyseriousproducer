@@ -939,5 +939,41 @@
     "status": "active",
     "createdAt": "2026-11-13T15:39:37.499Z",
     "updatedAt": "2026-11-13T15:39:37.499Z"
+  },
+  {
+    "id": "soundmorph-fire-water-bundle",
+    "slug": "soundmorph-fire-water-bundle",
+    "programId": "soundmorph",
+    "name": "Fire + Water Bundle",
+    "category": "bundle",
+    "description": "Fire + Water Bundle by SoundMorph",
+    "developer": "SoundMorph",
+    "status": "active",
+    "createdAt": "2026-11-13T18:42:39.536Z",
+    "updatedAt": "2026-11-13T18:42:39.536Z"
+  },
+  {
+    "id": "soundmorph-software-bundle-v5",
+    "slug": "soundmorph-software-bundle-v5",
+    "programId": "soundmorph",
+    "name": "Software Bundle v5",
+    "category": "bundle",
+    "description": "Software Bundle v5 by SoundMorph",
+    "developer": "SoundMorph",
+    "status": "active",
+    "createdAt": "2026-11-13T18:42:39.536Z",
+    "updatedAt": "2026-11-13T18:42:39.536Z"
+  },
+  {
+    "id": "soundmorph-wave-warper-2",
+    "slug": "soundmorph-wave-warper-2",
+    "programId": "soundmorph",
+    "name": "Wave Warper 2",
+    "category": "plugin",
+    "description": "Wave Warper 2 by SoundMorph",
+    "developer": "SoundMorph",
+    "status": "active",
+    "createdAt": "2026-11-13T18:42:39.536Z",
+    "updatedAt": "2026-11-13T18:42:39.536Z"
   }
 ]

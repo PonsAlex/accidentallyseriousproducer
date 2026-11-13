@@ -922,5 +922,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-13T15:39:37.499Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-soundmorph-fire-water-bundle",
+    "productId": "soundmorph-fire-water-bundle",
+    "programId": "soundmorph",
+    "destinationUrl": "https://soundmorph.com/products/fire-water-bundle?bg_ref=fCriQomLzL",
+    "fallbackUrl": "https://soundmorph.com?bg_ref=fCriQomLzL",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:42:39.536Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-soundmorph-software-bundle-v5",
+    "productId": "soundmorph-software-bundle-v5",
+    "programId": "soundmorph",
+    "destinationUrl": "https://soundmorph.com/products/software-bundle-v5?bg_ref=fCriQomLzL",
+    "fallbackUrl": "https://soundmorph.com?bg_ref=fCriQomLzL",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:42:39.536Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-soundmorph-wave-warper-2",
+    "productId": "soundmorph-wave-warper-2",
+    "programId": "soundmorph",
+    "destinationUrl": "https://soundmorph.com/products/wave-warper-2?bg_ref=fCriQomLzL",
+    "fallbackUrl": "https://soundmorph.com?bg_ref=fCriQomLzL",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:42:39.536Z",
+    "allowFallback": true
   }
 ]
