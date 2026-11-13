@@ -1032,5 +1032,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-13T18:45:02.929Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-cloudy-samples-analog-plugins-bundle",
+    "productId": "cloudy-samples-analog-plugins-bundle",
+    "programId": "vst-alarm",
+    "destinationUrl": "https://vstalarm.com/product/analog-plugins-bundle-by-cloudy-samples/",
+    "fallbackUrl": "https://vstalarm.com/product/analog-plugins-bundle-by-cloudy-samples/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T19:32:32.111Z",
+    "allowFallback": true
   }
 ]

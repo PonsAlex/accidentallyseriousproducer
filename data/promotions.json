@@ -401,5 +401,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-13T18:42:39.536Z",
     "updatedAt": "2026-11-13T18:42:39.536Z"
+  },
+  {
+    "id": "promo-cloudy-samples-analog-bundle-2026",
+    "productId": "cloudy-samples-analog-plugins-bundle",
+    "affiliateLinkId": "link-cloudy-samples-analog-plugins-bundle",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "Eight Cloudy Samples plugins for $9.99 against $136.75, including two you cannot buy anywhere else. Tape warmth, lo-fi colour, analog mastering, stereo width, a sampler and a grand piano.",
+    "startsAt": null,
+    "endsAt": "2026-11-29T09:00:00-03:00",
+    "promoPrice": 9.99,
+    "regularPrice": 136.75,
+    "currency": "USD",
+    "discountPercent": 93,
+    "dateConfidence": "medium",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-13T19:32:32.111Z",
+    "updatedAt": "2026-11-13T19:32:32.111Z"
   }
 ]

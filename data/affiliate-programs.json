@@ -580,5 +580,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "cloudy-samples",
+    "name": "Cloudy Samples",
+    "homepage": "https://vstalarm.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "vst-alarm",
+    "name": "VST Alarm",
+    "homepage": "https://vstalarm.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

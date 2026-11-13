@@ -1052,5 +1052,17 @@
     "status": "active",
     "createdAt": "2026-11-13T18:45:02.929Z",
     "updatedAt": "2026-11-13T18:45:02.929Z"
+  },
+  {
+    "id": "cloudy-samples-analog-plugins-bundle",
+    "slug": "cloudy-samples-analog-plugins-bundle",
+    "programId": "vst-alarm",
+    "name": "Analog Plugins Bundle",
+    "category": "bundle",
+    "description": "Eight Cloudy Samples plugins at 93% off",
+    "developer": "Cloudy Samples",
+    "status": "active",
+    "createdAt": "2026-11-13T19:32:32.111Z",
+    "updatedAt": "2026-11-13T19:32:32.111Z"
   }
 ]
