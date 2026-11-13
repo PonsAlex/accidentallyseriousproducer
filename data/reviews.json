@@ -698,6 +698,30 @@
       "updatedAt": "2026-11-13"
     },
     {
+      "recordId": "apd-free-black-friday-mega-bundle",
+      "blockId": "product-review-apd-free-black-friday-mega-bundle",
+      "publishedAt": "2026-11-13",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Audio Plugin Deals - Free Black Friday Mega Bundle",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-audio-plugin-deals-free-black-friday-mega-bundle",
+      "updatedAt": "2026-11-13"
+    },
+    {
+      "recordId": "asoundeffect-gift",
+      "blockId": "product-review-asoundeffect-gift",
+      "publishedAt": "2026-11-13",
+      "verdict": "Digital Furniture",
+      "status": "Free",
+      "productName": "A Sound Effect - Gift",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-a-sound-effect-gift",
+      "updatedAt": "2026-11-13"
+    },
+    {
       "recordId": "audiolatry-uzat",
       "blockId": "product-review-audiolatry-uzat",
       "publishedAt": "2026-11-13",
@@ -707,6 +731,66 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-audiolatry-uzat",
+      "updatedAt": "2026-11-13"
+    },
+    {
+      "recordId": "dsptone-restrukt-ambience-reducer",
+      "blockId": "product-review-dsptone-restrukt-ambience-reducer",
+      "publishedAt": "2026-11-13",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "DSPTone - RESTRUKT Ambience Reducer",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-dsptone-restrukt-ambience-reducer",
+      "updatedAt": "2026-11-13"
+    },
+    {
+      "recordId": "hornet-harmonics",
+      "blockId": "product-review-hornet-harmonics",
+      "publishedAt": "2026-11-13",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "HoRNet Plugins - Harmonics",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-hornet-plugins-harmonics",
+      "updatedAt": "2026-11-13"
+    },
+    {
+      "recordId": "martinic-eclipser",
+      "blockId": "product-review-martinic-eclipser",
+      "publishedAt": "2026-11-13",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Martinic - Eclipser",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-martinic-eclipser",
+      "updatedAt": "2026-11-13"
+    },
+    {
+      "recordId": "ocean-swift-devocean-player",
+      "blockId": "product-review-ocean-swift-devocean-player",
+      "publishedAt": "2026-11-13",
+      "verdict": "Digital Furniture",
+      "status": "Free",
+      "productName": "Ocean Swift Synthesis - DevOcean Player",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-ocean-swift-synthesis-devocean-player",
+      "updatedAt": "2026-11-13"
+    },
+    {
+      "recordId": "sonic-academy-ju60",
+      "blockId": "product-review-sonic-academy-ju60",
+      "publishedAt": "2026-11-13",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Sonic Academy - JU60",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-sonic-academy-ju60",
       "updatedAt": "2026-11-13"
     }
   ]

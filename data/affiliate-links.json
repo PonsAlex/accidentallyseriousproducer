@@ -955,5 +955,93 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-13T18:42:39.536Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ocean-swift-synthesis-devocean-player",
+    "productId": "ocean-swift-synthesis-devocean-player",
+    "programId": "ocean-swift-synthesis",
+    "destinationUrl": "https://oceanswift.net/product/devocean/",
+    "fallbackUrl": "https://oceanswift.net/product/devocean/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:44:21.467Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-audio-plugin-deals-free-black-friday-mega-bundle",
+    "productId": "audio-plugin-deals-free-black-friday-mega-bundle",
+    "programId": "audio-plugin-deals",
+    "destinationUrl": "https://audioplugin.deals/product/free-black-friday-mega-bundle/",
+    "fallbackUrl": "https://audioplugin.deals/product/free-black-friday-mega-bundle/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:45:01.538Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-hornet-plugins-harmonics",
+    "productId": "hornet-plugins-harmonics",
+    "programId": "hornet-plugins",
+    "destinationUrl": "https://www.hornetplugins.com/plugins/hornet-harmonics/",
+    "fallbackUrl": "https://www.hornetplugins.com/plugins/hornet-harmonics/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:45:01.771Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-martinic-eclipser",
+    "productId": "martinic-eclipser",
+    "programId": "martinic",
+    "destinationUrl": "https://www.martinic.com/en/products/eclipser",
+    "fallbackUrl": "https://www.martinic.com/en/products/eclipser",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:45:02.033Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-a-sound-effect-gift",
+    "productId": "a-sound-effect-gift",
+    "programId": "a-sound-effect",
+    "destinationUrl": "https://www.asoundeffect.com/gift/",
+    "fallbackUrl": "https://www.asoundeffect.com/gift/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:45:02.326Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-dsptone-restrukt-ambience-reducer",
+    "productId": "dsptone-restrukt-ambience-reducer",
+    "programId": "dsptone",
+    "destinationUrl": "https://dsptone.com/free/",
+    "fallbackUrl": "https://dsptone.com/free/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:45:02.643Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-sonic-academy-ju60",
+    "productId": "sonic-academy-ju60",
+    "programId": "sonic-academy",
+    "destinationUrl": "https://www.sonicacademy.com/event/ju60-free",
+    "fallbackUrl": "https://www.sonicacademy.com/event/ju60-free",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:45:02.929Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-cloudy-samples-analog-plugins-bundle",
+    "productId": "cloudy-samples-analog-plugins-bundle",
+    "programId": "vst-alarm",
+    "destinationUrl": "https://vstalarm.com/product/analog-plugins-bundle-by-cloudy-samples/",
+    "fallbackUrl": "https://vstalarm.com/product/analog-plugins-bundle-by-cloudy-samples/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T19:32:32.111Z",
+    "allowFallback": true
   }
 ]
