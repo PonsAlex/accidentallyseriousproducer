@@ -975,5 +975,82 @@
     "status": "active",
     "createdAt": "2026-11-13T18:42:39.536Z",
     "updatedAt": "2026-11-13T18:42:39.536Z"
+  },
+  {
+    "id": "ocean-swift-synthesis-devocean-player",
+    "slug": "ocean-swift-synthesis-devocean-player",
+    "programId": "ocean-swift-synthesis",
+    "name": "DevOcean Player",
+    "category": "other",
+    "description": "DevOcean Player",
+    "status": "active",
+    "createdAt": "2026-11-13T18:44:21.467Z",
+    "updatedAt": "2026-11-13T18:44:21.467Z"
+  },
+  {
+    "id": "audio-plugin-deals-free-black-friday-mega-bundle",
+    "slug": "audio-plugin-deals-free-black-friday-mega-bundle",
+    "programId": "audio-plugin-deals",
+    "name": "Free Black Friday Mega Bundle",
+    "category": "bundle",
+    "description": "Free Black Friday Mega Bundle",
+    "status": "active",
+    "createdAt": "2026-11-13T18:45:01.538Z",
+    "updatedAt": "2026-11-13T18:45:01.538Z"
+  },
+  {
+    "id": "hornet-plugins-harmonics",
+    "slug": "hornet-plugins-harmonics",
+    "programId": "hornet-plugins",
+    "name": "Harmonics",
+    "category": "plugin",
+    "description": "Harmonics",
+    "status": "active",
+    "createdAt": "2026-11-13T18:45:01.771Z",
+    "updatedAt": "2026-11-13T18:45:01.771Z"
+  },
+  {
+    "id": "martinic-eclipser",
+    "slug": "martinic-eclipser",
+    "programId": "martinic",
+    "name": "Eclipser",
+    "category": "other",
+    "description": "Eclipser",
+    "status": "active",
+    "createdAt": "2026-11-13T18:45:02.033Z",
+    "updatedAt": "2026-11-13T18:45:02.033Z"
+  },
+  {
+    "id": "a-sound-effect-gift",
+    "slug": "a-sound-effect-gift",
+    "programId": "a-sound-effect",
+    "name": "Gift",
+    "category": "other",
+    "description": "Gift",
+    "status": "active",
+    "createdAt": "2026-11-13T18:45:02.326Z",
+    "updatedAt": "2026-11-13T18:45:02.326Z"
+  },
+  {
+    "id": "dsptone-restrukt-ambience-reducer",
+    "slug": "dsptone-restrukt-ambience-reducer",
+    "programId": "dsptone",
+    "name": "RESTRUKT Ambience Reducer",
+    "category": "plugin",
+    "description": "RESTRUKT Ambience Reducer",
+    "status": "active",
+    "createdAt": "2026-11-13T18:45:02.643Z",
+    "updatedAt": "2026-11-13T18:45:02.643Z"
+  },
+  {
+    "id": "sonic-academy-ju60",
+    "slug": "sonic-academy-ju60",
+    "programId": "sonic-academy",
+    "name": "JU60",
+    "category": "plugin",
+    "description": "JU60",
+    "status": "active",
+    "createdAt": "2026-11-13T18:45:02.929Z",
+    "updatedAt": "2026-11-13T18:45:02.929Z"
   }
 ]
