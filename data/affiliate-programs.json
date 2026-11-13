@@ -516,5 +516,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "audiolatry",
+    "name": "Audiolatry",
+    "homepage": "https://audiolatry.com/uzat-free-character-degradation-effect-plugin/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
