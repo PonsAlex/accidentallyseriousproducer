@@ -338,13 +338,13 @@
     "requiresReview": false,
     "placement": "partner-shelf",
     "placementOrder": 30,
-    "headline": "Two elemental libraries for $199 against $398 separately, and 20% more with the code. Until 30 November, owners of one gather the other for $49 or $29.",
+    "headline": "Black Friday special: $79 against the regular $199 bundle price, and the two libraries cost $398 bought separately. Through 30 November, owners of one half gather the other for $49 or $29.",
     "startsAt": null,
     "endsAt": "2026-11-30T23:59:59-03:00",
-    "promoPrice": 199,
-    "regularPrice": 398,
+    "promoPrice": 79,
+    "regularPrice": 199,
     "currency": "USD",
-    "discountPercent": 50,
+    "discountPercent": 60,
     "couponCode": "Earn20%withASP",
     "couponScope": "vendor-wide",
     "couponOwner": "SoundMorph",
@@ -352,7 +352,7 @@
     "dateConfidence": "medium",
     "contentConfidence": "high",
     "createdAt": "2026-11-13T18:42:39.536Z",
-    "updatedAt": "2026-11-13T18:42:39.536Z"
+    "updatedAt": "2026-11-13T19:28:05.608Z"
   },
   {
     "id": "promo-soundmorph-software-bundle-v5-2026",
