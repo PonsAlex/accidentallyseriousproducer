@@ -184,7 +184,7 @@
   {
     "id": "hornet-plugins",
     "name": "HoRNet Plugins",
-    "homepage": "https://www.hornetplugins.com/plugin-category/free/",
+    "homepage": "https://www.hornetplugins.com/plugins/hornet-harmonics/",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
@@ -521,6 +521,46 @@
     "id": "audiolatry",
     "name": "Audiolatry",
     "homepage": "https://audiolatry.com/uzat-free-character-degradation-effect-plugin/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "audio-plugin-deals",
+    "name": "Audio Plugin Deals",
+    "homepage": "https://audioplugin.deals/product/free-black-friday-mega-bundle/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "martinic",
+    "name": "Martinic",
+    "homepage": "https://www.martinic.com/en/products/eclipser",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "a-sound-effect",
+    "name": "A Sound Effect",
+    "homepage": "https://www.asoundeffect.com/gift/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "dsptone",
+    "name": "DSPTone",
+    "homepage": "https://dsptone.com/free/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "sonic-academy",
+    "name": "Sonic Academy",
+    "homepage": "https://www.sonicacademy.com/event/ju60-free",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"

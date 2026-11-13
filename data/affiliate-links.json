@@ -922,5 +922,71 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-13T15:39:37.499Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-audio-plugin-deals-free-black-friday-mega-bundle",
+    "productId": "audio-plugin-deals-free-black-friday-mega-bundle",
+    "programId": "audio-plugin-deals",
+    "destinationUrl": "https://audioplugin.deals/product/free-black-friday-mega-bundle/",
+    "fallbackUrl": "https://audioplugin.deals/product/free-black-friday-mega-bundle/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:05:58.530Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-hornet-plugins-harmonics",
+    "productId": "hornet-plugins-harmonics",
+    "programId": "hornet-plugins",
+    "destinationUrl": "https://www.hornetplugins.com/plugins/hornet-harmonics/",
+    "fallbackUrl": "https://www.hornetplugins.com/plugins/hornet-harmonics/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:05:58.788Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-martinic-eclipser",
+    "productId": "martinic-eclipser",
+    "programId": "martinic",
+    "destinationUrl": "https://www.martinic.com/en/products/eclipser",
+    "fallbackUrl": "https://www.martinic.com/en/products/eclipser",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:05:58.993Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-a-sound-effect-gift",
+    "productId": "a-sound-effect-gift",
+    "programId": "a-sound-effect",
+    "destinationUrl": "https://www.asoundeffect.com/gift/",
+    "fallbackUrl": "https://www.asoundeffect.com/gift/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:05:59.276Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-dsptone-restrukt-ambience-reducer",
+    "productId": "dsptone-restrukt-ambience-reducer",
+    "programId": "dsptone",
+    "destinationUrl": "https://dsptone.com/free/",
+    "fallbackUrl": "https://dsptone.com/free/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:05:59.551Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-sonic-academy-ju60",
+    "productId": "sonic-academy-ju60",
+    "programId": "sonic-academy",
+    "destinationUrl": "https://www.sonicacademy.com/event/ju60-free",
+    "fallbackUrl": "https://www.sonicacademy.com/event/ju60-free",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:05:59.790Z",
+    "allowFallback": true
   }
 ]
