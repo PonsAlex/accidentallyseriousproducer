@@ -988,5 +988,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-13T18:05:59.790Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ocean-swift-synthesis-devocean-player",
+    "productId": "ocean-swift-synthesis-devocean-player",
+    "programId": "ocean-swift-synthesis",
+    "destinationUrl": "https://oceanswift.net/product/devocean/",
+    "fallbackUrl": "https://oceanswift.net/product/devocean/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T18:19:20.656Z",
+    "allowFallback": true
   }
 ]

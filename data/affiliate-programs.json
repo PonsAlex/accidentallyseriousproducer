@@ -564,5 +564,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "ocean-swift-synthesis",
+    "name": "Ocean Swift Synthesis",
+    "homepage": "https://oceanswift.net/product/devocean/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

@@ -1005,5 +1005,16 @@
     "status": "active",
     "createdAt": "2026-11-13T18:05:59.790Z",
     "updatedAt": "2026-11-13T18:05:59.790Z"
+  },
+  {
+    "id": "ocean-swift-synthesis-devocean-player",
+    "slug": "ocean-swift-synthesis-devocean-player",
+    "programId": "ocean-swift-synthesis",
+    "name": "DevOcean Player",
+    "category": "other",
+    "description": "DevOcean Player",
+    "status": "active",
+    "createdAt": "2026-11-13T18:19:20.656Z",
+    "updatedAt": "2026-11-13T18:19:20.656Z"
   }
 ]
