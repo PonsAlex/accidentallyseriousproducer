@@ -911,5 +911,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-12T21:14:29.321Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-audiolatry-uzat",
+    "productId": "audiolatry-uzat",
+    "programId": "audiolatry",
+    "destinationUrl": "https://audiolatry.com/uzat-free-character-degradation-effect-plugin/",
+    "fallbackUrl": "https://audiolatry.com/uzat-free-character-degradation-effect-plugin/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-13T15:39:37.499Z",
+    "allowFallback": true
   }
 ]

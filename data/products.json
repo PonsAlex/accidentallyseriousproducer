@@ -928,5 +928,16 @@
     "status": "active",
     "createdAt": "2026-11-12T21:14:29.321Z",
     "updatedAt": "2026-11-12T21:14:29.321Z"
+  },
+  {
+    "id": "audiolatry-uzat",
+    "slug": "audiolatry-uzat",
+    "programId": "audiolatry",
+    "name": "UZAT",
+    "category": "plugin",
+    "description": "UZAT",
+    "status": "active",
+    "createdAt": "2026-11-13T15:39:37.499Z",
+    "updatedAt": "2026-11-13T15:39:37.499Z"
   }
 ]
