@@ -1131,5 +1131,16 @@
     "status": "active",
     "createdAt": "2026-11-16T20:00:23.802Z",
     "updatedAt": "2026-11-16T20:00:23.802Z"
+  },
+  {
+    "id": "tone-empire-optored",
+    "slug": "tone-empire-optored",
+    "programId": "tone-empire",
+    "name": "OptoRED",
+    "category": "plugin",
+    "description": "OptoRED",
+    "status": "active",
+    "createdAt": "2026-11-16T20:15:29.569Z",
+    "updatedAt": "2026-11-16T20:15:29.569Z"
   }
 ]

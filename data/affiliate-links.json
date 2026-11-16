@@ -1109,5 +1109,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-16T20:00:23.802Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-tone-empire-optored",
+    "productId": "tone-empire-optored",
+    "programId": "tone-empire",
+    "destinationUrl": "https://tone-empire.com/shop/optored/",
+    "fallbackUrl": "https://tone-empire.com/shop/optored/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-16T20:15:29.569Z",
+    "allowFallback": true
   }
 ]

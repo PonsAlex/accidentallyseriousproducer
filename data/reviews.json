@@ -852,6 +852,18 @@
       "endsAtDate": null,
       "href": "/go/link-shrub-shrub",
       "updatedAt": "2026-11-16"
+    },
+    {
+      "recordId": "tone-empire-optored",
+      "blockId": "product-review-tone-empire-optored",
+      "publishedAt": "2026-11-16",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Tone Empire - OptoRED",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-27",
+      "href": "/go/link-tone-empire-optored",
+      "updatedAt": "2026-11-16"
     }
   ]
 }
