@@ -1043,5 +1043,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-13T19:32:32.111Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-shrub-shrub",
+    "productId": "shrub-shrub",
+    "programId": "shrub",
+    "destinationUrl": "https://shrub.audio/",
+    "fallbackUrl": "https://shrub.audio/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-16T19:52:43.466Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-dystopian-waves-rheton-free",
+    "productId": "dystopian-waves-rheton-free",
+    "programId": "dystopian-waves",
+    "destinationUrl": "https://dystopianwaves.gumroad.com/l/prhetonfree",
+    "fallbackUrl": "https://dystopianwaves.gumroad.com/l/prhetonfree",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-16T19:52:43.589Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-dystopian-waves-dbot-midi-humanizer",
+    "productId": "dystopian-waves-dbot-midi-humanizer",
+    "programId": "dystopian-waves",
+    "destinationUrl": "https://dystopianwaves.gumroad.com/l/pdbot",
+    "fallbackUrl": "https://dystopianwaves.gumroad.com/l/pdbot",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-16T19:52:43.703Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-audiomodern-filterstep-2",
+    "productId": "audiomodern-filterstep-2",
+    "programId": "audiomodern",
+    "destinationUrl": "https://audiomodern.com/shop/plugins/filterstep/",
+    "fallbackUrl": "https://audiomodern.com/shop/plugins/filterstep/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-16T19:52:43.833Z",
+    "allowFallback": true
   }
 ]

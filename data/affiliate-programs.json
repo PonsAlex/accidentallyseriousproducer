@@ -596,5 +596,29 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "shrub",
+    "name": "SHRUB",
+    "homepage": "https://shrub.audio/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "dystopian-waves",
+    "name": "Dystopian Waves",
+    "homepage": "https://dystopianwaves.gumroad.com/l/pdbot",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "audiomodern",
+    "name": "Audiomodern",
+    "homepage": "https://audiomodern.com/shop/plugins/filterstep/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

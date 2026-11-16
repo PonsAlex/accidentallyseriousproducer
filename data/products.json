@@ -1064,5 +1064,49 @@
     "status": "active",
     "createdAt": "2026-11-13T19:32:32.111Z",
     "updatedAt": "2026-11-13T19:32:32.111Z"
+  },
+  {
+    "id": "shrub-shrub",
+    "slug": "shrub-shrub",
+    "programId": "shrub",
+    "name": "SHRUB",
+    "category": "other",
+    "description": "SHRUB",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.466Z",
+    "updatedAt": "2026-11-16T19:52:43.466Z"
+  },
+  {
+    "id": "dystopian-waves-rheton-free",
+    "slug": "dystopian-waves-rheton-free",
+    "programId": "dystopian-waves",
+    "name": "RHETON Free",
+    "category": "plugin",
+    "description": "RHETON Free",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.589Z",
+    "updatedAt": "2026-11-16T19:52:43.589Z"
+  },
+  {
+    "id": "dystopian-waves-dbot-midi-humanizer",
+    "slug": "dystopian-waves-dbot-midi-humanizer",
+    "programId": "dystopian-waves",
+    "name": "DBot MIDI Humanizer",
+    "category": "plugin",
+    "description": "DBot MIDI Humanizer",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.703Z",
+    "updatedAt": "2026-11-16T19:52:43.703Z"
+  },
+  {
+    "id": "audiomodern-filterstep-2",
+    "slug": "audiomodern-filterstep-2",
+    "programId": "audiomodern",
+    "name": "Filterstep 2",
+    "category": "plugin",
+    "description": "Filterstep 2",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.833Z",
+    "updatedAt": "2026-11-16T19:52:43.833Z"
   }
 ]
