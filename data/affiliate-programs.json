@@ -184,7 +184,7 @@
   {
     "id": "hornet-plugins",
     "name": "HoRNet Plugins",
-    "homepage": "https://www.hornetplugins.com/plugins/hornet-harmonics/",
+    "homepage": "https://www.hornetplugins.com/plugins/hornet-trackutility/",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
@@ -593,6 +593,46 @@
     "id": "vst-alarm",
     "name": "VST Alarm",
     "homepage": "https://vstalarm.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "shrub",
+    "name": "SHRUB",
+    "homepage": "https://shrub.audio/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "dystopian-waves",
+    "name": "Dystopian Waves",
+    "homepage": "https://dystopianwaves.gumroad.com/l/pdbot",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "audiomodern",
+    "name": "Audiomodern",
+    "homepage": "https://audiomodern.com/shop/plugins/filterstep/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "glitchedtones",
+    "name": "Glitchedtones",
+    "homepage": "https://glitchedtones.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "tone-empire",
+    "name": "Tone Empire",
+    "homepage": "https://tone-empire.com/shop/optored/",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"

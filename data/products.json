@@ -1064,5 +1064,83 @@
     "status": "active",
     "createdAt": "2026-11-13T19:32:32.111Z",
     "updatedAt": "2026-11-13T19:32:32.111Z"
+  },
+  {
+    "id": "shrub-shrub",
+    "slug": "shrub-shrub",
+    "programId": "shrub",
+    "name": "SHRUB",
+    "category": "other",
+    "description": "SHRUB",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.466Z",
+    "updatedAt": "2026-11-16T19:52:43.466Z"
+  },
+  {
+    "id": "dystopian-waves-rheton-free",
+    "slug": "dystopian-waves-rheton-free",
+    "programId": "dystopian-waves",
+    "name": "RHETON Free",
+    "category": "plugin",
+    "description": "RHETON Free",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.589Z",
+    "updatedAt": "2026-11-16T19:52:43.589Z"
+  },
+  {
+    "id": "dystopian-waves-dbot-midi-humanizer",
+    "slug": "dystopian-waves-dbot-midi-humanizer",
+    "programId": "dystopian-waves",
+    "name": "DBot MIDI Humanizer",
+    "category": "plugin",
+    "description": "DBot MIDI Humanizer",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.703Z",
+    "updatedAt": "2026-11-16T19:52:43.703Z"
+  },
+  {
+    "id": "audiomodern-filterstep-2",
+    "slug": "audiomodern-filterstep-2",
+    "programId": "audiomodern",
+    "name": "Filterstep 2",
+    "category": "plugin",
+    "description": "Filterstep 2",
+    "status": "active",
+    "createdAt": "2026-11-16T19:52:43.833Z",
+    "updatedAt": "2026-11-16T19:52:43.833Z"
+  },
+  {
+    "id": "hornet-plugins-trackutility",
+    "slug": "hornet-plugins-trackutility",
+    "programId": "hornet-plugins",
+    "name": "TrackUtility",
+    "category": "plugin",
+    "description": "TrackUtility",
+    "status": "active",
+    "createdAt": "2026-11-16T19:55:17.982Z",
+    "updatedAt": "2026-11-16T19:55:17.982Z"
+  },
+  {
+    "id": "glitchedtones-1-producer-raid",
+    "slug": "glitchedtones-1-producer-raid",
+    "programId": "glitchedtones",
+    "name": "£1 Producer Raid",
+    "category": "bundle",
+    "description": "28 Glitchedtones releases at £1 each for 48 hours",
+    "developer": "Glitchedtones",
+    "status": "active",
+    "createdAt": "2026-11-16T20:00:23.802Z",
+    "updatedAt": "2026-11-16T20:00:23.802Z"
+  },
+  {
+    "id": "tone-empire-optored",
+    "slug": "tone-empire-optored",
+    "programId": "tone-empire",
+    "name": "OptoRED",
+    "category": "plugin",
+    "description": "OptoRED",
+    "status": "active",
+    "createdAt": "2026-11-16T20:15:29.569Z",
+    "updatedAt": "2026-11-16T20:15:29.569Z"
   }
 ]
