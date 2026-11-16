@@ -1098,5 +1098,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-16T19:55:17.982Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-glitchedtones-1-producer-raid",
+    "productId": "glitchedtones-1-producer-raid",
+    "programId": "glitchedtones",
+    "destinationUrl": "https://glitchedtones.com/collections/1-producer-raid",
+    "fallbackUrl": "https://glitchedtones.com/collections/1-producer-raid",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-16T20:00:23.802Z",
+    "allowFallback": true
   }
 ]

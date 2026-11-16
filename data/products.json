@@ -1119,5 +1119,17 @@
     "status": "active",
     "createdAt": "2026-11-16T19:55:17.982Z",
     "updatedAt": "2026-11-16T19:55:17.982Z"
+  },
+  {
+    "id": "glitchedtones-1-producer-raid",
+    "slug": "glitchedtones-1-producer-raid",
+    "programId": "glitchedtones",
+    "name": "£1 Producer Raid",
+    "category": "bundle",
+    "description": "28 Glitchedtones releases at £1 each for 48 hours",
+    "developer": "Glitchedtones",
+    "status": "active",
+    "createdAt": "2026-11-16T20:00:23.802Z",
+    "updatedAt": "2026-11-16T20:00:23.802Z"
   }
 ]

@@ -419,5 +419,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-13T19:32:32.111Z",
     "updatedAt": "2026-11-13T19:32:32.111Z"
+  },
+  {
+    "id": "promo-glitchedtones-producer-raid-2026",
+    "productId": "glitchedtones-1-producer-raid",
+    "affiliateLinkId": "link-glitchedtones-1-producer-raid",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "Twenty-eight Glitchedtones releases at £1 each for forty-eight hours — full packs, not tasters. Pick one for £1, ten for £10, and the raid closes when the timer does.",
+    "startsAt": null,
+    "endsAt": "2026-11-18T15:00:00-03:00",
+    "promoPrice": 1,
+    "regularPrice": null,
+    "currency": "GBP",
+    "discountPercent": null,
+    "dateConfidence": "high",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-16T20:00:23.802Z",
+    "updatedAt": "2026-11-16T20:00:23.802Z"
   }
 ]
