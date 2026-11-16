@@ -830,6 +830,18 @@
       "updatedAt": "2026-11-16"
     },
     {
+      "recordId": "hornet-trackutility",
+      "blockId": "product-review-hornet-trackutility",
+      "publishedAt": "2026-11-16",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "HoRNet Plugins - TrackUtility",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-19",
+      "href": "/go/link-hornet-plugins-trackutility",
+      "updatedAt": "2026-11-16"
+    },
+    {
       "recordId": "shrub",
       "blockId": "product-review-shrub",
       "publishedAt": "2026-11-16",

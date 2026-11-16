@@ -1087,5 +1087,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-16T19:52:43.833Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-hornet-plugins-trackutility",
+    "productId": "hornet-plugins-trackutility",
+    "programId": "hornet-plugins",
+    "destinationUrl": "https://www.hornetplugins.com/plugins/hornet-trackutility/",
+    "fallbackUrl": "https://www.hornetplugins.com/plugins/hornet-trackutility/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-16T19:55:17.982Z",
+    "allowFallback": true
   }
 ]

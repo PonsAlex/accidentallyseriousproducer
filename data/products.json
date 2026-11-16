@@ -1108,5 +1108,16 @@
     "status": "active",
     "createdAt": "2026-11-16T19:52:43.833Z",
     "updatedAt": "2026-11-16T19:52:43.833Z"
+  },
+  {
+    "id": "hornet-plugins-trackutility",
+    "slug": "hornet-plugins-trackutility",
+    "programId": "hornet-plugins",
+    "name": "TrackUtility",
+    "category": "plugin",
+    "description": "TrackUtility",
+    "status": "active",
+    "createdAt": "2026-11-16T19:55:17.982Z",
+    "updatedAt": "2026-11-16T19:55:17.982Z"
   }
 ]
