@@ -668,5 +668,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "13x-audio",
+    "name": "13x Audio",
+    "homepage": "https://13x.audio/products/loft",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

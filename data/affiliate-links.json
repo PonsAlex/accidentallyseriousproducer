@@ -1175,5 +1175,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-17T22:01:59.733Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-13x-audio-loft",
+    "productId": "13x-audio-loft",
+    "programId": "13x-audio",
+    "destinationUrl": "https://13x.audio/products/loft",
+    "fallbackUrl": "https://13x.audio/products/loft",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T22:07:16.663Z",
+    "allowFallback": true
   }
 ]
