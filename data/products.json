@@ -1153,5 +1153,60 @@
     "status": "active",
     "createdAt": "2026-11-17T15:38:27.903Z",
     "updatedAt": "2026-11-17T15:38:27.903Z"
+  },
+  {
+    "id": "wave-alchemy-magic7",
+    "slug": "wave-alchemy-magic7",
+    "programId": "wave-alchemy",
+    "name": "Magic7",
+    "category": "plugin",
+    "description": "Magic7",
+    "status": "active",
+    "createdAt": "2026-11-17T22:02:00.114Z",
+    "updatedAt": "2026-11-17T22:02:00.114Z"
+  },
+  {
+    "id": "wave-alchemy-triaz-player",
+    "slug": "wave-alchemy-triaz-player",
+    "programId": "wave-alchemy",
+    "name": "Triaz Player",
+    "category": "plugin",
+    "description": "Triaz Player",
+    "status": "active",
+    "createdAt": "2026-11-17T22:02:00.303Z",
+    "updatedAt": "2026-11-17T22:02:00.303Z"
+  },
+  {
+    "id": "moonwave-fx-vanta",
+    "slug": "moonwave-fx-vanta",
+    "programId": "moonwave-fx",
+    "name": "Vanta",
+    "category": "plugin",
+    "description": "Vanta",
+    "status": "active",
+    "createdAt": "2026-11-17T22:01:59.580Z",
+    "updatedAt": "2026-11-17T22:01:59.580Z"
+  },
+  {
+    "id": "initial-audio-difro-2",
+    "slug": "initial-audio-difro-2",
+    "programId": "initial-audio",
+    "name": "Difro 2",
+    "category": "plugin",
+    "description": "Difro 2",
+    "status": "active",
+    "createdAt": "2026-11-17T22:01:59.733Z",
+    "updatedAt": "2026-11-17T22:01:59.733Z"
+  },
+  {
+    "id": "13x-audio-loft",
+    "slug": "13x-audio-loft",
+    "programId": "13x-audio",
+    "name": "LOFT",
+    "category": "plugin",
+    "description": "LOFT",
+    "status": "active",
+    "createdAt": "2026-11-17T22:07:16.663Z",
+    "updatedAt": "2026-11-17T22:07:16.663Z"
   }
 ]
