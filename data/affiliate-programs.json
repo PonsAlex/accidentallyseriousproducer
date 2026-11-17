@@ -644,5 +644,29 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "wave-alchemy",
+    "name": "Wave Alchemy",
+    "homepage": "https://www.wavealchemy.co.uk/product/triaz-player/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "moonwave-fx",
+    "name": "Moonwave FX",
+    "homepage": "https://vstalarm.com/product/vanta-rhythmic-gate-processor-by-moonwave-fx-limited-time-free/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "initial-audio",
+    "name": "Initial Audio",
+    "homepage": "https://initialaudio.com/difro-melody-ai/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

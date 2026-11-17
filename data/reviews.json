@@ -876,6 +876,54 @@
       "endsAtDate": null,
       "href": "/go/link-ik-multimedia-tonex-parametric-tone-models",
       "updatedAt": "2026-11-17"
+    },
+    {
+      "recordId": "initial-audio-difro-2",
+      "blockId": "product-review-initial-audio-difro-2",
+      "publishedAt": "2026-11-17",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Initial Audio - Difro 2",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-initial-audio-difro-2",
+      "updatedAt": "2026-11-17"
+    },
+    {
+      "recordId": "moonwave-vanta",
+      "blockId": "product-review-moonwave-vanta",
+      "publishedAt": "2026-11-17",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Moonwave FX - Vanta",
+      "startsAtDate": null,
+      "endsAtDate": "2026-12-16",
+      "href": "/go/link-moonwave-fx-vanta",
+      "updatedAt": "2026-11-17"
+    },
+    {
+      "recordId": "wave-alchemy-magic7",
+      "blockId": "product-review-wave-alchemy-magic7",
+      "publishedAt": "2026-11-17",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Wave Alchemy - Magic7",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-wave-alchemy-magic7",
+      "updatedAt": "2026-11-17"
+    },
+    {
+      "recordId": "wave-alchemy-triaz-player",
+      "blockId": "product-review-wave-alchemy-triaz-player",
+      "publishedAt": "2026-11-17",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Wave Alchemy - Triaz Player",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-wave-alchemy-triaz-player",
+      "updatedAt": "2026-11-17"
     }
   ]
 }

@@ -1131,5 +1131,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-17T15:38:27.903Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-wave-alchemy-magic7",
+    "productId": "wave-alchemy-magic7",
+    "programId": "wave-alchemy",
+    "destinationUrl": "https://www.wavealchemy.co.uk/product/magic7/",
+    "fallbackUrl": "https://www.wavealchemy.co.uk/product/magic7/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T22:02:00.114Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wave-alchemy-triaz-player",
+    "productId": "wave-alchemy-triaz-player",
+    "programId": "wave-alchemy",
+    "destinationUrl": "https://www.wavealchemy.co.uk/product/triaz-player/",
+    "fallbackUrl": "https://www.wavealchemy.co.uk/product/triaz-player/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T22:02:00.303Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-moonwave-fx-vanta",
+    "productId": "moonwave-fx-vanta",
+    "programId": "moonwave-fx",
+    "destinationUrl": "https://vstalarm.com/product/vanta-rhythmic-gate-processor-by-moonwave-fx-limited-time-free/",
+    "fallbackUrl": "https://vstalarm.com/product/vanta-rhythmic-gate-processor-by-moonwave-fx-limited-time-free/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T22:01:59.580Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-initial-audio-difro-2",
+    "productId": "initial-audio-difro-2",
+    "programId": "initial-audio",
+    "destinationUrl": "https://initialaudio.com/difro-melody-ai/",
+    "fallbackUrl": "https://initialaudio.com/difro-melody-ai/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T22:01:59.733Z",
+    "allowFallback": true
   }
 ]
