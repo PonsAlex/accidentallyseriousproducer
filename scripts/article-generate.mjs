@@ -186,9 +186,12 @@ export function applyDecisions(state, decisions = {}) {
 }
 
 export function selectArticleBlocks(state) {
+  // Newest first. A furo published tonight lands at the top of the page instead of
+  // at the bottom, because a scoop nobody scrolls to is not a scoop. Position grows
+  // with every review, so descending order is chronological order reversed.
   return state.blocks
     .filter((block) => block.section === "articles" && block.type === "product-review")
-    .sort((left, right) => left.position - right.position || left.id.localeCompare(right.id));
+    .sort((left, right) => right.position - left.position || left.id.localeCompare(right.id));
 }
 
 /** Blocks that cannot be published yet, with the reason. */
