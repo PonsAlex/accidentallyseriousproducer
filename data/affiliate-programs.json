@@ -636,5 +636,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "ik-multimedia",
+    "name": "IK Multimedia",
+    "homepage": "https://ikmultimedia.com/en-us/blogs/news/tonex-parametric-tone-model-technology-now-available",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
