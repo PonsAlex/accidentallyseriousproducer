@@ -80,6 +80,18 @@ cadence below governs.
   the first hour" — that judgement belongs to the person who owns the calendar, and
   saying it out loud is what makes it an order rather than an interpretation.
 
+**A furo ships in its own pull request, merged on the spot.** Not bundled into the
+evening cut, not held behind a pending change, not waiting for anything else to be
+ready. The word is the editor's, and it means the finding is time-sensitive enough
+that the delay is the damage.
+
+This has been misunderstood twice, both times the same way: the item was merged
+promptly but the page still ordered reviews oldest-first, so it went live in
+fifty-fifth place and nobody saw it. **Published and buried is not published.** A
+furo is only shipped when it is at the top of the page it lands on, which means the
+ordering is part of the shipment, not a follow-up. The radar now reads newest first
+precisely so that this cannot happen again.
+
 **Affiliate partner promotions are the standing exception.** Items from
 **W. A. Production**, **Carbonated** and **Sound Morph** ship the moment they are
 verified, without waiting for 20:00 and without the editor having to say so each
