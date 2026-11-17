@@ -187,17 +187,19 @@ test("a block without a Verdict is a publication blocker", () => {
   );
 });
 
-test("article blocks are selected by section and ordered by position", () => {
+test("article blocks are selected by section and ordered newest first", () => {
+  // A furo published tonight has to be the first thing on the page. Position grows
+  // with every review, so the highest position is the most recent one.
   const state = {
     blocks: [
-      reviewBlock({ id: "later", position: 30 }),
+      reviewBlock({ id: "first", position: 10 }),
       reviewBlock({ id: "home", section: "home", position: 10 }),
-      reviewBlock({ id: "first", position: 10 })
+      reviewBlock({ id: "later", position: 30 })
     ]
   };
   assert.deepEqual(
     selectArticleBlocks(state).map((block) => block.id),
-    ["first", "later"]
+    ["later", "first"]
   );
 });
 
