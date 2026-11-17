@@ -1142,5 +1142,16 @@
     "status": "active",
     "createdAt": "2026-11-16T20:15:29.569Z",
     "updatedAt": "2026-11-16T20:15:29.569Z"
+  },
+  {
+    "id": "ik-multimedia-tonex-parametric-tone-models",
+    "slug": "ik-multimedia-tonex-parametric-tone-models",
+    "programId": "ik-multimedia",
+    "name": "TONEX Parametric Tone Models",
+    "category": "other",
+    "description": "TONEX Parametric Tone Models",
+    "status": "active",
+    "createdAt": "2026-11-17T15:38:27.903Z",
+    "updatedAt": "2026-11-17T15:38:27.903Z"
   }
 ]

@@ -1120,5 +1120,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-16T20:15:29.569Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ik-multimedia-tonex-parametric-tone-models",
+    "productId": "ik-multimedia-tonex-parametric-tone-models",
+    "programId": "ik-multimedia",
+    "destinationUrl": "https://ikmultimedia.com/en-us/blogs/news/tonex-parametric-tone-model-technology-now-available",
+    "fallbackUrl": "https://ikmultimedia.com/en-us/blogs/news/tonex-parametric-tone-model-technology-now-available",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T15:38:27.903Z",
+    "allowFallback": true
   }
 ]
