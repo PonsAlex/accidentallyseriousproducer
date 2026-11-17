@@ -1131,5 +1131,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-17T15:38:27.903Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-moonwave-fx-vanta",
+    "productId": "moonwave-fx-vanta",
+    "programId": "moonwave-fx",
+    "destinationUrl": "https://vstalarm.com/product/vanta-rhythmic-gate-processor-by-moonwave-fx-limited-time-free/",
+    "fallbackUrl": "https://vstalarm.com/product/vanta-rhythmic-gate-processor-by-moonwave-fx-limited-time-free/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T15:40:54.542Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-initial-audio-difro-2",
+    "productId": "initial-audio-difro-2",
+    "programId": "initial-audio",
+    "destinationUrl": "https://initialaudio.com/difro-melody-ai/",
+    "fallbackUrl": "https://initialaudio.com/difro-melody-ai/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-17T15:40:54.676Z",
+    "allowFallback": true
   }
 ]

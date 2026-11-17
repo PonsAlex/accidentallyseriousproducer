@@ -1153,5 +1153,27 @@
     "status": "active",
     "createdAt": "2026-11-17T15:38:27.903Z",
     "updatedAt": "2026-11-17T15:38:27.903Z"
+  },
+  {
+    "id": "moonwave-fx-vanta",
+    "slug": "moonwave-fx-vanta",
+    "programId": "moonwave-fx",
+    "name": "Vanta",
+    "category": "plugin",
+    "description": "Vanta",
+    "status": "active",
+    "createdAt": "2026-11-17T15:40:54.542Z",
+    "updatedAt": "2026-11-17T15:40:54.542Z"
+  },
+  {
+    "id": "initial-audio-difro-2",
+    "slug": "initial-audio-difro-2",
+    "programId": "initial-audio",
+    "name": "Difro 2",
+    "category": "plugin",
+    "description": "Difro 2",
+    "status": "active",
+    "createdAt": "2026-11-17T15:40:54.676Z",
+    "updatedAt": "2026-11-17T15:40:54.676Z"
   }
 ]
