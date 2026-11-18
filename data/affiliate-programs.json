@@ -708,5 +708,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "minimal-audio",
+    "name": "Minimal Audio",
+    "homepage": "https://www.minimal.audio/stream/samples/packs/static",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

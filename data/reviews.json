@@ -962,6 +962,18 @@
       "updatedAt": "2026-11-18"
     },
     {
+      "recordId": "minimal-audio-static",
+      "blockId": "product-review-minimal-audio-static",
+      "publishedAt": "2026-11-18",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Minimal Audio - Static",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": null,
+      "updatedAt": "2026-11-18"
+    },
+    {
       "recordId": "phil-speiser-pitch-2-mini",
       "blockId": "product-review-phil-speiser-pitch-2-mini",
       "publishedAt": "2026-11-18",

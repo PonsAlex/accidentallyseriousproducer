@@ -1241,5 +1241,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-18T21:16:19.131Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-minimal-audio-static",
+    "productId": "minimal-audio-static",
+    "programId": "minimal-audio",
+    "destinationUrl": "https://www.minimal.audio/stream/samples/packs/static",
+    "fallbackUrl": "https://www.minimal.audio/stream/samples/packs/static",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-18T21:25:00.778Z",
+    "allowFallback": true
   }
 ]

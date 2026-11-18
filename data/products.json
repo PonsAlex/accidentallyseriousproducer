@@ -1263,5 +1263,16 @@
     "status": "active",
     "createdAt": "2026-11-18T21:16:19.131Z",
     "updatedAt": "2026-11-18T21:16:19.131Z"
+  },
+  {
+    "id": "minimal-audio-static",
+    "slug": "minimal-audio-static",
+    "programId": "minimal-audio",
+    "name": "Static",
+    "category": "other",
+    "description": "Static",
+    "status": "active",
+    "createdAt": "2026-11-18T21:25:00.778Z",
+    "updatedAt": "2026-11-18T21:25:00.778Z"
   }
 ]
