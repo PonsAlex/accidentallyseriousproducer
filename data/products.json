@@ -51,8 +51,8 @@
     "category": "bundle",
     "description": "Steinberg Classics Collection",
     "status": "active",
-    "createdAt": "2026-10-18T00:15:09.855Z",
-    "updatedAt": "2026-10-18T00:15:09.855Z"
+    "createdAt": "2026-11-18T11:49:32.834Z",
+    "updatedAt": "2026-11-18T11:49:32.834Z"
   },
   {
     "id": "u-he-zebralette-3",
@@ -1208,5 +1208,16 @@
     "status": "active",
     "createdAt": "2026-11-17T22:07:16.663Z",
     "updatedAt": "2026-11-17T22:07:16.663Z"
+  },
+  {
+    "id": "steinberg-chromaspheres",
+    "slug": "steinberg-chromaspheres",
+    "programId": "steinberg",
+    "name": "ChromaSpheres",
+    "category": "plugin",
+    "description": "ChromaSpheres",
+    "status": "active",
+    "createdAt": "2026-11-18T11:49:32.685Z",
+    "updatedAt": "2026-11-18T11:49:32.685Z"
   }
 ]

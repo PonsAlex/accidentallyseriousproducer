@@ -48,10 +48,10 @@
     "productId": "steinberg-steinberg-classics-collection",
     "programId": "steinberg",
     "destinationUrl": "https://www.steinberg.net/vst-instruments/steinberg-classics/",
-    "fallbackUrl": "https://www.steinberg.net",
+    "fallbackUrl": "https://www.steinberg.net/vst-instruments/steinberg-classics/",
     "status": "active",
     "requiresReview": false,
-    "lastVerifiedAt": "2026-10-18T02:05:00.000Z",
+    "lastVerifiedAt": "2026-11-18T11:49:32.834Z",
     "allowFallback": true
   },
   {
@@ -1185,6 +1185,17 @@
     "status": "active",
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-17T22:07:16.663Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-steinberg-chromaspheres",
+    "productId": "steinberg-chromaspheres",
+    "programId": "steinberg",
+    "destinationUrl": "https://www.steinberg.net/vst-instruments/chromaspheres/",
+    "fallbackUrl": "https://www.steinberg.net/vst-instruments/chromaspheres/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-18T11:49:32.685Z",
     "allowFallback": true
   }
 ]
