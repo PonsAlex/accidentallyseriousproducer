@@ -1197,5 +1197,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-18T11:49:32.685Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ashborne-audio-dreadnought",
+    "productId": "ashborne-audio-dreadnought",
+    "programId": "ashborne-audio",
+    "destinationUrl": "https://ashborneaudio.com/dreadnought",
+    "fallbackUrl": "https://ashborneaudio.com/dreadnought",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-18T21:16:18.507Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-phil-speiser-the-pitch-2-mini",
+    "productId": "phil-speiser-the-pitch-2-mini",
+    "programId": "phil-speiser",
+    "destinationUrl": "https://www.philspeiser.com/product/the_pitch-2-mini",
+    "fallbackUrl": "https://www.philspeiser.com/product/the_pitch-2-mini",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-18T21:16:18.703Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-luxora-audio-sub-bass",
+    "productId": "luxora-audio-sub-bass",
+    "programId": "luxora-audio",
+    "destinationUrl": "https://www.luxora-audio.com/plugins/sub-bass",
+    "fallbackUrl": "https://www.luxora-audio.com/plugins/sub-bass",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-18T21:16:18.908Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-reason-studios-oxid94",
+    "productId": "reason-studios-oxid94",
+    "programId": "reason-studios",
+    "destinationUrl": "https://www.reasonstudios.com/shop/rack-extension/oxid94/",
+    "fallbackUrl": "https://www.reasonstudios.com/shop/rack-extension/oxid94/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-18T21:16:19.131Z",
+    "allowFallback": true
   }
 ]

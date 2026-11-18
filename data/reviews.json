@@ -938,6 +938,54 @@
       "updatedAt": "2026-11-18"
     },
     {
+      "recordId": "ashborne-dreadnought",
+      "blockId": "product-review-ashborne-dreadnought",
+      "publishedAt": "2026-11-18",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Ashborne Audio - Dreadnought",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": null,
+      "updatedAt": "2026-11-18"
+    },
+    {
+      "recordId": "luxora-sub-bass",
+      "blockId": "product-review-luxora-sub-bass",
+      "publishedAt": "2026-11-18",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Luxora Audio - Sub-Bass",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": null,
+      "updatedAt": "2026-11-18"
+    },
+    {
+      "recordId": "phil-speiser-pitch-2-mini",
+      "blockId": "product-review-phil-speiser-pitch-2-mini",
+      "publishedAt": "2026-11-18",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Phil Speiser - THE_PITCH 2 MINI",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": null,
+      "updatedAt": "2026-11-18"
+    },
+    {
+      "recordId": "reason-studios-oxid94",
+      "blockId": "product-review-reason-studios-oxid94",
+      "publishedAt": "2026-11-18",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Reason Studios - OXID94",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": null,
+      "updatedAt": "2026-11-18"
+    },
+    {
       "recordId": "steinberg-chromaspheres",
       "blockId": "product-review-steinberg-chromaspheres",
       "publishedAt": "2026-11-18",
