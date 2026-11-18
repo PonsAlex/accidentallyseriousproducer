@@ -1219,5 +1219,60 @@
     "status": "active",
     "createdAt": "2026-11-18T11:49:32.685Z",
     "updatedAt": "2026-11-18T11:49:32.685Z"
+  },
+  {
+    "id": "ashborne-audio-dreadnought",
+    "slug": "ashborne-audio-dreadnought",
+    "programId": "ashborne-audio",
+    "name": "Dreadnought",
+    "category": "plugin",
+    "description": "Dreadnought",
+    "status": "active",
+    "createdAt": "2026-11-18T21:16:18.507Z",
+    "updatedAt": "2026-11-18T21:16:18.507Z"
+  },
+  {
+    "id": "phil-speiser-the-pitch-2-mini",
+    "slug": "phil-speiser-the-pitch-2-mini",
+    "programId": "phil-speiser",
+    "name": "THE_PITCH 2 MINI",
+    "category": "plugin",
+    "description": "THE_PITCH 2 MINI",
+    "status": "active",
+    "createdAt": "2026-11-18T21:16:18.703Z",
+    "updatedAt": "2026-11-18T21:16:18.703Z"
+  },
+  {
+    "id": "luxora-audio-sub-bass",
+    "slug": "luxora-audio-sub-bass",
+    "programId": "luxora-audio",
+    "name": "Sub-Bass",
+    "category": "plugin",
+    "description": "Sub-Bass",
+    "status": "active",
+    "createdAt": "2026-11-18T21:16:18.908Z",
+    "updatedAt": "2026-11-18T21:16:18.908Z"
+  },
+  {
+    "id": "reason-studios-oxid94",
+    "slug": "reason-studios-oxid94",
+    "programId": "reason-studios",
+    "name": "OXID94",
+    "category": "plugin",
+    "description": "OXID94",
+    "status": "active",
+    "createdAt": "2026-11-18T21:16:19.131Z",
+    "updatedAt": "2026-11-18T21:16:19.131Z"
+  },
+  {
+    "id": "minimal-audio-static",
+    "slug": "minimal-audio-static",
+    "programId": "minimal-audio",
+    "name": "Static",
+    "category": "other",
+    "description": "Static",
+    "status": "active",
+    "createdAt": "2026-11-18T21:25:00.778Z",
+    "updatedAt": "2026-11-18T21:25:00.778Z"
   }
 ]
