@@ -1307,5 +1307,82 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-19T22:31:11.561Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-pb-fabfilter-micro",
+    "productId": "pb-fabfilter-micro",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/56-FabFilter",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-pb-celemony-melodyne-5-assistant-update",
+    "productId": "pb-celemony-melodyne-5-assistant-update",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/109-Celemony",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-pb-ssl-native-bus-compressor-2",
+    "productId": "pb-ssl-native-bus-compressor-2",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/339-Solid-State-Logic",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-pb-soundtoys-panman",
+    "productId": "pb-soundtoys-panman",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/153-Soundtoys",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-pb-universal-audio-uad-explore-bundle",
+    "productId": "pb-universal-audio-uad-explore-bundle",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/365-Universal-Audio",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-pb-korg-mde-x",
+    "productId": "pb-korg-mde-x",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/388-KORG",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-pb-native-instruments-massive-x-expansion-cinematic-soundscapes",
+    "productId": "pb-native-instruments-massive-x-expansion-cinematic-soundscapes",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/318-Native-Instruments",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
   }
 ]

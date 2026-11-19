@@ -103,6 +103,22 @@ else still waits for the cut or for an explicit order.
 The filter and the double evaluation still apply to these: the facts are checked on
 the partner's own page, and the editor sees the card before it goes up.
 
+**Plugin Boutique's brand sales get one card each, priced from the bottom.** A brand
+sale is a catalogue, not an offer: "up to 87% off" describes a shelf. What the editor
+receives from Plugin Boutique is the cheapest item of each brand with its real price
+and its own deadline, so that is what the card shows — one product named, its price,
+its discount, its date, and the word **from** in front of the number because the card
+is saying where that brand's sale starts rather than what one product costs.
+
+```
+FabFilter Micro   from US$ 26   was US$ 35   25% off until 1 December
+```
+
+Two details that are not negotiable in this shape: the item is the cheapest one, not
+the most attractive one, and the link goes to the brand's page on Plugin Boutique
+rather than to the site index, because a card that lands somewhere generic is a card
+that wastes the click.
+
 Regeneration is idempotent: `article:generate` run again with six reviews instead
 of four produces the same page, larger. Adding a finding to a page that is already
 live costs one regeneration, which is what makes a daily rhythm affordable.
