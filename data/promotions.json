@@ -437,5 +437,25 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-16T20:00:23.802Z",
     "updatedAt": "2026-11-16T20:00:23.802Z"
+  },
+  {
+    "id": "promo-ssl-fusion-bundle-2026",
+    "productId": "ssl-fusion-bundle",
+    "affiliateLinkId": "link-ssl-fusion-bundle",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "placement": "partner-shelf",
+    "placementOrder": 24,
+    "headline": "The Fusion stereo outboard processors as plugins: $49.99 against $495, until 7 December.",
+    "startsAt": null,
+    "endsAt": "2026-12-07T23:59:59-03:00",
+    "promoPrice": 49.99,
+    "regularPrice": 495,
+    "currency": "USD",
+    "discountPercent": 89,
+    "dateConfidence": "high",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-19T22:14:42.274Z",
+    "updatedAt": "2026-11-19T22:14:42.274Z"
   }
 ]
