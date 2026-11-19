@@ -464,16 +464,16 @@
     "affiliateLinkId": "link-klevgrand-luxe",
     "publicationStatus": "published",
     "requiresReview": false,
-    "headline": "A compressor, saturator and enhancer in one window for $3.99 against $19.99 — and any purchase comes with GotoEQ, normally $59.99.",
+    "headline": "Two plugins worth $79.98 for $3.99: LUXE, a compressor, saturator and enhancer in one window, and GotoEQ, the $59.99 equaliser, bundled with any purchase.",
     "startsAt": null,
     "endsAt": "2026-11-30T23:59:59-03:00",
     "promoPrice": 3.99,
-    "regularPrice": 19.99,
+    "regularPrice": 79.98,
     "currency": "USD",
-    "discountPercent": 80,
+    "discountPercent": 95,
     "dateConfidence": "low",
     "contentConfidence": "high",
     "createdAt": "2026-11-19T22:31:11.561Z",
-    "updatedAt": "2026-11-19T22:31:11.561Z"
+    "updatedAt": "2026-11-19T22:36:40.090Z"
   }
 ]
