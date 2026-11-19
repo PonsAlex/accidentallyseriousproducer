@@ -307,8 +307,16 @@ function renderActivePricing(promotion) {
 
   const priceParts = [];
   if (promoPrice) {
+    // "From" is not a price, it is a qualifier on one. A brand sale covers a
+    // catalogue, and the honest number to print is the cheapest entry rather than a
+    // headline percentage that describes the whole shelf. The word has to be on the
+    // card, in front of the number, or the number is a claim about one product.
+    const fromPrefix =
+      promotion.fromPrice === true
+        ? `<span class="offer-price-from">from </span>`
+        : "";
     priceParts.push(
-      `<strong class="offer-price">${escapeHtml(promoPrice)}</strong>`
+      `${fromPrefix}<strong class="offer-price">${escapeHtml(promoPrice)}</strong>`
     );
   }
 

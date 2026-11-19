@@ -696,7 +696,7 @@
   {
     "id": "luxora-audio",
     "name": "Luxora Audio",
-    "homepage": "https://www.luxora-audio.com/plugins/sub-bass",
+    "homepage": "https://www.luxora-audio.com/plugins/vocal-preamp",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
@@ -713,6 +713,30 @@
     "id": "minimal-audio",
     "name": "Minimal Audio",
     "homepage": "https://www.minimal.audio/stream/samples/packs/static",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "pro-sound-effects",
+    "name": "Pro Sound Effects",
+    "homepage": "https://www.prosoundeffects.com/libraries/odyssey-collection-design-elements",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "full-bucket-music",
+    "name": "Full Bucket Music",
+    "homepage": "https://www.fullbucket.de/music/mps.html",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "klevgrand",
+    "name": "Klevgrand",
+    "homepage": "https://klevgrand.com/",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
