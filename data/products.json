@@ -1381,18 +1381,6 @@
     "updatedAt": "2026-11-19T23:02:12.109Z"
   },
   {
-    "id": "pb-universal-audio-uad-explore-bundle",
-    "slug": "pb-universal-audio-uad-explore-bundle",
-    "programId": "plugin-boutique",
-    "name": "UAD Explore Bundle",
-    "category": "plugin",
-    "description": "UAD Explore Bundle by Universal Audio, on sale at Plugin Boutique",
-    "developer": "Universal Audio",
-    "status": "active",
-    "createdAt": "2026-11-19T23:02:12.109Z",
-    "updatedAt": "2026-11-19T23:02:12.109Z"
-  },
-  {
     "id": "pb-korg-mde-x",
     "slug": "pb-korg-mde-x",
     "programId": "plugin-boutique",
@@ -1415,5 +1403,17 @@
     "status": "active",
     "createdAt": "2026-11-19T23:02:12.109Z",
     "updatedAt": "2026-11-19T23:02:41.693Z"
+  },
+  {
+    "id": "pb-universal-audio-vibe-analog-machines",
+    "slug": "pb-universal-audio-vibe-analog-machines",
+    "programId": "plugin-boutique",
+    "name": "Vibe Analog Machines",
+    "category": "plugin",
+    "description": "Universal Audio Vibe Analog Machines, on sale at Plugin Boutique",
+    "developer": "Universal Audio",
+    "status": "active",
+    "createdAt": "2026-11-19T23:05:06.699Z",
+    "updatedAt": "2026-11-19T23:05:06.699Z"
   }
 ]

@@ -1353,17 +1353,6 @@
     "allowFallback": true
   },
   {
-    "id": "link-pb-universal-audio-uad-explore-bundle",
-    "productId": "pb-universal-audio-uad-explore-bundle",
-    "programId": "plugin-boutique",
-    "destinationUrl": "https://www.pluginboutique.com/manufacturers/365-Universal-Audio",
-    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
-    "status": "active",
-    "requiresReview": false,
-    "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
-    "allowFallback": true
-  },
-  {
     "id": "link-pb-korg-mde-x",
     "productId": "pb-korg-mde-x",
     "programId": "plugin-boutique",
@@ -1383,6 +1372,17 @@
     "status": "active",
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-19T23:02:12.109Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-pb-universal-audio-vibe-analog-machines",
+    "productId": "pb-universal-audio-vibe-analog-machines",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/manufacturers/365-Universal-Audio",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T23:05:06.699Z",
     "allowFallback": true
   }
 ]
