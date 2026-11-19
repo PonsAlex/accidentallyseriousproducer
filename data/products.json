@@ -1274,5 +1274,17 @@
     "status": "active",
     "createdAt": "2026-11-18T21:25:00.778Z",
     "updatedAt": "2026-11-18T21:25:00.778Z"
+  },
+  {
+    "id": "ssl-fusion-bundle",
+    "slug": "ssl-fusion-bundle",
+    "programId": "plugin-boutique",
+    "name": "SSL Fusion Bundle",
+    "category": "bundle",
+    "description": "Solid State Logic Fusion stereo outboard processors as plugins",
+    "developer": "Solid State Logic",
+    "status": "active",
+    "createdAt": "2026-11-19T22:14:42.274Z",
+    "updatedAt": "2026-11-19T22:14:42.274Z"
   }
 ]

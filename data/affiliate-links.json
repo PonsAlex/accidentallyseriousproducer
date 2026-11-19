@@ -1252,5 +1252,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-18T21:25:00.778Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ssl-fusion-bundle",
+    "productId": "ssl-fusion-bundle",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/product/81-Bundles/39-Effects-Bundles/14036-Solid-State-Logic-SSL-Fusion-Bundle",
+    "fallbackUrl": "https://www.pluginboutique.com/deals-2",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T22:14:42.274Z",
+    "allowFallback": true
   }
 ]
