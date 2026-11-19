@@ -1263,5 +1263,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-19T22:14:42.274Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-pro-sound-effects-odyssey-collection-design-elements",
+    "productId": "pro-sound-effects-odyssey-collection-design-elements",
+    "programId": "pro-sound-effects",
+    "destinationUrl": "https://www.prosoundeffects.com/libraries/odyssey-collection-design-elements",
+    "fallbackUrl": "https://www.prosoundeffects.com/libraries/odyssey-collection-design-elements",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T22:28:34.947Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-full-bucket-music-mps",
+    "productId": "full-bucket-music-mps",
+    "programId": "full-bucket-music",
+    "destinationUrl": "https://www.fullbucket.de/music/mps.html",
+    "fallbackUrl": "https://www.fullbucket.de/music/mps.html",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T22:28:35.070Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-luxora-audio-vocal-preamp",
+    "productId": "luxora-audio-vocal-preamp",
+    "programId": "luxora-audio",
+    "destinationUrl": "https://www.luxora-audio.com/plugins/vocal-preamp",
+    "fallbackUrl": "https://www.luxora-audio.com/plugins/vocal-preamp",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T22:28:35.186Z",
+    "allowFallback": true
   }
 ]
