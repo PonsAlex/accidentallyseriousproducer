@@ -1296,5 +1296,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-19T22:28:35.186Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-klevgrand-luxe",
+    "productId": "klevgrand-luxe",
+    "programId": "klevgrand",
+    "destinationUrl": "https://klevgrand.com/products/luxe",
+    "fallbackUrl": "https://klevgrand.com/products/luxe",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-19T22:31:11.561Z",
+    "allowFallback": true
   }
 ]
