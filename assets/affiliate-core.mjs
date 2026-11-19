@@ -306,7 +306,12 @@ function renderActivePricing(promotion) {
   }
 
   const priceParts = [];
-  if (promoPrice) {
+  if (promotion.promoPrice === 0) {
+    // A zero price is not a price of zero. "US$ 0" reads like a formatting bug; the
+    // word is the fact. Checked before the formatted string, because formatMoney(0)
+    // is a perfectly truthy "US$ 0,00" and would win the branch race.
+    priceParts.push(`<strong class="offer-price">Free</strong>`);
+  } else if (promoPrice) {
     // "From" is not a price, it is a qualifier on one. A brand sale covers a
     // catalogue, and the honest number to print is the cheapest entry rather than a
     // headline percentage that describes the whole shelf. The word has to be on the

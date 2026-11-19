@@ -1331,5 +1331,89 @@
     "status": "active",
     "createdAt": "2026-11-19T22:31:11.561Z",
     "updatedAt": "2026-11-19T22:31:11.561Z"
+  },
+  {
+    "id": "pb-fabfilter-micro",
+    "slug": "pb-fabfilter-micro",
+    "programId": "plugin-boutique",
+    "name": "Micro",
+    "category": "plugin",
+    "description": "Micro by FabFilter, on sale at Plugin Boutique",
+    "developer": "FabFilter",
+    "status": "active",
+    "createdAt": "2026-11-19T23:02:12.109Z",
+    "updatedAt": "2026-11-19T23:02:12.109Z"
+  },
+  {
+    "id": "pb-celemony-melodyne-5-assistant-update",
+    "slug": "pb-celemony-melodyne-5-assistant-update",
+    "programId": "plugin-boutique",
+    "name": "Melodyne 5 Assistant Update",
+    "category": "plugin",
+    "description": "Melodyne 5 Assistant Update by Celemony, on sale at Plugin Boutique",
+    "developer": "Celemony",
+    "status": "active",
+    "createdAt": "2026-11-19T23:02:12.109Z",
+    "updatedAt": "2026-11-19T23:02:12.109Z"
+  },
+  {
+    "id": "pb-ssl-native-bus-compressor-2",
+    "slug": "pb-ssl-native-bus-compressor-2",
+    "programId": "plugin-boutique",
+    "name": "Native Bus Compressor 2",
+    "category": "plugin",
+    "description": "Native Bus Compressor 2 by Solid State Logic, on sale at Plugin Boutique",
+    "developer": "Solid State Logic",
+    "status": "active",
+    "createdAt": "2026-11-19T23:02:12.109Z",
+    "updatedAt": "2026-11-19T23:02:12.109Z"
+  },
+  {
+    "id": "pb-soundtoys-panman",
+    "slug": "pb-soundtoys-panman",
+    "programId": "plugin-boutique",
+    "name": "PanMan",
+    "category": "plugin",
+    "description": "PanMan by Soundtoys, on sale at Plugin Boutique",
+    "developer": "Soundtoys",
+    "status": "active",
+    "createdAt": "2026-11-19T23:02:12.109Z",
+    "updatedAt": "2026-11-19T23:02:12.109Z"
+  },
+  {
+    "id": "pb-universal-audio-uad-explore-bundle",
+    "slug": "pb-universal-audio-uad-explore-bundle",
+    "programId": "plugin-boutique",
+    "name": "UAD Explore Bundle",
+    "category": "plugin",
+    "description": "UAD Explore Bundle by Universal Audio, on sale at Plugin Boutique",
+    "developer": "Universal Audio",
+    "status": "active",
+    "createdAt": "2026-11-19T23:02:12.109Z",
+    "updatedAt": "2026-11-19T23:02:12.109Z"
+  },
+  {
+    "id": "pb-korg-mde-x",
+    "slug": "pb-korg-mde-x",
+    "programId": "plugin-boutique",
+    "name": "MDE-X",
+    "category": "plugin",
+    "description": "MDE-X by KORG, on sale at Plugin Boutique",
+    "developer": "KORG",
+    "status": "active",
+    "createdAt": "2026-11-19T23:02:12.109Z",
+    "updatedAt": "2026-11-19T23:02:12.109Z"
+  },
+  {
+    "id": "pb-native-instruments-massive-x-expansion-cinematic-soundscapes",
+    "slug": "pb-native-instruments-massive-x-expansion-cinematic-soundscapes",
+    "programId": "plugin-boutique",
+    "name": "Massive X: Cinematic Soundscapes",
+    "category": "plugin",
+    "description": "Massive X Expansion: Cinematic Soundscapes by Native Instruments, on sale at Plugin Boutique",
+    "developer": "Native Instruments",
+    "status": "active",
+    "createdAt": "2026-11-19T23:02:12.109Z",
+    "updatedAt": "2026-11-19T23:02:41.693Z"
   }
 ]
