@@ -119,6 +119,21 @@ the most attractive one, and the link goes to the brand's page on Plugin Boutiqu
 rather than to the site index, because a card that lands somewhere generic is a card
 that wastes the click.
 
+**A bundled gift is described as "buy x, get x + y", priced at the cheapest entry.**
+When a shop gives something away with a purchase, the card leads with the smallest
+purchase that unlocks it rather than with the gift's own value, because the reader's
+question is "how little do I have to spend to get it". Plugin Boutique's gift sells
+for $2.50 in the shape of Phonautograms, so that is the number the card opens with,
+and the gifts — four at that threshold, two more at $49 — are named after it.
+
+**When the fact is not on the page, ask for a screenshot before changing anything.**
+Some vendors put the price, the deadline or the tier on an image rather than in the
+text: Plugin Boutique's gift banner carries "Ends 30th November" on the artwork, and
+Minimal Audio's pack carried a "free" badge beside a struck-through price. A text
+reader cannot see either. The rule is not "guess and correct later" and not "publish
+without it" — it is to stop and ask the editor for the screen, because the editor is
+looking at it.
+
 Regeneration is idempotent: `article:generate` run again with six reviews instead
 of four produces the same page, larger. Adding a finding to a page that is already
 live costs one regeneration, which is what makes a daily rhythm affordable.

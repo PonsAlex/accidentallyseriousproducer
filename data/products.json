@@ -1415,5 +1415,17 @@
     "status": "active",
     "createdAt": "2026-11-19T23:05:06.699Z",
     "updatedAt": "2026-11-19T23:05:06.699Z"
+  },
+  {
+    "id": "pb-soundiron-phonautograms",
+    "slug": "pb-soundiron-phonautograms",
+    "programId": "plugin-boutique",
+    "name": "Phonautograms",
+    "category": "plugin",
+    "description": "Soundiron Phonautograms for Kontakt, on sale at Plugin Boutique",
+    "developer": "Soundiron",
+    "status": "active",
+    "createdAt": "2026-11-20T21:23:33.310Z",
+    "updatedAt": "2026-11-20T21:23:33.310Z"
   }
 ]

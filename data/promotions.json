@@ -622,5 +622,26 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-19T23:02:12.109Z",
     "updatedAt": "2026-11-19T23:02:12.109Z"
+  },
+  {
+    "id": "promo-pb-soundiron-phonautograms-2026",
+    "productId": "pb-soundiron-phonautograms",
+    "affiliateLinkId": "link-pb-soundiron-phonautograms",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "placement": "partner-shelf",
+    "placementOrder": 32,
+    "headline": "The cheapest way into Plugin Boutique's gift: buy Phonautograms at $2.50 against $5 and take one of four plugins with it — Tape Suite by UVI, Reaktor Prism by Native Instruments, Evolve Elastic Lite by Excite Audio or JUNO-60 Chorus by Roland. Spend $49 and two more open up. Gifts end 30 November.",
+    "startsAt": null,
+    "endsAt": "2026-12-06T23:59:59-03:00",
+    "promoPrice": 2.5,
+    "regularPrice": 5,
+    "currency": "USD",
+    "discountPercent": 50,
+    "fromPrice": true,
+    "dateConfidence": "high",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-20T21:23:33.310Z",
+    "updatedAt": "2026-11-20T21:23:33.310Z"
   }
 ]

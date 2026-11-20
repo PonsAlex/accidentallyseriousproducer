@@ -1384,5 +1384,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-19T23:05:06.699Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-pb-soundiron-phonautograms",
+    "productId": "pb-soundiron-phonautograms",
+    "programId": "plugin-boutique",
+    "destinationUrl": "https://www.pluginboutique.com/product/1-Instruments/55-Kontakt-Instrument/9340-Phonautograms",
+    "fallbackUrl": "https://www.pluginboutique.com/manufacturers/365-Universal-Audio",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-20T21:23:33.310Z",
+    "allowFallback": true
   }
 ]
