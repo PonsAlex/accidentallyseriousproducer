@@ -1395,5 +1395,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-20T21:23:33.310Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-audiorift-duel-lt",
+    "productId": "audiorift-duel-lt",
+    "programId": "audiorift",
+    "destinationUrl": "https://www.audioloom.com/audiorift/duel-lt",
+    "fallbackUrl": "https://www.audioloom.com/audiorift/duel-lt",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-20T22:02:00.355Z",
+    "allowFallback": true
   }
 ]
