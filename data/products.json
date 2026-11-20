@@ -1427,5 +1427,16 @@
     "status": "active",
     "createdAt": "2026-11-20T21:23:33.310Z",
     "updatedAt": "2026-11-20T21:23:33.310Z"
+  },
+  {
+    "id": "audiorift-duel-lt",
+    "slug": "audiorift-duel-lt",
+    "programId": "audiorift",
+    "name": "DUEL LT",
+    "category": "plugin",
+    "description": "DUEL LT",
+    "status": "active",
+    "createdAt": "2026-11-20T22:02:00.355Z",
+    "updatedAt": "2026-11-20T22:02:00.355Z"
   }
 ]
