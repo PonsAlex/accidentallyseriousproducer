@@ -1438,5 +1438,53 @@
     "status": "active",
     "createdAt": "2026-11-20T22:02:00.355Z",
     "updatedAt": "2026-11-20T22:02:00.355Z"
+  },
+  {
+    "id": "wa-production-everything-bundle-v5",
+    "slug": "wa-production-everything-bundle-v5",
+    "programId": "wa-production",
+    "name": "Everything Bundle v5",
+    "category": "bundle",
+    "description": "Everything Bundle v5 by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-21T13:47:38.252Z",
+    "updatedAt": "2026-11-21T13:47:38.252Z"
+  },
+  {
+    "id": "wa-production-deluxe-vocal-bundle",
+    "slug": "wa-production-deluxe-vocal-bundle",
+    "programId": "wa-production",
+    "name": "Deluxe Vocal Bundle",
+    "category": "bundle",
+    "description": "Deluxe Vocal Bundle by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-21T13:47:38.252Z",
+    "updatedAt": "2026-11-21T13:47:38.252Z"
+  },
+  {
+    "id": "wa-production-chopbeast-2",
+    "slug": "wa-production-chopbeast-2",
+    "programId": "wa-production",
+    "name": "ChopBeast 2",
+    "category": "plugin",
+    "description": "ChopBeast 2 by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-21T13:47:38.252Z",
+    "updatedAt": "2026-11-21T13:47:38.252Z"
+  },
+  {
+    "id": "wa-production-instacomposer-4",
+    "slug": "wa-production-instacomposer-4",
+    "programId": "wa-production",
+    "name": "InstaComposer 4",
+    "category": "plugin",
+    "description": "InstaComposer 4 by W. A. Production",
+    "developer": "W. A. Production",
+    "status": "active",
+    "createdAt": "2026-11-21T13:47:38.252Z",
+    "updatedAt": "2026-11-21T13:47:38.252Z"
   }
 ]

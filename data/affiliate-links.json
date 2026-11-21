@@ -1406,5 +1406,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-20T22:02:00.355Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-everything-bundle-v5",
+    "productId": "wa-production-everything-bundle-v5",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/everything-bundle-v5#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-21T13:47:38.252Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-deluxe-vocal-bundle",
+    "productId": "wa-production-deluxe-vocal-bundle",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/bundles/view/deluxe-vocal-bundle#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-21T13:47:38.252Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-chopbeast-2",
+    "productId": "wa-production-chopbeast-2",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/plugins/view/chopbeast-2#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-21T13:47:38.252Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-wa-production-instacomposer-4",
+    "productId": "wa-production-instacomposer-4",
+    "programId": "wa-production",
+    "destinationUrl": "https://www.waproduction.com/plugins/view/instacomposer-4#tl5yyfu43dtnu",
+    "fallbackUrl": "https://www.waproduction.com/special-offer#tl5yyfu43dtnu",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-21T13:47:38.252Z",
+    "allowFallback": true
   }
 ]
