@@ -748,5 +748,29 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "sonescent",
+    "name": "Sonescent",
+    "homepage": "https://sonescent.com/imager",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "mercurial-tones",
+    "name": "Mercurial Tones",
+    "homepage": "https://shop.mercurialtones.com/products/siren",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "seven-team-music",
+    "name": "Seven Team Music",
+    "homepage": "https://www.seventeammusic.com/revenger",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
