@@ -1450,5 +1450,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-21T13:47:38.252Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-sonescent-imager",
+    "productId": "sonescent-imager",
+    "programId": "sonescent",
+    "destinationUrl": "https://sonescent.com/imager",
+    "fallbackUrl": "https://sonescent.com/imager",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-21T13:54:45.487Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-mercurial-tones-siren",
+    "productId": "mercurial-tones-siren",
+    "programId": "mercurial-tones",
+    "destinationUrl": "https://shop.mercurialtones.com/products/siren",
+    "fallbackUrl": "https://shop.mercurialtones.com/products/siren",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-21T13:54:45.608Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-seven-team-music-revenger-bundle",
+    "productId": "seven-team-music-revenger-bundle",
+    "programId": "seven-team-music",
+    "destinationUrl": "https://www.seventeammusic.com/revenger",
+    "fallbackUrl": "https://www.seventeammusic.com/revenger",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-21T13:54:45.733Z",
+    "allowFallback": true
   }
 ]

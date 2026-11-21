@@ -1486,5 +1486,38 @@
     "status": "active",
     "createdAt": "2026-11-21T13:47:38.252Z",
     "updatedAt": "2026-11-21T13:47:38.252Z"
+  },
+  {
+    "id": "sonescent-imager",
+    "slug": "sonescent-imager",
+    "programId": "sonescent",
+    "name": "Imager",
+    "category": "plugin",
+    "description": "Imager",
+    "status": "active",
+    "createdAt": "2026-11-21T13:54:45.487Z",
+    "updatedAt": "2026-11-21T13:54:45.487Z"
+  },
+  {
+    "id": "mercurial-tones-siren",
+    "slug": "mercurial-tones-siren",
+    "programId": "mercurial-tones",
+    "name": "Siren",
+    "category": "plugin",
+    "description": "Siren",
+    "status": "active",
+    "createdAt": "2026-11-21T13:54:45.608Z",
+    "updatedAt": "2026-11-21T13:54:45.608Z"
+  },
+  {
+    "id": "seven-team-music-revenger-bundle",
+    "slug": "seven-team-music-revenger-bundle",
+    "programId": "seven-team-music",
+    "name": "Revenger Bundle",
+    "category": "bundle",
+    "description": "Revenger Bundle",
+    "status": "active",
+    "createdAt": "2026-11-21T13:54:45.733Z",
+    "updatedAt": "2026-11-21T13:54:45.733Z"
   }
 ]
