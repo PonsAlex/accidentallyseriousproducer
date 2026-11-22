@@ -1519,5 +1519,29 @@
     "status": "active",
     "createdAt": "2026-11-21T13:54:45.733Z",
     "updatedAt": "2026-11-21T13:54:45.733Z"
+  },
+  {
+    "id": "soundmorph-robotic-lifeforms-2",
+    "slug": "soundmorph-robotic-lifeforms-2",
+    "programId": "soundmorph",
+    "name": "Robotic Lifeforms 2",
+    "category": "bundle",
+    "description": "Robotic Lifeforms 2 by SoundMorph",
+    "developer": "SoundMorph",
+    "status": "active",
+    "createdAt": "2026-11-22T22:17:53.963Z",
+    "updatedAt": "2026-11-22T22:17:53.963Z"
+  },
+  {
+    "id": "soundmorph-phuze",
+    "slug": "soundmorph-phuze",
+    "programId": "soundmorph",
+    "name": "Phuze",
+    "category": "plugin",
+    "description": "Phuze by SoundMorph",
+    "developer": "SoundMorph",
+    "status": "active",
+    "createdAt": "2026-11-22T22:17:53.963Z",
+    "updatedAt": "2026-11-22T22:17:53.963Z"
   }
 ]
