@@ -1519,5 +1519,38 @@
     "status": "active",
     "createdAt": "2026-11-21T13:54:45.733Z",
     "updatedAt": "2026-11-21T13:54:45.733Z"
+  },
+  {
+    "id": "stagebox-software-devizes",
+    "slug": "stagebox-software-devizes",
+    "programId": "stagebox-software",
+    "name": "DEVIZES",
+    "category": "plugin",
+    "description": "DEVIZES",
+    "status": "active",
+    "createdAt": "2026-11-22T21:58:06.970Z",
+    "updatedAt": "2026-11-22T21:58:06.970Z"
+  },
+  {
+    "id": "travisdk-subforge",
+    "slug": "travisdk-subforge",
+    "programId": "travisdk",
+    "name": "SubForge",
+    "category": "plugin",
+    "description": "SubForge",
+    "status": "active",
+    "createdAt": "2026-11-22T21:58:07.165Z",
+    "updatedAt": "2026-11-22T21:58:07.165Z"
+  },
+  {
+    "id": "mrmoustache-mr-warmer",
+    "slug": "mrmoustache-mr-warmer",
+    "programId": "mrmoustache",
+    "name": "Mr.Warmer",
+    "category": "plugin",
+    "description": "Mr.Warmer",
+    "status": "active",
+    "createdAt": "2026-11-22T21:58:07.359Z",
+    "updatedAt": "2026-11-22T21:58:07.359Z"
   }
 ]

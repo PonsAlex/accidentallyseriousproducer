@@ -1483,5 +1483,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-21T13:54:45.733Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-stagebox-software-devizes",
+    "productId": "stagebox-software-devizes",
+    "programId": "stagebox-software",
+    "destinationUrl": "https://dawplugins.net/vst-plugins/instruments/strings/devizes/",
+    "fallbackUrl": "https://dawplugins.net/vst-plugins/instruments/strings/devizes/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T21:58:06.970Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-travisdk-subforge",
+    "productId": "travisdk-subforge",
+    "programId": "travisdk",
+    "destinationUrl": "https://github.com/travisdk/SubForge",
+    "fallbackUrl": "https://github.com/travisdk/SubForge",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T21:58:07.165Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-mrmoustache-mr-warmer",
+    "productId": "mrmoustache-mr-warmer",
+    "programId": "mrmoustache",
+    "destinationUrl": "https://mrmoustache.es/en/mrwarmer",
+    "fallbackUrl": "https://mrmoustache.es/en/mrwarmer",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T21:58:07.359Z",
+    "allowFallback": true
   }
 ]

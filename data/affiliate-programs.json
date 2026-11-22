@@ -772,5 +772,29 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "stagebox-software",
+    "name": "StageBox Software",
+    "homepage": "https://dawplugins.net/vst-plugins/instruments/strings/devizes/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "travisdk",
+    "name": "travisdk",
+    "homepage": "https://github.com/travisdk/SubForge",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "mrmoustache",
+    "name": "MrMoustache",
+    "homepage": "https://mrmoustache.es/en/mrwarmer",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
