@@ -1543,5 +1543,49 @@
     "status": "active",
     "createdAt": "2026-11-22T22:17:53.963Z",
     "updatedAt": "2026-11-22T22:17:53.963Z"
+  },
+  {
+    "id": "riverflux-audio-spatial-eq",
+    "slug": "riverflux-audio-spatial-eq",
+    "programId": "riverflux-audio",
+    "name": "Spatial EQ",
+    "category": "plugin",
+    "description": "Spatial EQ",
+    "status": "active",
+    "createdAt": "2026-11-22T22:42:31.253Z",
+    "updatedAt": "2026-11-22T22:42:31.253Z"
+  },
+  {
+    "id": "stagebox-software-devizes",
+    "slug": "stagebox-software-devizes",
+    "programId": "stagebox-software",
+    "name": "DEVIZES",
+    "category": "plugin",
+    "description": "DEVIZES",
+    "status": "active",
+    "createdAt": "2026-11-22T22:42:30.489Z",
+    "updatedAt": "2026-11-22T22:42:30.489Z"
+  },
+  {
+    "id": "travisdk-subforge",
+    "slug": "travisdk-subforge",
+    "programId": "travisdk",
+    "name": "SubForge",
+    "category": "plugin",
+    "description": "SubForge",
+    "status": "active",
+    "createdAt": "2026-11-22T22:42:30.669Z",
+    "updatedAt": "2026-11-22T22:42:30.669Z"
+  },
+  {
+    "id": "mrmoustache-mr-warmer",
+    "slug": "mrmoustache-mr-warmer",
+    "programId": "mrmoustache",
+    "name": "Mr.Warmer",
+    "category": "plugin",
+    "description": "Mr.Warmer",
+    "status": "active",
+    "createdAt": "2026-11-22T22:42:30.865Z",
+    "updatedAt": "2026-11-22T22:42:30.865Z"
   }
 ]

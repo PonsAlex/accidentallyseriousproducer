@@ -1505,5 +1505,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-22T22:17:53.963Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-riverflux-audio-spatial-eq",
+    "productId": "riverflux-audio-spatial-eq",
+    "programId": "riverflux-audio",
+    "destinationUrl": "https://riverfluxaudio.gumroad.com/l/Spatial-EQ",
+    "fallbackUrl": "https://riverfluxaudio.gumroad.com/l/Spatial-EQ",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T22:42:31.253Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-stagebox-software-devizes",
+    "productId": "stagebox-software-devizes",
+    "programId": "stagebox-software",
+    "destinationUrl": "https://www.stageboxsoftware.com/devizes.html",
+    "fallbackUrl": "https://www.stageboxsoftware.com/devizes.html",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T22:42:30.489Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-travisdk-subforge",
+    "productId": "travisdk-subforge",
+    "programId": "travisdk",
+    "destinationUrl": "https://github.com/travisdk/SubForge",
+    "fallbackUrl": "https://github.com/travisdk/SubForge",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T22:42:30.669Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-mrmoustache-mr-warmer",
+    "productId": "mrmoustache-mr-warmer",
+    "programId": "mrmoustache",
+    "destinationUrl": "https://mrmoustache.es/en/mrwarmer",
+    "fallbackUrl": "https://mrmoustache.es/en/mrwarmer",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T22:42:30.865Z",
+    "allowFallback": true
   }
 ]
