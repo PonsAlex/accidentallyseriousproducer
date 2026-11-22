@@ -1488,11 +1488,11 @@
     "id": "link-stagebox-software-devizes",
     "productId": "stagebox-software-devizes",
     "programId": "stagebox-software",
-    "destinationUrl": "https://dawplugins.net/vst-plugins/instruments/strings/devizes/",
-    "fallbackUrl": "https://dawplugins.net/vst-plugins/instruments/strings/devizes/",
+    "destinationUrl": "https://www.stageboxsoftware.com/devizes.html",
+    "fallbackUrl": "https://www.stageboxsoftware.com/devizes.html",
     "status": "active",
     "requiresReview": false,
-    "lastVerifiedAt": "2026-11-22T21:58:06.970Z",
+    "lastVerifiedAt": "2026-11-22T22:03:49.229Z",
     "allowFallback": true
   },
   {
