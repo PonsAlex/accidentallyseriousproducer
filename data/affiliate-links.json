@@ -1483,5 +1483,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-21T13:54:45.733Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-soundmorph-robotic-lifeforms-2",
+    "productId": "soundmorph-robotic-lifeforms-2",
+    "programId": "soundmorph",
+    "destinationUrl": "https://soundmorph.com/products/robotic-lifeforms-2?bg_ref=fCriQomLzL",
+    "fallbackUrl": "https://soundmorph.com?bg_ref=fCriQomLzL",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T22:17:53.963Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-soundmorph-phuze",
+    "productId": "soundmorph-phuze",
+    "programId": "soundmorph",
+    "destinationUrl": "https://soundmorph.com/products/phuze?bg_ref=fCriQomLzL",
+    "fallbackUrl": "https://soundmorph.com?bg_ref=fCriQomLzL",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-22T22:17:53.963Z",
+    "allowFallback": true
   }
 ]
