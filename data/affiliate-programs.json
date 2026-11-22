@@ -271,8 +271,8 @@
   },
   {
     "id": "riverflux-audio",
-    "name": "RiverFlux Audio",
-    "homepage": "https://riverfluxaudio.gumroad.com/l/phixer",
+    "name": "Riverflux Audio",
+    "homepage": "https://riverfluxaudio.gumroad.com/l/Spatial-EQ",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
@@ -769,6 +769,30 @@
     "id": "seven-team-music",
     "name": "Seven Team Music",
     "homepage": "https://www.seventeammusic.com/revenger",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "stagebox-software",
+    "name": "StageBox Software",
+    "homepage": "https://www.stageboxsoftware.com/devizes.html",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "travisdk",
+    "name": "travisdk",
+    "homepage": "https://github.com/travisdk/SubForge",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "mrmoustache",
+    "name": "MrMoustache",
+    "homepage": "https://mrmoustache.es/en/mrwarmer",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
