@@ -796,5 +796,61 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "ohlhorst-digital",
+    "name": "Ohlhorst Digital",
+    "homepage": "https://ohlhorstdigital.com/examer/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "untitled-audio-syndicate",
+    "name": "Untitled Audio Syndicate",
+    "homepage": "https://untitledaudiosyndicate.com/freeware/khorde",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "genuine-soundware",
+    "name": "Genuine Soundware",
+    "homepage": "https://www.genuinesoundware.com/?a=page&p=MIDI-AXE",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "touch-loops",
+    "name": "Touch Loops",
+    "homepage": "https://www.lootaudio.com/category/sample-packs/touch-loops/2026-free-sampler",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "isession-audio",
+    "name": "iSession Audio",
+    "homepage": "https://insessionaudio.com/products/dyad-solo-kalimba/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "diginoiz",
+    "name": "Diginoiz",
+    "homepage": "https://diginoiz.com/series/drum-injection/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "sweetwater",
+    "name": "Sweetwater",
+    "homepage": "https://www.sweetwater.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

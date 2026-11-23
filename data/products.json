@@ -1587,5 +1587,83 @@
     "status": "active",
     "createdAt": "2026-11-22T22:42:30.865Z",
     "updatedAt": "2026-11-22T22:42:30.865Z"
+  },
+  {
+    "id": "ohlhorst-digital-examer",
+    "slug": "ohlhorst-digital-examer",
+    "programId": "ohlhorst-digital",
+    "name": "Examer",
+    "category": "other",
+    "description": "Examer",
+    "status": "active",
+    "createdAt": "2026-11-23T18:27:57.336Z",
+    "updatedAt": "2026-11-23T18:27:57.336Z"
+  },
+  {
+    "id": "untitled-audio-syndicate-khorde",
+    "slug": "untitled-audio-syndicate-khorde",
+    "programId": "untitled-audio-syndicate",
+    "name": "KHORDE",
+    "category": "plugin",
+    "description": "KHORDE",
+    "status": "active",
+    "createdAt": "2026-11-23T18:27:57.556Z",
+    "updatedAt": "2026-11-23T18:27:57.556Z"
+  },
+  {
+    "id": "genuine-soundware-midi-axe",
+    "slug": "genuine-soundware-midi-axe",
+    "programId": "genuine-soundware",
+    "name": "MIDI-AXE",
+    "category": "other",
+    "description": "MIDI-AXE",
+    "status": "active",
+    "createdAt": "2026-11-23T18:27:57.786Z",
+    "updatedAt": "2026-11-23T18:27:57.786Z"
+  },
+  {
+    "id": "touch-loops-2026-free-sampler",
+    "slug": "touch-loops-2026-free-sampler",
+    "programId": "touch-loops",
+    "name": "2026 Free Sampler",
+    "category": "other",
+    "description": "2026 Free Sampler",
+    "status": "active",
+    "createdAt": "2026-11-23T18:27:58.004Z",
+    "updatedAt": "2026-11-23T18:27:58.004Z"
+  },
+  {
+    "id": "isession-audio-dyad-solo-kalimba",
+    "slug": "isession-audio-dyad-solo-kalimba",
+    "programId": "isession-audio",
+    "name": "DYAD Solo Kalimba",
+    "category": "plugin",
+    "description": "DYAD Solo Kalimba",
+    "status": "active",
+    "createdAt": "2026-11-23T18:27:58.222Z",
+    "updatedAt": "2026-11-23T18:27:58.222Z"
+  },
+  {
+    "id": "diginoiz-drum-injection",
+    "slug": "diginoiz-drum-injection",
+    "programId": "diginoiz",
+    "name": "Drum Injection",
+    "category": "other",
+    "description": "Drum Injection",
+    "status": "active",
+    "createdAt": "2026-11-23T18:48:33.989Z",
+    "updatedAt": "2026-11-23T18:48:33.989Z"
+  },
+  {
+    "id": "air-drum-machines-pack",
+    "slug": "air-drum-machines-pack",
+    "programId": "sweetwater",
+    "name": "Drum Machines Pack",
+    "category": "bundle",
+    "description": "AIR Drum Synth 500 and Boom as a virtual instrument bundle",
+    "developer": "AIR Music Technology",
+    "status": "active",
+    "createdAt": "2026-11-23T18:48:34.953Z",
+    "updatedAt": "2026-11-23T18:48:34.953Z"
   }
 ]
