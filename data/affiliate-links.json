@@ -1549,5 +1549,60 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-22T22:42:30.865Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ohlhorst-digital-examer",
+    "productId": "ohlhorst-digital-examer",
+    "programId": "ohlhorst-digital",
+    "destinationUrl": "https://ohlhorstdigital.com/examer/",
+    "fallbackUrl": "https://ohlhorstdigital.com/examer/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-23T18:27:57.336Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-untitled-audio-syndicate-khorde",
+    "productId": "untitled-audio-syndicate-khorde",
+    "programId": "untitled-audio-syndicate",
+    "destinationUrl": "https://untitledaudiosyndicate.com/freeware/khorde",
+    "fallbackUrl": "https://untitledaudiosyndicate.com/freeware/khorde",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-23T18:27:57.556Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-genuine-soundware-midi-axe",
+    "productId": "genuine-soundware-midi-axe",
+    "programId": "genuine-soundware",
+    "destinationUrl": "https://www.genuinesoundware.com/?a=page&p=MIDI-AXE",
+    "fallbackUrl": "https://www.genuinesoundware.com/?a=page&p=MIDI-AXE",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-23T18:27:57.786Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-touch-loops-2026-free-sampler",
+    "productId": "touch-loops-2026-free-sampler",
+    "programId": "touch-loops",
+    "destinationUrl": "https://www.lootaudio.com/category/sample-packs/touch-loops/2026-free-sampler",
+    "fallbackUrl": "https://www.lootaudio.com/category/sample-packs/touch-loops/2026-free-sampler",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-23T18:27:58.004Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-isession-audio-dyad-solo-kalimba",
+    "productId": "isession-audio-dyad-solo-kalimba",
+    "programId": "isession-audio",
+    "destinationUrl": "https://insessionaudio.com/products/dyad-solo-kalimba/",
+    "fallbackUrl": "https://insessionaudio.com/products/dyad-solo-kalimba/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-23T18:27:58.222Z",
+    "allowFallback": true
   }
 ]
