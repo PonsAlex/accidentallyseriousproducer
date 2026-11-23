@@ -134,6 +134,13 @@ reader cannot see either. The rule is not "guess and correct later" and not "pub
 without it" — it is to stop and ask the editor for the screen, because the editor is
 looking at it.
 
+**A human block is the same case, not a rejection.** When a site answers a scripted
+request with a bot check — Cloudflare's "just a moment", Sweetwater's press-and-hold,
+Diginoiz's verification — the page is not empty, it is unreadable from here. That is an
+ask for a screenshot, not a refusal: two items were logged as rejected for most of a
+day when the editor already had the page open. The rejection is the fallback for when
+screenshots are not available, not the first move.
+
 Regeneration is idempotent: `article:generate` run again with six reviews instead
 of four produces the same page, larger. Adding a finding to a page that is already
 live costs one regeneration, which is what makes a daily rhythm affordable.
