@@ -1604,5 +1604,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-23T18:27:58.222Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-diginoiz-drum-injection",
+    "productId": "diginoiz-drum-injection",
+    "programId": "diginoiz",
+    "destinationUrl": "https://diginoiz.com/series/drum-injection/",
+    "fallbackUrl": "https://diginoiz.com/series/drum-injection/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-23T18:48:33.989Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-air-drum-machines-pack",
+    "productId": "air-drum-machines-pack",
+    "programId": "sweetwater",
+    "destinationUrl": "https://www.sweetwater.com/store/detail/AIRDrumPk--air-drum-machines-pack-virtual-instrument-bundle",
+    "fallbackUrl": "https://www.sweetwater.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-23T18:48:34.953Z",
+    "allowFallback": true
   }
 ]

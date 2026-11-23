@@ -836,5 +836,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "diginoiz",
+    "name": "Diginoiz",
+    "homepage": "https://diginoiz.com/series/drum-injection/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "sweetwater",
+    "name": "Sweetwater",
+    "homepage": "https://www.sweetwater.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

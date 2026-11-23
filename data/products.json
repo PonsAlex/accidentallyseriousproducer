@@ -1642,5 +1642,28 @@
     "status": "active",
     "createdAt": "2026-11-23T18:27:58.222Z",
     "updatedAt": "2026-11-23T18:27:58.222Z"
+  },
+  {
+    "id": "diginoiz-drum-injection",
+    "slug": "diginoiz-drum-injection",
+    "programId": "diginoiz",
+    "name": "Drum Injection",
+    "category": "other",
+    "description": "Drum Injection",
+    "status": "active",
+    "createdAt": "2026-11-23T18:48:33.989Z",
+    "updatedAt": "2026-11-23T18:48:33.989Z"
+  },
+  {
+    "id": "air-drum-machines-pack",
+    "slug": "air-drum-machines-pack",
+    "programId": "sweetwater",
+    "name": "Drum Machines Pack",
+    "category": "bundle",
+    "description": "AIR Drum Synth 500 and Boom as a virtual instrument bundle",
+    "developer": "AIR Music Technology",
+    "status": "active",
+    "createdAt": "2026-11-23T18:48:34.953Z",
+    "updatedAt": "2026-11-23T18:48:34.953Z"
   }
 ]

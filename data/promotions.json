@@ -691,5 +691,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-22T22:17:53.963Z",
     "updatedAt": "2026-11-22T22:17:53.963Z"
+  },
+  {
+    "id": "promo-air-drum-machines-pack-2026",
+    "productId": "air-drum-machines-pack",
+    "affiliateLinkId": "link-air-drum-machines-pack",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "Drum Synth 500 and Boom together for $9.99 against $249 — a $239 saving, effective through 10 January 2027.",
+    "startsAt": null,
+    "endsAt": "2027-01-10T23:59:59-03:00",
+    "promoPrice": 9.99,
+    "regularPrice": 249,
+    "currency": "USD",
+    "discountPercent": 96,
+    "dateConfidence": "high",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-23T18:48:34.953Z",
+    "updatedAt": "2026-11-23T18:48:34.953Z"
   }
 ]
