@@ -852,5 +852,29 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "innermost47",
+    "name": "innermost47",
+    "homepage": "https://github.com/innermost47/grm-guitar-vst",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "xln-audio",
+    "name": "XLN Audio",
+    "homepage": "https://www.xlnaudio.com/black_friday_free_samples",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "universal-audio",
+    "name": "Universal Audio",
+    "homepage": "https://www.uaudio.com/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

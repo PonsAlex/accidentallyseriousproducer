@@ -709,5 +709,23 @@
     "contentConfidence": "high",
     "createdAt": "2026-11-23T18:48:34.953Z",
     "updatedAt": "2026-11-23T18:48:34.953Z"
+  },
+  {
+    "id": "promo-uad-thanksgiving-dollar-2026",
+    "productId": "uad-thanksgiving-dollar-plugin",
+    "affiliateLinkId": "link-uad-thanksgiving-dollar-plugin",
+    "publicationStatus": "published",
+    "requiresReview": false,
+    "headline": "One of ten UAD favourites for $1, on Thanksgiving Day only — Thursday 26 November. Sign up now and the code arrives when it goes live.",
+    "startsAt": null,
+    "endsAt": "2026-11-26T23:59:59-03:00",
+    "promoPrice": 1,
+    "regularPrice": null,
+    "currency": "USD",
+    "discountPercent": null,
+    "dateConfidence": "high",
+    "contentConfidence": "high",
+    "createdAt": "2026-11-24T22:05:34.439Z",
+    "updatedAt": "2026-11-24T22:05:34.439Z"
   }
 ]

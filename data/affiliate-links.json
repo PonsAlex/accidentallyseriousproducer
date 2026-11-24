@@ -1626,5 +1626,38 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-23T18:48:34.953Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-innermost47-grm-guitar",
+    "productId": "innermost47-grm-guitar",
+    "programId": "innermost47",
+    "destinationUrl": "https://github.com/innermost47/grm-guitar-vst",
+    "fallbackUrl": "https://github.com/innermost47/grm-guitar-vst",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-24T22:05:34.036Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-xln-audio-buttered-dead-drums",
+    "productId": "xln-audio-buttered-dead-drums",
+    "programId": "xln-audio",
+    "destinationUrl": "https://www.xlnaudio.com/black_friday_free_samples",
+    "fallbackUrl": "https://www.xlnaudio.com/black_friday_free_samples",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-24T22:05:34.259Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-uad-thanksgiving-dollar-plugin",
+    "productId": "uad-thanksgiving-dollar-plugin",
+    "programId": "universal-audio",
+    "destinationUrl": "https://exclusive.uaudio.com/thanksgiving-dollar-plug-in",
+    "fallbackUrl": "https://www.uaudio.com/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-24T22:05:34.439Z",
+    "allowFallback": true
   }
 ]
