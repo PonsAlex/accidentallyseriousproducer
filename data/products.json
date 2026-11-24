@@ -1665,5 +1665,39 @@
     "status": "active",
     "createdAt": "2026-11-23T18:48:34.953Z",
     "updatedAt": "2026-11-23T18:48:34.953Z"
+  },
+  {
+    "id": "innermost47-grm-guitar",
+    "slug": "innermost47-grm-guitar",
+    "programId": "innermost47",
+    "name": "GRM Guitar",
+    "category": "plugin",
+    "description": "GRM Guitar",
+    "status": "active",
+    "createdAt": "2026-11-24T22:05:34.036Z",
+    "updatedAt": "2026-11-24T22:05:34.036Z"
+  },
+  {
+    "id": "xln-audio-buttered-dead-drums",
+    "slug": "xln-audio-buttered-dead-drums",
+    "programId": "xln-audio",
+    "name": "Buttered Dead Drums",
+    "category": "other",
+    "description": "Buttered Dead Drums",
+    "status": "active",
+    "createdAt": "2026-11-24T22:05:34.259Z",
+    "updatedAt": "2026-11-24T22:05:34.259Z"
+  },
+  {
+    "id": "uad-thanksgiving-dollar-plugin",
+    "slug": "uad-thanksgiving-dollar-plugin",
+    "programId": "universal-audio",
+    "name": "Thanksgiving $1 Plug-In",
+    "category": "plugin",
+    "description": "One of ten UAD favourites for $1 on Thanksgiving",
+    "developer": "Universal Audio",
+    "status": "active",
+    "createdAt": "2026-11-24T22:05:34.439Z",
+    "updatedAt": "2026-11-24T22:05:34.439Z"
   }
 ]
