@@ -1670,5 +1670,60 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-25T14:53:55.297Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-the-synth-palace-synth-palace",
+    "productId": "the-synth-palace-synth-palace",
+    "programId": "the-synth-palace",
+    "destinationUrl": "https://www.synth-palace.com/plugin/",
+    "fallbackUrl": "https://www.synth-palace.com/plugin/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-25T21:42:36.490Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-signature-algorithms-pulseduck",
+    "productId": "signature-algorithms-pulseduck",
+    "programId": "signature-algorithms",
+    "destinationUrl": "https://www.signaturealgorithms.com/plugins/pulseduck",
+    "fallbackUrl": "https://www.signaturealgorithms.com/plugins/pulseduck",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-25T21:42:36.680Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-signature-algorithms-stepveil",
+    "productId": "signature-algorithms-stepveil",
+    "programId": "signature-algorithms",
+    "destinationUrl": "https://www.signaturealgorithms.com/plugins/stepveil",
+    "fallbackUrl": "https://www.signaturealgorithms.com/plugins/stepveil",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-25T21:42:36.924Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-noizlabs-tracker-mini",
+    "productId": "noizlabs-tracker-mini",
+    "programId": "noizlabs",
+    "destinationUrl": "https://www.noizlabs.com/products/tracker-mini",
+    "fallbackUrl": "https://www.noizlabs.com/products/tracker-mini",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-25T21:42:37.082Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-mthrbord-studio-acl2500",
+    "productId": "mthrbord-studio-acl2500",
+    "programId": "mthrbord-studio",
+    "destinationUrl": "https://mthrbord.studio/plugins/acl2500/",
+    "fallbackUrl": "https://mthrbord.studio/plugins/acl2500/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-25T21:42:37.242Z",
+    "allowFallback": true
   }
 ]

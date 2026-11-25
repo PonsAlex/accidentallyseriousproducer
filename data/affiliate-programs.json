@@ -876,5 +876,37 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "the-synth-palace",
+    "name": "The Synth Palace",
+    "homepage": "https://www.synth-palace.com/plugin/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "signature-algorithms",
+    "name": "Signature Algorithms",
+    "homepage": "https://www.signaturealgorithms.com/plugins/stepveil",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "noizlabs",
+    "name": "NoizLabs",
+    "homepage": "https://www.noizlabs.com/products/tracker-mini",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "mthrbord-studio",
+    "name": "MTHRBORD.STUDIO",
+    "homepage": "https://mthrbord.studio/plugins/acl2500/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

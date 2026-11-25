@@ -1250,6 +1250,66 @@
       "updatedAt": "2026-11-25"
     },
     {
+      "recordId": "mthrbord-acl2500",
+      "blockId": "product-review-mthrbord-acl2500",
+      "publishedAt": "2026-11-25",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "MTHRBORD.STUDIO - ACL2500",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-mthrbord-studio-acl2500",
+      "updatedAt": "2026-11-25"
+    },
+    {
+      "recordId": "noizlabs-tracker-mini",
+      "blockId": "product-review-noizlabs-tracker-mini",
+      "publishedAt": "2026-11-25",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "NoizLabs - Tracker Mini",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-noizlabs-tracker-mini",
+      "updatedAt": "2026-11-25"
+    },
+    {
+      "recordId": "signature-algorithms-pulseduck",
+      "blockId": "product-review-signature-algorithms-pulseduck",
+      "publishedAt": "2026-11-25",
+      "verdict": "Digital Furniture",
+      "status": "Free",
+      "productName": "Signature Algorithms - PULSEDUCK",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-signature-algorithms-pulseduck",
+      "updatedAt": "2026-11-25"
+    },
+    {
+      "recordId": "signature-algorithms-stepveil",
+      "blockId": "product-review-signature-algorithms-stepveil",
+      "publishedAt": "2026-11-25",
+      "verdict": "Digital Furniture",
+      "status": "Free",
+      "productName": "Signature Algorithms - STEPVEIL",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-signature-algorithms-stepveil",
+      "updatedAt": "2026-11-25"
+    },
+    {
+      "recordId": "synth-palace-collection",
+      "blockId": "product-review-synth-palace-collection",
+      "publishedAt": "2026-11-25",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "The Synth Palace - Synth Palace",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-the-synth-palace-synth-palace",
+      "updatedAt": "2026-11-25"
+    },
+    {
       "recordId": "ujam-vogue",
       "blockId": "product-review-ujam-vogue",
       "publishedAt": "2026-11-25",
