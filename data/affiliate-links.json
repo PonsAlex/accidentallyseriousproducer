@@ -1659,5 +1659,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-24T22:05:34.439Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-ujam-virtual-pianist-vogue",
+    "productId": "ujam-virtual-pianist-vogue",
+    "programId": "ujam",
+    "destinationUrl": "https://www.ujam.com/campaigns/vogue-free/",
+    "fallbackUrl": "https://www.ujam.com/campaigns/vogue-free/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-25T14:53:55.297Z",
+    "allowFallback": true
   }
 ]

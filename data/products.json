@@ -1699,5 +1699,16 @@
     "status": "active",
     "createdAt": "2026-11-24T22:05:34.439Z",
     "updatedAt": "2026-11-24T22:05:34.439Z"
+  },
+  {
+    "id": "ujam-virtual-pianist-vogue",
+    "slug": "ujam-virtual-pianist-vogue",
+    "programId": "ujam",
+    "name": "Virtual Pianist VOGUE",
+    "category": "plugin",
+    "description": "Virtual Pianist VOGUE",
+    "status": "active",
+    "createdAt": "2026-11-25T14:53:55.297Z",
+    "updatedAt": "2026-11-25T14:53:55.297Z"
   }
 ]
