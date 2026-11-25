@@ -1710,5 +1710,60 @@
     "status": "active",
     "createdAt": "2026-11-25T14:53:55.297Z",
     "updatedAt": "2026-11-25T14:53:55.297Z"
+  },
+  {
+    "id": "the-synth-palace-synth-palace",
+    "slug": "the-synth-palace-synth-palace",
+    "programId": "the-synth-palace",
+    "name": "Synth Palace",
+    "category": "bundle",
+    "description": "Synth Palace",
+    "status": "active",
+    "createdAt": "2026-11-25T21:42:36.490Z",
+    "updatedAt": "2026-11-25T21:42:36.490Z"
+  },
+  {
+    "id": "signature-algorithms-pulseduck",
+    "slug": "signature-algorithms-pulseduck",
+    "programId": "signature-algorithms",
+    "name": "PULSEDUCK",
+    "category": "plugin",
+    "description": "PULSEDUCK",
+    "status": "active",
+    "createdAt": "2026-11-25T21:42:36.680Z",
+    "updatedAt": "2026-11-25T21:42:36.680Z"
+  },
+  {
+    "id": "signature-algorithms-stepveil",
+    "slug": "signature-algorithms-stepveil",
+    "programId": "signature-algorithms",
+    "name": "STEPVEIL",
+    "category": "plugin",
+    "description": "STEPVEIL",
+    "status": "active",
+    "createdAt": "2026-11-25T21:42:36.924Z",
+    "updatedAt": "2026-11-25T21:42:36.924Z"
+  },
+  {
+    "id": "noizlabs-tracker-mini",
+    "slug": "noizlabs-tracker-mini",
+    "programId": "noizlabs",
+    "name": "Tracker Mini",
+    "category": "plugin",
+    "description": "Tracker Mini",
+    "status": "active",
+    "createdAt": "2026-11-25T21:42:37.082Z",
+    "updatedAt": "2026-11-25T21:42:37.082Z"
+  },
+  {
+    "id": "mthrbord-studio-acl2500",
+    "slug": "mthrbord-studio-acl2500",
+    "programId": "mthrbord-studio",
+    "name": "ACL2500",
+    "category": "plugin",
+    "description": "ACL2500",
+    "status": "active",
+    "createdAt": "2026-11-25T21:42:37.242Z",
+    "updatedAt": "2026-11-25T21:42:37.242Z"
   }
 ]
