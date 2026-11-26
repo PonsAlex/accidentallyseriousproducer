@@ -1736,5 +1736,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-26T21:47:29.189Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-viralsamples-call-response-midi",
+    "productId": "viralsamples-call-response-midi",
+    "programId": "viralsamples",
+    "destinationUrl": "https://viralsamples.com/products/call-response-midi-v1-0-5-mac-win",
+    "fallbackUrl": "https://viralsamples.com/products/call-response-midi-v1-0-5-mac-win",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-26T21:54:14.728Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-noiz-audio-masscut",
+    "productId": "noiz-audio-masscut",
+    "programId": "noiz-audio",
+    "destinationUrl": "https://noizaudio.com/plugins/masscut/",
+    "fallbackUrl": "https://noizaudio.com/plugins/masscut/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-26T21:54:14.867Z",
+    "allowFallback": true
   }
 ]

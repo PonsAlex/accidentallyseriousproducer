@@ -924,5 +924,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "viralsamples",
+    "name": "ViralSamples",
+    "homepage": "https://viralsamples.com/products/call-response-midi-v1-0-5-mac-win",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "noiz-audio",
+    "name": "noiz audio",
+    "homepage": "https://noizaudio.com/plugins/masscut/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

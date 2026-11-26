@@ -1776,5 +1776,27 @@
     "status": "active",
     "createdAt": "2026-11-26T21:47:29.189Z",
     "updatedAt": "2026-11-26T21:47:29.189Z"
+  },
+  {
+    "id": "viralsamples-call-response-midi",
+    "slug": "viralsamples-call-response-midi",
+    "programId": "viralsamples",
+    "name": "Call & Response MIDI",
+    "category": "plugin",
+    "description": "Call & Response MIDI",
+    "status": "active",
+    "createdAt": "2026-11-26T21:54:14.728Z",
+    "updatedAt": "2026-11-26T21:54:14.728Z"
+  },
+  {
+    "id": "noiz-audio-masscut",
+    "slug": "noiz-audio-masscut",
+    "programId": "noiz-audio",
+    "name": "Masscut",
+    "category": "plugin",
+    "description": "Masscut",
+    "status": "active",
+    "createdAt": "2026-11-26T21:54:14.867Z",
+    "updatedAt": "2026-11-26T21:54:14.867Z"
   }
 ]
