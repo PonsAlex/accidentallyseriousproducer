@@ -1334,6 +1334,18 @@
       "updatedAt": "2026-11-26"
     },
     {
+      "recordId": "noiz-audio-masscut",
+      "blockId": "product-review-noiz-audio-masscut",
+      "publishedAt": "2026-11-26",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "noiz audio - Masscut",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-noiz-audio-masscut",
+      "updatedAt": "2026-11-26"
+    },
+    {
       "recordId": "riverflux-phixer",
       "blockId": "product-review-riverflux-phixer",
       "publishedAt": "2026-11-26",
@@ -1343,6 +1355,18 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-riverflux-audio-phixer",
+      "updatedAt": "2026-11-26"
+    },
+    {
+      "recordId": "viralsamples-call-response-midi",
+      "blockId": "product-review-viralsamples-call-response-midi",
+      "publishedAt": "2026-11-26",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "ViralSamples - Call & Response MIDI",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-viralsamples-call-response-midi",
       "updatedAt": "2026-11-26"
     }
   ]
