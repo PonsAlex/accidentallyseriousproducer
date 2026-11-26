@@ -908,5 +908,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "bedroom-producers-blog",
+    "name": "Bedroom Producers Blog",
+    "homepage": "https://bpb.gumroad.com/l/bpb-microspace",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "gumroad",
+    "name": "Gumroad",
+    "homepage": "https://gumroad.com/discover?a=802118099",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

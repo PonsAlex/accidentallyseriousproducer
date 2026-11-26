@@ -1765,5 +1765,16 @@
     "status": "active",
     "createdAt": "2026-11-25T21:42:37.242Z",
     "updatedAt": "2026-11-25T21:42:37.242Z"
+  },
+  {
+    "id": "bedroom-producers-blog-microspace",
+    "slug": "bedroom-producers-blog-microspace",
+    "programId": "bedroom-producers-blog",
+    "name": "Microspace",
+    "category": "plugin",
+    "description": "Microspace",
+    "status": "active",
+    "createdAt": "2026-11-26T21:47:29.189Z",
+    "updatedAt": "2026-11-26T21:47:29.189Z"
   }
 ]
