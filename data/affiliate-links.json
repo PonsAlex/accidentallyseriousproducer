@@ -1725,5 +1725,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-25T21:42:37.242Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-bedroom-producers-blog-microspace",
+    "productId": "bedroom-producers-blog-microspace",
+    "programId": "bedroom-producers-blog",
+    "destinationUrl": "https://bpb.gumroad.com/l/bpb-microspace?a=802118099",
+    "fallbackUrl": "https://gumroad.com/discover?a=802118099",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-26T21:47:29.189Z",
+    "allowFallback": true
   }
 ]
