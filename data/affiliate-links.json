@@ -1758,5 +1758,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-26T21:54:14.867Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-newfangled-audio-obliterate-2",
+    "productId": "newfangled-audio-obliterate-2",
+    "programId": "newfangled-audio",
+    "destinationUrl": "https://www.newfangledaudio.com/obliterate",
+    "fallbackUrl": "https://www.newfangledaudio.com/obliterate",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T08:51:51.622Z",
+    "allowFallback": true
   }
 ]

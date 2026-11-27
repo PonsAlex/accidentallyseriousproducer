@@ -1798,5 +1798,16 @@
     "status": "active",
     "createdAt": "2026-11-26T21:54:14.867Z",
     "updatedAt": "2026-11-26T21:54:14.867Z"
+  },
+  {
+    "id": "newfangled-audio-obliterate-2",
+    "slug": "newfangled-audio-obliterate-2",
+    "programId": "newfangled-audio",
+    "name": "OBLITERATE 2",
+    "category": "plugin",
+    "description": "OBLITERATE 2",
+    "status": "active",
+    "createdAt": "2026-11-27T08:51:51.622Z",
+    "updatedAt": "2026-11-27T08:51:51.622Z"
   }
 ]
