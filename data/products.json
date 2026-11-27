@@ -1809,5 +1809,49 @@
     "status": "active",
     "createdAt": "2026-11-27T08:51:51.622Z",
     "updatedAt": "2026-11-27T08:51:51.622Z"
+  },
+  {
+    "id": "audio-spices-black-pepper",
+    "slug": "audio-spices-black-pepper",
+    "programId": "audio-spices",
+    "name": "Black Pepper",
+    "category": "plugin",
+    "description": "Black Pepper",
+    "status": "active",
+    "createdAt": "2026-11-27T13:23:56.657Z",
+    "updatedAt": "2026-11-27T13:23:56.657Z"
+  },
+  {
+    "id": "safari-audio-gorilla-drive",
+    "slug": "safari-audio-gorilla-drive",
+    "programId": "safari-audio",
+    "name": "Gorilla Drive",
+    "category": "plugin",
+    "description": "Gorilla Drive",
+    "status": "active",
+    "createdAt": "2026-11-27T13:23:57.027Z",
+    "updatedAt": "2026-11-27T13:23:57.027Z"
+  },
+  {
+    "id": "zero-g-total-bass-drums",
+    "slug": "zero-g-total-bass-drums",
+    "programId": "zero-g",
+    "name": "Total Bass Drums",
+    "category": "other",
+    "description": "Total Bass Drums",
+    "status": "active",
+    "createdAt": "2026-11-27T13:23:57.402Z",
+    "updatedAt": "2026-11-27T13:23:57.402Z"
+  },
+  {
+    "id": "smart-audio-plugins-drum-bus-buddy",
+    "slug": "smart-audio-plugins-drum-bus-buddy",
+    "programId": "smart-audio-plugins",
+    "name": "Drum Bus Buddy",
+    "category": "plugin",
+    "description": "Drum Bus Buddy",
+    "status": "active",
+    "createdAt": "2026-11-27T13:23:57.782Z",
+    "updatedAt": "2026-11-27T13:23:57.782Z"
   }
 ]

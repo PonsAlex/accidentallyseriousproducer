@@ -312,7 +312,7 @@
   {
     "id": "audio-spices",
     "name": "Audio Spices",
-    "homepage": "https://audio-spices.com/free-spice",
+    "homepage": "https://audio-spices.com/blackpepper",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
@@ -945,6 +945,30 @@
     "id": "newfangled-audio",
     "name": "Newfangled Audio",
     "homepage": "https://www.newfangledaudio.com/obliterate",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "safari-audio",
+    "name": "Safari Audio",
+    "homepage": "https://safariaudio.com/products/gorilla-drive-vst-plugin",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "zero-g",
+    "name": "Zero-G",
+    "homepage": "https://zero-g.co.uk/products/total-bass-drums",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "smart-audio-plugins",
+    "name": "Smart Audio Plugins",
+    "homepage": "https://smartaudioplugins.com/drum-bus-buddy.html",
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"

@@ -269,12 +269,12 @@
       "recordId": "audio-spices-free-spice",
       "blockId": "product-review-audio-spices-free-spice",
       "publishedAt": "2026-11-04",
-      "verdict": "???",
-      "status": "Breaking",
-      "productName": "Audio Spices - Unannounced spice",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Audio Spices - Black Pepper",
       "startsAtDate": "2026-11-27",
       "endsAtDate": "2026-11-27",
-      "href": "/go/link-audio-spices-unannounced-spice",
+      "href": "/go/link-audio-spices-black-pepper",
       "updatedAt": "2026-11-27"
     },
     {
@@ -1379,6 +1379,42 @@
       "startsAtDate": null,
       "endsAtDate": null,
       "href": "/go/link-newfangled-audio-obliterate-2",
+      "updatedAt": "2026-11-27"
+    },
+    {
+      "recordId": "safari-audio-gorilla-drive",
+      "blockId": "product-review-safari-audio-gorilla-drive",
+      "publishedAt": "2026-11-27",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Safari Audio - Gorilla Drive",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-safari-audio-gorilla-drive",
+      "updatedAt": "2026-11-27"
+    },
+    {
+      "recordId": "smart-audio-drum-bus-buddy",
+      "blockId": "product-review-smart-audio-drum-bus-buddy",
+      "publishedAt": "2026-11-27",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Smart Audio Plugins - Drum Bus Buddy",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-smart-audio-plugins-drum-bus-buddy",
+      "updatedAt": "2026-11-27"
+    },
+    {
+      "recordId": "zero-g-total-bass-drums",
+      "blockId": "product-review-zero-g-total-bass-drums",
+      "publishedAt": "2026-11-27",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Zero-G - Total Bass Drums",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-zero-g-total-bass-drums",
       "updatedAt": "2026-11-27"
     }
   ]
