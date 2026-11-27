@@ -1769,5 +1769,49 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-27T08:51:51.622Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-audio-spices-black-pepper",
+    "productId": "audio-spices-black-pepper",
+    "programId": "audio-spices",
+    "destinationUrl": "https://audio-spices.com/blackpepper",
+    "fallbackUrl": "https://audio-spices.com/blackpepper",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T13:23:56.657Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-safari-audio-gorilla-drive",
+    "productId": "safari-audio-gorilla-drive",
+    "programId": "safari-audio",
+    "destinationUrl": "https://safariaudio.com/products/gorilla-drive-vst-plugin",
+    "fallbackUrl": "https://safariaudio.com/products/gorilla-drive-vst-plugin",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T13:23:57.027Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-zero-g-total-bass-drums",
+    "productId": "zero-g-total-bass-drums",
+    "programId": "zero-g",
+    "destinationUrl": "https://zero-g.co.uk/products/total-bass-drums",
+    "fallbackUrl": "https://zero-g.co.uk/products/total-bass-drums",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T13:23:57.402Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-smart-audio-plugins-drum-bus-buddy",
+    "productId": "smart-audio-plugins-drum-bus-buddy",
+    "programId": "smart-audio-plugins",
+    "destinationUrl": "https://smartaudioplugins.com/drum-bus-buddy.html",
+    "fallbackUrl": "https://smartaudioplugins.com/drum-bus-buddy.html",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T13:23:57.782Z",
+    "allowFallback": true
   }
 ]
