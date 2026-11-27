@@ -1406,6 +1406,18 @@
       "updatedAt": "2026-11-27"
     },
     {
+      "recordId": "tokyo-speirs-flattenstein",
+      "blockId": "product-review-tokyo-speirs-flattenstein",
+      "publishedAt": "2026-11-27",
+      "verdict": "Fire",
+      "status": "Free",
+      "productName": "Tokyo Speirs - Flattenstein",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-28",
+      "href": "/go/link-tokyo-speirs-flattenstein",
+      "updatedAt": "2026-11-27"
+    },
+    {
       "recordId": "zero-g-total-bass-drums",
       "blockId": "product-review-zero-g-total-bass-drums",
       "publishedAt": "2026-11-27",

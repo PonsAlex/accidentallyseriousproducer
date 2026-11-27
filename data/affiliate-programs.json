@@ -972,5 +972,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "tokyo-speirs",
+    "name": "Tokyo Speirs",
+    "homepage": "https://www.audioloom.com/tokyo-speirs/flattenstein?al_link=35",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
