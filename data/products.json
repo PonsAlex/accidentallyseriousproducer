@@ -1864,5 +1864,27 @@
     "status": "active",
     "createdAt": "2026-11-27T17:25:24.864Z",
     "updatedAt": "2026-11-27T17:25:24.864Z"
+  },
+  {
+    "id": "audio-assault-mrshall-2026bf",
+    "slug": "audio-assault-mrshall-2026bf",
+    "programId": "audio-assault",
+    "name": "MrShall 2026BF",
+    "category": "plugin",
+    "description": "MrShall 2026BF",
+    "status": "active",
+    "createdAt": "2026-11-27T22:50:13.886Z",
+    "updatedAt": "2026-11-27T22:50:13.886Z"
+  },
+  {
+    "id": "lancaster-audio-pulse-2",
+    "slug": "lancaster-audio-pulse-2",
+    "programId": "lancaster-audio",
+    "name": "Pulse 2",
+    "category": "plugin",
+    "description": "Pulse 2",
+    "status": "active",
+    "createdAt": "2026-11-27T22:50:14.084Z",
+    "updatedAt": "2026-11-27T22:50:14.084Z"
   }
 ]

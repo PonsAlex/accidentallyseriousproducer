@@ -1370,6 +1370,30 @@
       "updatedAt": "2026-11-27"
     },
     {
+      "recordId": "audio-assault-mrshall-2026bf",
+      "blockId": "product-review-audio-assault-mrshall-2026bf",
+      "publishedAt": "2026-11-27",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Audio Assault - MrShall 2026BF",
+      "startsAtDate": null,
+      "endsAtDate": "2026-11-30",
+      "href": "/go/link-audio-assault-mrshall-2026bf",
+      "updatedAt": "2026-11-27"
+    },
+    {
+      "recordId": "lancaster-audio-pulse-2",
+      "blockId": "product-review-lancaster-audio-pulse-2",
+      "publishedAt": "2026-11-27",
+      "verdict": "Stash",
+      "status": "Free",
+      "productName": "Lancaster Audio - Pulse 2",
+      "startsAtDate": null,
+      "endsAtDate": null,
+      "href": "/go/link-lancaster-audio-pulse-2",
+      "updatedAt": "2026-11-27"
+    },
+    {
       "recordId": "newfangled-obliterate-2",
       "blockId": "product-review-newfangled-obliterate-2",
       "publishedAt": "2026-11-27",
