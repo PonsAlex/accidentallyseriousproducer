@@ -1813,5 +1813,16 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-27T13:23:57.782Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-tokyo-speirs-flattenstein",
+    "productId": "tokyo-speirs-flattenstein",
+    "programId": "tokyo-speirs",
+    "destinationUrl": "https://www.audioloom.com/tokyo-speirs/flattenstein?al_link=35",
+    "fallbackUrl": "https://www.audioloom.com/tokyo-speirs/flattenstein?al_link=35",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T17:25:24.864Z",
+    "allowFallback": true
   }
 ]
