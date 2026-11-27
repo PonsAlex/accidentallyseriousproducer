@@ -980,5 +980,21 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "audio-assault",
+    "name": "Audio Assault",
+    "homepage": "https://audioassault.mx/product/MrShall_2026BF",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
+  },
+  {
+    "id": "lancaster-audio",
+    "name": "Lancaster Audio",
+    "homepage": "https://lancasteraudio.com/shop/plugins/pulse-2/",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]

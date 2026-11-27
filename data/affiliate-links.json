@@ -1824,5 +1824,27 @@
     "requiresReview": false,
     "lastVerifiedAt": "2026-11-27T17:25:24.864Z",
     "allowFallback": true
+  },
+  {
+    "id": "link-audio-assault-mrshall-2026bf",
+    "productId": "audio-assault-mrshall-2026bf",
+    "programId": "audio-assault",
+    "destinationUrl": "https://audioassault.mx/product/MrShall_2026BF",
+    "fallbackUrl": "https://audioassault.mx/product/MrShall_2026BF",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T22:50:13.886Z",
+    "allowFallback": true
+  },
+  {
+    "id": "link-lancaster-audio-pulse-2",
+    "productId": "lancaster-audio-pulse-2",
+    "programId": "lancaster-audio",
+    "destinationUrl": "https://lancasteraudio.com/shop/plugins/pulse-2/",
+    "fallbackUrl": "https://lancasteraudio.com/shop/plugins/pulse-2/",
+    "status": "active",
+    "requiresReview": false,
+    "lastVerifiedAt": "2026-11-27T22:50:14.084Z",
+    "allowFallback": true
   }
 ]
