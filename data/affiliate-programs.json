@@ -940,5 +940,13 @@
     "affiliateDisclosureRequired": true,
     "paidTrafficAllowed": false,
     "status": "active"
+  },
+  {
+    "id": "newfangled-audio",
+    "name": "Newfangled Audio",
+    "homepage": "https://www.newfangledaudio.com/obliterate",
+    "affiliateDisclosureRequired": true,
+    "paidTrafficAllowed": false,
+    "status": "active"
   }
 ]
